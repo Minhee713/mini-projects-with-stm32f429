@@ -1809,3 +1809,699 @@ Finished building: default.size.stdout
  
 Finished building: test_btn_gpio.list
  
+16:53:19 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17888	    112	   3840	  21840	   5550	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+17:24:12 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-size   test_btn_gpio.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17888	    112	   3840	  21840	   5550	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+17:26:01 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17848	    112	   3840	  21800	   5528	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+17:26:49 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17852	    112	   3840	  21804	   552c	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+17:27:55 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17852	    112	   3840	  21804	   552c	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+17:28:42 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17852	    112	   3840	  21804	   552c	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+17:30:34 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:100:29: error: 'interval' undeclared (first use in this function); did you mean 'interval2'?
+  100 |                         if (interval < 300)
+      |                             ^~~~~~~~
+      |                             interval2
+../Core/Src/main.c:100:29: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:30:41 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:102:71: error: 'interval' undeclared (first use in this function); did you mean 'interval2'?
+  102 |                                 printf("Long click! interval %d\r\n", interval);
+      |                                                                       ^~~~~~~~
+      |                                                                       interval2
+../Core/Src/main.c:102:71: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:30:48 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17916	    112	   3840	  21868	   556c	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+17:32:20 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17916	    112	   3840	  21868	   556c	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+17:32:37 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-size   test_btn_gpio.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17916	    112	   3840	  21868	   556c	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+17:33:09 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17916	    112	   3840	  21868	   556c	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+17:38:41 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17916	    112	   3840	  21868	   556c	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+17:40:50 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17916	    112	   3840	  21868	   556c	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+17:43:27 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17932	    112	   3840	  21884	   557c	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+17:49:45 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17908	    112	   3840	  21860	   5564	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+17:57:45 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17972	    112	   3840	  21924	   55a4	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+17:59:13 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17980	    112	   3840	  21932	   55ac	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:01:05 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17764	    112	   3840	  21716	   54d4	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:02:59 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:91:44: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+   91 |                         } else if(interval >= 100 & interval <= 200) {
+      |                                   ~~~~~~~~~^~~~~~
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17808	    112	   3840	  21760	   5500	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:04:37 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:91:44: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+   91 |                         } else if(interval >= 100 & interval <= 200) {
+      |                                   ~~~~~~~~~^~~~~~
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17816	    112	   3840	  21768	   5508	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:05:38 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17796	    112	   3840	  21748	   54f4	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:06:54 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17796	    112	   3840	  21748	   54f4	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:07:11 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Core/Startup/startup_stm32f429zitx.d" -MT"Core/Startup/startup_stm32f429zitx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Startup/startup_stm32f429zitx.o" "../Core/Startup/startup_stm32f429zitx.s"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17796	    112	   3840	  21748	   54f4	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:08:12 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17796	    112	   3840	  21748	   54f4	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:09:59 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17796	    112	   3840	  21748	   54f4	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:11:18 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17796	    112	   3840	  21748	   54f4	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:12:34 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17796	    112	   3840	  21748	   54f4	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:15:00 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17800	    112	   3840	  21752	   54f8	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:16:47 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17800	    112	   3840	  21752	   54f8	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:17:46 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17800	    112	   3840	  21752	   54f8	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:19:33 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17796	    112	   3840	  21748	   54f4	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:23:39 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:92:65: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   92 |                                 printf("One click! interval1 = %d\r\n", interval);
+      |                                                                ~^       ~~~~~~~~
+      |                                                                 |       |
+      |                                                                 int     uint32_t {aka long unsigned int}
+      |                                                                %ld
+../Core/Src/main.c:96:63: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   96 |                                 printf("Long click! interval %d\r\n", interval);
+      |                                                              ~^       ~~~~~~~~
+      |                                                               |       |
+      |                                                               int     uint32_t {aka long unsigned int}
+      |                                                              %ld
+../Core/Src/main.c:100:66: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  100 |                                 printf("Double click!! interval %d\r\n", interval);
+      |                                                                 ~^       ~~~~~~~~
+      |                                                                  |       |
+      |                                                                  int     uint32_t {aka long unsigned int}
+      |                                                                 %ld
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17796	    112	   3840	  21748	   54f4	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:24:48 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:92:65: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   92 |                                 printf("One click! interval1 = %d\r\n", interval);
+      |                                                                ~^       ~~~~~~~~
+      |                                                                 |       |
+      |                                                                 int     uint32_t {aka long unsigned int}
+      |                                                                %ld
+../Core/Src/main.c:96:63: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   96 |                                 printf("Long click! interval %d\r\n", interval);
+      |                                                              ~^       ~~~~~~~~
+      |                                                               |       |
+      |                                                               int     uint32_t {aka long unsigned int}
+      |                                                              %ld
+../Core/Src/main.c:100:66: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  100 |                                 printf("Double click!! interval %d\r\n", interval);
+      |                                                                 ~^       ~~~~~~~~
+      |                                                                  |       |
+      |                                                                  int     uint32_t {aka long unsigned int}
+      |                                                                 %ld
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17796	    112	   3840	  21748	   54f4	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:25:50 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:92:65: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   92 |                                 printf("One click! interval1 = %d\r\n", interval);
+      |                                                                ~^       ~~~~~~~~
+      |                                                                 |       |
+      |                                                                 int     uint32_t {aka long unsigned int}
+      |                                                                %ld
+../Core/Src/main.c:96:63: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   96 |                                 printf("Long click! interval %d\r\n", interval);
+      |                                                              ~^       ~~~~~~~~
+      |                                                               |       |
+      |                                                               int     uint32_t {aka long unsigned int}
+      |                                                              %ld
+../Core/Src/main.c:100:66: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  100 |                                 printf("Double click!! interval %d\r\n", interval);
+      |                                                                 ~^       ~~~~~~~~
+      |                                                                  |       |
+      |                                                                  int     uint32_t {aka long unsigned int}
+      |                                                                 %ld
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17792	    112	   3840	  21744	   54f0	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:27:46 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:92:65: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   92 |                                 printf("One click! interval1 = %d\r\n", interval);
+      |                                                                ~^       ~~~~~~~~
+      |                                                                 |       |
+      |                                                                 int     uint32_t {aka long unsigned int}
+      |                                                                %ld
+../Core/Src/main.c:96:63: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   96 |                                 printf("Long click! interval %d\r\n", interval);
+      |                                                              ~^       ~~~~~~~~
+      |                                                               |       |
+      |                                                               int     uint32_t {aka long unsigned int}
+      |                                                              %ld
+../Core/Src/main.c:100:66: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  100 |                                 printf("Double click!! interval %d\r\n", interval);
+      |                                                                 ~^       ~~~~~~~~
+      |                                                                  |       |
+      |                                                                  int     uint32_t {aka long unsigned int}
+      |                                                                 %ld
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17792	    112	   3840	  21744	   54f0	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:29:30 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:92:65: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   92 |                                 printf("One click! interval1 = %d\r\n", interval);
+      |                                                                ~^       ~~~~~~~~
+      |                                                                 |       |
+      |                                                                 int     uint32_t {aka long unsigned int}
+      |                                                                %ld
+../Core/Src/main.c:96:63: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   96 |                                 printf("Long click! interval %d\r\n", interval);
+      |                                                              ~^       ~~~~~~~~
+      |                                                               |       |
+      |                                                               int     uint32_t {aka long unsigned int}
+      |                                                              %ld
+../Core/Src/main.c:100:66: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  100 |                                 printf("Double click!! interval %d\r\n", interval);
+      |                                                                 ~^       ~~~~~~~~
+      |                                                                  |       |
+      |                                                                  int     uint32_t {aka long unsigned int}
+      |                                                                 %ld
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17792	    112	   3840	  21744	   54f0	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:31:35 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:92:65: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   92 |                                 printf("One click! interval1 = %d\r\n", interval);
+      |                                                                ~^       ~~~~~~~~
+      |                                                                 |       |
+      |                                                                 int     uint32_t {aka long unsigned int}
+      |                                                                %ld
+../Core/Src/main.c:96:63: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   96 |                                 printf("Long click! interval %d\r\n", interval);
+      |                                                              ~^       ~~~~~~~~
+      |                                                               |       |
+      |                                                               int     uint32_t {aka long unsigned int}
+      |                                                              %ld
+../Core/Src/main.c:100:66: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  100 |                                 printf("Double click!! interval %d\r\n", interval);
+      |                                                                 ~^       ~~~~~~~~
+      |                                                                  |       |
+      |                                                                  int     uint32_t {aka long unsigned int}
+      |                                                                 %ld
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17792	    112	   3840	  21744	   54f0	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:33:08 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:92:65: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   92 |                                 printf("One click! interval1 = %d\r\n", interval);
+      |                                                                ~^       ~~~~~~~~
+      |                                                                 |       |
+      |                                                                 int     uint32_t {aka long unsigned int}
+      |                                                                %ld
+../Core/Src/main.c:96:63: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   96 |                                 printf("Long click! interval %d\r\n", interval);
+      |                                                              ~^       ~~~~~~~~
+      |                                                               |       |
+      |                                                               int     uint32_t {aka long unsigned int}
+      |                                                              %ld
+../Core/Src/main.c:100:66: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  100 |                                 printf("Double click!! interval %d\r\n", interval);
+      |                                                                 ~^       ~~~~~~~~
+      |                                                                  |       |
+      |                                                                  int     uint32_t {aka long unsigned int}
+      |                                                                 %ld
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17792	    112	   3840	  21744	   54f0	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:41:08 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17792	    112	   3840	  21744	   54f0	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
+18:51:45 **** Incremental Build of configuration Debug for project test_btn_gpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "test_btn_gpio.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_pin_gpio\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_btn_gpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_btn_gpio.elf
+ 
+arm-none-eabi-size   test_btn_gpio.elf 
+arm-none-eabi-objdump -h -S  test_btn_gpio.elf  > "test_btn_gpio.list"
+   text	   data	    bss	    dec	    hex	filename
+  17860	    112	   3840	  21812	   5534	test_btn_gpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_btn_gpio.list
+ 
