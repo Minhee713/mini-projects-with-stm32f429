@@ -1,0 +1,13 @@
+../Core/Src/main.c:81:5:_write	1
+../Core/Src/main.c:93:5:main	1
+../Core/Src/main.c:157:6:SystemClock_Config	3
+../Core/Src/main.c:202:13:MX_NVIC_Init	1
+../Core/Src/main.c:217:13:MX_ADC1_Init	4
+../Core/Src/main.c:278:13:MX_ETH_Init	2
+../Core/Src/main.c:327:13:MX_I2C1_Init	4
+../Core/Src/main.c:375:13:MX_USART3_UART_Init	2
+../Core/Src/main.c:408:13:MX_USB_OTG_FS_PCD_Init	2
+../Core/Src/main.c:441:13:MX_DMA_Init	1
+../Core/Src/main.c:459:13:MX_GPIO_Init	1
+../Core/Src/main.c:521:6:HAL_GPIO_EXTI_Callback	1
+../Core/Src/main.c:537:6:Error_Handler	1

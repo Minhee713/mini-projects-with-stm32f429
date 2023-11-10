@@ -87,9 +87,9 @@ void init() {
 
     // set address to 0x00
     LCD_SendCommand(LCD_ADDR, 0b10000000);
-    LCD_SendString(LCD_ADDR, " Using 1602 LCD");
+    LCD_SendString(LCD_ADDR, "   Bluetooth   ");
 
     // set address to 0x40
     LCD_SendCommand(LCD_ADDR, 0b11000000);
-    LCD_SendString(LCD_ADDR, "  over I2C bus");
+    LCD_SendString(LCD_ADDR, "  Alarm Clock ");
 }

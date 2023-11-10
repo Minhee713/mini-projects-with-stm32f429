@@ -1,0 +1,29 @@
+13:30:03 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/lcd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/lcd.d" -MT"Core/Src/lcd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/lcd.o"
+../Core/Src/lcd.c: In function 'I2C_Scan':
+../Core/Src/lcd.c:26:13: warning: implicit declaration of function 'snprintf' [-Wimplicit-function-declaration]
+   26 |             snprintf(msg, sizeof(msg), "0x%02X", i);
+      |             ^~~~~~~~
+../Core/Src/lcd.c:3:1: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+    2 | #include <string.h>
+  +++ |+#include <stdio.h>
+    3 | 
+../Core/Src/lcd.c:26:13: warning: incompatible implicit declaration of built-in function 'snprintf' [-Wbuiltin-declaration-mismatch]
+   26 |             snprintf(msg, sizeof(msg), "0x%02X", i);
+      |             ^~~~~~~~
+../Core/Src/lcd.c:26:13: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  26960	    100	   4084	  31144	   79a8	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+
+13:30:04 Build Finished. 0 errors, 2 warnings. (took 1s.117ms)
+
