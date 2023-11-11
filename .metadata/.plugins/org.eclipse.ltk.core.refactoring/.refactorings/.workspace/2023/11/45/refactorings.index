@@ -1,2 +1,5 @@
 1699582038473	Delete resource 'bluetooth_alarm/Core/Src/lcd.c'
 1699591677302	Rename resource 'test_pin_gpio'
+1699696367315	Delete resource 'bluetooth_alarm'
+1699696380615	Delete resource 'i2c_LCD'
+1699696386549	Delete resource 'test_btn_gpio'
