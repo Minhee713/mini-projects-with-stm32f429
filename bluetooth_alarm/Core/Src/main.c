@@ -22,6 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "flash.h"
 #include "stdio.h"
 /* USER CODE END Includes */
 
@@ -33,6 +34,42 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define LCD_ADDR (0x27 << 1)
+#define FLASH_USER_START_ADDR   ADDR_FLASH_SECTOR_2
+#define FLASH_USER_END_ADDR     ADDR_FLASH_SECTOR_3 + GetSectorSize(ADDR_FLASH_SECTOR_3) -1
+#define DATA_32                 ((uint32_t)0x99999999)
+
+typedef enum {
+	RW_OK = 0x0, RW_ERROR = 0x1
+} stat_flashRW;
+
+enum CLOCK_MODE {
+	NORMAL_STATE, TIME_SETTING, ALARM_TIME_SETTING, MUSIC_SELECT
+};
+
+enum CLOCK_BUTTON {
+	NO_KEY, UP, DOWN, RIGHT, LEFT, SELECT
+};
+
+struct clock_state {
+	enum CLOCK_MODE mode;
+	enum CLOCK_BUTTON button;
+};
+
+typedef struct {
+	int8_t hours;
+	int8_t minutes;
+	int8_t seconds;
+} TimeTypeDef;
+
+typedef struct {
+	TimeTypeDef setting_time;
+	TimeTypeDef alarm_time;
+} NVitemTypeDef;
+
+#define nv_items ((NVitemTypeDef *) ADDR_FLASH_SECTOR_2)
+
+NVitemTypeDef default_nvitem = { { 0, 0, 0 }, { 0, 0, 0 }, };
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -61,10 +98,24 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* USER CODE BEGIN PV */
 uint32_t xy[2];
-int cnt = 0;
+int btn_cnt = 0;
 char showTime[30] = { 0 };
 char showDate[30] = { 0 };
 char ampm[2][3] = { "AM", "PM" };
+uint32_t current_time, last_time, interval;
+struct clock_state current_state;
+
+TimeTypeDef ctime;
+TimeTypeDef stime;
+TimeTypeDef atime;
+
+uint32_t FirstSector = 0, NbOfSectors = 0;
+uint32_t Address = 0, SECTORError = 0;
+__IO uint32_t data32 = 0, MemoryProgramStatus = 0;
+
+/*Variable used for Erase procedure*/
+static FLASH_EraseInitTypeDef EraseInitStruct;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -80,7 +131,11 @@ static void MX_RTC_Init(void);
 static void MX_NVIC_Init(void);
 /* USER CODE BEGIN PFP */
 void init();
-void lcdInit();
+uint32_t GetSector(uint32_t Address);
+uint32_t GetSectorSize(uint32_t Sector);
+stat_flashRW readFlash(uint32_t startADDR);
+stat_flashRW eraseFlash(uint32_t ADDR_FLASH_SECTOR_x);
+HAL_StatusTypeDef update_nvitems(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -98,7 +153,77 @@ void get_time(void) {
 	HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
 
 //	printf("%s %02d:%02d:%02d\t\r\n", ampm[sTime.TimeFormat>>6],sTime.Hours, sTime.Minutes, sTime.Seconds);
-	sprintf((char*)showTime, "%s %02d:%02d:%02d", ampm[sTime.TimeFormat>>6],sTime.Hours, sTime.Minutes, sTime.Seconds);
+	sprintf((char*) showTime, "%s %02d:%02d:%02d", ampm[sTime.TimeFormat >> 6],
+			sTime.Hours, sTime.Minutes, sTime.Seconds);
+}
+
+HAL_StatusTypeDef update_nvitems(void) {
+	uint32_t FirstSector, NbOfSectors, SECTORError;
+	FLASH_EraseInitTypeDef EraseInitStruct;
+	HAL_StatusTypeDef error = HAL_OK;
+	uint32_t Address, i;
+	uint64_t Data;
+	uint8_t *ptr;
+
+	HAL_FLASH_Unlock();
+	FirstSector = FLASH_SECTOR_2;
+	NbOfSectors = 1;
+
+	EraseInitStruct.TypeErase = FLASH_TYPEERASE_SECTORS;
+	EraseInitStruct.VoltageRange = FLASH_VOLTAGE_RANGE_3;
+	EraseInitStruct.Sector = FirstSector;
+	EraseInitStruct.NbSectors = NbOfSectors;
+
+	error = HAL_FLASHEx_Erase(&EraseInitStruct, &SECTORError);
+	if (error != HAL_OK) {
+		return error;
+	}
+
+	ptr = (uint8_t*) &default_nvitem;
+
+	for (i = 0; i < sizeof(NVitemTypeDef); i++) {
+		Address = (uint8_t*) nv_items + i;
+		Data = *((uint8_t*) ptr + i);
+		error = HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, Address, Data);
+		if (error != HAL_OK) {
+			return error;
+		}
+	}
+
+	HAL_FLASH_Lock();
+}
+
+void showCurrentTime() {
+	LCD_SendCommand(LCD_ADDR, 0b10000000);
+	LCD_SendString(LCD_ADDR, "Current Time");
+
+	LCD_SendCommand(LCD_ADDR, 0b11000000);
+	LCD_SendString(LCD_ADDR, showTime);
+}
+
+void timeDisplay() {
+
+	switch (current_state.mode) {
+	case TIME_SETTING:
+		LCD_SendCommand(LCD_ADDR, 0b10000000);
+		LCD_SendString(LCD_ADDR, "Time Setting");
+		LCD_SendCommand(LCD_ADDR, 0b11000000);
+		LCD_SendString(LCD_ADDR, showTime);
+		break;
+	case ALARM_TIME_SETTING:
+		LCD_SendCommand(LCD_ADDR, 0b10000000);
+		LCD_SendString(LCD_ADDR, "Alarm Setting");
+		LCD_SendCommand(LCD_ADDR, 0b11000000);
+		LCD_SendString(LCD_ADDR, showTime);
+		break;
+	}
+}
+
+void musicSelect() {
+	LCD_SendCommand(LCD_ADDR, 0b10000000);
+	LCD_SendString(LCD_ADDR, "Music Select");
+	LCD_SendCommand(LCD_ADDR, 0b11000000);
+	LCD_SendString(LCD_ADDR, "0: Rabbit");
 }
 
 /* USER CODE END 0 */
@@ -109,7 +234,9 @@ void get_time(void) {
  */
 int main(void) {
 	/* USER CODE BEGIN 1 */
-
+	unsigned int value, addr, i;
+	unsigned char buf[30];
+	HAL_StatusTypeDef error;
 	/* USER CODE END 1 */
 
 	/* MCU Configuration--------------------------------------------------------*/
@@ -143,7 +270,9 @@ int main(void) {
 	/* USER CODE BEGIN 2 */
 
 	HAL_ADC_Start_DMA(&hadc1, xy, 2);
-//	init();
+	init();
+
+	current_state.mode = NORMAL_STATE;
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -159,14 +288,23 @@ int main(void) {
 //	  get_time();
 //	  HAL_Delay(1000);
 
-
 		get_time();
-		LCD_SendCommand(LCD_ADDR, 0b10000000);
-		LCD_SendString(LCD_ADDR, "Current Time");
 
-		LCD_SendCommand(LCD_ADDR, 0b11000000);
-		LCD_SendString(LCD_ADDR, showTime);
+		switch (current_state.mode) {
+		case NORMAL_STATE:
+			showCurrentTime();
+			break;
+		case TIME_SETTING:
+			timeDisplay();
+			break;
+		case ALARM_TIME_SETTING:
+			timeDisplay();
+			break;
+		case MUSIC_SELECT:
+			musicSelect();
+			break;
 
+		}
 
 		/* USER CODE END WHILE */
 
@@ -590,11 +728,229 @@ static void MX_GPIO_Init(void) {
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	if (GPIO_Pin == GPIO_PIN_3) {
 		// joystick sw test OK!
-//	  cnt++;
-//	  printf("cnt = %d\r\n", cnt);
+//	  btn_cnt++;
+//	  printf("cnt = %d\r\n", btn_cnt);
+
+		HAL_GPIO_TogglePin(GPIOB, LD1_Pin);
+		current_time = HAL_GetTick();
+		interval = current_time - last_time;
+		last_time = current_time;
+
+		if (HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_3) == 1) {
+			if (interval <= 110) {
+				btn_cnt += 3;
+			} else if (interval >= 120 && interval < 200) {
+				printf("One click!!  interval = %u\r\n",
+						(unsigned int) interval);
+				btn_cnt = 0;
+				current_state.mode = TIME_SETTING;
+			} else if (interval >= 700) {
+				printf("Long click!!  interval = %u\r\n",
+						(unsigned int) interval);
+				btn_cnt = 0;
+				current_state.mode = ALARM_TIME_SETTING;
+			}
+			if (btn_cnt >= 5) {
+				printf("Double click!!  interval = %u   btn_cnt = %d  \r\n",
+						(unsigned int) interval, btn_cnt);
+				btn_cnt = 0;
+				current_state.mode = MUSIC_SELECT;
+			}
+		}
+
 	}
 
 }
+
+void time_set_mode() {
+	LCD_SendCommand(LCD_ADDR, 0b10000000);
+	LCD_SendString(LCD_ADDR, "Time Setting");
+
+	LCD_SendCommand(LCD_ADDR, 0b11000000);
+	LCD_SendString(LCD_ADDR, showTime);
+}
+
+void alarm_set_mode() {
+	LCD_SendCommand(LCD_ADDR, 0b10000000);
+	LCD_SendString(LCD_ADDR, "Alarm Setting");
+
+	LCD_SendCommand(LCD_ADDR, 0b11000000);
+	LCD_SendString(LCD_ADDR, showTime);
+}
+
+stat_flashRW readFlash(uint32_t startADDR) {
+	unsigned int value = *(unsigned int*) startADDR;
+	printf("addr[0x%08x] = %08x\r\n", startADDR, value);
+	return RW_OK;
+}
+
+stat_flashRW eraseFlash(uint32_t ADDR_FLASH_SECTOR_x) {
+	/* Unlock the Flash to enable the flash control register access *************/
+	HAL_FLASH_Unlock();
+
+	/* Erase the user Flash area
+	 (area defined by FLASH_USER_START_ADDR and FLASH_USER_END_ADDR) ***********/
+
+	/* Get the 1st sector to erase */
+	FirstSector = GetSector(FLASH_USER_START_ADDR);
+	/* Get the number of sector to erase from 1st sector*/
+	NbOfSectors = GetSector(FLASH_USER_END_ADDR) - FirstSector + 1;
+	/* Fill EraseInit structure*/
+	EraseInitStruct.TypeErase = FLASH_TYPEERASE_SECTORS;
+	EraseInitStruct.VoltageRange = FLASH_VOLTAGE_RANGE_3;
+	EraseInitStruct.Sector = FirstSector;
+	EraseInitStruct.NbSectors = NbOfSectors;
+
+	/* Note: If an erase operation in Flash memory also concerns data in the data or instruction cache,
+	 you have to make sure that these data are rewritten before they are accessed during code
+	 execution. If this cannot be done safely, it is recommended to flush the caches by setting the
+	 DCRST and ICRST bits in the FLASH_CR register. */
+	if (HAL_FLASHEx_Erase(&EraseInitStruct, &SECTORError) != HAL_OK) {
+		/*
+		 Error occurred while sector erase.
+		 User can add here some code to deal with this error.
+		 SECTORError will contain the faulty sector and then to know the code error on this sector,
+		 user can call function 'HAL_FLASH_GetError()'
+		 */
+		/* Infinite loop */
+		while (1) {
+			HAL_GPIO_WritePin(GPIOB, LD3_Pin, 1);
+			//       BSP_LED_On(LD3_Pin);
+		}
+	}
+
+	/* Program the user Flash area word by word
+	 (area defined by FLASH_USER_START_ADDR and FLASH_USER_END_ADDR) ***********/
+
+	Address = FLASH_USER_START_ADDR;
+
+	while (Address < FLASH_USER_END_ADDR) {
+		if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, Address, DATA_32)
+				== HAL_OK) {
+
+			readFlash(Address);
+			Address = Address + 4;
+
+		} else {
+			/* Error occurred while writing data in Flash memory.
+			 User can add here some code to deal with this error */
+			while (1) {
+				HAL_GPIO_WritePin(GPIOB, LD3_Pin, 1);
+
+				//         BSP_LED_On(LD3_Pin);
+			}
+		}
+	}
+
+	/* Lock the Flash to disable the flash control register access (recommended
+	 to protect the FLASH memory against possible unwanted operation) *********/
+	HAL_FLASH_Lock();
+
+	/* Check if the programmed data is OK
+	 MemoryProgramStatus = 0: data programmed correctly
+	 MemoryProgramStatus != 0: number of words not programmed correctly ******/
+	Address = FLASH_USER_START_ADDR;
+	MemoryProgramStatus = 0x0;
+
+	while (Address < FLASH_USER_END_ADDR) {
+		data32 = *(__IO uint32_t*) Address;
+
+		if (data32 != DATA_32) {
+			MemoryProgramStatus++;
+		}
+		Address = Address + 4;
+	}
+
+	/*Check if there is an issue to program data*/
+	if (MemoryProgramStatus == 0) {
+		/* No error detected. Switch on LED1*/
+		HAL_GPIO_WritePin(GPIOB, LD1_Pin, 1);
+		//	   BSP_LED_On(LD1_Pin);
+	} else {
+		/* Error detected. Switch on LED2*/
+		HAL_GPIO_WritePin(GPIOB, LD2_Pin, 1);
+		//	   BSP_LED_On(LD2_Pin);
+	}
+}
+
+uint32_t GetSector(uint32_t Address) {
+	uint32_t sector = 0;
+
+	if ((Address < ADDR_FLASH_SECTOR_1) && (Address >= ADDR_FLASH_SECTOR_0)) {
+		sector = FLASH_SECTOR_0;
+	} else if ((Address < ADDR_FLASH_SECTOR_2)
+			&& (Address >= ADDR_FLASH_SECTOR_1)) {
+		sector = FLASH_SECTOR_1;
+	} else if ((Address < ADDR_FLASH_SECTOR_3)
+			&& (Address >= ADDR_FLASH_SECTOR_2)) {
+		sector = FLASH_SECTOR_2;
+	} else if ((Address < ADDR_FLASH_SECTOR_4)
+			&& (Address >= ADDR_FLASH_SECTOR_3)) {
+		sector = FLASH_SECTOR_3;
+	} else if ((Address < ADDR_FLASH_SECTOR_5)
+			&& (Address >= ADDR_FLASH_SECTOR_4)) {
+		sector = FLASH_SECTOR_4;
+	} else if ((Address < ADDR_FLASH_SECTOR_6)
+			&& (Address >= ADDR_FLASH_SECTOR_5)) {
+		sector = FLASH_SECTOR_5;
+	} else if ((Address < ADDR_FLASH_SECTOR_7)
+			&& (Address >= ADDR_FLASH_SECTOR_6)) {
+		sector = FLASH_SECTOR_6;
+	} else if ((Address < ADDR_FLASH_SECTOR_8)
+			&& (Address >= ADDR_FLASH_SECTOR_7)) {
+		sector = FLASH_SECTOR_7;
+	} else if ((Address < ADDR_FLASH_SECTOR_9)
+			&& (Address >= ADDR_FLASH_SECTOR_8)) {
+		sector = FLASH_SECTOR_8;
+	} else if ((Address < ADDR_FLASH_SECTOR_10)
+			&& (Address >= ADDR_FLASH_SECTOR_9)) {
+		sector = FLASH_SECTOR_9;
+	} else if ((Address < ADDR_FLASH_SECTOR_11)
+			&& (Address >= ADDR_FLASH_SECTOR_10)) {
+		sector = FLASH_SECTOR_10;
+	} else if ((Address < ADDR_FLASH_SECTOR_12)
+			&& (Address >= ADDR_FLASH_SECTOR_11)) {
+		sector = FLASH_SECTOR_11;
+	} else if ((Address < ADDR_FLASH_SECTOR_13)
+			&& (Address >= ADDR_FLASH_SECTOR_12)) {
+		sector = FLASH_SECTOR_12;
+	} else if ((Address < ADDR_FLASH_SECTOR_14)
+			&& (Address >= ADDR_FLASH_SECTOR_13)) {
+		sector = FLASH_SECTOR_13;
+	} else if ((Address < ADDR_FLASH_SECTOR_15)
+			&& (Address >= ADDR_FLASH_SECTOR_14)) {
+		sector = FLASH_SECTOR_14;
+	} else if ((Address < ADDR_FLASH_SECTOR_16)
+			&& (Address >= ADDR_FLASH_SECTOR_15)) {
+		sector = FLASH_SECTOR_15;
+	} else if ((Address < ADDR_FLASH_SECTOR_17)
+			&& (Address >= ADDR_FLASH_SECTOR_16)) {
+		sector = FLASH_SECTOR_16;
+	} else if ((Address < ADDR_FLASH_SECTOR_18)
+			&& (Address >= ADDR_FLASH_SECTOR_17)) {
+		sector = FLASH_SECTOR_17;
+	} else if ((Address < ADDR_FLASH_SECTOR_19)
+			&& (Address >= ADDR_FLASH_SECTOR_18)) {
+		sector = FLASH_SECTOR_18;
+	} else if ((Address < ADDR_FLASH_SECTOR_20)
+			&& (Address >= ADDR_FLASH_SECTOR_19)) {
+		sector = FLASH_SECTOR_19;
+	} else if ((Address < ADDR_FLASH_SECTOR_21)
+			&& (Address >= ADDR_FLASH_SECTOR_20)) {
+		sector = FLASH_SECTOR_20;
+	} else if ((Address < ADDR_FLASH_SECTOR_22)
+			&& (Address >= ADDR_FLASH_SECTOR_21)) {
+		sector = FLASH_SECTOR_21;
+	} else if ((Address < ADDR_FLASH_SECTOR_23)
+			&& (Address >= ADDR_FLASH_SECTOR_22)) {
+		sector = FLASH_SECTOR_22;
+	} else /* (Address < FLASH_END_ADDR) && (Address >= ADDR_FLASH_SECTOR_23) */
+	{
+		sector = FLASH_SECTOR_23;
+	}
+	return sector;
+}
+
 /* USER CODE END 4 */
 
 /**
