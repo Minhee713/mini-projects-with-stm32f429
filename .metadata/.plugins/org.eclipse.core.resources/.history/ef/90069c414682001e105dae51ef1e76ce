@@ -293,6 +293,7 @@ void timeDisplay() {
 	LCD_SendString(LCD_ADDR, timeStr);
 }
 
+int up, down, right, left = 0;
 
 CLOCK_BUTTON joyStick_btn_chk() {
 

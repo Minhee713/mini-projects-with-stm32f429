@@ -218,8 +218,43 @@ uint32_t ADC_value;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 
 	if (htim->Instance == TIM3) {
+//	printf("ADC_value test! val=%u\r\n", (unsigned int)ADC_value);
+//
+//	ADC_value = HAL_ADC_GetValue(&hadc1);
+//
+//		if(ADC_value > 3000) {
+//			printf("Up\r\n");
+//		}
+//
+//		if(ADC_value ) {
+//			printf("Down\r\n");
+//		}
+//		if(ADC_value >= LEFT_MIN && ADC_value <= LEFT_MAX) {
+//			printf("Left\r\n");
+//		}
+//		if(ADC_value >= RIGHT_MIN && ADC_value <= RIGHT_MAX) {
+//			printf("Right\r\n");
+//		}
 
+//		HAL_ADC_Start_DMA(&hadc1, xy, 2);
+//		printf("%d %d \r\n", xy[0], xy[1]);
+//		joyStick_btn_chk();
+
+//		if (xy[0] < 500) {
+//				printf("right\r\n");
+//			} else if (xy[0] > 3000) {
+//				printf("left\r\n");
+//			} else if (xy[1] > 3000) {
+//				printf("up\r\n");
+//			} else if (xy[1] < 500) {
+//				printf("down\r\n");
+//			}
 	}
+
+//		if (xy[0] <= 2900 && xy[0] <= 3500) {
+//			current_state.button = NO_KEY;
+//			printf("no key\r\n");
+//		} else if (xy[0] )
 
 }
 
@@ -241,6 +276,27 @@ void showCurrentTime() {
 
 //	clearLCD();
 }
+//
+//void timeDisplay() {
+//
+//	switch (current_state.mode) {
+//	case TIME_SETTING:
+//		LCD_SendCommand(LCD_ADDR, 0b10000000);
+//		LCD_SendString(LCD_ADDR, "Time Setting");
+//		LCD_SendCommand(LCD_ADDR, 0b11000000);
+//		LCD_SendString(LCD_ADDR, showTime);
+////		clearLCD();
+//		break;
+//	case ALARM_TIME_SETTING:
+//		LCD_SendCommand(LCD_ADDR, 0b10000000);
+//		LCD_SendString(LCD_ADDR, "Alarm Setting");
+//		LCD_SendCommand(LCD_ADDR, 0b11000000);
+//		LCD_SendString(LCD_ADDR, showTime);
+////		clearLCD();
+//		break;
+//	}
+//}
+//
 //void musicSelect() {
 //	LCD_SendCommand(LCD_ADDR, 0b10000000);
 //	LCD_SendString(LCD_ADDR, "Music Select");
@@ -293,30 +349,37 @@ void timeDisplay() {
 	LCD_SendString(LCD_ADDR, timeStr);
 }
 
+int up, down, right, left = 0;
 
-CLOCK_BUTTON joyStick_btn_chk() {
+void joyStick_btn_chk() {
 
 //	printf("Get in joystick check!!\r\n");
 //	printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
 
+//	if (xy[0] > 2750 && xy[1] < 3000) {
+//		current_state.button = NO_KEY;
+
+//	printf("%d %d \r\n", xy[0], xy[1]);
+
 	if (xy[0] < 50) {
+		current_state.button = UP;
 		printf("up\r\n");
-//		current_state.button = UP;
-		return UP;
+//		up++;
 	} else if (xy[1] < 50) {
+		current_state.button = LEFT;
 		printf("left\r\n");
-//		current_state.button = LEFT;
-		return LEFT;
+//		left++;
 	} else if (xy[1] > 3000) {
+		current_state.button = RIGHT;
 		printf("right\r\n");
-//		current_state.button = RIGHT;
-		return RIGHT;
+//		right++;
 	} else if (xy[0] > 3000) {
+		current_state.button = DOWN;
 		printf("down\r\n");
-//		current_state.button = DOWN;
-		return DOWN;
+//		down++;
 	}
 
+//	printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
 }
 
 int t_position = 0;
@@ -324,15 +387,14 @@ int t_position = 0;
 void time_set_mode() {
 
 //	printf("time set mode!! \r\n");
+
 //int t_position = 0;
 
-	typedef CLOCK_BUTTON t_button;
-
-	t_button = joyStick_btn_chk();
+	joyStick_btn_chk();
 
 	if (t_position == 0) {
 		printf("t_position 0 \r\n");
-		switch (t_button) {
+		switch (current_state.button) {
 		case DOWN:
 			if (stime.hours >= 12) {
 				stime.hours -= 12;
@@ -348,13 +410,12 @@ void time_set_mode() {
 		}
 	} else if (t_position == 1) {
 		printf("t_position 1 \r\n");
-		switch (t_button) {
+		switch (current_state.button) {
 		case RIGHT:
 			t_position = 2;
 			break;
 		case LEFT:
 			t_position = 0;
-			break;
 		case UP:
 			stime.hours++;
 			if (stime.hours >= 12) {
@@ -372,50 +433,28 @@ void time_set_mode() {
 
 	} else if (t_position == 2) {
 		printf("t_position 2 \r\n");
-		switch (t_button) {
+		switch (current_state.button) {
 		case RIGHT:
 			t_position = 3;
 			break;
 		case LEFT:
 			t_position = 2;
 		case UP:
-			stime.minutes++;
-			if (stime.minutes >= 60) {
-				stime.minutes = 0;
+			stime.hours++;
+			if (stime.hours >= 12) {
+				stime.hours = 0;
 			}
 			break;
 		case DOWN:
-			stime.minutes--;
-			if (stime.minutes < 0) {
-				stime.minutes = 59;
+			stime.hours--;
+			if (stime.hours < 0) {
+				stime.hours = 11;
 			}
 		default:
 			break;
 		}
 	} else if (t_position == 3) {
 		printf("t_position 3 \r\n");
-		switch (t_button) {
-		case RIGHT:
-			current_state.mode = NORMAL_STATE;
-			break;
-		case LEFT:
-			t_position = 2;
-			break;
-		case UP:
-			stime.seconds++;
-			if (stime.seconds >= 60) {
-				stime.seconds = 0;
-			}
-			break;
-		case DOWN:
-			stime.seconds--;
-			if (stime.seconds < 0) {
-				stime.seconds = 59;
-			}
-			break;
-		default:
-			break;
-		}
 		t_position = 0;
 	}
 
@@ -484,11 +523,17 @@ int main(void) {
 //		 joystick xy test OK
 //		printf("%d %d \r\n", (unsigned int)xy[0], (unsigned int)xy[1]);
 //		HAL_Delay(1000);
+		// RTC test
+//	  get_time();
+//	  HAL_Delay(1000);
 
+//		joyStick_btn_chk();
 		get_RTC_time();
 		if (current_state.mode == NORMAL_STATE) {
 			showCurrentTime();
-		} else if (current_state.mode == TIME_SETTING) {
+		}
+
+		if (current_state.mode == TIME_SETTING) {
 			time_set_mode();
 		}
 

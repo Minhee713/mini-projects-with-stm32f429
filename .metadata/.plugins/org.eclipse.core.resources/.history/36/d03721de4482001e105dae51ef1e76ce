@@ -293,6 +293,7 @@ void timeDisplay() {
 	LCD_SendString(LCD_ADDR, timeStr);
 }
 
+int up, down, right, left = 0;
 
 CLOCK_BUTTON joyStick_btn_chk() {
 
@@ -324,6 +325,7 @@ int t_position = 0;
 void time_set_mode() {
 
 //	printf("time set mode!! \r\n");
+
 //int t_position = 0;
 
 	typedef CLOCK_BUTTON t_button;
@@ -354,7 +356,6 @@ void time_set_mode() {
 			break;
 		case LEFT:
 			t_position = 0;
-			break;
 		case UP:
 			stime.hours++;
 			if (stime.hours >= 12) {
@@ -379,15 +380,15 @@ void time_set_mode() {
 		case LEFT:
 			t_position = 2;
 		case UP:
-			stime.minutes++;
-			if (stime.minutes >= 60) {
-				stime.minutes = 0;
+			stime.hours++;
+			if (stime.hours >= 12) {
+				stime.hours = 0;
 			}
 			break;
 		case DOWN:
-			stime.minutes--;
-			if (stime.minutes < 0) {
-				stime.minutes = 59;
+			stime.hours--;
+			if (stime.hours < 0) {
+				stime.hours = 11;
 			}
 		default:
 			break;
@@ -396,21 +397,20 @@ void time_set_mode() {
 		printf("t_position 3 \r\n");
 		switch (t_button) {
 		case RIGHT:
-			current_state.mode = NORMAL_STATE;
 			break;
 		case LEFT:
 			t_position = 2;
 			break;
 		case UP:
-			stime.seconds++;
-			if (stime.seconds >= 60) {
-				stime.seconds = 0;
+			stime.hours++;
+			if (stime.hours >= 12) {
+				stime.hours = 0;
 			}
 			break;
 		case DOWN:
-			stime.seconds--;
-			if (stime.seconds < 0) {
-				stime.seconds = 59;
+			stime.hours--;
+			if (stime.hours < 0) {
+				stime.hours = 11;
 			}
 			break;
 		default:
@@ -484,11 +484,17 @@ int main(void) {
 //		 joystick xy test OK
 //		printf("%d %d \r\n", (unsigned int)xy[0], (unsigned int)xy[1]);
 //		HAL_Delay(1000);
+		// RTC test
+//	  get_time();
+//	  HAL_Delay(1000);
 
+//		joyStick_btn_chk();
 		get_RTC_time();
 		if (current_state.mode == NORMAL_STATE) {
 			showCurrentTime();
-		} else if (current_state.mode == TIME_SETTING) {
+		}
+
+		if (current_state.mode == TIME_SETTING) {
 			time_set_mode();
 		}
 

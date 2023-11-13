@@ -293,6 +293,7 @@ void timeDisplay() {
 	LCD_SendString(LCD_ADDR, timeStr);
 }
 
+int up, down, right, left = 0;
 
 CLOCK_BUTTON joyStick_btn_chk() {
 
@@ -484,7 +485,11 @@ int main(void) {
 //		 joystick xy test OK
 //		printf("%d %d \r\n", (unsigned int)xy[0], (unsigned int)xy[1]);
 //		HAL_Delay(1000);
+		// RTC test
+//	  get_time();
+//	  HAL_Delay(1000);
 
+//		joyStick_btn_chk();
 		get_RTC_time();
 		if (current_state.mode == NORMAL_STATE) {
 			showCurrentTime();
