@@ -3397,3 +3397,8 @@
 2023-11-10 16:08:41,133 [INFO] ADCParametersView:116 -                Rank 1 : false
 2023-11-10 16:08:41,133 [INFO] ADCParametersView:116 -                Rank 2 : false
 2023-11-10 16:09:07,267 [INFO] Gpio:273 - dependency for GPIO [ADC1, ETH, I2C1, RCC, SYS, USART3, USB_OTG_FS]
+2023-11-13 08:59:15,504 [INFO] Activator:176 - 
+
+
+2023-11-13 08:59:15,504 [INFO] Activator:177 - !SESSION log4j initialized
+2023-11-13 08:59:20,575 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 

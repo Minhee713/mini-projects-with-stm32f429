@@ -37,6 +37,19 @@
 #define FLASH_USER_START_ADDR   ADDR_FLASH_SECTOR_2
 #define FLASH_USER_END_ADDR     ADDR_FLASH_SECTOR_3 + GetSectorSize(ADDR_FLASH_SECTOR_3) -1
 #define DATA_32                 ((uint32_t)0x99999999)
+#define MAGIC_NUM 0xdeadbeef
+
+#define UP_MIN 0
+#define UP_MAX 10
+
+#define DOWN_MIN 850
+#define DOWN_MAX 870
+
+#define LEFT_MIN 1940
+#define LEFT_MAX 1960
+
+#define RIGHT_MIN 2980
+#define RIGHT_MAX 3010
 
 typedef enum {
 	RW_OK = 0x0, RW_ERROR = 0x1
@@ -62,13 +75,15 @@ typedef struct {
 } TimeTypeDef;
 
 typedef struct {
+	uint32_t magic_num;
 	TimeTypeDef setting_time;
 	TimeTypeDef alarm_time;
+	int8_t alarm_music_num;
 } NVitemTypeDef;
 
 #define nv_items ((NVitemTypeDef *) ADDR_FLASH_SECTOR_2)
 
-NVitemTypeDef default_nvitem = { { 0, 0, 0 }, { 0, 0, 0 }, };
+NVitemTypeDef default_nvitem = { MAGIC_NUM, { 0, 0, 0 }, { 0, 0, 0 }, 0 };
 
 /* USER CODE END PD */
 
@@ -92,6 +107,8 @@ I2C_HandleTypeDef hi2c1;
 
 RTC_HandleTypeDef hrtc;
 
+TIM_HandleTypeDef htim3;
+
 UART_HandleTypeDef huart3;
 
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
@@ -104,6 +121,7 @@ char showDate[30] = { 0 };
 char ampm[2][3] = { "AM", "PM" };
 uint32_t current_time, last_time, interval;
 struct clock_state current_state;
+char timeStr[30];
 
 TimeTypeDef ctime;
 TimeTypeDef stime;
@@ -128,6 +146,7 @@ static void MX_USB_OTG_FS_PCD_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_RTC_Init(void);
+static void MX_TIM3_Init(void);
 static void MX_NVIC_Init(void);
 /* USER CODE BEGIN PFP */
 void init();
@@ -145,16 +164,17 @@ int _write(int file, char *ptr, int len) {
 	return len;
 }
 
-void get_time(void) {
-	RTC_DateTypeDef sDate;
-	RTC_TimeTypeDef sTime;
+RTC_DateTypeDef sDate;
+RTC_TimeTypeDef RTC_Time;
+void get_RTC_time(void) {
 
-	HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
+	HAL_RTC_GetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
 	HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
 
 //	printf("%s %02d:%02d:%02d\t\r\n", ampm[sTime.TimeFormat>>6],sTime.Hours, sTime.Minutes, sTime.Seconds);
-	sprintf((char*) showTime, "%s %02d:%02d:%02d", ampm[sTime.TimeFormat >> 6],
-			sTime.Hours, sTime.Minutes, sTime.Seconds);
+	sprintf((char*) showTime, "%s %02d:%02d:%02d",
+			ampm[RTC_Time.TimeFormat >> 6], RTC_Time.Hours, RTC_Time.Minutes,
+			RTC_Time.Seconds);
 }
 
 HAL_StatusTypeDef update_nvitems(void) {
@@ -193,37 +213,298 @@ HAL_StatusTypeDef update_nvitems(void) {
 	HAL_FLASH_Lock();
 }
 
+uint32_t ADC_value;
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+
+	if (htim->Instance == TIM3) {
+//	printf("ADC_value test! val=%u\r\n", (unsigned int)ADC_value);
+//
+//	ADC_value = HAL_ADC_GetValue(&hadc1);
+//
+//		if(ADC_value > 3000) {
+//			printf("Up\r\n");
+//		}
+//
+//		if(ADC_value ) {
+//			printf("Down\r\n");
+//		}
+//		if(ADC_value >= LEFT_MIN && ADC_value <= LEFT_MAX) {
+//			printf("Left\r\n");
+//		}
+//		if(ADC_value >= RIGHT_MIN && ADC_value <= RIGHT_MAX) {
+//			printf("Right\r\n");
+//		}
+
+		HAL_ADC_Start_DMA(&hadc1, xy, 2);
+//		printf("%d %d \r\n", xy[0], xy[1]);
+		joyStick_btn_chk();
+
+//		if (xy[0] < 500) {
+//				printf("right\r\n");
+//			} else if (xy[0] > 3000) {
+//				printf("left\r\n");
+//			} else if (xy[1] > 3000) {
+//				printf("up\r\n");
+//			} else if (xy[1] < 500) {
+//				printf("down\r\n");
+//			}
+	}
+
+//		if (xy[0] <= 2900 && xy[0] <= 3500) {
+//			current_state.button = NO_KEY;
+//			printf("no key\r\n");
+//		} else if (xy[0] )
+
+}
+
 void showCurrentTime() {
+	char temp_time_buf[30];
+
+	RTC_Time.Hours;
+	RTC_Time.Minutes;
+	RTC_Time.Seconds;
+
+	sprintf(temp_time_buf, "%02d: %02d: %02d", RTC_Time.Hours, RTC_Time.Minutes,
+			RTC_Time.Seconds);
+
 	LCD_SendCommand(LCD_ADDR, 0b10000000);
 	LCD_SendString(LCD_ADDR, "Current Time");
 
 	LCD_SendCommand(LCD_ADDR, 0b11000000);
-	LCD_SendString(LCD_ADDR, showTime);
+	LCD_SendString(LCD_ADDR, temp_time_buf);
+
+//	clearLCD();
 }
+//
+//void timeDisplay() {
+//
+//	switch (current_state.mode) {
+//	case TIME_SETTING:
+//		LCD_SendCommand(LCD_ADDR, 0b10000000);
+//		LCD_SendString(LCD_ADDR, "Time Setting");
+//		LCD_SendCommand(LCD_ADDR, 0b11000000);
+//		LCD_SendString(LCD_ADDR, showTime);
+////		clearLCD();
+//		break;
+//	case ALARM_TIME_SETTING:
+//		LCD_SendCommand(LCD_ADDR, 0b10000000);
+//		LCD_SendString(LCD_ADDR, "Alarm Setting");
+//		LCD_SendCommand(LCD_ADDR, 0b11000000);
+//		LCD_SendString(LCD_ADDR, showTime);
+////		clearLCD();
+//		break;
+//	}
+//}
+//
+//void musicSelect() {
+//	LCD_SendCommand(LCD_ADDR, 0b10000000);
+//	LCD_SendString(LCD_ADDR, "Music Select");
+//	LCD_SendCommand(LCD_ADDR, 0b11000000);
+//	LCD_SendString(LCD_ADDR, "0: Rabbit");
+//}
+//
+//void clearLCD() {
+//	LCD_SendCommand(LCD_ADDR, 0b10000000);
+//	LCD_SendString(LCD_ADDR, "            ");
+//	LCD_SendCommand(LCD_ADDR, 0b11000000);
+//	LCD_SendString(LCD_ADDR, "            ");
+//}
 
 void timeDisplay() {
+	uint8_t hours;
+	uint8_t minutes;
+	uint8_t seconds;
 
-	switch (current_state.mode) {
-	case TIME_SETTING:
+	if (current_state.mode == NORMAL_STATE) {
+		LCD_SendCommand(LCD_ADDR, 0b10000000);
+		LCD_SendString(LCD_ADDR, "Current Time");
+
+		hours = ctime.hours;
+		minutes = ctime.minutes;
+		seconds = ctime.seconds;
+	} else if (current_state.mode == TIME_SETTING) {
 		LCD_SendCommand(LCD_ADDR, 0b10000000);
 		LCD_SendString(LCD_ADDR, "Time Setting");
-		LCD_SendCommand(LCD_ADDR, 0b11000000);
-		LCD_SendString(LCD_ADDR, showTime);
-		break;
-	case ALARM_TIME_SETTING:
+
+		hours = stime.hours;
+		minutes = stime.minutes;
+		seconds = stime.seconds;
+	} else if (current_state.mode == ALARM_TIME_SETTING) {
 		LCD_SendCommand(LCD_ADDR, 0b10000000);
 		LCD_SendString(LCD_ADDR, "Alarm Setting");
-		LCD_SendCommand(LCD_ADDR, 0b11000000);
-		LCD_SendString(LCD_ADDR, showTime);
-		break;
+
+		hours = atime.hours;
+		minutes = atime.minutes;
+		seconds = atime.seconds;
 	}
+
+	if (hours >= 12) {
+		sprintf(timeStr, "PM %02d:%02d:%02d", hours - 12, minutes, seconds);
+	} else {
+		sprintf(timeStr, "AM %02d:%02d:%02d", hours, minutes, seconds);
+	}
+
+	LCD_SendCommand(LCD_ADDR, 0b11000000);
+	LCD_SendString(LCD_ADDR, timeStr);
 }
 
-void musicSelect() {
-	LCD_SendCommand(LCD_ADDR, 0b10000000);
-	LCD_SendString(LCD_ADDR, "Music Select");
-	LCD_SendCommand(LCD_ADDR, 0b11000000);
-	LCD_SendString(LCD_ADDR, "0: Rabbit");
+int key_value;
+
+void joyStick_btn_chk() {
+
+//	printf("Get in joystick check!!\r\n");
+//	printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
+
+//	if (xy[0] > 2750 && xy[1] < 3000) {
+//		current_state.button = NO_KEY;
+
+//	printf("%d %d \r\n", xy[0], xy[1]);
+
+	if (xy[0] < 50) {
+		current_state.button = UP;
+		printf("up\r\n");
+	} else if (xy[1] < 50) {
+		current_state.button = LEFT;
+		printf("left\r\n");
+	} else if (xy[1] > 3000) {
+		current_state.button = RIGHT;
+		printf("right\r\n");
+	} else if (xy[0] > 3000) {
+		current_state.button = DOWN;
+		printf("down\r\n");
+	}
+
+//	printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
+}
+void time_set_mode() {
+
+//	printf("Get in time set mode!!\r\n");
+//	HAL_ADC_Start_IT(&hadc1);
+//	HAL_TIM_Base_Start_IT(&htim3);
+
+	int position = 0;
+
+//	joyStick_btn_chk();
+
+	if (position == 0) {
+		printf("This is position 0\r\n");
+//		joyStick_btn_chk();
+		switch (current_state.button) {
+		case NO_KEY:
+		case RIGHT:
+			position = 1;
+			break;
+		case UP:
+		case DOWN:
+			if (stime.hours >= 12) {
+				stime.hours -= 12;
+			} else {
+				stime.hours += 12;
+			}
+			break;
+		default:
+			break;
+		}
+
+	}
+
+	else if (position == 1) {
+		printf("This is position 1\r\n");
+//		joyStick_btn_chk();
+		switch (current_state.button) {
+		case NO_KEY:
+		case RIGHT:
+			position = 2;
+			break;
+		case LEFT:
+			position = 0;
+			break;
+		case UP:
+			stime.hours++;
+			if (stime.hours >= 12) {
+				stime.hours = 0;
+			}
+			break;
+		case DOWN:
+			stime.hours--;
+			if (stime.hours < 0) {
+				stime.hours = 11;
+			}
+			break;
+		default:
+			break;
+		}
+	}
+
+	else if (position == 2) {
+		printf("This is position 2\r\n");
+//		joyStick_btn_chk();
+		switch (current_state.button) {
+		case NO_KEY:
+		case RIGHT:
+			position = 3;
+			break;
+		case LEFT:
+			position = 1;
+			break;
+		case UP:
+			stime.minutes++;
+			if (stime.minutes >= 60) {
+				stime.minutes = 0;
+			}
+			break;
+		case DOWN:
+			stime.minutes--;
+			if (stime.minutes < 0) {
+				stime.minutes = 59;
+			}
+			break;
+		default:
+			break;
+		}
+	} else if (position == 3) {
+		printf("This is position 3\r\n");
+//		joyStick_btn_chk();
+		switch (current_state.button) {
+		case NO_KEY:
+		case RIGHT:
+			position = 0;
+
+			ctime.hours = stime.hours;
+			ctime.minutes = stime.minutes;
+			ctime.seconds = stime.seconds;
+
+			default_nvitem.setting_time.hours = stime.hours;
+			default_nvitem.setting_time.minutes = stime.minutes;
+			default_nvitem.setting_time.seconds = stime.seconds;
+			update_nvitems();
+			current_state.mode = NORMAL_STATE;
+			break;
+		case LEFT:
+			position = 2;
+			break;
+		case UP:
+			stime.seconds++;
+			if (stime.seconds >= 60) {
+				stime.hours = 0;
+			}
+			break;
+		case DOWN:
+			stime.seconds--;
+			if (stime.seconds < 0) {
+				stime.seconds = 59;
+			}
+			break;
+		default:
+			break;
+		}
+	}
+
+//	printf("position=%d hours=%d minutes=%d seconds=%d\r\n", position,
+//			stime.hours, stime.minutes, stime.seconds);
+
+	timeDisplay();
 }
 
 /* USER CODE END 0 */
@@ -264,15 +545,19 @@ int main(void) {
 	MX_ADC1_Init();
 	MX_I2C1_Init();
 	MX_RTC_Init();
+	MX_TIM3_Init();
 
 	/* Initialize interrupts */
 	MX_NVIC_Init();
 	/* USER CODE BEGIN 2 */
 
 	HAL_ADC_Start_DMA(&hadc1, xy, 2);
+	HAL_ADC_Start_IT(&hadc1);
+	HAL_TIM_Base_Start_IT(&htim3);
 	init();
 
 	current_state.mode = NORMAL_STATE;
+
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -281,30 +566,38 @@ int main(void) {
 		// uart test OK
 //	 printf("UART print test count=%d\r\n", cnt++);
 //	 HAL_Delay(500);
-		// joystick xy test OK
-//	 printf("%d %d \r\n", xy[0], xy[1]);
-//	 HAL_Delay(1000);
+//		 joystick xy test OK
+//		printf("%d %d \r\n", (unsigned int)xy[0], (unsigned int)xy[1]);
+//		HAL_Delay(1000);
 		// RTC test
 //	  get_time();
 //	  HAL_Delay(1000);
 
-		get_time();
-
-		switch (current_state.mode) {
-		case NORMAL_STATE:
+//		joyStick_btn_chk();
+		get_RTC_time();
+		if (current_state.mode == NORMAL_STATE) {
 			showCurrentTime();
-			break;
-		case TIME_SETTING:
-			timeDisplay();
-			break;
-		case ALARM_TIME_SETTING:
-			timeDisplay();
-			break;
-		case MUSIC_SELECT:
-			musicSelect();
-			break;
-
 		}
+
+		if (current_state.mode == TIME_SETTING) {
+			time_set_mode();
+		}
+
+//		switch (current_state.mode) {
+//		case NORMAL_STATE:
+//			showCurrentTime();
+//			break;
+//		case TIME_SETTING:
+//			time_set_mode();
+//			break;
+//		case ALARM_TIME_SETTING:
+//			timeDisplay();
+//			break;
+//		case MUSIC_SELECT:
+//			musicSelect();
+//			break;
+
+//		}
 
 		/* USER CODE END WHILE */
 
@@ -312,7 +605,6 @@ int main(void) {
 	}
 	/* USER CODE END 3 */
 }
-
 /**
  * @brief System Clock Configuration
  * @retval None
@@ -368,6 +660,12 @@ static void MX_NVIC_Init(void) {
 	/* EXTI15_10_IRQn interrupt configuration */
 	HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
 	HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+	/* TIM3_IRQn interrupt configuration */
+	HAL_NVIC_SetPriority(TIM3_IRQn, 0, 0);
+	HAL_NVIC_EnableIRQ(TIM3_IRQn);
+	/* ADC_IRQn interrupt configuration */
+	HAL_NVIC_SetPriority(ADC_IRQn, 0, 0);
+	HAL_NVIC_EnableIRQ(ADC_IRQn);
 }
 
 /**
@@ -395,8 +693,8 @@ static void MX_ADC1_Init(void) {
 	hadc1.Init.ScanConvMode = ENABLE;
 	hadc1.Init.ContinuousConvMode = ENABLE;
 	hadc1.Init.DiscontinuousConvMode = DISABLE;
-	hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
-	hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+	hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
+	hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIGCONV_T3_TRGO;
 	hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
 	hadc1.Init.NbrOfConversion = 2;
 	hadc1.Init.DMAContinuousRequests = ENABLE;
@@ -580,6 +878,48 @@ static void MX_RTC_Init(void) {
 }
 
 /**
+ * @brief TIM3 Initialization Function
+ * @param None
+ * @retval None
+ */
+static void MX_TIM3_Init(void) {
+
+	/* USER CODE BEGIN TIM3_Init 0 */
+
+	/* USER CODE END TIM3_Init 0 */
+
+	TIM_ClockConfigTypeDef sClockSourceConfig = { 0 };
+	TIM_MasterConfigTypeDef sMasterConfig = { 0 };
+
+	/* USER CODE BEGIN TIM3_Init 1 */
+
+	/* USER CODE END TIM3_Init 1 */
+	htim3.Instance = TIM3;
+	htim3.Init.Prescaler = 10000;
+	htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+	htim3.Init.Period = 900;
+	htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+	htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+	if (HAL_TIM_Base_Init(&htim3) != HAL_OK) {
+		Error_Handler();
+	}
+	sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+	if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK) {
+		Error_Handler();
+	}
+	sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+	sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_ENABLE;
+	if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig)
+			!= HAL_OK) {
+		Error_Handler();
+	}
+	/* USER CODE BEGIN TIM3_Init 2 */
+
+	/* USER CODE END TIM3_Init 2 */
+
+}
+
+/**
  * @brief USART3 Initialization Function
  * @param None
  * @retval None
@@ -692,7 +1032,7 @@ static void MX_GPIO_Init(void) {
 
 	/*Configure GPIO pin : Joy_btn_Pin */
 	GPIO_InitStruct.Pin = Joy_btn_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+	GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
 	GPIO_InitStruct.Pull = GPIO_PULLUP;
 	HAL_GPIO_Init(Joy_btn_GPIO_Port, &GPIO_InitStruct);
 
@@ -730,52 +1070,39 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 		// joystick sw test OK!
 //	  btn_cnt++;
 //	  printf("cnt = %d\r\n", btn_cnt);
-
+//		printf("test interval=%d\r\n", interval);
 		HAL_GPIO_TogglePin(GPIOB, LD1_Pin);
 		current_time = HAL_GetTick();
 		interval = current_time - last_time;
 		last_time = current_time;
 
 		if (HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_3) == 1) {
-			if (interval <= 110) {
+			if (interval < 130) {
 				btn_cnt += 3;
-			} else if (interval >= 120 && interval < 200) {
+			} else if (interval >= 130 && interval < 200) {
 				printf("One click!!  interval = %u\r\n",
 						(unsigned int) interval);
 				btn_cnt = 0;
 				current_state.mode = TIME_SETTING;
-			} else if (interval >= 700) {
+//				time_set_mode();
+			} else if (interval >= 300 && interval <= 1000) {
 				printf("Long click!!  interval = %u\r\n",
 						(unsigned int) interval);
 				btn_cnt = 0;
 				current_state.mode = ALARM_TIME_SETTING;
+//				alarm_set_mode();
 			}
 			if (btn_cnt >= 5) {
 				printf("Double click!!  interval = %u   btn_cnt = %d  \r\n",
 						(unsigned int) interval, btn_cnt);
 				btn_cnt = 0;
 				current_state.mode = MUSIC_SELECT;
+//				music_selc_mode();
 			}
 		}
 
 	}
 
-}
-
-void time_set_mode() {
-	LCD_SendCommand(LCD_ADDR, 0b10000000);
-	LCD_SendString(LCD_ADDR, "Time Setting");
-
-	LCD_SendCommand(LCD_ADDR, 0b11000000);
-	LCD_SendString(LCD_ADDR, showTime);
-}
-
-void alarm_set_mode() {
-	LCD_SendCommand(LCD_ADDR, 0b10000000);
-	LCD_SendString(LCD_ADDR, "Alarm Setting");
-
-	LCD_SendCommand(LCD_ADDR, 0b11000000);
-	LCD_SendString(LCD_ADDR, showTime);
 }
 
 stat_flashRW readFlash(uint32_t startADDR) {
@@ -879,10 +1206,10 @@ uint32_t GetSector(uint32_t Address) {
 	if ((Address < ADDR_FLASH_SECTOR_1) && (Address >= ADDR_FLASH_SECTOR_0)) {
 		sector = FLASH_SECTOR_0;
 	} else if ((Address < ADDR_FLASH_SECTOR_2)
-			&& (Address >= ADDR_FLASH_SECTOR_1)) {
+	&& (Address >= ADDR_FLASH_SECTOR_1)) {
 		sector = FLASH_SECTOR_1;
 	} else if ((Address < ADDR_FLASH_SECTOR_3)
-			&& (Address >= ADDR_FLASH_SECTOR_2)) {
+	&& (Address >= ADDR_FLASH_SECTOR_2)) {
 		sector = FLASH_SECTOR_2;
 	} else if ((Address < ADDR_FLASH_SECTOR_4)
 			&& (Address >= ADDR_FLASH_SECTOR_3)) {
@@ -891,58 +1218,58 @@ uint32_t GetSector(uint32_t Address) {
 			&& (Address >= ADDR_FLASH_SECTOR_4)) {
 		sector = FLASH_SECTOR_4;
 	} else if ((Address < ADDR_FLASH_SECTOR_6)
-			&& (Address >= ADDR_FLASH_SECTOR_5)) {
+	&& (Address >= ADDR_FLASH_SECTOR_5)) {
 		sector = FLASH_SECTOR_5;
 	} else if ((Address < ADDR_FLASH_SECTOR_7)
-			&& (Address >= ADDR_FLASH_SECTOR_6)) {
+	&& (Address >= ADDR_FLASH_SECTOR_6)) {
 		sector = FLASH_SECTOR_6;
 	} else if ((Address < ADDR_FLASH_SECTOR_8)
-			&& (Address >= ADDR_FLASH_SECTOR_7)) {
+	&& (Address >= ADDR_FLASH_SECTOR_7)) {
 		sector = FLASH_SECTOR_7;
 	} else if ((Address < ADDR_FLASH_SECTOR_9)
-			&& (Address >= ADDR_FLASH_SECTOR_8)) {
+	&& (Address >= ADDR_FLASH_SECTOR_8)) {
 		sector = FLASH_SECTOR_8;
 	} else if ((Address < ADDR_FLASH_SECTOR_10)
-			&& (Address >= ADDR_FLASH_SECTOR_9)) {
+	&& (Address >= ADDR_FLASH_SECTOR_9)) {
 		sector = FLASH_SECTOR_9;
 	} else if ((Address < ADDR_FLASH_SECTOR_11)
-			&& (Address >= ADDR_FLASH_SECTOR_10)) {
+	&& (Address >= ADDR_FLASH_SECTOR_10)) {
 		sector = FLASH_SECTOR_10;
 	} else if ((Address < ADDR_FLASH_SECTOR_12)
-			&& (Address >= ADDR_FLASH_SECTOR_11)) {
+	&& (Address >= ADDR_FLASH_SECTOR_11)) {
 		sector = FLASH_SECTOR_11;
 	} else if ((Address < ADDR_FLASH_SECTOR_13)
-			&& (Address >= ADDR_FLASH_SECTOR_12)) {
+	&& (Address >= ADDR_FLASH_SECTOR_12)) {
 		sector = FLASH_SECTOR_12;
 	} else if ((Address < ADDR_FLASH_SECTOR_14)
-			&& (Address >= ADDR_FLASH_SECTOR_13)) {
+	&& (Address >= ADDR_FLASH_SECTOR_13)) {
 		sector = FLASH_SECTOR_13;
 	} else if ((Address < ADDR_FLASH_SECTOR_15)
-			&& (Address >= ADDR_FLASH_SECTOR_14)) {
+	&& (Address >= ADDR_FLASH_SECTOR_14)) {
 		sector = FLASH_SECTOR_14;
 	} else if ((Address < ADDR_FLASH_SECTOR_16)
-			&& (Address >= ADDR_FLASH_SECTOR_15)) {
+	&& (Address >= ADDR_FLASH_SECTOR_15)) {
 		sector = FLASH_SECTOR_15;
 	} else if ((Address < ADDR_FLASH_SECTOR_17)
-			&& (Address >= ADDR_FLASH_SECTOR_16)) {
+	&& (Address >= ADDR_FLASH_SECTOR_16)) {
 		sector = FLASH_SECTOR_16;
 	} else if ((Address < ADDR_FLASH_SECTOR_18)
-			&& (Address >= ADDR_FLASH_SECTOR_17)) {
+	&& (Address >= ADDR_FLASH_SECTOR_17)) {
 		sector = FLASH_SECTOR_17;
 	} else if ((Address < ADDR_FLASH_SECTOR_19)
-			&& (Address >= ADDR_FLASH_SECTOR_18)) {
+	&& (Address >= ADDR_FLASH_SECTOR_18)) {
 		sector = FLASH_SECTOR_18;
 	} else if ((Address < ADDR_FLASH_SECTOR_20)
-			&& (Address >= ADDR_FLASH_SECTOR_19)) {
+	&& (Address >= ADDR_FLASH_SECTOR_19)) {
 		sector = FLASH_SECTOR_19;
 	} else if ((Address < ADDR_FLASH_SECTOR_21)
-			&& (Address >= ADDR_FLASH_SECTOR_20)) {
+	&& (Address >= ADDR_FLASH_SECTOR_20)) {
 		sector = FLASH_SECTOR_20;
 	} else if ((Address < ADDR_FLASH_SECTOR_22)
-			&& (Address >= ADDR_FLASH_SECTOR_21)) {
+	&& (Address >= ADDR_FLASH_SECTOR_21)) {
 		sector = FLASH_SECTOR_21;
 	} else if ((Address < ADDR_FLASH_SECTOR_23)
-			&& (Address >= ADDR_FLASH_SECTOR_22)) {
+	&& (Address >= ADDR_FLASH_SECTOR_22)) {
 		sector = FLASH_SECTOR_22;
 	} else /* (Address < FLASH_END_ADDR) && (Address >= ADDR_FLASH_SECTOR_23) */
 	{
