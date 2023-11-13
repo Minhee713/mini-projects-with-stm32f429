@@ -362,37 +362,34 @@ void joyStick_btn_chk() {
 //	printf("%d %d \r\n", xy[0], xy[1]);
 
 	if (xy[0] < 50) {
-		current_state.button = UP;
+//		current_state.button = UP;
 		printf("up\r\n");
-//		up++;
+		up++;
 	} else if (xy[1] < 50) {
-		current_state.button = LEFT;
+//		current_state.button = LEFT;
 		printf("left\r\n");
-//		left++;
+		left++;
 	} else if (xy[1] > 3000) {
-		current_state.button = RIGHT;
+//		current_state.button = RIGHT;
 		printf("right\r\n");
-//		right++;
+		right++;
 	} else if (xy[0] > 3000) {
-		current_state.button = DOWN;
+//		current_state.button = DOWN;
 		printf("down\r\n");
-//		down++;
+		down++;
 	}
 
 //	printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
 }
 
+//int position = 0;
+
 int t_position = 0;
 
 void time_set_mode() {
 
-//	printf("time set mode!! \r\n");
-
-//int t_position = 0;
-
-	joyStick_btn_chk();
-
-	if (t_position == 0) {
+	switch (t_position) {
+	case 0:
 		printf("t_position 0 \r\n");
 		switch (current_state.button) {
 		case DOWN:
@@ -408,54 +405,9 @@ void time_set_mode() {
 		default:
 			break;
 		}
-	} else if (t_position == 1) {
+	case 1:
 		printf("t_position 1 \r\n");
-		switch (current_state.button) {
-		case RIGHT:
-			t_position = 2;
-			break;
-		case LEFT:
-			t_position = 0;
-		case UP:
-			stime.hours++;
-			if (stime.hours >= 12) {
-				stime.hours = 0;
-			}
-			break;
-		case DOWN:
-			stime.hours--;
-			if (stime.hours < 0) {
-				stime.hours = 11;
-			}
-		default:
-			break;
-		}
 
-	} else if (t_position == 2) {
-		printf("t_position 2 \r\n");
-		switch (current_state.button) {
-		case RIGHT:
-			t_position = 3;
-			break;
-		case LEFT:
-			t_position = 2;
-		case UP:
-			stime.hours++;
-			if (stime.hours >= 12) {
-				stime.hours = 0;
-			}
-			break;
-		case DOWN:
-			stime.hours--;
-			if (stime.hours < 0) {
-				stime.hours = 11;
-			}
-		default:
-			break;
-		}
-	} else if (t_position == 3) {
-		printf("t_position 3 \r\n");
-		t_position = 0;
 	}
 
 	timeDisplay();

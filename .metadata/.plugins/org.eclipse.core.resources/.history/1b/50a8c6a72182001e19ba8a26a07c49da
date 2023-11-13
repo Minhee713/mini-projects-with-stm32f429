@@ -455,7 +455,6 @@ void time_set_mode() {
 		}
 	} else if (t_position == 3) {
 		printf("t_position 3 \r\n");
-		t_position = 0;
 	}
 
 	timeDisplay();

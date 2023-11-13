@@ -236,9 +236,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 //			printf("Right\r\n");
 //		}
 
-//		HAL_ADC_Start_DMA(&hadc1, xy, 2);
+		HAL_ADC_Start_DMA(&hadc1, xy, 2);
 //		printf("%d %d \r\n", xy[0], xy[1]);
-//		joyStick_btn_chk();
+		joyStick_btn_chk();
 
 //		if (xy[0] < 500) {
 //				printf("right\r\n");
@@ -362,83 +362,78 @@ void joyStick_btn_chk() {
 //	printf("%d %d \r\n", xy[0], xy[1]);
 
 	if (xy[0] < 50) {
-		current_state.button = UP;
+//		current_state.button = UP;
 		printf("up\r\n");
-//		up++;
+		up++;
 	} else if (xy[1] < 50) {
-		current_state.button = LEFT;
+//		current_state.button = LEFT;
 		printf("left\r\n");
-//		left++;
+		left++;
 	} else if (xy[1] > 3000) {
-		current_state.button = RIGHT;
+//		current_state.button = RIGHT;
 		printf("right\r\n");
-//		right++;
+		right++;
 	} else if (xy[0] > 3000) {
-		current_state.button = DOWN;
+//		current_state.button = DOWN;
 		printf("down\r\n");
-//		down++;
+		down++;
 	}
 
 //	printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
 }
-
-int t_position = 0;
-
 void time_set_mode() {
 
-//	printf("time set mode!! \r\n");
+//	printf("Get in time set mode!!\r\n");
+//	HAL_ADC_Start_IT(&hadc1);
+//	HAL_TIM_Base_Start_IT(&htim3);
 
-//int t_position = 0;
+	int position = 0;
 
-	joyStick_btn_chk();
+	if (position == 0) {
+		printf("This is position 0\r\n");
 
-	if (t_position == 0) {
-		printf("t_position 0 \r\n");
-		switch (current_state.button) {
-		case DOWN:
+		if (down == 1) {
 			if (stime.hours >= 12) {
 				stime.hours -= 12;
 			} else {
 				stime.hours += 12;
 			}
-			break;
-		case RIGHT:
-			t_position = 1;
-			break;
-		default:
-			break;
-		}
-	} else if (t_position == 1) {
-		printf("t_position 1 \r\n");
-		switch (current_state.button) {
-		case RIGHT:
-			t_position = 2;
-			break;
-		case LEFT:
-			t_position = 0;
-		case UP:
-			stime.hours++;
-			if (stime.hours >= 12) {
-				stime.hours = 0;
-			}
-			break;
-		case DOWN:
-			stime.hours--;
-			if (stime.hours < 0) {
-				stime.hours = 11;
-			}
-		default:
-			break;
+			down = 0;
+		} else if (right == 1) {
+			position = 1;
 		}
 
-	} else if (t_position == 2) {
-		printf("t_position 2 \r\n");
+
+//		switch (current_state.button) {
+//		case NO_KEY:
+//		case RIGHT:
+//			position = 1;
+//			break;
+//		case UP:
+//		case DOWN:
+//			if (stime.hours >= 12) {
+//				stime.hours -= 12;
+//			} else {
+//				stime.hours += 12;
+//			}
+//			break;
+//		default:
+//			break;
+//		}
+
+	}
+
+	else if (position == 1) {
+		printf("This is position 1\r\n");
+//		joyStick_btn_chk();
 		switch (current_state.button) {
+		case NO_KEY:
 		case RIGHT:
-			t_position = 3;
+			position = 2;
 			break;
 		case LEFT:
-			t_position = 2;
+			position = 0;
+			break;
 		case UP:
 			stime.hours++;
 			if (stime.hours >= 12) {
@@ -450,13 +445,78 @@ void time_set_mode() {
 			if (stime.hours < 0) {
 				stime.hours = 11;
 			}
+			break;
 		default:
 			break;
 		}
-	} else if (t_position == 3) {
-		printf("t_position 3 \r\n");
-		t_position = 0;
 	}
+
+	else if (position == 2) {
+		printf("This is position 2\r\n");
+//		joyStick_btn_chk();
+		switch (current_state.button) {
+		case NO_KEY:
+		case RIGHT:
+			position = 3;
+			break;
+		case LEFT:
+			position = 1;
+			break;
+		case UP:
+			stime.minutes++;
+			if (stime.minutes >= 60) {
+				stime.minutes = 0;
+			}
+			break;
+		case DOWN:
+			stime.minutes--;
+			if (stime.minutes < 0) {
+				stime.minutes = 59;
+			}
+			break;
+		default:
+			break;
+		}
+	} else if (position == 3) {
+		printf("This is position 3\r\n");
+//		joyStick_btn_chk();
+		switch (current_state.button) {
+		case NO_KEY:
+		case RIGHT:
+			position = 0;
+
+			ctime.hours = stime.hours;
+			ctime.minutes = stime.minutes;
+			ctime.seconds = stime.seconds;
+
+			default_nvitem.setting_time.hours = stime.hours;
+			default_nvitem.setting_time.minutes = stime.minutes;
+			default_nvitem.setting_time.seconds = stime.seconds;
+			update_nvitems();
+			current_state.mode = NORMAL_STATE;
+			break;
+		case LEFT:
+			position = 2;
+			break;
+		case UP:
+			stime.seconds++;
+			if (stime.seconds >= 60) {
+				stime.hours = 0;
+			}
+			break;
+		case DOWN:
+			stime.seconds--;
+			if (stime.seconds < 0) {
+				stime.seconds = 59;
+			}
+			break;
+		default:
+			break;
+		}
+	}
+
+//	printf("position=%d hours=%d minutes=%d seconds=%d\r\n", position,
+//			stime.hours, stime.minutes, stime.seconds);
 
 	timeDisplay();
 }
@@ -506,7 +566,7 @@ int main(void) {
 	/* USER CODE BEGIN 2 */
 
 	HAL_ADC_Start_DMA(&hadc1, xy, 2);
-//	HAL_ADC_Start_IT(&hadc1);
+	HAL_ADC_Start_IT(&hadc1);
 	HAL_TIM_Base_Start_IT(&htim3);
 	init();
 

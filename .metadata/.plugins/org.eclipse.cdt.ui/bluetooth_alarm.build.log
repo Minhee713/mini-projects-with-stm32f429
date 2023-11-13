@@ -1,14 +1,10 @@
-20:20:57 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+21:39:15 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'update_nvitems':
 ../Core/Src/main.c:205:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
   205 |                 Address = (uint8_t*) nv_items + i;
       |                         ^
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:241:17: warning: implicit declaration of function 'joyStick_btn_chk' [-Wimplicit-function-declaration]
-  241 |                 joyStick_btn_chk();
-      |                 ^~~~~~~~~~~~~~~~
 ../Core/Src/main.c: In function 'showCurrentTime':
 ../Core/Src/main.c:264:17: warning: statement with no effect [-Wunused-value]
   264 |         RTC_Time.Hours;
@@ -25,32 +21,25 @@ arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -D
 ../Core/Src/main.c:272:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
   272 |         LCD_SendString(LCD_ADDR, "Current Time");
       |         ^~~~~~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:352:6: warning: conflicting types for 'joyStick_btn_chk'; have 'void()'
-  352 | void joyStick_btn_chk() {
-      |      ^~~~~~~~~~~~~~~~
-../Core/Src/main.c:241:17: note: previous implicit declaration of 'joyStick_btn_chk' with type 'void()'
-  241 |                 joyStick_btn_chk();
-      |                 ^~~~~~~~~~~~~~~~
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:518:27: warning: unused variable 'error' [-Wunused-variable]
-  518 |         HAL_StatusTypeDef error;
+../Core/Src/main.c:474:27: warning: unused variable 'error' [-Wunused-variable]
+  474 |         HAL_StatusTypeDef error;
       |                           ^~~~~
-../Core/Src/main.c:517:23: warning: unused variable 'buf' [-Wunused-variable]
-  517 |         unsigned char buf[30];
+../Core/Src/main.c:473:23: warning: unused variable 'buf' [-Wunused-variable]
+  473 |         unsigned char buf[30];
       |                       ^~~
-../Core/Src/main.c:516:35: warning: unused variable 'i' [-Wunused-variable]
-  516 |         unsigned int value, addr, i;
+../Core/Src/main.c:472:35: warning: unused variable 'i' [-Wunused-variable]
+  472 |         unsigned int value, addr, i;
       |                                   ^
-../Core/Src/main.c:516:29: warning: unused variable 'addr' [-Wunused-variable]
-  516 |         unsigned int value, addr, i;
+../Core/Src/main.c:472:29: warning: unused variable 'addr' [-Wunused-variable]
+  472 |         unsigned int value, addr, i;
       |                             ^~~~
-../Core/Src/main.c:516:22: warning: unused variable 'value' [-Wunused-variable]
-  516 |         unsigned int value, addr, i;
+../Core/Src/main.c:472:22: warning: unused variable 'value' [-Wunused-variable]
+  472 |         unsigned int value, addr, i;
       |                      ^~~~~
 ../Core/Src/main.c: In function 'readFlash':
-../Core/Src/main.c:1108:27: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
- 1108 |         printf("addr[0x%08x] = %08x\r\n", startADDR, value);
+../Core/Src/main.c:1064:27: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+ 1064 |         printf("addr[0x%08x] = %08x\r\n", startADDR, value);
       |                        ~~~^               ~~~~~~~~~
       |                           |               |
       |                           unsigned int    uint32_t {aka long unsigned int}
@@ -60,8 +49,8 @@ arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -D
   214 | }
       | ^
 ../Core/Src/main.c: In function 'eraseFlash':
-../Core/Src/main.c:1199:1: warning: control reaches end of non-void function [-Wreturn-type]
- 1199 | }
+../Core/Src/main.c:1155:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1155 | }
       | ^
 arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: bluetooth_alarm.elf
@@ -69,11 +58,11 @@ Finished building target: bluetooth_alarm.elf
 arm-none-eabi-size   bluetooth_alarm.elf 
 arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
    text	   data	    bss	    dec	    hex	filename
-  39796	    132	   4340	  44268	   acec	bluetooth_alarm.elf
+  37348	    120	   4312	  41780	   a334	bluetooth_alarm.elf
 Finished building: default.size.stdout
  
 Finished building: bluetooth_alarm.list
  
 
-20:20:58 Build Finished. 0 errors, 16 warnings. (took 1s.380ms)
+21:39:16 Build Finished. 0 errors, 14 warnings. (took 1s.334ms)
 
