@@ -1,3 +1,13 @@
+connections/org.eclipse.remote.serial.core.connectionType/test/serial.baudRate=11
+connections/org.eclipse.remote.serial.core.connectionType/test/serial.byteSize=3
+connections/org.eclipse.remote.serial.core.connectionType/test/serial.parity=0
+connections/org.eclipse.remote.serial.core.connectionType/test/serial.portName=COM6
+connections/org.eclipse.remote.serial.core.connectionType/test/serial.stopBits=0
+connections/org.eclipse.remote.serial.core.connectionType/testUart/serial.baudRate=11
+connections/org.eclipse.remote.serial.core.connectionType/testUart/serial.byteSize=3
+connections/org.eclipse.remote.serial.core.connectionType/testUart/serial.parity=0
+connections/org.eclipse.remote.serial.core.connectionType/testUart/serial.portName=COM6
+connections/org.eclipse.remote.serial.core.connectionType/testUart/serial.stopBits=0
 connections/org.eclipse.remote.serial.core.connectionType/uart/serial.baudRate=11
 connections/org.eclipse.remote.serial.core.connectionType/uart/serial.byteSize=3
 connections/org.eclipse.remote.serial.core.connectionType/uart/serial.parity=0

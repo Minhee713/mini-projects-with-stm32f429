@@ -24,20 +24,47 @@
 /* USER CODE BEGIN Includes */
 #include "flash.h"
 #include "stdio.h"
+#include "memory.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+#define ADDR_FLASH_SECTOR_0     ((uint32_t)0x08000000) /* Base @ of Sector 0, 16 Kbytes */
+#define ADDR_FLASH_SECTOR_1     ((uint32_t)0x08004000) /* Base @ of Sector 1, 16 Kbytes */
+#define ADDR_FLASH_SECTOR_2     ((uint32_t)0x08008000) /* Base @ of Sector 2, 16 Kbytes */
+#define ADDR_FLASH_SECTOR_3     ((uint32_t)0x0800C000) /* Base @ of Sector 3, 16 Kbytes */
+#define ADDR_FLASH_SECTOR_4     ((uint32_t)0x08010000) /* Base @ of Sector 4, 64 Kbytes */
+#define ADDR_FLASH_SECTOR_5     ((uint32_t)0x08020000) /* Base @ of Sector 5, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_6     ((uint32_t)0x08040000) /* Base @ of Sector 6, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_7     ((uint32_t)0x08060000) /* Base @ of Sector 7, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_8     ((uint32_t)0x08080000) /* Base @ of Sector 8, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_9     ((uint32_t)0x080A0000) /* Base @ of Sector 9, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_10    ((uint32_t)0x080C0000) /* Base @ of Sector 10, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_11    ((uint32_t)0x080E0000) /* Base @ of Sector 11, 128 Kbytes */
+
+/* Base address of the Flash sectors Bank 2 */
+#define ADDR_FLASH_SECTOR_12     ((uint32_t)0x08100000) /* Base @ of Sector 0, 16 Kbytes */
+#define ADDR_FLASH_SECTOR_13     ((uint32_t)0x08104000) /* Base @ of Sector 1, 16 Kbytes */
+#define ADDR_FLASH_SECTOR_14     ((uint32_t)0x08108000) /* Base @ of Sector 2, 16 Kbytes */
+#define ADDR_FLASH_SECTOR_15     ((uint32_t)0x0810C000) /* Base @ of Sector 3, 16 Kbytes */
+#define ADDR_FLASH_SECTOR_16     ((uint32_t)0x08110000) /* Base @ of Sector 4, 64 Kbytes */
+#define ADDR_FLASH_SECTOR_17     ((uint32_t)0x08120000) /* Base @ of Sector 5, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_18     ((uint32_t)0x08140000) /* Base @ of Sector 6, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_19     ((uint32_t)0x08160000) /* Base @ of Sector 7, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_20     ((uint32_t)0x08180000) /* Base @ of Sector 8, 128 Kbytes  */
+#define ADDR_FLASH_SECTOR_21     ((uint32_t)0x081A0000) /* Base @ of Sector 9, 128 Kbytes  */
+#define ADDR_FLASH_SECTOR_22     ((uint32_t)0x081C0000) /* Base @ of Sector 10, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_23     ((uint32_t)0x081E0000) /* Base @ of Sector 11, 128 Kbytes */
 
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define LCD_ADDR (0x27 << 1)
-#define FLASH_USER_START_ADDR   ADDR_FLASH_SECTOR_2
-#define FLASH_USER_END_ADDR     ADDR_FLASH_SECTOR_3 + GetSectorSize(ADDR_FLASH_SECTOR_3) -1
+#define FLASH_USER_START_ADDR   ADDR_FLASH_SECTOR_22
+#define FLASH_USER_END_ADDR     ADDR_FLASH_SECTOR_22 + GetSectorSize(ADDR_FLASH_SECTOR_22) -1
 #define DATA_32                 ((uint32_t)0x99999999)
-#define MAGIC_NUM 0xdeadbeef
+#define MAGIC_NUM 0xeeeeeeee
 
 #define UP_MIN 0
 #define UP_MAX 10
@@ -81,7 +108,7 @@ typedef struct {
 	int8_t alarm_music_num;
 } NVitemTypeDef;
 
-#define nv_items ((NVitemTypeDef *) ADDR_FLASH_SECTOR_2)
+#define nv_items ((NVitemTypeDef *) ADDR_FLASH_SECTOR_22)
 
 NVitemTypeDef default_nvitem = { MAGIC_NUM, { 0, 0, 0 }, { 0, 0, 0 }, 0 };
 
@@ -134,6 +161,8 @@ __IO uint32_t data32 = 0, MemoryProgramStatus = 0;
 /*Variable used for Erase procedure*/
 static FLASH_EraseInitTypeDef EraseInitStruct;
 
+char temp_time_buf[30];
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -155,6 +184,8 @@ uint32_t GetSectorSize(uint32_t Sector);
 stat_flashRW readFlash(uint32_t startADDR);
 stat_flashRW eraseFlash(uint32_t ADDR_FLASH_SECTOR_x);
 HAL_StatusTypeDef update_nvitems(void);
+
+enum CLOCK_BUTTON joyStick_btn_chk();
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -165,16 +196,37 @@ int _write(int file, char *ptr, int len) {
 }
 
 RTC_DateTypeDef sDate;
-RTC_TimeTypeDef RTC_Time;
+RTC_TimeTypeDef RTC_Time;		// 0
+
 void get_RTC_time(void) {
 
 	HAL_RTC_GetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
 	HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
 
-//	printf("%s %02d:%02d:%02d\t\r\n", ampm[sTime.TimeFormat>>6],sTime.Hours, sTime.Minutes, sTime.Seconds);
-	sprintf((char*) showTime, "%s %02d:%02d:%02d",
-			ampm[RTC_Time.TimeFormat >> 6], RTC_Time.Hours, RTC_Time.Minutes,
+	//	RTC_Time.Hours = ctime.hours;
+	//	RTC_Time.Minutes = ctime.minutes;
+	//	RTC_Time.Seconds = ctime.seconds;
+
+	//	ctime.hours = RTC_Time.Hours;
+	//	ctime.minutes = RTC_Time.Minutes;
+	//	ctime.seconds = RTC_Time.Seconds;
+
+	RTC_Time.Hours -= 1;
+
+	//	printf("%s %02d:%02d:%02d\t\r\n", ampm[sTime.TimeFormat>>6],sTime.Hours, sTime.Minutes, sTime.Seconds);
+	sprintf((char*) temp_time_buf, "%s %02d:%02d:%02d",
+			ampm[RTC_Time.TimeFormat], RTC_Time.Hours, RTC_Time.Minutes,
 			RTC_Time.Seconds);
+
+	LCD_SendCommand(LCD_ADDR, 0b10000000);
+	LCD_SendString(LCD_ADDR, "Current Time");
+
+	LCD_SendCommand(LCD_ADDR, 0b11000000);
+	LCD_SendString(LCD_ADDR, temp_time_buf);
+}
+
+void lcd_clear() {
+	LCD_SendCommand(LCD_ADDR, 0b00000001);
 }
 
 HAL_StatusTypeDef update_nvitems(void) {
@@ -186,102 +238,91 @@ HAL_StatusTypeDef update_nvitems(void) {
 	uint8_t *ptr;
 
 	HAL_FLASH_Unlock();
-	FirstSector = FLASH_SECTOR_2;
-	NbOfSectors = 1;
 
+	FirstSector = ADDR_FLASH_SECTOR_22;
+	NbOfSectors = 1;
 	EraseInitStruct.TypeErase = FLASH_TYPEERASE_SECTORS;
 	EraseInitStruct.VoltageRange = FLASH_VOLTAGE_RANGE_3;
 	EraseInitStruct.Sector = FirstSector;
 	EraseInitStruct.NbSectors = NbOfSectors;
+//	printf("\r\n--------------erase-----------\r\n");
+	//error = HAL_FLASHEx_Erase(&EraseInitStruct, &SECTORError);
+	if (HAL_FLASHEx_Erase(&EraseInitStruct, &SECTORError) == HAL_OK) {
 
-	error = HAL_FLASHEx_Erase(&EraseInitStruct, &SECTORError);
-	if (error != HAL_OK) {
+		printf("\r\n--------------erase complete-----------\r\n");
+	}
+	else
+	{
+		printf("\r\n--------------erase error-----------\r\n");
 		return error;
 	}
-
+//
 	ptr = (uint8_t*) &default_nvitem;
 
 	for (i = 0; i < sizeof(NVitemTypeDef); i++) {
 		Address = (uint8_t*) nv_items + i;
 		Data = *((uint8_t*) ptr + i);
 		error = HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, Address, Data);
+		printf("DATA: %ld\r\n", Data);
 		if (error != HAL_OK) {
+//			printf("\r\n--------------overwrite error-----------\r\n");
 			return error;
 		}
 	}
-
+//	printf("\r\n--------------overwrite complete-----------\r\n");
 	HAL_FLASH_Lock();
 }
-
-uint32_t ADC_value;
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 
 	if (htim->Instance == TIM3) {
-
 	}
 
 }
 
 void showCurrentTime() {
-	char temp_time_buf[30];
 
-	RTC_Time.Hours;
-	RTC_Time.Minutes;
-	RTC_Time.Seconds;
+	//	RTC_Time.Hours = ctime.hours;
+	//	RTC_Time.Minutes = ctime.minutes;
+	//	RTC_Time.Seconds = ctime.seconds;
 
 	sprintf(temp_time_buf, "%02d: %02d: %02d", RTC_Time.Hours, RTC_Time.Minutes,
 			RTC_Time.Seconds);
 
 	LCD_SendCommand(LCD_ADDR, 0b10000000);
+
 	LCD_SendString(LCD_ADDR, "Current Time");
 
 	LCD_SendCommand(LCD_ADDR, 0b11000000);
 	LCD_SendString(LCD_ADDR, temp_time_buf);
 
-//	clearLCD();
 }
-//void musicSelect() {
-//	LCD_SendCommand(LCD_ADDR, 0b10000000);
-//	LCD_SendString(LCD_ADDR, "Music Select");
-//	LCD_SendCommand(LCD_ADDR, 0b11000000);
-//	LCD_SendString(LCD_ADDR, "0: Rabbit");
-//}
-//
-//void clearLCD() {
-//	LCD_SendCommand(LCD_ADDR, 0b10000000);
-//	LCD_SendString(LCD_ADDR, "            ");
-//	LCD_SendCommand(LCD_ADDR, 0b11000000);
-//	LCD_SendString(LCD_ADDR, "            ");
-//}
 
 void timeDisplay() {
 	uint8_t hours;
 	uint8_t minutes;
 	uint8_t seconds;
 
-	if (current_state.mode == NORMAL_STATE) {
+	//printf("\r\n--------------%d-----------\r\n", current_state.mode);
+	if (current_state.mode == TIME_SETTING) {
+//		printf("\r\n--------------%d-----------\r\n", 0);
 		LCD_SendCommand(LCD_ADDR, 0b10000000);
-		LCD_SendString(LCD_ADDR, "Current Time");
-
-		hours = ctime.hours;
-		minutes = ctime.minutes;
-		seconds = ctime.seconds;
-	} else if (current_state.mode == TIME_SETTING) {
-		LCD_SendCommand(LCD_ADDR, 0b10000000);
+//		printf("\r\n--------------%d-----------\r\n", 1);
 		LCD_SendString(LCD_ADDR, "Time Setting");
+//		printf("\r\n--------------%d-----------\r\n", 2);
 
 		hours = stime.hours;
 		minutes = stime.minutes;
 		seconds = stime.seconds;
+//		printf("\r\n--------------%d-----------\r\n", 3);
 	} else if (current_state.mode == ALARM_TIME_SETTING) {
-		LCD_SendCommand(LCD_ADDR, 0b10000000);
-		LCD_SendString(LCD_ADDR, "Alarm Setting");
+	 LCD_SendCommand(LCD_ADDR, 0b10000000);
+	 LCD_SendString(LCD_ADDR, "Alarm Setting");
 
-		hours = atime.hours;
-		minutes = atime.minutes;
-		seconds = atime.seconds;
-	}
+	 hours = atime.hours;
+	 minutes = atime.minutes;
+	 seconds = atime.seconds;
+	 }
 
 	if (hours >= 12) {
 		sprintf(timeStr, "PM %02d:%02d:%02d", hours - 12, minutes, seconds);
@@ -289,31 +330,32 @@ void timeDisplay() {
 		sprintf(timeStr, "AM %02d:%02d:%02d", hours, minutes, seconds);
 	}
 
+//		lcd_clear();
+
 	LCD_SendCommand(LCD_ADDR, 0b11000000);
 	LCD_SendString(LCD_ADDR, timeStr);
+//	printf("\r\n--------------%d-----------\r\n", 4);
 }
 
+enum CLOCK_BUTTON joyStick_btn_chk() {
 
-CLOCK_BUTTON joyStick_btn_chk() {
+	//	printf("Get in joystick check!!\r\n");
+	//	printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
 
-//	printf("Get in joystick check!!\r\n");
-//	printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
-
-	if (xy[0] < 50) {
+	if (xy[1] > 4000) {
 		printf("up\r\n");
-//		current_state.button = UP;
 		return UP;
-	} else if (xy[1] < 50) {
+	}
+	if (xy[0] > 4000) {
 		printf("left\r\n");
-//		current_state.button = LEFT;
 		return LEFT;
-	} else if (xy[1] > 3000) {
+	}
+	if (xy[0] < 500) {
 		printf("right\r\n");
-//		current_state.button = RIGHT;
 		return RIGHT;
-	} else if (xy[0] > 3000) {
+	}
+	if (xy[1] < 500) {
 		printf("down\r\n");
-//		current_state.button = DOWN;
 		return DOWN;
 	}
 
@@ -323,10 +365,9 @@ int t_position = 0;
 
 void time_set_mode() {
 
-//	printf("time set mode!! \r\n");
-//int t_position = 0;
+	//	printf("time set mode!! \r\n");
 
-	typedef CLOCK_BUTTON t_button;
+	enum CLOCK_BUTTON t_button;
 
 	t_button = joyStick_btn_chk();
 
@@ -342,6 +383,9 @@ void time_set_mode() {
 			break;
 		case RIGHT:
 			t_position = 1;
+			break;
+		case LEFT:
+			t_position = 3;
 			break;
 		default:
 			break;
@@ -377,7 +421,7 @@ void time_set_mode() {
 			t_position = 3;
 			break;
 		case LEFT:
-			t_position = 2;
+			t_position = 1;
 		case UP:
 			stime.minutes++;
 			if (stime.minutes >= 60) {
@@ -396,6 +440,20 @@ void time_set_mode() {
 		printf("t_position 3 \r\n");
 		switch (t_button) {
 		case RIGHT:
+			ctime.hours = stime.hours;
+			ctime.minutes = stime.minutes;
+			ctime.seconds = stime.seconds;
+
+			default_nvitem.setting_time.hours = stime.hours;
+			default_nvitem.setting_time.minutes = stime.minutes;
+			default_nvitem.setting_time.seconds = stime.seconds;
+
+			RTC_Time.Hours = ctime.hours;
+			RTC_Time.Minutes = ctime.minutes;
+			RTC_Time.Seconds = ctime.seconds;
+			update_nvitems();
+						lcd_clear();
+//			printf("\r\n--------------%d-----------\r\n", 6);
 			current_state.mode = NORMAL_STATE;
 			break;
 		case LEFT:
@@ -414,11 +472,11 @@ void time_set_mode() {
 			}
 			break;
 		default:
+			//			t_position = 0;
 			break;
-		}
-		t_position = 0;
-	}
 
+		}
+	}
 	timeDisplay();
 }
 
@@ -467,7 +525,7 @@ int main(void) {
 	/* USER CODE BEGIN 2 */
 
 	HAL_ADC_Start_DMA(&hadc1, xy, 2);
-//	HAL_ADC_Start_IT(&hadc1);
+	//	HAL_ADC_Start_IT(&hadc1);
 	HAL_TIM_Base_Start_IT(&htim3);
 	init();
 
@@ -477,36 +535,53 @@ int main(void) {
 
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
+
+#if 0
+	get_RTC_time();
+		default_nvitem.setting_time.hours = stime.hours;
+		default_nvitem.setting_time.minutes = stime.minutes;
+		default_nvitem.setting_time.seconds = stime.seconds;
+
+		RTC_Time.Hours = ctime.hours;
+		RTC_Time.Minutes = ctime.minutes;
+		RTC_Time.Seconds = ctime.seconds;
+		update_nvitems();
+
+#endif
 	while (1) {
 		// uart test OK
-//	 printf("UART print test count=%d\r\n", cnt++);
-//	 HAL_Delay(500);
-//		 joystick xy test OK
-//		printf("%d %d \r\n", (unsigned int)xy[0], (unsigned int)xy[1]);
-//		HAL_Delay(1000);
-
-		get_RTC_time();
-		if (current_state.mode == NORMAL_STATE) {
-			showCurrentTime();
+		//	 printf("UART print test count=%d\r\n", cnt++);
+		//	 HAL_Delay(500);
+		//		 joystick xy test OK
+		//		printf("%d %d \r\n", (unsigned int)xy[0], (unsigned int)xy[1]);
+		//		HAL_Delay(1000);
+#if 1
+		if (current_state.mode == NORMAL_STATE) {\
+//			printf("\r\n--------------%d-----------\r\n", 5);
+			get_RTC_time();
+			//			showCurrentTime();
 		} else if (current_state.mode == TIME_SETTING) {
 			time_set_mode();
+			HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
 		}
+#endif
 
-//		switch (current_state.mode) {
-//		case NORMAL_STATE:
-//			showCurrentTime();
-//			break;
-//		case TIME_SETTING:
-//			time_set_mode();
-//			break;
-//		case ALARM_TIME_SETTING:
-//			timeDisplay();
-//			break;
-//		case MUSIC_SELECT:
-//			musicSelect();
-//			break;
 
-//		}
+		//		switch (current_state.mode) {
+		//		case NORMAL_STATE:
+		//			showCurrentTime();
+		//			break;
+		//		case TIME_SETTING:
+		//			time_set_mode();
+		//			break;
+		//		case ALARM_TIME_SETTING:
+		//			timeDisplay();
+		//			break;
+		//		case MUSIC_SELECT:
+		//			musicSelect();
+		//			break;
+
+		//		}
 
 		/* USER CODE END WHILE */
 
@@ -514,6 +589,7 @@ int main(void) {
 	}
 	/* USER CODE END 3 */
 }
+
 /**
  * @brief System Clock Configuration
  * @retval None
@@ -614,7 +690,7 @@ static void MX_ADC1_Init(void) {
 
 	/** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
 	 */
-	sConfig.Channel = ADC_CHANNEL_13;
+	sConfig.Channel = ADC_CHANNEL_10;
 	sConfig.Rank = 1;
 	sConfig.SamplingTime = ADC_SAMPLETIME_84CYCLES;
 	if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK) {
@@ -623,7 +699,7 @@ static void MX_ADC1_Init(void) {
 
 	/** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
 	 */
-	sConfig.Channel = ADC_CHANNEL_10;
+	sConfig.Channel = ADC_CHANNEL_13;
 	sConfig.Rank = 2;
 	if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK) {
 		Error_Handler();
@@ -748,7 +824,7 @@ static void MX_RTC_Init(void) {
 	/** Initialize RTC Only
 	 */
 	hrtc.Instance = RTC;
-	hrtc.Init.HourFormat = RTC_HOURFORMAT_24;
+	hrtc.Init.HourFormat = RTC_HOURFORMAT_12;
 	hrtc.Init.AsynchPrediv = 127;
 	hrtc.Init.SynchPrediv = 255;
 	hrtc.Init.OutPut = RTC_OUTPUT_DISABLE;
@@ -764,9 +840,10 @@ static void MX_RTC_Init(void) {
 
 	/** Initialize RTC and set the Time and Date
 	 */
-	sTime.Hours = 0x0;
+	sTime.Hours = 1;
 	sTime.Minutes = 0x0;
 	sTime.Seconds = 0x0;
+	sTime.TimeFormat = RTC_HOURFORMAT12_AM;
 	sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
 	sTime.StoreOperation = RTC_STOREOPERATION_RESET;
 	if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK) {
@@ -977,9 +1054,9 @@ static void MX_GPIO_Init(void) {
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	if (GPIO_Pin == GPIO_PIN_3) {
 		// joystick sw test OK!
-//	  btn_cnt++;
-//	  printf("cnt = %d\r\n", btn_cnt);
-//		printf("test interval=%d\r\n", interval);
+		//	  btn_cnt++;
+		//	  printf("cnt = %d\r\n", btn_cnt);
+		//		printf("test interval=%d\r\n", interval);
 		HAL_GPIO_TogglePin(GPIOB, LD1_Pin);
 		current_time = HAL_GetTick();
 		interval = current_time - last_time;
@@ -993,20 +1070,20 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 						(unsigned int) interval);
 				btn_cnt = 0;
 				current_state.mode = TIME_SETTING;
-//				time_set_mode();
+				//				time_set_mode();
 			} else if (interval >= 300 && interval <= 1000) {
 				printf("Long click!!  interval = %u\r\n",
 						(unsigned int) interval);
 				btn_cnt = 0;
 				current_state.mode = ALARM_TIME_SETTING;
-//				alarm_set_mode();
+				//				alarm_set_mode();
 			}
 			if (btn_cnt >= 5) {
 				printf("Double click!!  interval = %u   btn_cnt = %d  \r\n",
 						(unsigned int) interval, btn_cnt);
 				btn_cnt = 0;
 				current_state.mode = MUSIC_SELECT;
-//				music_selc_mode();
+				//				music_selc_mode();
 			}
 		}
 
@@ -1204,17 +1281,17 @@ void Error_Handler(void) {
 
 #ifdef  USE_FULL_ASSERT
 /**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
+ * @brief  Reports the name of the source file and the source line number
+ *         where the assert_param error has occurred.
+ * @param  file: pointer to the source file name
+ * @param  line: assert_param error line source number
+ * @retval None
+ */
 void assert_failed(uint8_t *file, uint32_t line)
 {
-  /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
+	/* USER CODE BEGIN 6 */
+	/* User can add his own implementation to report the file name and line number,
      ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
-  /* USER CODE END 6 */
+	/* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
