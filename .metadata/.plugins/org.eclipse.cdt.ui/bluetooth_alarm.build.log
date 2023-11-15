@@ -1,10 +1,10 @@
-21:13:43 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+17:19:56 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
 make -j8 all 
 arm-none-eabi-size   bluetooth_alarm.elf 
    text	   data	    bss	    dec	    hex	filename
-  39392	    132	   4348	  43872	   ab60	bluetooth_alarm.elf
+  39664	    120	   4352	  44136	   ac68	bluetooth_alarm.elf
 Finished building: default.size.stdout
  
 
-21:13:44 Build Finished. 0 errors, 0 warnings. (took 367ms)
+17:19:57 Build Finished. 0 errors, 0 warnings. (took 309ms)
 
