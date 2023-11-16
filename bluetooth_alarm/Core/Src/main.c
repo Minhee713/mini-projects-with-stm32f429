@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "flash.h"
+//#include "flash.h"
 #include "stdio.h"
 /* USER CODE END Includes */
 
@@ -59,23 +59,11 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define LCD_ADDR (0x27 << 1)
+#define LCD_ADDR 				(0x27 << 1)
 #define FLASH_USER_START_ADDR   ADDR_FLASH_SECTOR_10
-#define FLASH_USER_END_ADDR     ADDR_FLASH_SECTOR_10 + GetSectorSize(ADDR_FLASH_SECTOR_10) - 1
-#define DATA_32                 ((uint32_t)0x99999999)
-#define MAGIC_NUM 0xeeeeeeee
-
-#define UP_MIN 0
-#define UP_MAX 10
-
-#define DOWN_MIN 850
-#define DOWN_MAX 870
-
-#define LEFT_MIN 1940
-#define LEFT_MAX 1960
-
-#define RIGHT_MIN 2980
-#define RIGHT_MAX 3010
+#define MAGIC_NUM 				0xeeeeeeee
+#define nv_items 				((NVitemTypeDef *) ADDR_FLASH_SECTOR_10)
+//#define FLASH_USER_END_ADDR     ADDR_FLASH_SECTOR_10 + GetSectorSize(ADDR_FLASH_SECTOR_10) - 1
 
 typedef enum {
 	RW_OK = 0x0, RW_ERROR = 0x1
@@ -92,6 +80,7 @@ enum CLOCK_BUTTON {
 struct clock_state {
 	enum CLOCK_MODE mode;
 	enum CLOCK_BUTTON button;
+	int music_num;
 };
 
 typedef struct {
@@ -107,9 +96,10 @@ typedef struct {
 	int8_t alarm_music_num;
 } NVitemTypeDef;
 
-#define nv_items ((NVitemTypeDef *) ADDR_FLASH_SECTOR_10)
-
-NVitemTypeDef default_nvitem = { { 0, 0, 0 }, { 0, 0, 0 }, 0 };
+typedef struct {
+	int8_t musicNum;
+	char musicTitle[20];
+} MusicTypeDef;
 
 /* USER CODE END PD */
 
@@ -146,9 +136,10 @@ uint32_t current_time, last_time, interval;
 int btn_cnt = 0;
 int t_position = 0;
 int al_position = 0;
+int mu_position = 0;
 
 char showTime[30] = { 0 };
-char showDate[30] = { 0 };
+//char showDate[30] = { 0 };
 char ampm[2][3] = { "AM", "PM" };
 char timeStr[30];
 char temp_time_buf[30];
@@ -166,6 +157,11 @@ RTC_AlarmTypeDef RTC_Alarm;
 uint8_t temp_flash_h;
 uint8_t temp_flash_m;
 uint8_t temp_flash_s;
+
+NVitemTypeDef default_nvitem = { { 0, 0, 0 }, { 0, 0, 0 }, 0 };
+
+MusicTypeDef alarmMusic[] = { { 0, "Music 0" }, { 1, "Music 1" },
+		{ 2, "Music 2" }, { 3, "Music 3" }, { 4, "Music 4" }, };
 
 uint32_t FirstSector = 0, NbOfSectors = 0;
 uint32_t Address = 0, SECTORError = 0;
@@ -196,7 +192,6 @@ static void MX_NVIC_Init(void);
 void init();
 uint8_t readFlash(uint32_t addr);
 HAL_StatusTypeDef update_nvitems(void);
-enum CLOCK_BUTTON joyStick_btn_chk();
 void init_getFlashTime(void);
 void get_time(void);
 int _write(int file, char *ptr, int len);
@@ -216,7 +211,7 @@ int _write(int file, char *ptr, int len) {
 	return len;
 }
 
-char temp_alarm_buf[30];
+//char temp_alarm_buf[30];
 
 void get_time(void) {
 	HAL_RTC_GetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
@@ -226,9 +221,9 @@ void get_time(void) {
 			ampm[RTC_Time.TimeFormat], RTC_Time.Hours, RTC_Time.Minutes,
 			RTC_Time.Seconds);
 
-	sprintf((char*) temp_alarm_buf, "%s %02d: %02d: %02d",
-			ampm[RTC_Alarm.AlarmTime.TimeFormat], RTC_Alarm.AlarmTime.Hours,
-			RTC_Alarm.AlarmTime.Minutes, RTC_Alarm.AlarmTime.Seconds);
+//	sprintf((char*) temp_alarm_buf, "%s %02d: %02d: %02d",
+//			ampm[RTC_Alarm.AlarmTime.TimeFormat], RTC_Alarm.AlarmTime.Hours,
+//			RTC_Alarm.AlarmTime.Minutes, RTC_Alarm.AlarmTime.Seconds);
 }
 
 void showCurrentTime() {
@@ -297,13 +292,6 @@ HAL_StatusTypeDef update_nvitems(void) {
 	HAL_FLASH_Lock();
 }
 
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-
-	if (htim->Instance == TIM3) {
-	}
-
-}
-
 void timeDisplay() {
 	uint8_t hours;
 	uint8_t minutes;
@@ -326,20 +314,22 @@ void timeDisplay() {
 	}
 
 	if (hours >= 12) {
-		if(current_state.mode == TIME_SETTING) {
-		sprintf(timeStr, "%s %02d: %02d: %02d", ampm[RTC_Time.TimeFormat],
-				hours - 12, minutes, seconds);
-		} else if(current_state.mode == ALARM_TIME_SETTING) {
-		sprintf(timeStr, "%s %02d: %02d: %02d", ampm[RTC_Alarm.AlarmTime.TimeFormat],
-				hours - 12, minutes, seconds);
+		if (current_state.mode == TIME_SETTING) {
+			sprintf(timeStr, "%s %02d: %02d: %02d", ampm[RTC_Time.TimeFormat],
+					hours - 12, minutes, seconds);
+		} else if (current_state.mode == ALARM_TIME_SETTING) {
+			sprintf(timeStr, "%s %02d: %02d: %02d",
+					ampm[RTC_Alarm.AlarmTime.TimeFormat], hours - 12, minutes,
+					seconds);
 		}
 	} else {
-		if(current_state.mode == TIME_SETTING) {
-		sprintf(timeStr, "%s %02d: %02d: %02d", ampm[RTC_Time.TimeFormat],
-				hours, minutes, seconds);
-		} else if(current_state.mode == ALARM_TIME_SETTING) {
-		sprintf(timeStr, "%s %02d: %02d: %02d", ampm[RTC_Alarm.AlarmTime.TimeFormat],
-				hours, minutes, seconds);
+		if (current_state.mode == TIME_SETTING) {
+			sprintf(timeStr, "%s %02d: %02d: %02d", ampm[RTC_Time.TimeFormat],
+					hours, minutes, seconds);
+		} else if (current_state.mode == ALARM_TIME_SETTING) {
+			sprintf(timeStr, "%s %02d: %02d: %02d",
+					ampm[RTC_Alarm.AlarmTime.TimeFormat], hours, minutes,
+					seconds);
 		}
 	}
 
@@ -347,14 +337,61 @@ void timeDisplay() {
 	LCD_SendString(LCD_ADDR, timeStr);
 }
 
+void musicDisplay(int musicNumber) {
+	char music_str[30];
+
+	sprintf(music_str, "%d. %s", musicNumber,
+			alarmMusic[musicNumber].musicTitle);
+
+	LCD_SendCommand(LCD_ADDR, 0b10000000);
+	LCD_SendString(LCD_ADDR, "Music Setting");
+	LCD_SendCommand(LCD_ADDR, 0b11000000);
+	LCD_SendString(LCD_ADDR, music_str);
+
+//	lcd_clear();
+
+//	switch (musicNumber) {
+//	case 0:
+//		lcd_clear();
+//		LCD_SendCommand(LCD_ADDR, 0b11000000);
+//		LCD_SendString(LCD_ADDR, music_str);
+//		break;
+//	case 1:
+//		lcd_clear();
+//		LCD_SendCommand(LCD_ADDR, 0b11000000);
+//		LCD_SendString(LCD_ADDR, music_str);
+//		break;
+//	case 2:
+//		lcd_clear();
+//		LCD_SendCommand(LCD_ADDR, 0b11000000);
+//		LCD_SendString(LCD_ADDR, music_str);
+//		break;
+//	case 3:
+//		lcd_clear();
+//		LCD_SendCommand(LCD_ADDR, 0b11000000);
+//		LCD_SendString(LCD_ADDR, music_str);
+//		break;
+//	case 4:
+//		lcd_clear();
+//		LCD_SendCommand(LCD_ADDR, 0b11000000);
+//		LCD_SendString(LCD_ADDR, music_str);
+//		break;
+//	default:
+//		break;
+//	}
+
+}
 
 enum CLOCK_BUTTON joyStick_btn_chk() {
 
-//	printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
-
+	printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
 	if (xy[1] > 4000) {
 		printf("up\r\n");
 		return UP;
+	}
+	if (xy[1] < 1000) {
+		printf("down\r\n");
+		return DOWN;
 	}
 	if (xy[0] > 4000) {
 		printf("left\r\n");
@@ -364,19 +401,14 @@ enum CLOCK_BUTTON joyStick_btn_chk() {
 		printf("right\r\n");
 		return RIGHT;
 	}
-	if (xy[1] < 1000) {
-		printf("down\r\n");
-		return DOWN;
-	}
 }
-
 
 void time_set_mode() {
 
 	enum CLOCK_BUTTON t_button;
 
 	t_button = joyStick_btn_chk();
-
+#if 0
 	if (t_position == 0) {
 		printf("t_position 0 \r\n");
 		switch (t_button) {
@@ -446,9 +478,6 @@ void time_set_mode() {
 		printf("t_position 3 \r\n");
 		switch (t_button) {
 		case RIGHT:
-//			ctime.hours = stime.hours;
-//			ctime.minutes = stime.minutes;
-//			ctime.seconds = stime.seconds;
 
 			default_nvitem.setting_time.hours = stime.hours;
 			default_nvitem.setting_time.minutes = stime.minutes;
@@ -484,11 +513,9 @@ void time_set_mode() {
 
 		}
 	}
-
 	timeDisplay();
+#endif
 }
-
-RTC_AlarmTypeDef RTC_Alarm;
 
 void alarm_set_mode(void) {
 //	printf("get in alarm set mode!!\r\n");
@@ -528,7 +555,7 @@ void alarm_set_mode(void) {
 			atime.hours++;
 			if (atime.hours >= 12) {
 				atime.hours = 0;
-				RTC_Time.TimeFormat = 0;
+				RTC_Alarm.AlarmTime.TimeFormat = 0;
 			}
 			break;
 		case DOWN:
@@ -576,6 +603,8 @@ void alarm_set_mode(void) {
 			RTC_Alarm.AlarmTime.Seconds = default_nvitem.alarm_time.seconds;
 			RTC_Alarm.AlarmTime.Hours %= 12;
 
+			printf("rtc alarm time %s %d: %d: %d\r\n", ampm[RTC_Alarm.AlarmTime.TimeFormat], RTC_Alarm.AlarmTime.Hours, RTC_Alarm.AlarmTime.Minutes, RTC_Alarm.AlarmTime.Seconds);
+
 			update_nvitems();
 			lcd_clear();
 
@@ -604,6 +633,52 @@ void alarm_set_mode(void) {
 	timeDisplay();
 }
 
+int flag = 0;
+
+void music_set_mode() {
+	enum CLOCK_BUTTON mu_button;
+	int mu_position, mu_cnt;
+
+	mu_button = joyStick_btn_chk();
+	mu_position = current_state.music_num;
+	mu_cnt = sizeof(alarmMusic) / sizeof(alarmMusic[0]);
+
+	switch (mu_button) {
+	case UP:
+		mu_position++;
+		if (mu_position == mu_cnt) {
+			mu_position = 0;
+		}
+//		lcd_clear();
+//		musicDisplay(mu_position);
+		break;
+	case DOWN:
+		mu_position--;
+		if (mu_position < 0) {
+			mu_position = mu_cnt - 1;
+		}
+//		lcd_clear();
+//		musicDisplay(mu_position);
+		break;
+	case RIGHT:
+		default_nvitem.alarm_music_num = mu_position;
+
+		update_nvitems();
+		lcd_clear();
+
+		current_state.mode = NORMAL_STATE;
+	default:
+		break;
+	}
+
+	current_state.music_num = mu_position;
+//	lcd_clear();
+	musicDisplay(mu_position);
+
+	printf("%d. %s\r\n", mu_position, alarmMusic[mu_position].musicTitle);
+
+}
+
 void init_getFlashTime() {
 	RTC_Time.Hours = readFlash(FLASH_USER_START_ADDR);
 	RTC_Time.Minutes = readFlash(FLASH_USER_START_ADDR + 1);
@@ -622,8 +697,15 @@ void init_getFlashAlarm() {
 
 	HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
 
-	printf("Setting Alarm time: %d : %d : %d \r\n", RTC_Alarm.AlarmTime.Hours, RTC_Alarm.AlarmTime.Minutes,
-			RTC_Alarm.AlarmTime.Seconds);
+	printf("Setting Alarm time: %d : %d : %d \r\n", RTC_Alarm.AlarmTime.Hours,
+			RTC_Alarm.AlarmTime.Minutes, RTC_Alarm.AlarmTime.Seconds);
+}
+
+void init_getFlashMusic() {
+	current_state.music_num = readFlash(FLASH_USER_START_ADDR + 6);
+
+	printf("Setting Music: %d %s\r\n", current_state.music_num,
+			alarmMusic[current_state.music_num].musicTitle);
 }
 
 /* USER CODE END 0 */
@@ -671,13 +753,14 @@ int main(void)
   MX_NVIC_Init();
   /* USER CODE BEGIN 2 */
 	HAL_ADC_Start_DMA(&hadc1, xy, 2);
-	//	HAL_ADC_Start_IT(&hadc1);
+//	HAL_ADC_Start_IT(&hadc1);
 	HAL_TIM_Base_Start_IT(&htim3);
 	init();
 
-
 	init_getFlashTime();
 	init_getFlashAlarm();
+	init_getFlashMusic();
+	lcd_clear();
 	current_state.mode = NORMAL_STATE;
 
   /* USER CODE END 2 */
@@ -696,13 +779,15 @@ int main(void)
 			time_set_mode();
 			HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
 			break;
+#if 0
 		case ALARM_TIME_SETTING:
 			alarm_set_mode();
 			HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
 			break;
-//		case MUSIC_SELECT:
-//			music_set_mode();
-//			break;
+		case MUSIC_SELECT:
+			music_set_mode();
+			break;
+#endif
 		default:
 			break;
 		}
@@ -772,9 +857,6 @@ static void MX_NVIC_Init(void)
   /* EXTI15_10_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
-  /* TIM3_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(TIM3_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(TIM3_IRQn);
   /* ADC_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(ADC_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(ADC_IRQn);
@@ -991,9 +1073,9 @@ static void MX_RTC_Init(void)
   {
     Error_Handler();
   }
-  sDate.WeekDay = RTC_WEEKDAY_FRIDAY;
+  sDate.WeekDay = RTC_WEEKDAY_THURSDAY;
   sDate.Month = RTC_MONTH_NOVEMBER;
-  sDate.Date = 0x10;
+  sDate.Date = 0x16;
   sDate.Year = 0x23;
 
   if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
@@ -1044,9 +1126,9 @@ static void MX_TIM3_Init(void)
 
   /* USER CODE END TIM3_Init 1 */
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 10000;
+  htim3.Init.Prescaler = 0;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 900;
+  htim3.Init.Period = 65535;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
@@ -1058,8 +1140,8 @@ static void MX_TIM3_Init(void)
   {
     Error_Handler();
   }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_ENABLE;
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
   if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
   {
     Error_Handler();
@@ -1240,198 +1322,30 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 						(unsigned int) interval);
 				btn_cnt = 0;
 				current_state.mode = TIME_SETTING;
+//			lcd_clear();
 			} else if (interval >= 300 && interval <= 1000) {
 				printf("Long click!!  interval = %u\r\n",
 						(unsigned int) interval);
 				btn_cnt = 0;
 				current_state.mode = ALARM_TIME_SETTING;
+//			lcd_clear();
 			}
 			if (btn_cnt >= 5) {
 				printf("Double click!!  interval = %u   btn_cnt = %d  \r\n",
 						(unsigned int) interval, btn_cnt);
 				btn_cnt = 0;
 				current_state.mode = MUSIC_SELECT;
+//			lcd_clear();
 			}
 		}
 	}
 }
 
 void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc) {
-	printf("Alarm!! Alarm time: %d: %d: %d \r\n", atime.hours, atime.minutes, atime.seconds);
+	printf("Alarm!! Alarm time: %s %d: %d: %d \r\n",
+			ampm[RTC_Alarm.AlarmTime.TimeFormat], RTC_Alarm.AlarmTime.Hours,
+			RTC_Alarm.AlarmTime.Minutes, RTC_Alarm.AlarmTime.Seconds);
 }
-
-//stat_flashRW readFlash(uint32_t startADDR) {
-//	unsigned int value = *(unsigned int*) startADDR;
-//	printf("addr[0x%08x] = %08x\r\n", startADDR, value);
-//	return RW_OK;
-//}
-
-//stat_flashRW eraseFlash(uint32_t ADDR_FLASH_SECTOR_x) {
-//	/* Unlock the Flash to enable the flash control register access *************/
-//	HAL_FLASH_Unlock();
-//
-//	/* Erase the user Flash area
-//	 (area defined by FLASH_USER_START_ADDR and FLASH_USER_END_ADDR) ***********/
-//
-//	/* Get the 1st sector to erase */
-//	FirstSector = GetSector(FLASH_USER_START_ADDR);
-//	/* Get the number of sector to erase from 1st sector*/
-//	NbOfSectors = GetSector(FLASH_USER_END_ADDR) - FirstSector + 1;
-//	/* Fill EraseInit structure*/
-//	EraseInitStruct.TypeErase = FLASH_TYPEERASE_SECTORS;
-//	EraseInitStruct.VoltageRange = FLASH_VOLTAGE_RANGE_3;
-//	EraseInitStruct.Sector = FirstSector;
-//	EraseInitStruct.NbSectors = NbOfSectors;
-//
-//	/* Note: If an erase operation in Flash memory also concerns data in the data or instruction cache,
-//	 you have to make sure that these data are rewritten before they are accessed during code
-//	 execution. If this cannot be done safely, it is recommended to flush the caches by setting the
-//	 DCRST and ICRST bits in the FLASH_CR register. */
-//	if (HAL_FLASHEx_Erase(&EraseInitStruct, &SECTORError) != HAL_OK) {
-//		/*
-//		 Error occurred while sector erase.
-//		 User can add here some code to deal with this error.
-//		 SECTORError will contain the faulty sector and then to know the code error on this sector,
-//		 user can call function 'HAL_FLASH_GetError()'
-//		 */
-//		/* Infinite loop */
-//		while (1) {
-//			HAL_GPIO_WritePin(GPIOB, LD3_Pin, 1);
-//			//       BSP_LED_On(LD3_Pin);
-//		}
-//	}
-//
-//	/* Program the user Flash area word by word
-//	 (area defined by FLASH_USER_START_ADDR and FLASH_USER_END_ADDR) ***********/
-//
-//	Address = FLASH_USER_START_ADDR;
-//
-//	while (Address < FLASH_USER_END_ADDR) {
-//		if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, Address, DATA_32)
-//				== HAL_OK) {
-//
-//			readFlash(Address);
-//			Address = Address + 4;
-//
-//		} else {
-//			/* Error occurred while writing data in Flash memory.
-//			 User can add here some code to deal with this error */
-//			while (1) {
-//				HAL_GPIO_WritePin(GPIOB, LD3_Pin, 1);
-//
-//				//         BSP_LED_On(LD3_Pin);
-//			}
-//		}
-//	}
-//
-//	/* Lock the Flash to disable the flash control register access (recommended
-//	 to protect the FLASH memory against possible unwanted operation) *********/
-//	HAL_FLASH_Lock();
-//
-//	/* Check if the programmed data is OK
-//	 MemoryProgramStatus = 0: data programmed correctly
-//	 MemoryProgramStatus != 0: number of words not programmed correctly ******/
-//	Address = FLASH_USER_START_ADDR;
-//	MemoryProgramStatus = 0x0;
-//
-//	while (Address < FLASH_USER_END_ADDR) {
-//		data32 = *(__IO uint32_t*) Address;
-//
-//		if (data32 != DATA_32) {
-//			MemoryProgramStatus++;
-//		}
-//		Address = Address + 4;
-//	}
-//
-//	/*Check if there is an issue to program data*/
-//	if (MemoryProgramStatus == 0) {
-//		/* No error detected. Switch on LED1*/
-//		HAL_GPIO_WritePin(GPIOB, LD1_Pin, 1);
-//		//	   BSP_LED_On(LD1_Pin);
-//	} else {
-//		/* Error detected. Switch on LED2*/
-//		HAL_GPIO_WritePin(GPIOB, LD2_Pin, 1);
-//		//	   BSP_LED_On(LD2_Pin);
-//	}
-//}
-
-//uint32_t GetSector(uint32_t Address) {
-//	uint32_t sector = 0;
-//
-//	if ((Address < ADDR_FLASH_SECTOR_1) && (Address >= ADDR_FLASH_SECTOR_0)) {
-//		sector = FLASH_SECTOR_0;
-//	} else if ((Address < ADDR_FLASH_SECTOR_2)
-//			&& (Address >= ADDR_FLASH_SECTOR_1)) {
-//		sector = FLASH_SECTOR_1;
-//	} else if ((Address < ADDR_FLASH_SECTOR_3)
-//			&& (Address >= ADDR_FLASH_SECTOR_2)) {
-//		sector = FLASH_SECTOR_2;
-//	} else if ((Address < ADDR_FLASH_SECTOR_4)
-//			&& (Address >= ADDR_FLASH_SECTOR_3)) {
-//		sector = FLASH_SECTOR_3;
-//	} else if ((Address < ADDR_FLASH_SECTOR_5)
-//			&& (Address >= ADDR_FLASH_SECTOR_4)) {
-//		sector = FLASH_SECTOR_4;
-//	} else if ((Address < ADDR_FLASH_SECTOR_6)
-//			&& (Address >= ADDR_FLASH_SECTOR_5)) {
-//		sector = FLASH_SECTOR_5;
-//	} else if ((Address < ADDR_FLASH_SECTOR_7)
-//			&& (Address >= ADDR_FLASH_SECTOR_6)) {
-//		sector = FLASH_SECTOR_6;
-//	} else if ((Address < ADDR_FLASH_SECTOR_8)
-//			&& (Address >= ADDR_FLASH_SECTOR_7)) {
-//		sector = FLASH_SECTOR_7;
-//	} else if ((Address < ADDR_FLASH_SECTOR_9)
-//			&& (Address >= ADDR_FLASH_SECTOR_8)) {
-//		sector = FLASH_SECTOR_8;
-//	} else if ((Address < ADDR_FLASH_SECTOR_10)
-//			&& (Address >= ADDR_FLASH_SECTOR_9)) {
-//		sector = FLASH_SECTOR_9;
-//	} else if ((Address < ADDR_FLASH_SECTOR_11)
-//			&& (Address >= ADDR_FLASH_SECTOR_10)) {
-//		sector = FLASH_SECTOR_10;
-//	} else if ((Address < ADDR_FLASH_SECTOR_12)
-//			&& (Address >= ADDR_FLASH_SECTOR_11)) {
-//		sector = FLASH_SECTOR_11;
-//	} else if ((Address < ADDR_FLASH_SECTOR_13)
-//			&& (Address >= ADDR_FLASH_SECTOR_12)) {
-//		sector = FLASH_SECTOR_12;
-//	} else if ((Address < ADDR_FLASH_SECTOR_14)
-//			&& (Address >= ADDR_FLASH_SECTOR_13)) {
-//		sector = FLASH_SECTOR_13;
-//	} else if ((Address < ADDR_FLASH_SECTOR_15)
-//			&& (Address >= ADDR_FLASH_SECTOR_14)) {
-//		sector = FLASH_SECTOR_14;
-//	} else if ((Address < ADDR_FLASH_SECTOR_16)
-//			&& (Address >= ADDR_FLASH_SECTOR_15)) {
-//		sector = FLASH_SECTOR_15;
-//	} else if ((Address < ADDR_FLASH_SECTOR_17)
-//			&& (Address >= ADDR_FLASH_SECTOR_16)) {
-//		sector = FLASH_SECTOR_16;
-//	} else if ((Address < ADDR_FLASH_SECTOR_18)
-//			&& (Address >= ADDR_FLASH_SECTOR_17)) {
-//		sector = FLASH_SECTOR_17;
-//	} else if ((Address < ADDR_FLASH_SECTOR_19)
-//			&& (Address >= ADDR_FLASH_SECTOR_18)) {
-//		sector = FLASH_SECTOR_18;
-//	} else if ((Address < ADDR_FLASH_SECTOR_20)
-//			&& (Address >= ADDR_FLASH_SECTOR_19)) {
-//		sector = FLASH_SECTOR_19;
-//	} else if ((Address < ADDR_FLASH_SECTOR_21)
-//			&& (Address >= ADDR_FLASH_SECTOR_20)) {
-//		sector = FLASH_SECTOR_20;
-//	} else if ((Address < ADDR_FLASH_SECTOR_22)
-//			&& (Address >= ADDR_FLASH_SECTOR_21)) {
-//		sector = FLASH_SECTOR_21;
-//	} else if ((Address < ADDR_FLASH_SECTOR_23)
-//			&& (Address >= ADDR_FLASH_SECTOR_22)) {
-//		sector = FLASH_SECTOR_22;
-//	} else /* (Address < FLASH_END_ADDR) && (Address >= ADDR_FLASH_SECTOR_23) */
-//	{
-//		sector = FLASH_SECTOR_23;
-//	}
-//	return sector;
-//}
 
 /* USER CODE END 4 */
 
