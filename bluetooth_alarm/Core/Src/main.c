@@ -60,8 +60,8 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define LCD_ADDR (0x27 << 1)
-#define FLASH_USER_START_ADDR   ADDR_FLASH_SECTOR_22
-#define FLASH_USER_END_ADDR     ADDR_FLASH_SECTOR_22 + GetSectorSize(ADDR_FLASH_SECTOR_22) - 1
+#define FLASH_USER_START_ADDR   ADDR_FLASH_SECTOR_10
+#define FLASH_USER_END_ADDR     ADDR_FLASH_SECTOR_10 + GetSectorSize(ADDR_FLASH_SECTOR_10) - 1
 #define DATA_32                 ((uint32_t)0x99999999)
 #define MAGIC_NUM 0xeeeeeeee
 
@@ -107,7 +107,7 @@ typedef struct {
 	int8_t alarm_music_num;
 } NVitemTypeDef;
 
-#define nv_items ((NVitemTypeDef *) ADDR_FLASH_SECTOR_22)
+#define nv_items ((NVitemTypeDef *) ADDR_FLASH_SECTOR_10)
 
 NVitemTypeDef default_nvitem = { { 0, 0, 0 }, { 0, 0, 0 }, 0 };
 
@@ -121,8 +121,8 @@ NVitemTypeDef default_nvitem = { { 0, 0, 0 }, { 0, 0, 0 }, 0 };
 /* Private variables ---------------------------------------------------------*/
 
 ETH_TxPacketConfig TxConfig;
-ETH_DMADescTypeDef DMARxDscrTab[ETH_RX_DESC_CNT]; /* Ethernet Rx DMA Descriptors */
-ETH_DMADescTypeDef DMATxDscrTab[ETH_TX_DESC_CNT]; /* Ethernet Tx DMA Descriptors */
+ETH_DMADescTypeDef  DMARxDscrTab[ETH_RX_DESC_CNT]; /* Ethernet Rx DMA Descriptors */
+ETH_DMADescTypeDef  DMATxDscrTab[ETH_TX_DESC_CNT]; /* Ethernet Tx DMA Descriptors */
 
 ADC_HandleTypeDef hadc1;
 DMA_HandleTypeDef hdma_adc1;
@@ -145,6 +145,7 @@ uint32_t current_time, last_time, interval;
 
 int btn_cnt = 0;
 int t_position = 0;
+int al_position = 0;
 
 char showTime[30] = { 0 };
 char showDate[30] = { 0 };
@@ -157,6 +158,10 @@ struct clock_state current_state;
 TimeTypeDef ctime;
 TimeTypeDef stime;
 TimeTypeDef atime;
+
+RTC_DateTypeDef sDate;
+RTC_TimeTypeDef RTC_Time;
+RTC_AlarmTypeDef RTC_Alarm;
 
 uint8_t temp_flash_h;
 uint8_t temp_flash_m;
@@ -184,16 +189,24 @@ static void MX_RTC_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_NVIC_Init(void);
 /* USER CODE BEGIN PFP */
-void init();
 //uint32_t GetSector(uint32_t Address);
 //uint32_t GetSectorSize(uint32_t Sector);
 //stat_flashRW readFlash(uint32_t startADDR);
 //stat_flashRW eraseFlash(uint32_t ADDR_FLASH_SECTOR_x);
-
+void init();
 uint8_t readFlash(uint32_t addr);
 HAL_StatusTypeDef update_nvitems(void);
-
 enum CLOCK_BUTTON joyStick_btn_chk();
+void init_getFlashTime(void);
+void get_time(void);
+int _write(int file, char *ptr, int len);
+void showCurrentTime(void);
+void lcd_clear(void);
+uint8_t readFlash(uint32_t addr);
+HAL_StatusTypeDef update_nvitems(void);
+void timeDisplay(void);
+enum CLOCK_BUTTON joyStick_btn_chk(void);
+void time_set_mode(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -203,32 +216,27 @@ int _write(int file, char *ptr, int len) {
 	return len;
 }
 
-RTC_DateTypeDef sDate;
-RTC_TimeTypeDef RTC_Time;
+char temp_alarm_buf[30];
 
 void get_time(void) {
 	HAL_RTC_GetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
 	HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
 
-//	RTC_Time.Hours = readFlash(FLASH_USER_START_ADDR);
-//	RTC_Time.Minutes = readFlash(FLASH_USER_START_ADDR + 1);
-//	RTC_Time.Seconds = readFlash(FLASH_USER_START_ADDR + 2);
-//
-//	HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
-
 	sprintf((char*) temp_time_buf, "%s %02d: %02d: %02d",
 			ampm[RTC_Time.TimeFormat], RTC_Time.Hours, RTC_Time.Minutes,
 			RTC_Time.Seconds);
+
+	sprintf((char*) temp_alarm_buf, "%s %02d: %02d: %02d",
+			ampm[RTC_Alarm.AlarmTime.TimeFormat], RTC_Alarm.AlarmTime.Hours,
+			RTC_Alarm.AlarmTime.Minutes, RTC_Alarm.AlarmTime.Seconds);
 }
 
 void showCurrentTime() {
-
 	LCD_SendCommand(LCD_ADDR, 0b10000000);
 	LCD_SendString(LCD_ADDR, "Current Time");
 
 	LCD_SendCommand(LCD_ADDR, 0b11000000);
 	LCD_SendString(LCD_ADDR, temp_time_buf);
-
 }
 
 void lcd_clear() {
@@ -253,15 +261,16 @@ HAL_StatusTypeDef update_nvitems(void) {
 
 	HAL_FLASH_Unlock();
 
-	FirstSector = ADDR_FLASH_SECTOR_22;
+	FirstSector = ADDR_FLASH_SECTOR_10;
 	NbOfSectors = 1;
 	EraseInitStruct.TypeErase = FLASH_TYPEERASE_SECTORS;
-	EraseInitStruct.VoltageRange = FLASH_VOLTAGE_RANGE_3;
+	EraseInitStruct.VoltageRange = FLASH_VOLTAGE_RANGE_1;
 	EraseInitStruct.Sector = FirstSector;
 	EraseInitStruct.NbSectors = NbOfSectors;
 
-	//	printf("\r\n--------------erase-----------\r\n");
-	//error = HAL_FLASHEx_Erase(&EraseInitStruct, &SECTORError);
+//	printf("\r\n--------------erase-----------\r\n");
+
+//	HAL_FLASHEx_Erase(&EraseInitStruct, &SECTORError);
 
 	if (HAL_FLASHEx_Erase(&EraseInitStruct, &SECTORError) == HAL_OK) {
 		printf("\r\n--------------erase complete-----------\r\n");
@@ -280,7 +289,7 @@ HAL_StatusTypeDef update_nvitems(void) {
 		printf("DATA: %ld\r\n", Data);
 
 		if (error != HAL_OK) {
-		printf("\r\n--------------overwrite error-----------\r\n");
+			printf("\r\n--------------overwrite error-----------\r\n");
 			return error;
 		}
 	}
@@ -317,17 +326,27 @@ void timeDisplay() {
 	}
 
 	if (hours >= 12) {
+		if(current_state.mode == TIME_SETTING) {
 		sprintf(timeStr, "%s %02d: %02d: %02d", ampm[RTC_Time.TimeFormat],
 				hours - 12, minutes, seconds);
+		} else if(current_state.mode == ALARM_TIME_SETTING) {
+		sprintf(timeStr, "%s %02d: %02d: %02d", ampm[RTC_Alarm.AlarmTime.TimeFormat],
+				hours - 12, minutes, seconds);
+		}
 	} else {
+		if(current_state.mode == TIME_SETTING) {
 		sprintf(timeStr, "%s %02d: %02d: %02d", ampm[RTC_Time.TimeFormat],
 				hours, minutes, seconds);
+		} else if(current_state.mode == ALARM_TIME_SETTING) {
+		sprintf(timeStr, "%s %02d: %02d: %02d", ampm[RTC_Alarm.AlarmTime.TimeFormat],
+				hours, minutes, seconds);
+		}
 	}
 
-//		lcd_clear();
 	LCD_SendCommand(LCD_ADDR, 0b11000000);
 	LCD_SendString(LCD_ADDR, timeStr);
 }
+
 
 enum CLOCK_BUTTON joyStick_btn_chk() {
 
@@ -341,16 +360,16 @@ enum CLOCK_BUTTON joyStick_btn_chk() {
 		printf("left\r\n");
 		return LEFT;
 	}
-	if (xy[0] < 500) {
+	if (xy[0] < 1000) {
 		printf("right\r\n");
 		return RIGHT;
 	}
-	if (xy[1] < 500) {
+	if (xy[1] < 1000) {
 		printf("down\r\n");
 		return DOWN;
 	}
-
 }
+
 
 void time_set_mode() {
 
@@ -372,9 +391,6 @@ void time_set_mode() {
 			break;
 		case RIGHT:
 			t_position = 1;
-			break;
-		case LEFT:
-			t_position = 3;
 			break;
 		default:
 			break;
@@ -430,17 +446,13 @@ void time_set_mode() {
 		printf("t_position 3 \r\n");
 		switch (t_button) {
 		case RIGHT:
-			ctime.hours = stime.hours;
-			ctime.minutes = stime.minutes;
-			ctime.seconds = stime.seconds;
+//			ctime.hours = stime.hours;
+//			ctime.minutes = stime.minutes;
+//			ctime.seconds = stime.seconds;
 
 			default_nvitem.setting_time.hours = stime.hours;
 			default_nvitem.setting_time.minutes = stime.minutes;
 			default_nvitem.setting_time.seconds = stime.seconds;
-
-//			RTC_Time.Hours = ctime.hours;
-//			RTC_Time.Minutes = ctime.minutes;
-//			RTC_Time.Seconds = ctime.seconds;
 
 			RTC_Time.Hours = default_nvitem.setting_time.hours;
 			RTC_Time.Minutes = default_nvitem.setting_time.minutes;
@@ -448,8 +460,8 @@ void time_set_mode() {
 			RTC_Time.Hours %= 12;
 
 			update_nvitems();
-
 			lcd_clear();
+
 			current_state.mode = NORMAL_STATE;
 			break;
 		case LEFT:
@@ -472,595 +484,740 @@ void time_set_mode() {
 
 		}
 	}
+
 	timeDisplay();
 }
 
+RTC_AlarmTypeDef RTC_Alarm;
 
+void alarm_set_mode(void) {
+//	printf("get in alarm set mode!!\r\n");
 
-/* USER CODE END 0 */
+	enum CLOCK_BUTTON al_button;
 
-/**
- * @brief  The application entry point.
- * @retval int
- */
+	al_button = joyStick_btn_chk();
 
-int main(void) {
-	/* USER CODE BEGIN 1 */
-	unsigned int value, addr, i;
-	unsigned char buf[30];
-	HAL_StatusTypeDef error;
-	/* USER CODE END 1 */
+	if (al_position == 0) {
+		printf("al_position 0 \r\n");
+		switch (al_button) {
+		case DOWN:
+			if (atime.hours >= 12) {
+				atime.hours -= 12;
+				RTC_Alarm.AlarmTime.TimeFormat = 0;
+			} else {
+				atime.hours += 12;
+				RTC_Alarm.AlarmTime.TimeFormat = 1;
+			}
+			break;
+		case RIGHT:
+			al_position = 1;
+			break;
+		default:
+			break;
+		}
+	} else if (al_position == 1) {
+		printf("al_position 1 \r\n");
+		switch (al_button) {
+		case RIGHT:
+			al_position = 2;
+			break;
+		case LEFT:
+			al_position = 0;
+			break;
+		case UP:
+			atime.hours++;
+			if (atime.hours >= 12) {
+				atime.hours = 0;
+				RTC_Time.TimeFormat = 0;
+			}
+			break;
+		case DOWN:
+			atime.hours--;
+			if (atime.hours < 0) {
+				atime.hours = 11;
+			}
+		default:
+			break;
+		}
 
-	/* MCU Configuration--------------------------------------------------------*/
+	} else if (al_position == 2) {
+		printf("al_position 2 \r\n");
+		switch (al_button) {
+		case RIGHT:
+			al_position = 3;
+			break;
+		case LEFT:
+			al_position = 1;
+		case UP:
+			atime.minutes++;
+			if (atime.minutes >= 60) {
+				atime.minutes = 0;
+			}
+			break;
+		case DOWN:
+			atime.minutes--;
+			if (atime.minutes < 0) {
+				atime.minutes = 59;
+			}
+		default:
+			break;
+		}
+	} else if (al_position == 3) {
+		printf("al_position 3 \r\n");
+		switch (al_button) {
+		case RIGHT:
 
-	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-	HAL_Init();
+			default_nvitem.alarm_time.hours = atime.hours;
+			default_nvitem.alarm_time.minutes = atime.minutes;
+			default_nvitem.alarm_time.seconds = atime.seconds;
 
-	/* USER CODE BEGIN Init */
+			RTC_Alarm.AlarmTime.Hours = default_nvitem.alarm_time.hours;
+			RTC_Alarm.AlarmTime.Minutes = default_nvitem.alarm_time.minutes;
+			RTC_Alarm.AlarmTime.Seconds = default_nvitem.alarm_time.seconds;
+			RTC_Alarm.AlarmTime.Hours %= 12;
 
-	/* USER CODE END Init */
+			update_nvitems();
+			lcd_clear();
 
-	/* Configure the system clock */
-	SystemClock_Config();
+			current_state.mode = NORMAL_STATE;
+			break;
+		case LEFT:
+			al_position = 2;
+			break;
+		case UP:
+			atime.seconds++;
+			if (atime.seconds >= 60) {
+				atime.seconds = 0;
+			}
+			break;
+		case DOWN:
+			atime.seconds--;
+			if (atime.seconds < 0) {
+				atime.seconds = 59;
+			}
+			break;
+		default:
+			break;
 
-	/* USER CODE BEGIN SysInit */
+		}
+	}
+	timeDisplay();
+}
 
-	/* USER CODE END SysInit */
-
-	/* Initialize all configured peripherals */
-	MX_GPIO_Init();
-	MX_DMA_Init();
-	MX_ETH_Init();
-	MX_USART3_UART_Init();
-	MX_USB_OTG_FS_PCD_Init();
-	MX_ADC1_Init();
-	MX_I2C1_Init();
-	MX_RTC_Init();
-	MX_TIM3_Init();
-
-	/* Initialize interrupts */
-	MX_NVIC_Init();
-	/* USER CODE BEGIN 2 */
-
-	HAL_ADC_Start_DMA(&hadc1, xy, 2);
-	//	HAL_ADC_Start_IT(&hadc1);
-	HAL_TIM_Base_Start_IT(&htim3);
-	init();
-
-	current_state.mode = NORMAL_STATE;
-
-
+void init_getFlashTime() {
 	RTC_Time.Hours = readFlash(FLASH_USER_START_ADDR);
 	RTC_Time.Minutes = readFlash(FLASH_USER_START_ADDR + 1);
 	RTC_Time.Seconds = readFlash(FLASH_USER_START_ADDR + 2);
 
 	HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
 
-	printf("first time: %d : %d : %d \r\n", RTC_Time.Hours, RTC_Time.Hours,
-			RTC_Time.Hours);
+	printf("Setting time: %d : %d : %d \r\n", RTC_Time.Hours, RTC_Time.Minutes,
+			RTC_Time.Seconds);
+}
 
-	/* USER CODE END 2 */
+void init_getFlashAlarm() {
+	RTC_Alarm.AlarmTime.Hours = readFlash(FLASH_USER_START_ADDR + 3);
+	RTC_Alarm.AlarmTime.Minutes = readFlash(FLASH_USER_START_ADDR + 4);
+	RTC_Alarm.AlarmTime.Seconds = readFlash(FLASH_USER_START_ADDR + 5);
 
-	/* Infinite loop */
-	/* USER CODE BEGIN WHILE */
+	HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
 
-#if 0
-	get_RTC_time();
-		default_nvitem.setting_time.hours = stime.hours;
-		default_nvitem.setting_time.minutes = stime.minutes;
-		default_nvitem.setting_time.seconds = stime.seconds;
+	printf("Setting Alarm time: %d : %d : %d \r\n", RTC_Alarm.AlarmTime.Hours, RTC_Alarm.AlarmTime.Minutes,
+			RTC_Alarm.AlarmTime.Seconds);
+}
 
-		RTC_Time.Hours = ctime.hours;
-		RTC_Time.Minutes = ctime.minutes;
-		RTC_Time.Seconds = ctime.seconds;
-		update_nvitems();
+/* USER CODE END 0 */
 
-#endif
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+  /* USER CODE BEGIN 1 */
+//	unsigned int value, addr, i;
+//	unsigned char buf[30];
+//	HAL_StatusTypeDef error;
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_DMA_Init();
+  MX_ETH_Init();
+  MX_USART3_UART_Init();
+  MX_USB_OTG_FS_PCD_Init();
+  MX_ADC1_Init();
+  MX_I2C1_Init();
+  MX_RTC_Init();
+  MX_TIM3_Init();
+
+  /* Initialize interrupts */
+  MX_NVIC_Init();
+  /* USER CODE BEGIN 2 */
+	HAL_ADC_Start_DMA(&hadc1, xy, 2);
+	//	HAL_ADC_Start_IT(&hadc1);
+	HAL_TIM_Base_Start_IT(&htim3);
+	init();
+
+
+	init_getFlashTime();
+	init_getFlashAlarm();
+	current_state.mode = NORMAL_STATE;
+
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+
 	while (1) {
-#if 1
 
-//		printf("Second time: %d : %d : %d \r\n", RTC_Time.Hours, RTC_Time.Hours,
-//				RTC_Time.Hours);
-
-		if (current_state.mode == NORMAL_STATE) {
+		switch (current_state.mode) {
+		case NORMAL_STATE:
 			get_time();
 			showCurrentTime();
-//			printf("in normal time: %d : %d : %d \r\n", RTC_Time.Hours, RTC_Time.Minutes, RTC_Time.Seconds);
-		} else if (current_state.mode == TIME_SETTING) {
-			time_set_mode();// after time setting, writing the time set at flash
-
-//			RTC_Time.Hours = readFlash(FLASH_USER_START_ADDR);
-//			RTC_Time.Minutes = readFlash(FLASH_USER_START_ADDR + 1);
-//			RTC_Time.Seconds = readFlash(FLASH_USER_START_ADDR + 2);
-//
-//			printf("second rtc time: %d : %d : %d \r\n", RTC_Time.Hours,
-//					RTC_Time.Minutes, RTC_Time.Seconds);
-			HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);		// RTC reset
-
+			break;
+		case TIME_SETTING:
+			time_set_mode();
+			HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
+			break;
+		case ALARM_TIME_SETTING:
+			alarm_set_mode();
+			HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
+			break;
+//		case MUSIC_SELECT:
+//			music_set_mode();
+//			break;
+		default:
+			break;
 		}
-#endif
 
-		//		switch (current_state.mode) {
-		//		case NORMAL_STATE:
-		//			showCurrentTime();
-		//			break;
-		//		case TIME_SETTING:
-		//			time_set_mode();
-		//			break;
-		//		case ALARM_TIME_SETTING:
-		//			timeDisplay();
-		//			break;
-		//		case MUSIC_SELECT:
-		//			musicSelect();
-		//			break;
+    /* USER CODE END WHILE */
 
-		//		}
-
-		/* USER CODE END WHILE */
-
-		/* USER CODE BEGIN 3 */
+    /* USER CODE BEGIN 3 */
 	}
-	/* USER CODE END 3 */
+  /* USER CODE END 3 */
 }
 
 /**
- * @brief System Clock Configuration
- * @retval None
- */
-void SystemClock_Config(void) {
-	RCC_OscInitTypeDef RCC_OscInitStruct = { 0 };
-	RCC_ClkInitTypeDef RCC_ClkInitStruct = { 0 };
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-	/** Configure the main internal regulator output voltage
-	 */
-	__HAL_RCC_PWR_CLK_ENABLE();
-	__HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+  /** Configure the main internal regulator output voltage
+  */
+  __HAL_RCC_PWR_CLK_ENABLE();
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
 
-	/** Initializes the RCC Oscillators according to the specified parameters
-	 * in the RCC_OscInitTypeDef structure.
-	 */
-	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE
-			| RCC_OSCILLATORTYPE_LSE;
-	RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
-	RCC_OscInitStruct.LSEState = RCC_LSE_ON;
-	RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-	RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-	RCC_OscInitStruct.PLL.PLLM = 4;
-	RCC_OscInitStruct.PLL.PLLN = 168;
-	RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
-	RCC_OscInitStruct.PLL.PLLQ = 7;
-	if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
-		Error_Handler();
-	}
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE|RCC_OSCILLATORTYPE_LSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLM = 4;
+  RCC_OscInitStruct.PLL.PLLN = 168;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+  RCC_OscInitStruct.PLL.PLLQ = 7;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
-	/** Initializes the CPU, AHB and APB buses clocks
-	 */
-	RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK
-			| RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
-	RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-	RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-	RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
-	RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
 
-	if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK) {
-		Error_Handler();
-	}
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
+  {
+    Error_Handler();
+  }
 }
 
 /**
- * @brief NVIC Configuration.
- * @retval None
- */
-static void MX_NVIC_Init(void) {
-	/* USART3_IRQn interrupt configuration */
-	HAL_NVIC_SetPriority(USART3_IRQn, 0, 0);
-	HAL_NVIC_EnableIRQ(USART3_IRQn);
-	/* EXTI15_10_IRQn interrupt configuration */
-	HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
-	HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
-	/* TIM3_IRQn interrupt configuration */
-	HAL_NVIC_SetPriority(TIM3_IRQn, 0, 0);
-	HAL_NVIC_EnableIRQ(TIM3_IRQn);
-	/* ADC_IRQn interrupt configuration */
-	HAL_NVIC_SetPriority(ADC_IRQn, 0, 0);
-	HAL_NVIC_EnableIRQ(ADC_IRQn);
+  * @brief NVIC Configuration.
+  * @retval None
+  */
+static void MX_NVIC_Init(void)
+{
+  /* USART3_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(USART3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(USART3_IRQn);
+  /* EXTI15_10_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+  /* TIM3_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(TIM3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(TIM3_IRQn);
+  /* ADC_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(ADC_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(ADC_IRQn);
+  /* RTC_Alarm_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(RTC_Alarm_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(RTC_Alarm_IRQn);
 }
 
 /**
- * @brief ADC1 Initialization Function
- * @param None
- * @retval None
- */
-static void MX_ADC1_Init(void) {
+  * @brief ADC1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_ADC1_Init(void)
+{
 
-	/* USER CODE BEGIN ADC1_Init 0 */
+  /* USER CODE BEGIN ADC1_Init 0 */
 
-	/* USER CODE END ADC1_Init 0 */
+  /* USER CODE END ADC1_Init 0 */
 
-	ADC_ChannelConfTypeDef sConfig = { 0 };
+  ADC_ChannelConfTypeDef sConfig = {0};
 
-	/* USER CODE BEGIN ADC1_Init 1 */
+  /* USER CODE BEGIN ADC1_Init 1 */
 
-	/* USER CODE END ADC1_Init 1 */
+  /* USER CODE END ADC1_Init 1 */
 
-	/** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
-	 */
-	hadc1.Instance = ADC1;
-	hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
-	hadc1.Init.Resolution = ADC_RESOLUTION_12B;
-	hadc1.Init.ScanConvMode = ENABLE;
-	hadc1.Init.ContinuousConvMode = ENABLE;
-	hadc1.Init.DiscontinuousConvMode = DISABLE;
-	hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
-	hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIGCONV_T3_TRGO;
-	hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-	hadc1.Init.NbrOfConversion = 2;
-	hadc1.Init.DMAContinuousRequests = ENABLE;
-	hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
-	if (HAL_ADC_Init(&hadc1) != HAL_OK) {
-		Error_Handler();
-	}
+  /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
+  */
+  hadc1.Instance = ADC1;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
+  hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc1.Init.ScanConvMode = ENABLE;
+  hadc1.Init.ContinuousConvMode = ENABLE;
+  hadc1.Init.DiscontinuousConvMode = DISABLE;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
+  hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIGCONV_T3_TRGO;
+  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc1.Init.NbrOfConversion = 2;
+  hadc1.Init.DMAContinuousRequests = ENABLE;
+  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  if (HAL_ADC_Init(&hadc1) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
-	/** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
-	 */
-	sConfig.Channel = ADC_CHANNEL_10;
-	sConfig.Rank = 1;
-	sConfig.SamplingTime = ADC_SAMPLETIME_84CYCLES;
-	if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK) {
-		Error_Handler();
-	}
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_10;
+  sConfig.Rank = 1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_84CYCLES;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
-	/** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
-	 */
-	sConfig.Channel = ADC_CHANNEL_13;
-	sConfig.Rank = 2;
-	if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK) {
-		Error_Handler();
-	}
-	/* USER CODE BEGIN ADC1_Init 2 */
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_13;
+  sConfig.Rank = 2;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN ADC1_Init 2 */
 
-	/* USER CODE END ADC1_Init 2 */
+  /* USER CODE END ADC1_Init 2 */
 
 }
 
 /**
- * @brief ETH Initialization Function
- * @param None
- * @retval None
- */
-static void MX_ETH_Init(void) {
+  * @brief ETH Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_ETH_Init(void)
+{
 
-	/* USER CODE BEGIN ETH_Init 0 */
+  /* USER CODE BEGIN ETH_Init 0 */
 
-	/* USER CODE END ETH_Init 0 */
+  /* USER CODE END ETH_Init 0 */
 
-	static uint8_t MACAddr[6];
+   static uint8_t MACAddr[6];
 
-	/* USER CODE BEGIN ETH_Init 1 */
+  /* USER CODE BEGIN ETH_Init 1 */
 
-	/* USER CODE END ETH_Init 1 */
-	heth.Instance = ETH;
-	MACAddr[0] = 0x00;
-	MACAddr[1] = 0x80;
-	MACAddr[2] = 0xE1;
-	MACAddr[3] = 0x00;
-	MACAddr[4] = 0x00;
-	MACAddr[5] = 0x00;
-	heth.Init.MACAddr = &MACAddr[0];
-	heth.Init.MediaInterface = HAL_ETH_RMII_MODE;
-	heth.Init.TxDesc = DMATxDscrTab;
-	heth.Init.RxDesc = DMARxDscrTab;
-	heth.Init.RxBuffLen = 1524;
+  /* USER CODE END ETH_Init 1 */
+  heth.Instance = ETH;
+  MACAddr[0] = 0x00;
+  MACAddr[1] = 0x80;
+  MACAddr[2] = 0xE1;
+  MACAddr[3] = 0x00;
+  MACAddr[4] = 0x00;
+  MACAddr[5] = 0x00;
+  heth.Init.MACAddr = &MACAddr[0];
+  heth.Init.MediaInterface = HAL_ETH_RMII_MODE;
+  heth.Init.TxDesc = DMATxDscrTab;
+  heth.Init.RxDesc = DMARxDscrTab;
+  heth.Init.RxBuffLen = 1524;
 
-	/* USER CODE BEGIN MACADDRESS */
+  /* USER CODE BEGIN MACADDRESS */
 
-	/* USER CODE END MACADDRESS */
+  /* USER CODE END MACADDRESS */
 
-	if (HAL_ETH_Init(&heth) != HAL_OK) {
-		Error_Handler();
-	}
+  if (HAL_ETH_Init(&heth) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
-	memset(&TxConfig, 0, sizeof(ETH_TxPacketConfig));
-	TxConfig.Attributes = ETH_TX_PACKETS_FEATURES_CSUM
-			| ETH_TX_PACKETS_FEATURES_CRCPAD;
-	TxConfig.ChecksumCtrl = ETH_CHECKSUM_IPHDR_PAYLOAD_INSERT_PHDR_CALC;
-	TxConfig.CRCPadCtrl = ETH_CRC_PAD_INSERT;
-	/* USER CODE BEGIN ETH_Init 2 */
+  memset(&TxConfig, 0 , sizeof(ETH_TxPacketConfig));
+  TxConfig.Attributes = ETH_TX_PACKETS_FEATURES_CSUM | ETH_TX_PACKETS_FEATURES_CRCPAD;
+  TxConfig.ChecksumCtrl = ETH_CHECKSUM_IPHDR_PAYLOAD_INSERT_PHDR_CALC;
+  TxConfig.CRCPadCtrl = ETH_CRC_PAD_INSERT;
+  /* USER CODE BEGIN ETH_Init 2 */
 
-	/* USER CODE END ETH_Init 2 */
-
-}
-
-/**
- * @brief I2C1 Initialization Function
- * @param None
- * @retval None
- */
-static void MX_I2C1_Init(void) {
-
-	/* USER CODE BEGIN I2C1_Init 0 */
-
-	/* USER CODE END I2C1_Init 0 */
-
-	/* USER CODE BEGIN I2C1_Init 1 */
-
-	/* USER CODE END I2C1_Init 1 */
-	hi2c1.Instance = I2C1;
-	hi2c1.Init.ClockSpeed = 100000;
-	hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
-	hi2c1.Init.OwnAddress1 = 0;
-	hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
-	hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
-	hi2c1.Init.OwnAddress2 = 0;
-	hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
-	hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
-	if (HAL_I2C_Init(&hi2c1) != HAL_OK) {
-		Error_Handler();
-	}
-
-	/** Configure Analogue filter
-	 */
-	if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE)
-			!= HAL_OK) {
-		Error_Handler();
-	}
-
-	/** Configure Digital filter
-	 */
-	if (HAL_I2CEx_ConfigDigitalFilter(&hi2c1, 0) != HAL_OK) {
-		Error_Handler();
-	}
-	/* USER CODE BEGIN I2C1_Init 2 */
-
-	/* USER CODE END I2C1_Init 2 */
+  /* USER CODE END ETH_Init 2 */
 
 }
 
 /**
- * @brief RTC Initialization Function
- * @param None
- * @retval None
- */
-static void MX_RTC_Init(void) {
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void)
+{
 
-	/* USER CODE BEGIN RTC_Init 0 */
+  /* USER CODE BEGIN I2C1_Init 0 */
 
-	/* USER CODE END RTC_Init 0 */
+  /* USER CODE END I2C1_Init 0 */
 
-	RTC_TimeTypeDef sTime = { 0 };
-	RTC_DateTypeDef sDate = { 0 };
+  /* USER CODE BEGIN I2C1_Init 1 */
 
-	/* USER CODE BEGIN RTC_Init 1 */
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.ClockSpeed = 100000;
+  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
-	/* USER CODE END RTC_Init 1 */
+  /** Configure Analogue filter
+  */
+  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
-	/** Initialize RTC Only
-	 */
-	hrtc.Instance = RTC;
-	hrtc.Init.HourFormat = RTC_HOURFORMAT_12;
-	hrtc.Init.AsynchPrediv = 127;
-	hrtc.Init.SynchPrediv = 255;
-	hrtc.Init.OutPut = RTC_OUTPUT_DISABLE;
-	hrtc.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_HIGH;
-	hrtc.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
-	if (HAL_RTC_Init(&hrtc) != HAL_OK) {
-		Error_Handler();
-	}
+  /** Configure Digital filter
+  */
+  if (HAL_I2CEx_ConfigDigitalFilter(&hi2c1, 0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C1_Init 2 */
 
-	/* USER CODE BEGIN Check_RTC_BKUP */
-
-	/* USER CODE END Check_RTC_BKUP */
-
-	/** Initialize RTC and set the Time and Date
-	 */
-	sTime.Hours = 0;
-	sTime.Minutes = 0x0;
-	sTime.Seconds = 0x0;
-	sTime.TimeFormat = RTC_HOURFORMAT12_AM;
-	sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
-	sTime.StoreOperation = RTC_STOREOPERATION_RESET;
-	if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK) {
-		Error_Handler();
-	}
-	sDate.WeekDay = RTC_WEEKDAY_FRIDAY;
-	sDate.Month = RTC_MONTH_NOVEMBER;
-	sDate.Date = 0x10;
-	sDate.Year = 0x23;
-
-	if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK) {
-		Error_Handler();
-	}
-	/* USER CODE BEGIN RTC_Init 2 */
-
-	/* USER CODE END RTC_Init 2 */
+  /* USER CODE END I2C1_Init 2 */
 
 }
 
 /**
- * @brief TIM3 Initialization Function
- * @param None
- * @retval None
- */
-static void MX_TIM3_Init(void) {
+  * @brief RTC Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_RTC_Init(void)
+{
 
-	/* USER CODE BEGIN TIM3_Init 0 */
+  /* USER CODE BEGIN RTC_Init 0 */
 
-	/* USER CODE END TIM3_Init 0 */
+  /* USER CODE END RTC_Init 0 */
 
-	TIM_ClockConfigTypeDef sClockSourceConfig = { 0 };
-	TIM_MasterConfigTypeDef sMasterConfig = { 0 };
+  RTC_TimeTypeDef sTime = {0};
+  RTC_DateTypeDef sDate = {0};
+  RTC_AlarmTypeDef sAlarm = {0};
 
-	/* USER CODE BEGIN TIM3_Init 1 */
+  /* USER CODE BEGIN RTC_Init 1 */
 
-	/* USER CODE END TIM3_Init 1 */
-	htim3.Instance = TIM3;
-	htim3.Init.Prescaler = 10000;
-	htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-	htim3.Init.Period = 900;
-	htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-	htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-	if (HAL_TIM_Base_Init(&htim3) != HAL_OK) {
-		Error_Handler();
-	}
-	sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-	if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK) {
-		Error_Handler();
-	}
-	sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
-	sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_ENABLE;
-	if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig)
-			!= HAL_OK) {
-		Error_Handler();
-	}
-	/* USER CODE BEGIN TIM3_Init 2 */
+  /* USER CODE END RTC_Init 1 */
 
-	/* USER CODE END TIM3_Init 2 */
+  /** Initialize RTC Only
+  */
+  hrtc.Instance = RTC;
+  hrtc.Init.HourFormat = RTC_HOURFORMAT_12;
+  hrtc.Init.AsynchPrediv = 127;
+  hrtc.Init.SynchPrediv = 255;
+  hrtc.Init.OutPut = RTC_OUTPUT_DISABLE;
+  hrtc.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_HIGH;
+  hrtc.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
+  if (HAL_RTC_Init(&hrtc) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
-}
+  /* USER CODE BEGIN Check_RTC_BKUP */
 
-/**
- * @brief USART3 Initialization Function
- * @param None
- * @retval None
- */
-static void MX_USART3_UART_Init(void) {
+  /* USER CODE END Check_RTC_BKUP */
 
-	/* USER CODE BEGIN USART3_Init 0 */
+  /** Initialize RTC and set the Time and Date
+  */
+  sTime.Hours = 0;
+  sTime.Minutes = 0x0;
+  sTime.Seconds = 0x0;
+  sTime.TimeFormat = RTC_HOURFORMAT12_AM;
+  sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
+  sTime.StoreOperation = RTC_STOREOPERATION_RESET;
+  if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sDate.WeekDay = RTC_WEEKDAY_FRIDAY;
+  sDate.Month = RTC_MONTH_NOVEMBER;
+  sDate.Date = 0x10;
+  sDate.Year = 0x23;
 
-	/* USER CODE END USART3_Init 0 */
+  if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
-	/* USER CODE BEGIN USART3_Init 1 */
+  /** Enable the Alarm A
+  */
+  sAlarm.AlarmTime.Hours = 0;
+  sAlarm.AlarmTime.Minutes = 0x0;
+  sAlarm.AlarmTime.Seconds = 0x0;
+  sAlarm.AlarmTime.SubSeconds = 0x0;
+  sAlarm.AlarmTime.TimeFormat = RTC_HOURFORMAT12_AM;
+  sAlarm.AlarmTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
+  sAlarm.AlarmTime.StoreOperation = RTC_STOREOPERATION_RESET;
+  sAlarm.AlarmMask = RTC_ALARMMASK_DATEWEEKDAY;
+  sAlarm.AlarmSubSecondMask = RTC_ALARMSUBSECONDMASK_ALL;
+  sAlarm.AlarmDateWeekDaySel = RTC_ALARMDATEWEEKDAYSEL_DATE;
+  sAlarm.AlarmDateWeekDay = 0x1;
+  sAlarm.Alarm = RTC_ALARM_A;
+  if (HAL_RTC_SetAlarm_IT(&hrtc, &sAlarm, RTC_FORMAT_BCD) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN RTC_Init 2 */
 
-	/* USER CODE END USART3_Init 1 */
-	huart3.Instance = USART3;
-	huart3.Init.BaudRate = 115200;
-	huart3.Init.WordLength = UART_WORDLENGTH_8B;
-	huart3.Init.StopBits = UART_STOPBITS_1;
-	huart3.Init.Parity = UART_PARITY_NONE;
-	huart3.Init.Mode = UART_MODE_TX_RX;
-	huart3.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-	huart3.Init.OverSampling = UART_OVERSAMPLING_16;
-	if (HAL_UART_Init(&huart3) != HAL_OK) {
-		Error_Handler();
-	}
-	/* USER CODE BEGIN USART3_Init 2 */
-
-	/* USER CODE END USART3_Init 2 */
-
-}
-
-/**
- * @brief USB_OTG_FS Initialization Function
- * @param None
- * @retval None
- */
-static void MX_USB_OTG_FS_PCD_Init(void) {
-
-	/* USER CODE BEGIN USB_OTG_FS_Init 0 */
-
-	/* USER CODE END USB_OTG_FS_Init 0 */
-
-	/* USER CODE BEGIN USB_OTG_FS_Init 1 */
-
-	/* USER CODE END USB_OTG_FS_Init 1 */
-	hpcd_USB_OTG_FS.Instance = USB_OTG_FS;
-	hpcd_USB_OTG_FS.Init.dev_endpoints = 4;
-	hpcd_USB_OTG_FS.Init.speed = PCD_SPEED_FULL;
-	hpcd_USB_OTG_FS.Init.dma_enable = DISABLE;
-	hpcd_USB_OTG_FS.Init.phy_itface = PCD_PHY_EMBEDDED;
-	hpcd_USB_OTG_FS.Init.Sof_enable = ENABLE;
-	hpcd_USB_OTG_FS.Init.low_power_enable = DISABLE;
-	hpcd_USB_OTG_FS.Init.lpm_enable = DISABLE;
-	hpcd_USB_OTG_FS.Init.vbus_sensing_enable = ENABLE;
-	hpcd_USB_OTG_FS.Init.use_dedicated_ep1 = DISABLE;
-	if (HAL_PCD_Init(&hpcd_USB_OTG_FS) != HAL_OK) {
-		Error_Handler();
-	}
-	/* USER CODE BEGIN USB_OTG_FS_Init 2 */
-
-	/* USER CODE END USB_OTG_FS_Init 2 */
+  /* USER CODE END RTC_Init 2 */
 
 }
 
 /**
- * Enable DMA controller clock
- */
-static void MX_DMA_Init(void) {
+  * @brief TIM3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM3_Init(void)
+{
 
-	/* DMA controller clock enable */
-	__HAL_RCC_DMA2_CLK_ENABLE();
+  /* USER CODE BEGIN TIM3_Init 0 */
 
-	/* DMA interrupt init */
-	/* DMA2_Stream0_IRQn interrupt configuration */
-	HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 0, 0);
-	HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
+  /* USER CODE END TIM3_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM3_Init 1 */
+
+  /* USER CODE END TIM3_Init 1 */
+  htim3.Instance = TIM3;
+  htim3.Init.Prescaler = 10000;
+  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim3.Init.Period = 900;
+  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_ENABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM3_Init 2 */
+
+  /* USER CODE END TIM3_Init 2 */
 
 }
 
 /**
- * @brief GPIO Initialization Function
- * @param None
- * @retval None
- */
-static void MX_GPIO_Init(void) {
-	GPIO_InitTypeDef GPIO_InitStruct = { 0 };
-	/* USER CODE BEGIN MX_GPIO_Init_1 */
-	/* USER CODE END MX_GPIO_Init_1 */
+  * @brief USART3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART3_UART_Init(void)
+{
 
-	/* GPIO Ports Clock Enable */
-	__HAL_RCC_GPIOC_CLK_ENABLE();
-	__HAL_RCC_GPIOF_CLK_ENABLE();
-	__HAL_RCC_GPIOH_CLK_ENABLE();
-	__HAL_RCC_GPIOA_CLK_ENABLE();
-	__HAL_RCC_GPIOB_CLK_ENABLE();
-	__HAL_RCC_GPIOD_CLK_ENABLE();
-	__HAL_RCC_GPIOG_CLK_ENABLE();
+  /* USER CODE BEGIN USART3_Init 0 */
 
-	/*Configure GPIO pin Output Level */
-	HAL_GPIO_WritePin(GPIOB, LD1_Pin | LD3_Pin | LD2_Pin, GPIO_PIN_RESET);
+  /* USER CODE END USART3_Init 0 */
 
-	/*Configure GPIO pin Output Level */
-	HAL_GPIO_WritePin(USB_PowerSwitchOn_GPIO_Port, USB_PowerSwitchOn_Pin,
-			GPIO_PIN_RESET);
+  /* USER CODE BEGIN USART3_Init 1 */
 
-	/*Configure GPIO pin : USER_Btn_Pin */
-	GPIO_InitStruct.Pin = USER_Btn_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	HAL_GPIO_Init(USER_Btn_GPIO_Port, &GPIO_InitStruct);
+  /* USER CODE END USART3_Init 1 */
+  huart3.Instance = USART3;
+  huart3.Init.BaudRate = 115200;
+  huart3.Init.WordLength = UART_WORDLENGTH_8B;
+  huart3.Init.StopBits = UART_STOPBITS_1;
+  huart3.Init.Parity = UART_PARITY_NONE;
+  huart3.Init.Mode = UART_MODE_TX_RX;
+  huart3.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart3.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART3_Init 2 */
 
-	/*Configure GPIO pin : Joy_btn_Pin */
-	GPIO_InitStruct.Pin = Joy_btn_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
-	GPIO_InitStruct.Pull = GPIO_PULLUP;
-	HAL_GPIO_Init(Joy_btn_GPIO_Port, &GPIO_InitStruct);
+  /* USER CODE END USART3_Init 2 */
 
-	/*Configure GPIO pins : LD1_Pin LD3_Pin LD2_Pin */
-	GPIO_InitStruct.Pin = LD1_Pin | LD3_Pin | LD2_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-	HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+}
 
-	/*Configure GPIO pin : USB_PowerSwitchOn_Pin */
-	GPIO_InitStruct.Pin = USB_PowerSwitchOn_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-	HAL_GPIO_Init(USB_PowerSwitchOn_GPIO_Port, &GPIO_InitStruct);
+/**
+  * @brief USB_OTG_FS Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USB_OTG_FS_PCD_Init(void)
+{
 
-	/*Configure GPIO pin : USB_OverCurrent_Pin */
-	GPIO_InitStruct.Pin = USB_OverCurrent_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	HAL_GPIO_Init(USB_OverCurrent_GPIO_Port, &GPIO_InitStruct);
+  /* USER CODE BEGIN USB_OTG_FS_Init 0 */
 
-	/* EXTI interrupt init*/
-	HAL_NVIC_SetPriority(EXTI3_IRQn, 0, 0);
-	HAL_NVIC_EnableIRQ(EXTI3_IRQn);
+  /* USER CODE END USB_OTG_FS_Init 0 */
 
-	/* USER CODE BEGIN MX_GPIO_Init_2 */
-	/* USER CODE END MX_GPIO_Init_2 */
+  /* USER CODE BEGIN USB_OTG_FS_Init 1 */
+
+  /* USER CODE END USB_OTG_FS_Init 1 */
+  hpcd_USB_OTG_FS.Instance = USB_OTG_FS;
+  hpcd_USB_OTG_FS.Init.dev_endpoints = 4;
+  hpcd_USB_OTG_FS.Init.speed = PCD_SPEED_FULL;
+  hpcd_USB_OTG_FS.Init.dma_enable = DISABLE;
+  hpcd_USB_OTG_FS.Init.phy_itface = PCD_PHY_EMBEDDED;
+  hpcd_USB_OTG_FS.Init.Sof_enable = ENABLE;
+  hpcd_USB_OTG_FS.Init.low_power_enable = DISABLE;
+  hpcd_USB_OTG_FS.Init.lpm_enable = DISABLE;
+  hpcd_USB_OTG_FS.Init.vbus_sensing_enable = ENABLE;
+  hpcd_USB_OTG_FS.Init.use_dedicated_ep1 = DISABLE;
+  if (HAL_PCD_Init(&hpcd_USB_OTG_FS) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USB_OTG_FS_Init 2 */
+
+  /* USER CODE END USB_OTG_FS_Init 2 */
+
+}
+
+/**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA2_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA2_Stream0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
+
+}
+
+/**
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+/* USER CODE BEGIN MX_GPIO_Init_1 */
+/* USER CODE END MX_GPIO_Init_1 */
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOF_CLK_ENABLE();
+  __HAL_RCC_GPIOH_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
+  __HAL_RCC_GPIOG_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, LD1_Pin|LD3_Pin|LD2_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(USB_PowerSwitchOn_GPIO_Port, USB_PowerSwitchOn_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : USER_Btn_Pin */
+  GPIO_InitStruct.Pin = USER_Btn_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(USER_Btn_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : Joy_btn_Pin */
+  GPIO_InitStruct.Pin = Joy_btn_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(Joy_btn_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : LD1_Pin LD3_Pin LD2_Pin */
+  GPIO_InitStruct.Pin = LD1_Pin|LD3_Pin|LD2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : USB_PowerSwitchOn_Pin */
+  GPIO_InitStruct.Pin = USB_PowerSwitchOn_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(USB_PowerSwitchOn_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : USB_OverCurrent_Pin */
+  GPIO_InitStruct.Pin = USB_OverCurrent_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(USB_OverCurrent_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI3_IRQn);
+
+/* USER CODE BEGIN MX_GPIO_Init_2 */
+/* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
@@ -1083,25 +1240,24 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 						(unsigned int) interval);
 				btn_cnt = 0;
 				current_state.mode = TIME_SETTING;
-				//				time_set_mode();
 			} else if (interval >= 300 && interval <= 1000) {
 				printf("Long click!!  interval = %u\r\n",
 						(unsigned int) interval);
 				btn_cnt = 0;
 				current_state.mode = ALARM_TIME_SETTING;
-				//				alarm_set_mode();
 			}
 			if (btn_cnt >= 5) {
 				printf("Double click!!  interval = %u   btn_cnt = %d  \r\n",
 						(unsigned int) interval, btn_cnt);
 				btn_cnt = 0;
 				current_state.mode = MUSIC_SELECT;
-				//				music_selc_mode();
 			}
 		}
-
 	}
+}
 
+void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc) {
+	printf("Alarm!! Alarm time: %d: %d: %d \r\n", atime.hours, atime.minutes, atime.seconds);
 }
 
 //stat_flashRW readFlash(uint32_t startADDR) {
@@ -1280,16 +1436,17 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 /* USER CODE END 4 */
 
 /**
- * @brief  This function is executed in case of error occurrence.
- * @retval None
- */
-void Error_Handler(void) {
-	/* USER CODE BEGIN Error_Handler_Debug */
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
 	/* User can add his own implementation to report the HAL error return state */
 	__disable_irq();
 	while (1) {
 	}
-	/* USER CODE END Error_Handler_Debug */
+  /* USER CODE END Error_Handler_Debug */
 }
 
 #ifdef  USE_FULL_ASSERT
