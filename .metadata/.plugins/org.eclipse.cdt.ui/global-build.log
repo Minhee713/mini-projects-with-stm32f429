@@ -32898,3 +32898,500 @@ Finished building: default.size.stdout
  
 Finished building: bluetooth_alarm.list
  
+15:27:08 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'lcd_clear':
+../Core/Src/main.c:957:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  957 |         LCD_SendCommand(LCD_ADDR, 0b00000001);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'get_time':
+../Core/Src/main.c:962:33: error: 'sDate' undeclared (first use in this function)
+  962 |         HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
+      |                                 ^~~~~
+../Core/Src/main.c:962:33: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:971:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  971 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1142:6: error: redefinition of 'timeDisplay'
+ 1142 | void timeDisplay() {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:977:6: note: previous definition of 'timeDisplay' with type 'void(void)'
+  977 | void timeDisplay() {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:1187:6: error: redefinition of 'musicOn'
+ 1187 | void musicOn() {
+      |      ^~~~~~~
+../Core/Src/main.c:1024:6: note: previous definition of 'musicOn' with type 'void(void)'
+ 1024 | void musicOn() {
+      |      ^~~~~~~
+../Core/Src/main.c:1195:6: error: redefinition of 'schoolBellPlay'
+ 1195 | void schoolBellPlay() {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:1032:6: note: previous definition of 'schoolBellPlay' with type 'void(void)'
+ 1032 | void schoolBellPlay() {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:1219:6: error: redefinition of 'nabiPlay'
+ 1219 | void nabiPlay() {
+      |      ^~~~~~~~
+../Core/Src/main.c:1056:6: note: previous definition of 'nabiPlay' with type 'void(void)'
+ 1056 | void nabiPlay() {
+      |      ^~~~~~~~
+../Core/Src/main.c:1243:6: error: redefinition of 'musicDisplay'
+ 1243 | void musicDisplay(int musicNumber) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:1080:6: note: previous definition of 'musicDisplay' with type 'void(int)'
+ 1080 | void musicDisplay(int musicNumber) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:1256:6: error: redefinition of 'musicPlay'
+ 1256 | void musicPlay(int musicNumber) {
+      |      ^~~~~~~~~
+../Core/Src/main.c:1093:6: note: previous definition of 'musicPlay' with type 'void(int)'
+ 1093 | void musicPlay(int musicNumber) {
+      |      ^~~~~~~~~
+../Core/Src/main.c:1282:19: error: redefinition of 'joyStick_btn_chk'
+ 1282 | enum CLOCK_BUTTON joyStick_btn_chk() {
+      |                   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:1119:19: note: previous definition of 'joyStick_btn_chk' with type 'enum CLOCK_BUTTON(void)'
+ 1119 | enum CLOCK_BUTTON joyStick_btn_chk() {
+      |                   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1602:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+ 1602 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:1606:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+ 1606 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1617:1: error: unknown type name 'id'; did you mean 'void'?
+ 1617 | id musicOn() {
+      | ^~
+      | void
+../Core/Src/main.c:1617:4: error: conflicting types for 'musicOn'; have 'int()'
+ 1617 | id musicOn() {
+      |    ^~~~~~~
+../Core/Src/main.c:1024:6: note: previous definition of 'musicOn' with type 'void(void)'
+ 1024 | void musicOn() {
+      |      ^~~~~~~
+../Core/Src/main.c:1625:6: error: redefinition of 'schoolBellPlay'
+ 1625 | void schoolBellPlay() {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:1032:6: note: previous definition of 'schoolBellPlay' with type 'void(void)'
+ 1032 | void schoolBellPlay() {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:1649:6: error: redefinition of 'nabiPlay'
+ 1649 | void nabiPlay() {
+      |      ^~~~~~~~
+../Core/Src/main.c:1056:6: note: previous definition of 'nabiPlay' with type 'void(void)'
+ 1056 | void nabiPlay() {
+      |      ^~~~~~~~
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:1301:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1301 | }
+      | ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1615:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1615 | }
+      | ^
+../Core/Src/main.c: In function 'musicOn':
+../Core/Src/main.c:1623:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1623 | }
+      | ^
+At top level:
+../Core/Src/main.c:150:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  150 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:30:18 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'lcd_clear':
+../Core/Src/main.c:957:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  957 |         LCD_SendCommand(LCD_ADDR, 0b00000001);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:971:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  971 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1142:6: error: redefinition of 'timeDisplay'
+ 1142 | void timeDisplay() {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:977:6: note: previous definition of 'timeDisplay' with type 'void(void)'
+  977 | void timeDisplay() {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:1187:6: error: redefinition of 'musicOn'
+ 1187 | void musicOn() {
+      |      ^~~~~~~
+../Core/Src/main.c:1024:6: note: previous definition of 'musicOn' with type 'void(void)'
+ 1024 | void musicOn() {
+      |      ^~~~~~~
+../Core/Src/main.c:1195:6: error: redefinition of 'schoolBellPlay'
+ 1195 | void schoolBellPlay() {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:1032:6: note: previous definition of 'schoolBellPlay' with type 'void(void)'
+ 1032 | void schoolBellPlay() {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:1219:6: error: redefinition of 'nabiPlay'
+ 1219 | void nabiPlay() {
+      |      ^~~~~~~~
+../Core/Src/main.c:1056:6: note: previous definition of 'nabiPlay' with type 'void(void)'
+ 1056 | void nabiPlay() {
+      |      ^~~~~~~~
+../Core/Src/main.c:1243:6: error: redefinition of 'musicDisplay'
+ 1243 | void musicDisplay(int musicNumber) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:1080:6: note: previous definition of 'musicDisplay' with type 'void(int)'
+ 1080 | void musicDisplay(int musicNumber) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:1256:6: error: redefinition of 'musicPlay'
+ 1256 | void musicPlay(int musicNumber) {
+      |      ^~~~~~~~~
+../Core/Src/main.c:1093:6: note: previous definition of 'musicPlay' with type 'void(int)'
+ 1093 | void musicPlay(int musicNumber) {
+      |      ^~~~~~~~~
+../Core/Src/main.c:1282:19: error: redefinition of 'joyStick_btn_chk'
+ 1282 | enum CLOCK_BUTTON joyStick_btn_chk() {
+      |                   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:1119:19: note: previous definition of 'joyStick_btn_chk' with type 'enum CLOCK_BUTTON(void)'
+ 1119 | enum CLOCK_BUTTON joyStick_btn_chk() {
+      |                   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1602:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+ 1602 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:1606:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+ 1606 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1617:6: error: redefinition of 'musicOn'
+ 1617 | void musicOn() {
+      |      ^~~~~~~
+../Core/Src/main.c:1024:6: note: previous definition of 'musicOn' with type 'void(void)'
+ 1024 | void musicOn() {
+      |      ^~~~~~~
+../Core/Src/main.c:1625:6: error: redefinition of 'schoolBellPlay'
+ 1625 | void schoolBellPlay() {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:1032:6: note: previous definition of 'schoolBellPlay' with type 'void(void)'
+ 1032 | void schoolBellPlay() {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:1649:6: error: redefinition of 'nabiPlay'
+ 1649 | void nabiPlay() {
+      |      ^~~~~~~~
+../Core/Src/main.c:1056:6: note: previous definition of 'nabiPlay' with type 'void(void)'
+ 1056 | void nabiPlay() {
+      |      ^~~~~~~~
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:1301:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1301 | }
+      | ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1615:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1615 | }
+      | ^
+At top level:
+../Core/Src/main.c:150:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  150 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:31:04 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'lcd_clear':
+../Core/Src/main.c:957:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  957 |         LCD_SendCommand(LCD_ADDR, 0b00000001);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:971:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  971 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1142:6: error: redefinition of 'timeDisplay'
+ 1142 | void timeDisplay() {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:977:6: note: previous definition of 'timeDisplay' with type 'void(void)'
+  977 | void timeDisplay() {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:1187:6: error: redefinition of 'musicOn'
+ 1187 | void musicOn() {
+      |      ^~~~~~~
+../Core/Src/main.c:1024:6: note: previous definition of 'musicOn' with type 'void(void)'
+ 1024 | void musicOn() {
+      |      ^~~~~~~
+../Core/Src/main.c:1195:6: error: redefinition of 'schoolBellPlay'
+ 1195 | void schoolBellPlay() {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:1032:6: note: previous definition of 'schoolBellPlay' with type 'void(void)'
+ 1032 | void schoolBellPlay() {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:1219:6: error: redefinition of 'nabiPlay'
+ 1219 | void nabiPlay() {
+      |      ^~~~~~~~
+../Core/Src/main.c:1056:6: note: previous definition of 'nabiPlay' with type 'void(void)'
+ 1056 | void nabiPlay() {
+      |      ^~~~~~~~
+../Core/Src/main.c:1243:6: error: redefinition of 'musicDisplay'
+ 1243 | void musicDisplay(int musicNumber) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:1080:6: note: previous definition of 'musicDisplay' with type 'void(int)'
+ 1080 | void musicDisplay(int musicNumber) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:1256:6: error: redefinition of 'musicPlay'
+ 1256 | void musicPlay(int musicNumber) {
+      |      ^~~~~~~~~
+../Core/Src/main.c:1093:6: note: previous definition of 'musicPlay' with type 'void(int)'
+ 1093 | void musicPlay(int musicNumber) {
+      |      ^~~~~~~~~
+../Core/Src/main.c:1282:19: error: redefinition of 'joyStick_btn_chk'
+ 1282 | enum CLOCK_BUTTON joyStick_btn_chk() {
+      |                   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:1119:19: note: previous definition of 'joyStick_btn_chk' with type 'enum CLOCK_BUTTON(void)'
+ 1119 | enum CLOCK_BUTTON joyStick_btn_chk() {
+      |                   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1602:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+ 1602 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:1606:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+ 1606 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1617:6: error: redefinition of 'musicOn'
+ 1617 | void musicOn() {
+      |      ^~~~~~~
+../Core/Src/main.c:1024:6: note: previous definition of 'musicOn' with type 'void(void)'
+ 1024 | void musicOn() {
+      |      ^~~~~~~
+../Core/Src/main.c:1625:6: error: redefinition of 'schoolBellPlay'
+ 1625 | void schoolBellPlay() {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:1032:6: note: previous definition of 'schoolBellPlay' with type 'void(void)'
+ 1032 | void schoolBellPlay() {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:1649:6: error: redefinition of 'nabiPlay'
+ 1649 | void nabiPlay() {
+      |      ^~~~~~~~
+../Core/Src/main.c:1056:6: note: previous definition of 'nabiPlay' with type 'void(void)'
+ 1056 | void nabiPlay() {
+      |      ^~~~~~~~
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:1301:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1301 | }
+      | ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1615:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1615 | }
+      | ^
+At top level:
+../Core/Src/main.c:150:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  150 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:37:38 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'lcd_clear':
+../Core/Src/main.c:957:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  957 |         LCD_SendCommand(LCD_ADDR, 0b00000001);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:971:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  971 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1602:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+ 1602 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:1606:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+ 1606 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1617:6: error: redefinition of 'musicOn'
+ 1617 | void musicOn() {
+      |      ^~~~~~~
+../Core/Src/main.c:1024:6: note: previous definition of 'musicOn' with type 'void(void)'
+ 1024 | void musicOn() {
+      |      ^~~~~~~
+../Core/Src/main.c:1625:6: error: redefinition of 'schoolBellPlay'
+ 1625 | void schoolBellPlay() {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:1032:6: note: previous definition of 'schoolBellPlay' with type 'void(void)'
+ 1032 | void schoolBellPlay() {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:1649:6: error: redefinition of 'nabiPlay'
+ 1649 | void nabiPlay() {
+      |      ^~~~~~~~
+../Core/Src/main.c:1056:6: note: previous definition of 'nabiPlay' with type 'void(void)'
+ 1056 | void nabiPlay() {
+      |      ^~~~~~~~
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:1138:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1138 | }
+      | ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1615:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1615 | }
+      | ^
+At top level:
+../Core/Src/main.c:150:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  150 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:38:02 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'lcd_clear':
+../Core/Src/main.c:957:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  957 |         LCD_SendCommand(LCD_ADDR, 0b00000001);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:971:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  971 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1602:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+ 1602 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:1606:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+ 1606 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:1138:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1138 | }
+      | ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1615:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1615 | }
+      | ^
+At top level:
+../Core/Src/main.c:150:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  150 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45372	    376	   4472	  50220	   c42c	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+15:53:09 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'lcd_clear':
+../Core/Src/main.c:956:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  956 |         LCD_SendCommand(LCD_ADDR, 0b00000001);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:970:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  970 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1507:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+ 1507 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:1511:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+ 1511 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:1137:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1137 | }
+      | ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1520:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1520 | }
+      | ^
+At top level:
+../Core/Src/main.c:150:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  150 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45368	    376	   4472	  50216	   c428	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+15:57:42 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'lcd_clear':
+../Core/Src/main.c:956:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  956 |         LCD_SendCommand(LCD_ADDR, 0b00000001);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:970:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  970 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1507:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+ 1507 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:1511:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+ 1511 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:1137:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1137 | }
+      | ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1520:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1520 | }
+      | ^
+At top level:
+../Core/Src/main.c:150:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  150 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45368	    376	   4472	  50216	   c428	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 

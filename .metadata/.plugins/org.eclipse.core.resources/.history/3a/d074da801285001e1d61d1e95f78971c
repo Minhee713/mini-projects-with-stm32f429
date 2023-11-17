@@ -129,7 +129,7 @@ TimeTypeDef ctime;
 TimeTypeDef stime;
 TimeTypeDef atime;
 
-RTC_DateTypeDef sDate;
+//RTC_DateTypeDef sDate;
 RTC_TimeTypeDef RTC_Time;
 RTC_AlarmTypeDef RTC_Alarm;
 
@@ -184,8 +184,6 @@ void music_set_mode(void);
 void musicOn(void);
 void schoolBellPlay(void);
 void nabiPlay(void);
-void musicDisplay(int musicNumber);
-void musicPlay(int musicNumber);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -567,12 +565,13 @@ static void MX_RTC_Init(void)
   */
   sAlarm.AlarmTime.Hours = 0;
   sAlarm.AlarmTime.Minutes = 0x0;
-  sAlarm.AlarmTime.Seconds = 0x45;
-  sAlarm.AlarmTime.SubSeconds = 0x0;
+  sAlarm.AlarmTime.Seconds = 0x0;
+  sAlarm.AlarmTime.SubSeconds = 0x20;
   sAlarm.AlarmTime.TimeFormat = RTC_HOURFORMAT12_AM;
   sAlarm.AlarmTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
   sAlarm.AlarmTime.StoreOperation = RTC_STOREOPERATION_RESET;
-  sAlarm.AlarmMask = RTC_ALARMMASK_DATEWEEKDAY;
+  sAlarm.AlarmMask = RTC_ALARMMASK_DATEWEEKDAY|RTC_ALARMMASK_HOURS
+                              |RTC_ALARMMASK_MINUTES;
   sAlarm.AlarmSubSecondMask = RTC_ALARMSUBSECONDMASK_ALL;
   sAlarm.AlarmDateWeekDaySel = RTC_ALARMDATEWEEKDAYSEL_DATE;
   sAlarm.AlarmDateWeekDay = 0x1;
@@ -1020,6 +1019,103 @@ void timeDisplay() {
 	LCD_SendString(LCD_ADDR, timeStr);
 }
 
+
+
+void musicOn() {
+//	start = 1;
+//	seq = 0;
+
+	HAL_TIM_Base_Start_IT(&htim2);
+	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+}
+
+void schoolBellPlay() {
+	uint16_t melody = (uint16_t) (1000000 / schoolBell[seq].freq);
+
+//	musicOn();
+
+	if (stop == 1) {
+		TIM2->ARR = 2000;
+		HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+		stop = 0;
+	} else {
+		if (seq == SCHOOL_MEL_NUM) {
+			HAL_TIM_Base_Stop_IT(&htim2);
+			HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+		} else {
+			TIM3->ARR = melody;
+			TIM3->CCR3 = melody / 2;
+			TIM2->ARR = schoolBell[seq].delay * 2000;
+			HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+			stop = 1;
+			seq++;
+		}
+	}
+}
+
+void nabiPlay() {
+	uint16_t melody = (uint16_t) (1000000 / nabi[seq].freq);
+
+//	musicOn();
+
+	if (stop == 1) {
+		TIM2->ARR = 2000;
+		HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+		stop = 0;
+	} else {
+		if (seq == NABI_MEL_NUM) {
+			HAL_TIM_Base_Stop_IT(&htim2);
+			HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+		} else {
+			TIM3->ARR = melody;
+			TIM3->CCR3 = melody / 2;
+			TIM2->ARR = nabi[seq].delay * 2000;
+			HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+			stop = 1;
+			seq++;
+		}
+	}
+}
+
+void musicDisplay(int musicNumber) {
+	char music_str[30];
+
+	sprintf(music_str, "%d. %s", musicNumber,
+			alarmMusic[musicNumber].musicTitle);
+
+	LCD_SendCommand(LCD_ADDR, 0b10000000);
+	LCD_SendString(LCD_ADDR, "Music Setting");
+	LCD_SendCommand(LCD_ADDR, 0b11000000);
+	LCD_SendString(LCD_ADDR, music_str);
+}
+
+enum MUSIC_LIST musicList;
+void musicPlay(int musicNumber) {
+
+	switch(musicNumber) {
+	case 0:
+//		musicList = MUSIC_NUM_0;
+		schoolBellPlay();
+		break;
+	case 1:
+//		musicList = MUSIC_NUM_1;
+		nabiPlay();
+		break;
+	case 2:
+//		musicList = MUSIC_NUM_2;
+		break;
+	case 3:
+//		musicList = MUSIC_NUM_3;
+		break;
+	case 4:
+//		musicList = MUSIC_NUM_4;
+		break;
+	default:
+		break;
+
+	}
+}
+
 enum CLOCK_BUTTON joyStick_btn_chk() {
 
 //	printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
@@ -1041,50 +1137,167 @@ enum CLOCK_BUTTON joyStick_btn_chk() {
 	}
 }
 
-HAL_StatusTypeDef update_nvitems(void) {
-	uint32_t FirstSector, NbOfSectors, SECTORError;
-	FLASH_EraseInitTypeDef EraseInitStruct;
-	HAL_StatusTypeDef error = HAL_OK;
-	uint32_t Address, i;
-	uint64_t Data;
-	uint8_t *ptr;
 
-	HAL_FLASH_Unlock();
 
-	FirstSector = ADDR_FLASH_SECTOR_10;
-	NbOfSectors = 1;
-	EraseInitStruct.TypeErase = FLASH_TYPEERASE_SECTORS;
-	EraseInitStruct.VoltageRange = FLASH_VOLTAGE_RANGE_1;
-	EraseInitStruct.Sector = FirstSector;
-	EraseInitStruct.NbSectors = NbOfSectors;
+void timeDisplay() {
+	uint8_t hours;
+	uint8_t minutes;
+	uint8_t seconds;
 
-//	printf("\r\n--------------erase-----------\r\n");
+	if (current_state.mode == TIME_SETTING) {
+		LCD_SendCommand(LCD_ADDR, 0b10000000);
+		LCD_SendString(LCD_ADDR, "Time Setting");
 
-//	HAL_FLASHEx_Erase(&EraseInitStruct, &SECTORError);
+		hours = stime.hours;
+		minutes = stime.minutes;
+		seconds = stime.seconds;
+	} else if (current_state.mode == ALARM_TIME_SETTING) {
+		LCD_SendCommand(LCD_ADDR, 0b10000000);
+		LCD_SendString(LCD_ADDR, "Alarm Setting");
 
-	if (HAL_FLASHEx_Erase(&EraseInitStruct, &SECTORError) == HAL_OK) {
-		printf("\r\n--------------erase complete-----------\r\n");
-	} else {
-		printf("\r\n--------------erase error-----------\r\n");
-		return error;
+		hours = atime.hours;
+		minutes = atime.minutes;
+		seconds = atime.seconds;
 	}
 
-	ptr = (uint8_t*) &default_nvitem;
-
-	for (i = 0; i < sizeof(NVitemTypeDef); i++) {
-		Address = (uint8_t*) nv_items + i;
-		Data = *((uint8_t*) ptr + i);
-		error = HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, Address, Data);
-
-		printf("DATA: %ld\r\n", Data);
-
-		if (error != HAL_OK) {
-			printf("\r\n--------------overwrite error-----------\r\n");
-			return error;
+	if (hours >= 12) {
+		if (current_state.mode == TIME_SETTING) {
+			sprintf(timeStr, "%s %02d: %02d: %02d", ampm[RTC_Time.TimeFormat],
+					hours - 12, minutes, seconds);
+		} else if (current_state.mode == ALARM_TIME_SETTING) {
+			sprintf(timeStr, "%s %02d: %02d: %02d",
+					ampm[RTC_Alarm.AlarmTime.TimeFormat], hours - 12, minutes,
+					seconds);
+		}
+	} else {
+		if (current_state.mode == TIME_SETTING) {
+			sprintf(timeStr, "%s %02d: %02d: %02d", ampm[RTC_Time.TimeFormat],
+					hours, minutes, seconds);
+		} else if (current_state.mode == ALARM_TIME_SETTING) {
+			sprintf(timeStr, "%s %02d: %02d: %02d",
+					ampm[RTC_Alarm.AlarmTime.TimeFormat], hours, minutes,
+					seconds);
 		}
 	}
-	printf("\r\n--------------overwrite complete-----------\r\n");
-	HAL_FLASH_Lock();
+
+	LCD_SendCommand(LCD_ADDR, 0b11000000);
+	LCD_SendString(LCD_ADDR, timeStr);
+}
+
+void musicOn() {
+//	start = 1;
+//	seq = 0;
+
+	HAL_TIM_Base_Start_IT(&htim2);
+	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+}
+
+void schoolBellPlay() {
+	uint16_t melody = (uint16_t) (1000000 / schoolBell[seq].freq);
+
+//	musicOn();
+
+	if (stop == 1) {
+		TIM2->ARR = 2000;
+		HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+		stop = 0;
+	} else {
+		if (seq == SCHOOL_MEL_NUM) {
+			HAL_TIM_Base_Stop_IT(&htim2);
+			HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+		} else {
+			TIM3->ARR = melody;
+			TIM3->CCR3 = melody / 2;
+			TIM2->ARR = schoolBell[seq].delay * 2000;
+			HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+			stop = 1;
+			seq++;
+		}
+	}
+}
+
+void nabiPlay() {
+	uint16_t melody = (uint16_t) (1000000 / nabi[seq].freq);
+
+//	musicOn();
+
+	if (stop == 1) {
+		TIM2->ARR = 2000;
+		HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+		stop = 0;
+	} else {
+		if (seq == NABI_MEL_NUM) {
+			HAL_TIM_Base_Stop_IT(&htim2);
+			HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+		} else {
+			TIM3->ARR = melody;
+			TIM3->CCR3 = melody / 2;
+			TIM2->ARR = nabi[seq].delay * 2000;
+			HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+			stop = 1;
+			seq++;
+		}
+	}
+}
+
+void musicDisplay(int musicNumber) {
+	char music_str[30];
+
+	sprintf(music_str, "%d. %s", musicNumber,
+			alarmMusic[musicNumber].musicTitle);
+
+	LCD_SendCommand(LCD_ADDR, 0b10000000);
+	LCD_SendString(LCD_ADDR, "Music Setting");
+	LCD_SendCommand(LCD_ADDR, 0b11000000);
+	LCD_SendString(LCD_ADDR, music_str);
+}
+
+enum MUSIC_LIST musicList;
+void musicPlay(int musicNumber) {
+
+	switch(musicNumber) {
+	case 0:
+//		musicList = MUSIC_NUM_0;
+		schoolBellPlay();
+		break;
+	case 1:
+//		musicList = MUSIC_NUM_1;
+		nabiPlay();
+		break;
+	case 2:
+//		musicList = MUSIC_NUM_2;
+		break;
+	case 3:
+//		musicList = MUSIC_NUM_3;
+		break;
+	case 4:
+//		musicList = MUSIC_NUM_4;
+		break;
+	default:
+		break;
+
+	}
+}
+
+enum CLOCK_BUTTON joyStick_btn_chk() {
+
+//	printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
+	if (xy[1] > 4000) {
+		printf("up\r\n");
+		return UP;
+	}
+	if (xy[1] < 1000) {
+		printf("down\r\n");
+		return DOWN;
+	}
+	if (xy[0] > 4000) {
+		printf("left\r\n");
+		return LEFT;
+	}
+	if (xy[0] < 1000) {
+		printf("right\r\n");
+		return RIGHT;
+	}
 }
 
 void time_set_mode() {
@@ -1198,7 +1411,6 @@ void time_set_mode() {
 	}
 	timeDisplay();
 }
-
 
 void alarm_set_mode(void) {
 
@@ -1356,8 +1568,53 @@ void music_set_mode() {
 
 }
 
+HAL_StatusTypeDef update_nvitems(void) {
+	uint32_t FirstSector, NbOfSectors, SECTORError;
+	FLASH_EraseInitTypeDef EraseInitStruct;
+	HAL_StatusTypeDef error = HAL_OK;
+	uint32_t Address, i;
+	uint64_t Data;
+	uint8_t *ptr;
 
-void musicOn() {
+	HAL_FLASH_Unlock();
+
+	FirstSector = ADDR_FLASH_SECTOR_10;
+	NbOfSectors = 1;
+	EraseInitStruct.TypeErase = FLASH_TYPEERASE_SECTORS;
+	EraseInitStruct.VoltageRange = FLASH_VOLTAGE_RANGE_1;
+	EraseInitStruct.Sector = FirstSector;
+	EraseInitStruct.NbSectors = NbOfSectors;
+
+//	printf("\r\n--------------erase-----------\r\n");
+
+//	HAL_FLASHEx_Erase(&EraseInitStruct, &SECTORError);
+
+	if (HAL_FLASHEx_Erase(&EraseInitStruct, &SECTORError) == HAL_OK) {
+		printf("\r\n--------------erase complete-----------\r\n");
+	} else {
+		printf("\r\n--------------erase error-----------\r\n");
+		return error;
+	}
+
+	ptr = (uint8_t*) &default_nvitem;
+
+	for (i = 0; i < sizeof(NVitemTypeDef); i++) {
+		Address = (uint8_t*) nv_items + i;
+		Data = *((uint8_t*) ptr + i);
+		error = HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, Address, Data);
+
+		printf("DATA: %ld\r\n", Data);
+
+		if (error != HAL_OK) {
+			printf("\r\n--------------overwrite error-----------\r\n");
+			return error;
+		}
+	}
+	printf("\r\n--------------overwrite complete-----------\r\n");
+	HAL_FLASH_Lock();
+}
+
+id musicOn() {
 //	start = 1;
 //	seq = 0;
 
@@ -1413,44 +1670,9 @@ void nabiPlay() {
 	}
 }
 
-void musicDisplay(int musicNumber) {
-	char music_str[30];
 
-	sprintf(music_str, "%d. %s", musicNumber,
-			alarmMusic[musicNumber].musicTitle);
 
-	LCD_SendCommand(LCD_ADDR, 0b10000000);
-	LCD_SendString(LCD_ADDR, "Music Setting");
-	LCD_SendCommand(LCD_ADDR, 0b11000000);
-	LCD_SendString(LCD_ADDR, music_str);
-}
 
-enum MUSIC_LIST musicList;
-void musicPlay(int musicNumber) {
-
-	switch(musicNumber) {
-	case 0:
-//		musicList = MUSIC_NUM_0;
-		schoolBellPlay();
-		break;
-	case 1:
-//		musicList = MUSIC_NUM_1;
-		nabiPlay();
-		break;
-	case 2:
-//		musicList = MUSIC_NUM_2;
-		break;
-	case 3:
-//		musicList = MUSIC_NUM_3;
-		break;
-	case 4:
-//		musicList = MUSIC_NUM_4;
-		break;
-	default:
-		break;
-
-	}
-}
 
 
 
