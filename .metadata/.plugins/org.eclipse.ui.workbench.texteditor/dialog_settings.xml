@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="timeStr"/>
+		<item key="selection" value="musicList"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="musicList"/>
+			<item value="musicOn"/>
+			<item value="update"/>
+			<item value=" alarm callback"/>
+			<item value="alarm"/>
+			<item value="joyStick_btn_chk"/>
+			<item value="sDate"/>
+			<item value="schoolBell"/>
+			<item value="schoollBell"/>
+			<item value="SCHOOL_MEL_NUM"/>
 			<item value="timeStr"/>
 			<item value="alarm_time"/>
 			<item value="RTC_Alarm_IRQ"/>
 			<item value="FLASH_USER_START_ADDR"/>
 			<item value="nv_items"/>
-			<item value="ADDR_FLASH_SECTOR_22"/>
-			<item value="default_nvitem"/>
-			<item value="readFlash"/>
-			<item value="GetSector"/>
-			<item value="eraseFlash"/>
-			<item value="time_set_mode()"/>
-			<item value="time_set_mode"/>
-			<item value="----------"/>
-			<item value="-3-"/>
-			<item value="--------"/>
 		</list>
 		<list key="replacehistory">
 		</list>

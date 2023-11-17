@@ -2502,3 +2502,310 @@
 2023-11-17 12:36:40,911 [INFO] ProjectBuilder:4626 - Time for Generating toolchain IDE Files: 1415mS.
 2023-11-17 12:36:40,912 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 1mS.
 2023-11-17 12:36:40,916 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
+2023-11-17 15:52:05,129 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-17 15:52:07,051 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-17 15:52:10,436 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-17 15:52:12,184 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-17 15:52:17,916 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-17 15:52:22,612 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-17 15:52:32,442 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 761527552 Bytes (919601152)
+2023-11-17 15:52:41,802 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 290026504 Bytes (919601152)
+2023-11-17 15:52:45,760 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 358706184 Bytes (919601152)
+2023-11-17 15:52:46,042 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8
+2023-11-17 15:52:46,042 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8
+2023-11-17 15:52:46,042 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-11-17 15:52:46,042 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2023-11-17 15:52:46,042 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-11-17 15:52:46,042 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: I2C
+2023-11-17 15:52:46,042 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RTC
+2023-11-17 15:52:46,042 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_FS
+2023-11-17 15:52:46,042 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-11-17 15:52:46,042 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-11-17 15:52:46,042 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
+2023-11-17 15:52:46,043 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-11-17 15:52:46,043 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ETH
+2023-11-17 15:52:46,044 [INFO] CodeGenerator:799 - code generatio: config db path: C:\ST\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.9.2.202309101412\\db\
+2023-11-17 15:52:46,052 [INFO] Argument:319 - Argument : hdmavalue: null
+2023-11-17 15:52:46,052 [INFO] Argument:321 - 	 sub Args: 
+2023-11-17 15:52:46,052 [INFO] Argument:319 - Argument : Instancevalue: DMA2_Stream0
+2023-11-17 15:52:46,052 [INFO] Argument:329 - Argument : Instancevalue: DMA2_Stream0
+2023-11-17 15:52:46,052 [INFO] Argument:319 - Argument : Initvalue: null
+2023-11-17 15:52:46,052 [INFO] Argument:321 - 	 sub Args: 
+2023-11-17 15:52:46,052 [INFO] Argument:319 - Argument : Channelvalue: DMA_CHANNEL_0
+2023-11-17 15:52:46,052 [INFO] Argument:329 - Argument : Channelvalue: DMA_CHANNEL_0
+2023-11-17 15:52:46,052 [INFO] Argument:319 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2023-11-17 15:52:46,052 [INFO] Argument:329 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2023-11-17 15:52:46,052 [INFO] Argument:319 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2023-11-17 15:52:46,052 [INFO] Argument:329 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2023-11-17 15:52:46,052 [INFO] Argument:319 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2023-11-17 15:52:46,052 [INFO] Argument:329 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2023-11-17 15:52:46,052 [INFO] Argument:319 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2023-11-17 15:52:46,052 [INFO] Argument:329 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2023-11-17 15:52:46,052 [INFO] Argument:319 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2023-11-17 15:52:46,052 [INFO] Argument:329 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2023-11-17 15:52:46,052 [INFO] Argument:319 - Argument : Modevalue: DMA_CIRCULAR
+2023-11-17 15:52:46,052 [INFO] Argument:329 - Argument : Modevalue: DMA_CIRCULAR
+2023-11-17 15:52:46,052 [INFO] Argument:319 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2023-11-17 15:52:46,052 [INFO] Argument:329 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2023-11-17 15:52:46,052 [INFO] Argument:319 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2023-11-17 15:52:46,052 [INFO] Argument:329 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2023-11-17 15:52:46,052 [INFO] Argument:319 - Argument : FIFOThresholdvalue: null
+2023-11-17 15:52:46,052 [INFO] Argument:329 - Argument : FIFOThresholdvalue: null
+2023-11-17 15:52:46,052 [INFO] Argument:319 - Argument : MemBurstvalue: null
+2023-11-17 15:52:46,052 [INFO] Argument:329 - Argument : MemBurstvalue: null
+2023-11-17 15:52:46,052 [INFO] Argument:319 - Argument : PeriphBurstvalue: null
+2023-11-17 15:52:46,052 [INFO] Argument:329 - Argument : PeriphBurstvalue: null
+2023-11-17 15:52:46,052 [INFO] Argument:319 - Argument : Lockvalue: null
+2023-11-17 15:52:46,052 [INFO] Argument:329 - Argument : Lockvalue: null
+2023-11-17 15:52:46,053 [INFO] Argument:319 - Argument : Statevalue: null
+2023-11-17 15:52:46,053 [INFO] Argument:329 - Argument : Statevalue: null
+2023-11-17 15:52:46,053 [INFO] Argument:319 - Argument : Parentvalue: null
+2023-11-17 15:52:46,053 [INFO] Argument:329 - Argument : Parentvalue: null
+2023-11-17 15:52:46,053 [INFO] Argument:319 - Argument : XferCpltCallbackvalue: null
+2023-11-17 15:52:46,053 [INFO] Argument:329 - Argument : XferCpltCallbackvalue: null
+2023-11-17 15:52:46,053 [INFO] Argument:319 - Argument : XferHalfCpltCallbackvalue: null
+2023-11-17 15:52:46,053 [INFO] Argument:329 - Argument : XferHalfCpltCallbackvalue: null
+2023-11-17 15:52:46,053 [INFO] Argument:319 - Argument : XferM1CpltCallbackvalue: null
+2023-11-17 15:52:46,053 [INFO] Argument:329 - Argument : XferM1CpltCallbackvalue: null
+2023-11-17 15:52:46,053 [INFO] Argument:319 - Argument : XferErrorCallbackvalue: null
+2023-11-17 15:52:46,053 [INFO] Argument:329 - Argument : XferErrorCallbackvalue: null
+2023-11-17 15:52:46,053 [INFO] Argument:319 - Argument : ErrorCodevalue: null
+2023-11-17 15:52:46,053 [INFO] Argument:329 - Argument : ErrorCodevalue: null
+2023-11-17 15:52:46,265 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\license.tmp_save
+2023-11-17 15:52:46,367 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\license.tmp
+2023-11-17 15:52:46,390 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\gpio.tmp_save
+2023-11-17 15:52:46,488 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\gpio.tmp
+2023-11-17 15:52:46,685 [WARN] IPConfigManager:2937 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2023-11-17 15:52:46,782 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\dma.tmp_save
+2023-11-17 15:52:46,886 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\dma.tmp
+2023-11-17 15:52:46,891 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\dma_GV.tmp_save
+2023-11-17 15:52:46,948 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\dma_GV.tmp
+2023-11-17 15:52:46,978 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Src\stm32f4xx_it.c_save
+2023-11-17 15:52:47,158 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Src\stm32f4xx_it.c
+2023-11-17 15:52:47,173 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Inc\stm32f4xx_it.h_save
+2023-11-17 15:52:47,244 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Inc\stm32f4xx_it.h
+2023-11-17 15:52:47,264 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Src\stm32f4xx_hal_msp.c_save
+2023-11-17 15:52:47,403 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Src\stm32f4xx_hal_msp.c
+2023-11-17 15:52:47,408 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\system.tmp_save
+2023-11-17 15:52:47,490 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\system.tmp
+2023-11-17 15:52:47,540 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Inc\stm32f4xx_hal_conf.h_save
+2023-11-17 15:52:47,657 [INFO] CodeEngine:335 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Inc\stm32f4xx_hal_conf.h
+2023-11-17 15:52:47,683 [WARN] IPConfigManager:3431 - IP not found : TIM
+2023-11-17 15:52:47,683 [WARN] IPConfigManager:3431 - IP not found : USB_OTG
+2023-11-17 15:52:47,684 [WARN] CodeGenerator:3764 - IP not found : null
+2023-11-17 15:52:47,684 [WARN] CodeGenerator:3764 - IP not found : null
+2023-11-17 15:52:47,703 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Inc\main.h_save
+2023-11-17 15:52:47,820 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Inc\main.h
+2023-11-17 15:52:47,836 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Src\main.c_save
+2023-11-17 15:52:48,003 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Src\main.c
+2023-11-17 15:52:48,573 [INFO] ProjectBuilder:3064 - Time for Copy HAL[1] : 166mS.
+2023-11-17 15:52:48,576 [INFO] ProjectBuilder:4404 - Project Generator version: 4.1.0
+2023-11-17 15:52:48,736 [INFO] ConfigFileManager:1457 - The Die is : DIE419
+2023-11-17 15:52:49,910 [INFO] ProjectBuilder:4626 - Time for Generating toolchain IDE Files: 1334mS.
+2023-11-17 15:52:49,911 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 1mS.
+2023-11-17 15:52:49,915 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
+2023-11-17 15:56:57,981 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-17 15:57:04,605 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-17 15:57:14,755 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-17 15:57:21,725 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-17 15:57:27,050 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-17 15:57:28,475 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 664302336 Bytes (1019215872)
+2023-11-17 15:57:29,769 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 330892608 Bytes (1037041664)
+2023-11-17 15:57:31,104 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 383847744 Bytes (1037041664)
+2023-11-17 15:57:31,312 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8
+2023-11-17 15:57:31,312 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8
+2023-11-17 15:57:31,312 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-11-17 15:57:31,312 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2023-11-17 15:57:31,312 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-11-17 15:57:31,312 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: I2C
+2023-11-17 15:57:31,312 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RTC
+2023-11-17 15:57:31,312 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_FS
+2023-11-17 15:57:31,312 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-11-17 15:57:31,312 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-11-17 15:57:31,313 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
+2023-11-17 15:57:31,313 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-11-17 15:57:31,313 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ETH
+2023-11-17 15:57:31,314 [INFO] CodeGenerator:799 - code generatio: config db path: C:\ST\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.9.2.202309101412\\db\
+2023-11-17 15:57:31,322 [INFO] Argument:319 - Argument : hdmavalue: null
+2023-11-17 15:57:31,323 [INFO] Argument:321 - 	 sub Args: 
+2023-11-17 15:57:31,323 [INFO] Argument:319 - Argument : Instancevalue: DMA2_Stream0
+2023-11-17 15:57:31,323 [INFO] Argument:329 - Argument : Instancevalue: DMA2_Stream0
+2023-11-17 15:57:31,323 [INFO] Argument:319 - Argument : Initvalue: null
+2023-11-17 15:57:31,323 [INFO] Argument:321 - 	 sub Args: 
+2023-11-17 15:57:31,323 [INFO] Argument:319 - Argument : Channelvalue: DMA_CHANNEL_0
+2023-11-17 15:57:31,323 [INFO] Argument:329 - Argument : Channelvalue: DMA_CHANNEL_0
+2023-11-17 15:57:31,323 [INFO] Argument:319 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2023-11-17 15:57:31,323 [INFO] Argument:329 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2023-11-17 15:57:31,323 [INFO] Argument:319 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2023-11-17 15:57:31,323 [INFO] Argument:329 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2023-11-17 15:57:31,323 [INFO] Argument:319 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2023-11-17 15:57:31,323 [INFO] Argument:329 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2023-11-17 15:57:31,323 [INFO] Argument:319 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2023-11-17 15:57:31,323 [INFO] Argument:329 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2023-11-17 15:57:31,323 [INFO] Argument:319 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2023-11-17 15:57:31,323 [INFO] Argument:329 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2023-11-17 15:57:31,323 [INFO] Argument:319 - Argument : Modevalue: DMA_CIRCULAR
+2023-11-17 15:57:31,323 [INFO] Argument:329 - Argument : Modevalue: DMA_CIRCULAR
+2023-11-17 15:57:31,323 [INFO] Argument:319 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2023-11-17 15:57:31,324 [INFO] Argument:329 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2023-11-17 15:57:31,324 [INFO] Argument:319 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2023-11-17 15:57:31,324 [INFO] Argument:329 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2023-11-17 15:57:31,324 [INFO] Argument:319 - Argument : FIFOThresholdvalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:329 - Argument : FIFOThresholdvalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:319 - Argument : MemBurstvalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:329 - Argument : MemBurstvalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:319 - Argument : PeriphBurstvalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:329 - Argument : PeriphBurstvalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:319 - Argument : Lockvalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:329 - Argument : Lockvalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:319 - Argument : Statevalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:329 - Argument : Statevalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:319 - Argument : Parentvalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:329 - Argument : Parentvalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:319 - Argument : XferCpltCallbackvalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:329 - Argument : XferCpltCallbackvalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:319 - Argument : XferHalfCpltCallbackvalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:329 - Argument : XferHalfCpltCallbackvalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:319 - Argument : XferM1CpltCallbackvalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:329 - Argument : XferM1CpltCallbackvalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:319 - Argument : XferErrorCallbackvalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:329 - Argument : XferErrorCallbackvalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:319 - Argument : ErrorCodevalue: null
+2023-11-17 15:57:31,324 [INFO] Argument:329 - Argument : ErrorCodevalue: null
+2023-11-17 15:57:31,459 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\license.tmp_save
+2023-11-17 15:57:31,601 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\license.tmp
+2023-11-17 15:57:31,625 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\gpio.tmp_save
+2023-11-17 15:57:31,710 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\gpio.tmp
+2023-11-17 15:57:32,018 [WARN] IPConfigManager:2937 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2023-11-17 15:57:32,040 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\dma.tmp_save
+2023-11-17 15:57:32,121 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\dma.tmp
+2023-11-17 15:57:32,125 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\dma_GV.tmp_save
+2023-11-17 15:57:32,205 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\dma_GV.tmp
+2023-11-17 15:57:32,258 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Src\stm32f4xx_it.c_save
+2023-11-17 15:57:32,337 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Src\stm32f4xx_it.c
+2023-11-17 15:57:32,343 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Inc\stm32f4xx_it.h_save
+2023-11-17 15:57:32,402 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Inc\stm32f4xx_it.h
+2023-11-17 15:57:32,423 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Src\stm32f4xx_hal_msp.c_save
+2023-11-17 15:57:32,554 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Src\stm32f4xx_hal_msp.c
+2023-11-17 15:57:32,560 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\system.tmp_save
+2023-11-17 15:57:32,626 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\system.tmp
+2023-11-17 15:57:32,646 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Inc\stm32f4xx_hal_conf.h_save
+2023-11-17 15:57:32,744 [INFO] CodeEngine:335 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Inc\stm32f4xx_hal_conf.h
+2023-11-17 15:57:32,769 [WARN] IPConfigManager:3431 - IP not found : TIM
+2023-11-17 15:57:32,769 [WARN] IPConfigManager:3431 - IP not found : USB_OTG
+2023-11-17 15:57:32,770 [WARN] CodeGenerator:3764 - IP not found : null
+2023-11-17 15:57:32,770 [WARN] CodeGenerator:3764 - IP not found : null
+2023-11-17 15:57:32,788 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Inc\main.h_save
+2023-11-17 15:57:32,862 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Inc\main.h
+2023-11-17 15:57:32,881 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Src\main.c_save
+2023-11-17 15:57:33,036 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Src\main.c
+2023-11-17 15:57:33,601 [INFO] ProjectBuilder:3064 - Time for Copy HAL[1] : 163mS.
+2023-11-17 15:57:33,604 [INFO] ProjectBuilder:4404 - Project Generator version: 4.1.0
+2023-11-17 15:57:33,770 [INFO] ConfigFileManager:1457 - The Die is : DIE419
+2023-11-17 15:57:34,944 [INFO] ProjectBuilder:4626 - Time for Generating toolchain IDE Files: 1340mS.
+2023-11-17 15:57:34,945 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
+2023-11-17 15:57:34,949 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
+2023-11-17 16:01:56,402 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-17 16:02:06,930 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-17 16:02:09,430 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-17 16:02:15,359 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 330146048 Bytes (1073741824)
+2023-11-17 16:02:16,530 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 359506176 Bytes (1073741824)
+2023-11-17 16:02:17,850 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 411934976 Bytes (1073741824)
+2023-11-17 16:02:18,154 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8
+2023-11-17 16:02:18,155 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8
+2023-11-17 16:02:18,155 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-11-17 16:02:18,155 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2023-11-17 16:02:18,155 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-11-17 16:02:18,155 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: I2C
+2023-11-17 16:02:18,155 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RTC
+2023-11-17 16:02:18,155 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_FS
+2023-11-17 16:02:18,155 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-11-17 16:02:18,155 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-11-17 16:02:18,155 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
+2023-11-17 16:02:18,156 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-11-17 16:02:18,156 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ETH
+2023-11-17 16:02:18,158 [INFO] CodeGenerator:799 - code generatio: config db path: C:\ST\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.9.2.202309101412\\db\
+2023-11-17 16:02:18,167 [INFO] Argument:319 - Argument : hdmavalue: null
+2023-11-17 16:02:18,167 [INFO] Argument:321 - 	 sub Args: 
+2023-11-17 16:02:18,167 [INFO] Argument:319 - Argument : Instancevalue: DMA2_Stream0
+2023-11-17 16:02:18,167 [INFO] Argument:329 - Argument : Instancevalue: DMA2_Stream0
+2023-11-17 16:02:18,167 [INFO] Argument:319 - Argument : Initvalue: null
+2023-11-17 16:02:18,167 [INFO] Argument:321 - 	 sub Args: 
+2023-11-17 16:02:18,167 [INFO] Argument:319 - Argument : Channelvalue: DMA_CHANNEL_0
+2023-11-17 16:02:18,167 [INFO] Argument:329 - Argument : Channelvalue: DMA_CHANNEL_0
+2023-11-17 16:02:18,167 [INFO] Argument:319 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2023-11-17 16:02:18,167 [INFO] Argument:329 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2023-11-17 16:02:18,167 [INFO] Argument:319 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2023-11-17 16:02:18,168 [INFO] Argument:329 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2023-11-17 16:02:18,168 [INFO] Argument:319 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2023-11-17 16:02:18,168 [INFO] Argument:329 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2023-11-17 16:02:18,168 [INFO] Argument:319 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2023-11-17 16:02:18,168 [INFO] Argument:329 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2023-11-17 16:02:18,168 [INFO] Argument:319 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2023-11-17 16:02:18,168 [INFO] Argument:329 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2023-11-17 16:02:18,168 [INFO] Argument:319 - Argument : Modevalue: DMA_CIRCULAR
+2023-11-17 16:02:18,168 [INFO] Argument:329 - Argument : Modevalue: DMA_CIRCULAR
+2023-11-17 16:02:18,168 [INFO] Argument:319 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2023-11-17 16:02:18,168 [INFO] Argument:329 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2023-11-17 16:02:18,168 [INFO] Argument:319 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2023-11-17 16:02:18,168 [INFO] Argument:329 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2023-11-17 16:02:18,168 [INFO] Argument:319 - Argument : FIFOThresholdvalue: null
+2023-11-17 16:02:18,168 [INFO] Argument:329 - Argument : FIFOThresholdvalue: null
+2023-11-17 16:02:18,168 [INFO] Argument:319 - Argument : MemBurstvalue: null
+2023-11-17 16:02:18,168 [INFO] Argument:329 - Argument : MemBurstvalue: null
+2023-11-17 16:02:18,168 [INFO] Argument:319 - Argument : PeriphBurstvalue: null
+2023-11-17 16:02:18,168 [INFO] Argument:329 - Argument : PeriphBurstvalue: null
+2023-11-17 16:02:18,168 [INFO] Argument:319 - Argument : Lockvalue: null
+2023-11-17 16:02:18,168 [INFO] Argument:329 - Argument : Lockvalue: null
+2023-11-17 16:02:18,168 [INFO] Argument:319 - Argument : Statevalue: null
+2023-11-17 16:02:18,168 [INFO] Argument:329 - Argument : Statevalue: null
+2023-11-17 16:02:18,168 [INFO] Argument:319 - Argument : Parentvalue: null
+2023-11-17 16:02:18,168 [INFO] Argument:329 - Argument : Parentvalue: null
+2023-11-17 16:02:18,168 [INFO] Argument:319 - Argument : XferCpltCallbackvalue: null
+2023-11-17 16:02:18,168 [INFO] Argument:329 - Argument : XferCpltCallbackvalue: null
+2023-11-17 16:02:18,168 [INFO] Argument:319 - Argument : XferHalfCpltCallbackvalue: null
+2023-11-17 16:02:18,168 [INFO] Argument:329 - Argument : XferHalfCpltCallbackvalue: null
+2023-11-17 16:02:18,169 [INFO] Argument:319 - Argument : XferM1CpltCallbackvalue: null
+2023-11-17 16:02:18,169 [INFO] Argument:329 - Argument : XferM1CpltCallbackvalue: null
+2023-11-17 16:02:18,169 [INFO] Argument:319 - Argument : XferErrorCallbackvalue: null
+2023-11-17 16:02:18,169 [INFO] Argument:329 - Argument : XferErrorCallbackvalue: null
+2023-11-17 16:02:18,169 [INFO] Argument:319 - Argument : ErrorCodevalue: null
+2023-11-17 16:02:18,169 [INFO] Argument:329 - Argument : ErrorCodevalue: null
+2023-11-17 16:02:18,332 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\license.tmp_save
+2023-11-17 16:02:18,425 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\license.tmp
+2023-11-17 16:02:18,449 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\gpio.tmp_save
+2023-11-17 16:02:18,532 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\gpio.tmp
+2023-11-17 16:02:18,729 [WARN] IPConfigManager:2937 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2023-11-17 16:02:18,752 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\dma.tmp_save
+2023-11-17 16:02:18,833 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\dma.tmp
+2023-11-17 16:02:18,837 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\dma_GV.tmp_save
+2023-11-17 16:02:18,932 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\dma_GV.tmp
+2023-11-17 16:02:18,960 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Src\stm32f4xx_it.c_save
+2023-11-17 16:02:19,041 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Src\stm32f4xx_it.c
+2023-11-17 16:02:19,047 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Inc\stm32f4xx_it.h_save
+2023-11-17 16:02:19,101 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Inc\stm32f4xx_it.h
+2023-11-17 16:02:19,119 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Src\stm32f4xx_hal_msp.c_save
+2023-11-17 16:02:19,236 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Src\stm32f4xx_hal_msp.c
+2023-11-17 16:02:19,241 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\system.tmp_save
+2023-11-17 16:02:19,304 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\MXTmpFiles\system.tmp
+2023-11-17 16:02:19,324 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Inc\stm32f4xx_hal_conf.h_save
+2023-11-17 16:02:19,513 [INFO] CodeEngine:335 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Inc\stm32f4xx_hal_conf.h
+2023-11-17 16:02:19,536 [WARN] IPConfigManager:3431 - IP not found : TIM
+2023-11-17 16:02:19,536 [WARN] IPConfigManager:3431 - IP not found : USB_OTG
+2023-11-17 16:02:19,537 [WARN] CodeGenerator:3764 - IP not found : null
+2023-11-17 16:02:19,537 [WARN] CodeGenerator:3764 - IP not found : null
+2023-11-17 16:02:19,554 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Inc\main.h_save
+2023-11-17 16:02:19,624 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Inc\main.h
+2023-11-17 16:02:19,640 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Src\main.c_save
+2023-11-17 16:02:19,806 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\Core\Src\main.c
+2023-11-17 16:02:20,420 [INFO] ProjectBuilder:3064 - Time for Copy HAL[1] : 161mS.
+2023-11-17 16:02:20,424 [INFO] ProjectBuilder:4404 - Project Generator version: 4.1.0
+2023-11-17 16:02:20,600 [INFO] ConfigFileManager:1457 - The Die is : DIE419
+2023-11-17 16:02:21,715 [INFO] ProjectBuilder:4626 - Time for Generating toolchain IDE Files: 1291mS.
+2023-11-17 16:02:21,716 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
+2023-11-17 16:02:21,720 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 1mS.
+2023-11-17 18:32:40,527 [INFO] Activator:176 - 
+
+
+2023-11-17 18:32:40,542 [INFO] Activator:177 - !SESSION log4j initialized
+2023-11-17 18:32:46,607 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 

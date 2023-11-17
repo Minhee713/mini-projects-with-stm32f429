@@ -125,6 +125,8 @@ char temp_time_buf[30];
 
 struct clock_state current_state;
 
+enum MUSIC_LIST musicList;
+
 TimeTypeDef ctime;
 TimeTypeDef stime;
 TimeTypeDef atime;
@@ -139,8 +141,8 @@ uint8_t temp_flash_s;
 
 NVitemTypeDef default_nvitem = { { 0, 0, 0 }, { 0, 0, 0 }, 0 };
 
-MusicTypeDef alarmMusic[] = { { 0, "Music 0" }, { 1, "Music 1" },
-		{ 2, "Music 2" }, { 3, "Music 3" }, { 4, "Music 4" }, };
+MusicTypeDef alarmMusic[] = { { 0, "School Bell" }, { 1, "Nabi" },
+		{ 2, "Music 2" }, { 3, "Music 3" }};
 
 uint32_t FirstSector = 0, NbOfSectors = 0;
 uint32_t Address = 0, SECTORError = 0;
@@ -241,7 +243,7 @@ int main(void)
 	init_getFlashMusic();
 	lcd_clear();
 	current_state.mode = NORMAL_STATE;
-
+	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -867,7 +869,9 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 				printf("Double click!!  interval = %u   btn_cnt = %d  \r\n",
 						(unsigned int) interval, btn_cnt);
 				btn_cnt = 0;
-				musicOn(); // FOR TEST
+//				musicOn(); // FOR TEST
+				HAL_TIM_Base_Start_IT(&htim2);
+				HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
 				current_state.mode = MUSIC_SELECT;
 			}
 		}
@@ -888,12 +892,22 @@ void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc) {
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 
+
+//	start = 1;
+//	seq = 0;
+
+
 //	switch(musicList) {
 //	case MUSIC_NUM_0:
-//		schoolBellPlay();
+////		schoolBellPlay();
+////		HAL_TIM_Base_Start_IT(&htim2);
+////		HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+//		printf("music num 0 play!\r\n");
 //		break;
 //	case MUSIC_NUM_1:
 //		nabiPlay();
+////		HAL_TIM_Base_Start_IT(&htim2);
+////		HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
 //		printf("music num 1 play!\r\n");
 //		break;
 //	case MUSIC_NUM_2:
@@ -1366,27 +1380,26 @@ void musicOn() {
 }
 
 void schoolBellPlay() {
-	uint16_t melody = (uint16_t) (1000000 / schoolBell[seq].freq);
 
-//	musicOn();
+		uint16_t melody = (uint16_t) (1000000 / schoolBell[seq].freq);
 
-	if (stop == 1) {
-		TIM2->ARR = 2000;
-		HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
-		stop = 0;
-	} else {
-		if (seq == SCHOOL_MEL_NUM) {
-			HAL_TIM_Base_Stop_IT(&htim2);
+		if (stop == 1) {
+			TIM2->ARR = 2000;
 			HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+			stop = 0;
 		} else {
-			TIM3->ARR = melody;
-			TIM3->CCR3 = melody / 2;
-			TIM2->ARR = schoolBell[seq].delay * 2000;
-			HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
-			stop = 1;
-			seq++;
+			if (seq == SCHOOL_MEL_NUM) {
+				HAL_TIM_Base_Stop_IT(&htim2);
+				HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+			} else {
+				TIM3->ARR = melody;
+				TIM3->CCR3 = melody / 2;
+				TIM2->ARR = schoolBell[seq].delay * 2000;
+				HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+				stop = 1;
+				seq++;
+			}
 		}
-	}
 }
 
 void nabiPlay() {
@@ -1425,13 +1438,22 @@ void musicDisplay(int musicNumber) {
 	LCD_SendString(LCD_ADDR, music_str);
 }
 
-enum MUSIC_LIST musicList;
 void musicPlay(int musicNumber) {
 
+	static int music_lastSelect = 0;
+	if(musicNumber != music_lastSelect)
+	{
+		seq = 0;
+		music_lastSelect = musicNumber;
+
+	}
 	switch(musicNumber) {
 	case 0:
 //		musicList = MUSIC_NUM_0;
 		schoolBellPlay();
+		if(current_state.music_num != musicNumber) {
+			seq = 0;
+		}
 		break;
 	case 1:
 //		musicList = MUSIC_NUM_1;
@@ -1447,9 +1469,17 @@ void musicPlay(int musicNumber) {
 //		musicList = MUSIC_NUM_4;
 		break;
 	default:
+		printf("**********************************");
 		break;
 
 	}
+
+	if(musicNumber == music_lastSelect)
+	{
+		seq++;
+	}
+	printf("\r\n>>>>%d\r\n", seq);
+//			seq=0;
 }
 
 
