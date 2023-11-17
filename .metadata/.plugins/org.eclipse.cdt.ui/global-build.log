@@ -30417,3 +30417,1856 @@ Finished building: default.size.stdout
  
 Finished building: bluetooth_alarm.list
  
+09:04:28 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.o"
+arm-none-eabi-gcc "../Core/Src/lcd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/lcd.d" -MT"Core/Src/lcd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/lcd.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+../Core/Src/lcd.c: In function 'I2C_Scan':
+../Core/Src/lcd.c:26:13: warning: implicit declaration of function 'snprintf' [-Wimplicit-function-declaration]
+   26 |             snprintf(msg, sizeof(msg), "0x%02X", i);
+      |             ^~~~~~~~
+../Core/Src/lcd.c:3:1: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+    2 | #include <string.h>
+  +++ |+#include <stdio.h>
+    3 | 
+../Core/Src/lcd.c:26:13: warning: incompatible implicit declaration of built-in function 'snprintf' [-Wbuiltin-declaration-mismatch]
+   26 |             snprintf(msg, sizeof(msg), "0x%02X", i);
+      |             ^~~~~~~~
+../Core/Src/lcd.c:26:13: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f4xx.d" -MT"Core/Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f4xx.o"
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:230:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  230 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:231:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  231 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:280:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  280 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:284:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  284 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:387:24: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  387 |         printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
+      |                       ~^                ~~~~~
+      |                        |                  |
+      |                        int                uint32_t {aka long unsigned int}
+      |                       %ld
+../Core/Src/main.c:387:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  387 |         printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
+      |                                ~^              ~~~~~
+      |                                 |                |
+      |                                 int              uint32_t {aka long unsigned int}
+      |                                %ld
+../Core/Src/main.c: In function 'time_set_mode':
+../Core/Src/main.c:408:27: warning: variable 't_button' set but not used [-Wunused-but-set-variable]
+  408 |         enum CLOCK_BUTTON t_button;
+      |                           ^~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:293:1: warning: control reaches end of non-void function [-Wreturn-type]
+  293 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:404:1: warning: control reaches end of non-void function [-Wreturn-type]
+  404 | }
+      | ^
+At top level:
+../Core/Src/main.c:171:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  171 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  37636	    228	   4308	  42172	   a4bc	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+09:08:34 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.o"
+arm-none-eabi-gcc "../Core/Src/lcd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/lcd.d" -MT"Core/Src/lcd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/lcd.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f4xx.d" -MT"Core/Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f4xx.o"
+../Core/Src/lcd.c: In function 'I2C_Scan':
+../Core/Src/lcd.c:26:13: warning: implicit declaration of function 'snprintf' [-Wimplicit-function-declaration]
+   26 |             snprintf(msg, sizeof(msg), "0x%02X", i);
+      |             ^~~~~~~~
+../Core/Src/lcd.c:3:1: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+    2 | #include <string.h>
+  +++ |+#include <stdio.h>
+    3 | 
+../Core/Src/lcd.c:26:13: warning: incompatible implicit declaration of built-in function 'snprintf' [-Wbuiltin-declaration-mismatch]
+   26 |             snprintf(msg, sizeof(msg), "0x%02X", i);
+      |             ^~~~~~~~
+../Core/Src/lcd.c:26:13: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:227:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  227 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:228:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  228 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:277:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  277 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:281:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  281 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:384:24: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  384 |         printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
+      |                       ~^                ~~~~~
+      |                        |                  |
+      |                        int                uint32_t {aka long unsigned int}
+      |                       %ld
+../Core/Src/main.c:384:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  384 |         printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
+      |                                ~^              ~~~~~
+      |                                 |                |
+      |                                 int              uint32_t {aka long unsigned int}
+      |                                %ld
+../Core/Src/main.c: In function 'time_set_mode':
+../Core/Src/main.c:405:27: warning: variable 't_button' set but not used [-Wunused-but-set-variable]
+  405 |         enum CLOCK_BUTTON t_button;
+      |                           ^~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:753:9: warning: implicit declaration of function 'HAL_TIM_Base_Start_IT'; did you mean 'HAL_DMA_Start_IT'? [-Wimplicit-function-declaration]
+  753 |         HAL_TIM_Base_Start_IT(&htim3);
+      |         ^~~~~~~~~~~~~~~~~~~~~
+      |         HAL_DMA_Start_IT
+../Core/Src/main.c:753:32: error: 'htim3' undeclared (first use in this function)
+  753 |         HAL_TIM_Base_Start_IT(&htim3);
+      |                                ^~~~~
+../Core/Src/main.c:753:32: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:290:1: warning: control reaches end of non-void function [-Wreturn-type]
+  290 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:401:1: warning: control reaches end of non-void function [-Wreturn-type]
+  401 | }
+      | ^
+At top level:
+../Core/Src/main.c:169:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  169 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+09:08:56 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:227:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  227 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:228:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  228 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:277:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  277 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:281:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  281 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:384:24: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  384 |         printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
+      |                       ~^                ~~~~~
+      |                        |                  |
+      |                        int                uint32_t {aka long unsigned int}
+      |                       %ld
+../Core/Src/main.c:384:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  384 |         printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
+      |                                ~^              ~~~~~
+      |                                 |                |
+      |                                 int              uint32_t {aka long unsigned int}
+      |                                %ld
+../Core/Src/main.c: In function 'time_set_mode':
+../Core/Src/main.c:405:27: warning: variable 't_button' set but not used [-Wunused-but-set-variable]
+  405 |         enum CLOCK_BUTTON t_button;
+      |                           ^~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:290:1: warning: control reaches end of non-void function [-Wreturn-type]
+  290 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:401:1: warning: control reaches end of non-void function [-Wreturn-type]
+  401 | }
+      | ^
+At top level:
+../Core/Src/main.c:169:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  169 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  35740	    228	   4236	  40204	   9d0c	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+09:26:24 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:227:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  227 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:228:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  228 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:277:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  277 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:281:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  281 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:384:24: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  384 |         printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
+      |                       ~^                ~~~~~
+      |                        |                  |
+      |                        int                uint32_t {aka long unsigned int}
+      |                       %ld
+../Core/Src/main.c:384:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  384 |         printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
+      |                                ~^              ~~~~~
+      |                                 |                |
+      |                                 int              uint32_t {aka long unsigned int}
+      |                                %ld
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:290:1: warning: control reaches end of non-void function [-Wreturn-type]
+  290 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:401:1: warning: control reaches end of non-void function [-Wreturn-type]
+  401 | }
+      | ^
+At top level:
+../Core/Src/main.c:169:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  169 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  39704	    228	   4324	  44256	   ace0	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+10:29:29 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.o"
+arm-none-eabi-gcc "../Core/Src/lcd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/lcd.d" -MT"Core/Src/lcd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/lcd.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+../Core/Src/lcd.c: In function 'I2C_Scan':
+../Core/Src/lcd.c:26:13: warning: implicit declaration of function 'snprintf' [-Wimplicit-function-declaration]
+   26 |             snprintf(msg, sizeof(msg), "0x%02X", i);
+      |             ^~~~~~~~
+../Core/Src/lcd.c:3:1: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+    2 | #include <string.h>
+  +++ |+#include <stdio.h>
+    3 | 
+../Core/Src/lcd.c:26:13: warning: incompatible implicit declaration of built-in function 'snprintf' [-Wbuiltin-declaration-mismatch]
+   26 |             snprintf(msg, sizeof(msg), "0x%02X", i);
+      |             ^~~~~~~~
+../Core/Src/lcd.c:26:13: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:233:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  233 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/main.c:234:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  234 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:283:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  283 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:287:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  287 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:390:24: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  390 |         printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
+      |                       ~^                ~~~~~
+      |                        |                  |
+      |                        int                uint32_t {aka long unsigned int}
+      |                       %ld
+../Core/Src/main.c:390:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  390 |         printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
+      |                                ~^              ~~~~~
+      |                                 |                |
+      |                                 int              uint32_t {aka long unsigned int}
+      |                                %ld
+../Core/Src/main.c: In function 'music_set_mode':
+../Core/Src/main.c:647:9: warning: implicit declaration of function 'springWater_song' [-Wimplicit-function-declaration]
+  647 |         springWater_song();
+      |         ^~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:685:6: warning: conflicting types for 'springWater_song'; have 'void()'
+  685 | void springWater_song()
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:647:9: note: previous implicit declaration of 'springWater_song' with type 'void()'
+  647 |         springWater_song();
+      |         ^~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:296:1: warning: control reaches end of non-void function [-Wreturn-type]
+  296 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:407:1: warning: control reaches end of non-void function [-Wreturn-type]
+  407 | }
+      | ^
+At top level:
+../Core/Src/main.c:173:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  173 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc "../Core/Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f4xx.d" -MT"Core/Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f4xx.o"
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  44980	    228	   4468	  49676	   c20c	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+10:34:01 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:233:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  233 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:234:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  234 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:283:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  283 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:287:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  287 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:390:24: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  390 |         printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
+      |                       ~^                ~~~~~
+      |                        |                  |
+      |                        int                uint32_t {aka long unsigned int}
+      |                       %ld
+../Core/Src/main.c:390:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  390 |         printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
+      |                                ~^              ~~~~~
+      |                                 |                |
+      |                                 int              uint32_t {aka long unsigned int}
+      |                                %ld
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:296:1: warning: control reaches end of non-void function [-Wreturn-type]
+  296 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:407:1: warning: control reaches end of non-void function [-Wreturn-type]
+  407 | }
+      | ^
+At top level:
+../Core/Src/main.c:173:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  173 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  44980	    228	   4468	  49676	   c20c	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+10:35:39 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:233:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  233 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:234:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  234 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:283:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  283 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:287:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  287 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:390:24: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  390 |         printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
+      |                       ~^                ~~~~~
+      |                        |                  |
+      |                        int                uint32_t {aka long unsigned int}
+      |                       %ld
+../Core/Src/main.c:390:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  390 |         printf("xy[0]=%d xy[1]=%d\r\n", xy[0], xy[1]);
+      |                                ~^              ~~~~~
+      |                                 |                |
+      |                                 int              uint32_t {aka long unsigned int}
+      |                                %ld
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:296:1: warning: control reaches end of non-void function [-Wreturn-type]
+  296 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:407:1: warning: control reaches end of non-void function [-Wreturn-type]
+  407 | }
+      | ^
+At top level:
+../Core/Src/main.c:173:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  173 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  44980	    228	   4468	  49676	   c20c	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+10:39:40 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:72:1: error: unknown type name '_BUZZER'
+   72 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      | ^~~~~~~
+../Core/Src/main.c:72:1: warning: braces around scalar initializer
+../Core/Src/main.c:72:1: note: (near initialization for 'buzzer[0]')
+../Core/Src/main.c:72:34: warning: excess elements in scalar initializer
+   72 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                  ^
+../Core/Src/main.c:72:34: note: (near initialization for 'buzzer[0]')
+../Core/Src/main.c:72:1: warning: braces around scalar initializer
+   72 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      | ^~~~~~~
+../Core/Src/main.c:72:1: note: (near initialization for 'buzzer[1]')
+../Core/Src/main.c:72:44: warning: excess elements in scalar initializer
+   72 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                            ^
+../Core/Src/main.c:72:44: note: (near initialization for 'buzzer[1]')
+../Core/Src/main.c:72:1: warning: braces around scalar initializer
+   72 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      | ^~~~~~~
+../Core/Src/main.c:72:1: note: (near initialization for 'buzzer[2]')
+../Core/Src/main.c:72:54: warning: excess elements in scalar initializer
+   72 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                                      ^
+../Core/Src/main.c:72:54: note: (near initialization for 'buzzer[2]')
+../Core/Src/main.c:72:1: warning: braces around scalar initializer
+   72 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      | ^~~~~~~
+../Core/Src/main.c:72:1: note: (near initialization for 'buzzer[3]')
+../Core/Src/main.c:72:64: warning: excess elements in scalar initializer
+   72 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                                                ^
+../Core/Src/main.c:72:64: note: (near initialization for 'buzzer[3]')
+../Core/Src/main.c:73:17: warning: braces around scalar initializer
+   73 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                 ^
+../Core/Src/main.c:73:17: note: (near initialization for 'buzzer[4]')
+../Core/Src/main.c:73:22: warning: excess elements in scalar initializer
+   73 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                      ^
+../Core/Src/main.c:73:22: note: (near initialization for 'buzzer[4]')
+../Core/Src/main.c:73:17: warning: braces around scalar initializer
+   73 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                 ^
+../Core/Src/main.c:73:17: note: (near initialization for 'buzzer[5]')
+../Core/Src/main.c:73:32: warning: excess elements in scalar initializer
+   73 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                                ^
+../Core/Src/main.c:73:32: note: (near initialization for 'buzzer[5]')
+../Core/Src/main.c:73:17: warning: braces around scalar initializer
+   73 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                 ^
+../Core/Src/main.c:73:17: note: (near initialization for 'buzzer[6]')
+../Core/Src/main.c:73:42: warning: excess elements in scalar initializer
+   73 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                                          ^
+../Core/Src/main.c:73:42: note: (near initialization for 'buzzer[6]')
+../Core/Src/main.c:74:17: warning: braces around scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                 ^
+../Core/Src/main.c:74:17: note: (near initialization for 'buzzer[7]')
+../Core/Src/main.c:74:22: warning: excess elements in scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                      ^
+../Core/Src/main.c:74:22: note: (near initialization for 'buzzer[7]')
+../Core/Src/main.c:74:17: warning: braces around scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                 ^
+../Core/Src/main.c:74:17: note: (near initialization for 'buzzer[8]')
+../Core/Src/main.c:74:32: warning: excess elements in scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                                ^
+../Core/Src/main.c:74:32: note: (near initialization for 'buzzer[8]')
+../Core/Src/main.c:74:17: warning: braces around scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                 ^
+../Core/Src/main.c:74:17: note: (near initialization for 'buzzer[9]')
+../Core/Src/main.c:74:42: warning: excess elements in scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                                          ^
+../Core/Src/main.c:74:42: note: (near initialization for 'buzzer[9]')
+../Core/Src/main.c:74:17: warning: braces around scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                 ^
+../Core/Src/main.c:74:17: note: (near initialization for 'buzzer[10]')
+../Core/Src/main.c:74:52: warning: excess elements in scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                                                    ^
+../Core/Src/main.c:74:52: note: (near initialization for 'buzzer[10]')
+../Core/Src/main.c:74:17: warning: braces around scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                 ^
+../Core/Src/main.c:74:17: note: (near initialization for 'buzzer[11]')
+../Core/Src/main.c:74:62: warning: excess elements in scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                                                              ^
+../Core/Src/main.c:74:62: note: (near initialization for 'buzzer[11]')
+../Core/Src/main.c:75:17: warning: braces around scalar initializer
+   75 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                 ^
+../Core/Src/main.c:75:17: note: (near initialization for 'buzzer[12]')
+../Core/Src/main.c:75:22: warning: excess elements in scalar initializer
+   75 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                      ^
+../Core/Src/main.c:75:22: note: (near initialization for 'buzzer[12]')
+../Core/Src/main.c:75:17: warning: braces around scalar initializer
+   75 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                 ^
+../Core/Src/main.c:75:17: note: (near initialization for 'buzzer[13]')
+../Core/Src/main.c:75:32: warning: excess elements in scalar initializer
+   75 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                ^
+../Core/Src/main.c:75:32: note: (near initialization for 'buzzer[13]')
+../Core/Src/main.c:75:17: warning: braces around scalar initializer
+   75 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                 ^
+../Core/Src/main.c:75:17: note: (near initialization for 'buzzer[14]')
+../Core/Src/main.c:75:42: warning: excess elements in scalar initializer
+   75 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                          ^
+../Core/Src/main.c:75:42: note: (near initialization for 'buzzer[14]')
+../Core/Src/main.c:75:17: warning: braces around scalar initializer
+   75 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                 ^
+../Core/Src/main.c:75:17: note: (near initialization for 'buzzer[15]')
+../Core/Src/main.c:75:52: warning: excess elements in scalar initializer
+   75 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                                    ^
+../Core/Src/main.c:75:52: note: (near initialization for 'buzzer[15]')
+../Core/Src/main.c:76:17: warning: braces around scalar initializer
+   76 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                 ^
+../Core/Src/main.c:76:17: note: (near initialization for 'buzzer[16]')
+../Core/Src/main.c:76:22: warning: excess elements in scalar initializer
+   76 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                      ^
+../Core/Src/main.c:76:22: note: (near initialization for 'buzzer[16]')
+../Core/Src/main.c:76:17: warning: braces around scalar initializer
+   76 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                 ^
+../Core/Src/main.c:76:17: note: (near initialization for 'buzzer[17]')
+../Core/Src/main.c:76:32: warning: excess elements in scalar initializer
+   76 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                                ^
+../Core/Src/main.c:76:32: note: (near initialization for 'buzzer[17]')
+../Core/Src/main.c:76:17: warning: braces around scalar initializer
+   76 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                 ^
+../Core/Src/main.c:76:17: note: (near initialization for 'buzzer[18]')
+../Core/Src/main.c:76:42: warning: excess elements in scalar initializer
+   76 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                                          ^
+../Core/Src/main.c:76:42: note: (near initialization for 'buzzer[18]')
+../Core/Src/main.c:77:17: warning: braces around scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                 ^
+../Core/Src/main.c:77:17: note: (near initialization for 'buzzer[19]')
+../Core/Src/main.c:77:22: warning: excess elements in scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                      ^
+../Core/Src/main.c:77:22: note: (near initialization for 'buzzer[19]')
+../Core/Src/main.c:77:17: warning: braces around scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                 ^
+../Core/Src/main.c:77:17: note: (near initialization for 'buzzer[20]')
+../Core/Src/main.c:77:32: warning: excess elements in scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                                ^
+../Core/Src/main.c:77:32: note: (near initialization for 'buzzer[20]')
+../Core/Src/main.c:77:17: warning: braces around scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                 ^
+../Core/Src/main.c:77:17: note: (near initialization for 'buzzer[21]')
+../Core/Src/main.c:77:42: warning: excess elements in scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                                          ^
+../Core/Src/main.c:77:42: note: (near initialization for 'buzzer[21]')
+../Core/Src/main.c:77:17: warning: braces around scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                 ^
+../Core/Src/main.c:77:17: note: (near initialization for 'buzzer[22]')
+../Core/Src/main.c:77:52: warning: excess elements in scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                                                    ^
+../Core/Src/main.c:77:52: note: (near initialization for 'buzzer[22]')
+../Core/Src/main.c:77:17: warning: braces around scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                 ^
+../Core/Src/main.c:77:17: note: (near initialization for 'buzzer[23]')
+../Core/Src/main.c:77:62: warning: excess elements in scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                                                              ^
+../Core/Src/main.c:77:62: note: (near initialization for 'buzzer[23]')
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:236:56: error: 'seq' undeclared (first use in this function)
+  236 |         uint16_t melody = (uint16_t) (1000000 / buzzer[seq].freq);
+      |                                                        ^~~
+../Core/Src/main.c:236:56: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:238:13: error: 'stop' undeclared (first use in this function)
+  238 |         if (stop == 1) {
+      |             ^~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:283:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  283 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:284:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  284 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:333:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  333 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:337:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  337 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'springWater_song':
+../Core/Src/main.c:689:35: error: 'springWater_note' undeclared (first use in this function); did you mean 'springWater_song'?
+  689 |         for(int i = 0; i < sizeof(springWater_note)/sizeof(springWater_note[0]); i++)
+      |                                   ^~~~~~~~~~~~~~~~
+      |                                   springWater_song
+../Core/Src/main.c:695:27: error: 'springWater_intvl' undeclared (first use in this function); did you mean 'springWater_song'?
+  695 |                 HAL_Delay(springWater_intvl[i]);
+      |                           ^~~~~~~~~~~~~~~~~
+      |                           springWater_song
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:346:1: warning: control reaches end of non-void function [-Wreturn-type]
+  346 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:457:1: warning: control reaches end of non-void function [-Wreturn-type]
+  457 | }
+      | ^
+At top level:
+../Core/Src/main.c:195:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  195 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:39:50 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:72:1: error: unknown type name '_BUZZER'
+   72 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      | ^~~~~~~
+../Core/Src/main.c:72:1: warning: braces around scalar initializer
+../Core/Src/main.c:72:1: note: (near initialization for 'buzzer[0]')
+../Core/Src/main.c:72:34: warning: excess elements in scalar initializer
+   72 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                  ^
+../Core/Src/main.c:72:34: note: (near initialization for 'buzzer[0]')
+../Core/Src/main.c:72:1: warning: braces around scalar initializer
+   72 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      | ^~~~~~~
+../Core/Src/main.c:72:1: note: (near initialization for 'buzzer[1]')
+../Core/Src/main.c:72:44: warning: excess elements in scalar initializer
+   72 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                            ^
+../Core/Src/main.c:72:44: note: (near initialization for 'buzzer[1]')
+../Core/Src/main.c:72:1: warning: braces around scalar initializer
+   72 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      | ^~~~~~~
+../Core/Src/main.c:72:1: note: (near initialization for 'buzzer[2]')
+../Core/Src/main.c:72:54: warning: excess elements in scalar initializer
+   72 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                                      ^
+../Core/Src/main.c:72:54: note: (near initialization for 'buzzer[2]')
+../Core/Src/main.c:72:1: warning: braces around scalar initializer
+   72 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      | ^~~~~~~
+../Core/Src/main.c:72:1: note: (near initialization for 'buzzer[3]')
+../Core/Src/main.c:72:64: warning: excess elements in scalar initializer
+   72 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                                                ^
+../Core/Src/main.c:72:64: note: (near initialization for 'buzzer[3]')
+../Core/Src/main.c:73:17: warning: braces around scalar initializer
+   73 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                 ^
+../Core/Src/main.c:73:17: note: (near initialization for 'buzzer[4]')
+../Core/Src/main.c:73:22: warning: excess elements in scalar initializer
+   73 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                      ^
+../Core/Src/main.c:73:22: note: (near initialization for 'buzzer[4]')
+../Core/Src/main.c:73:17: warning: braces around scalar initializer
+   73 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                 ^
+../Core/Src/main.c:73:17: note: (near initialization for 'buzzer[5]')
+../Core/Src/main.c:73:32: warning: excess elements in scalar initializer
+   73 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                                ^
+../Core/Src/main.c:73:32: note: (near initialization for 'buzzer[5]')
+../Core/Src/main.c:73:17: warning: braces around scalar initializer
+   73 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                 ^
+../Core/Src/main.c:73:17: note: (near initialization for 'buzzer[6]')
+../Core/Src/main.c:73:42: warning: excess elements in scalar initializer
+   73 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                                          ^
+../Core/Src/main.c:73:42: note: (near initialization for 'buzzer[6]')
+../Core/Src/main.c:74:17: warning: braces around scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                 ^
+../Core/Src/main.c:74:17: note: (near initialization for 'buzzer[7]')
+../Core/Src/main.c:74:22: warning: excess elements in scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                      ^
+../Core/Src/main.c:74:22: note: (near initialization for 'buzzer[7]')
+../Core/Src/main.c:74:17: warning: braces around scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                 ^
+../Core/Src/main.c:74:17: note: (near initialization for 'buzzer[8]')
+../Core/Src/main.c:74:32: warning: excess elements in scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                                ^
+../Core/Src/main.c:74:32: note: (near initialization for 'buzzer[8]')
+../Core/Src/main.c:74:17: warning: braces around scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                 ^
+../Core/Src/main.c:74:17: note: (near initialization for 'buzzer[9]')
+../Core/Src/main.c:74:42: warning: excess elements in scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                                          ^
+../Core/Src/main.c:74:42: note: (near initialization for 'buzzer[9]')
+../Core/Src/main.c:74:17: warning: braces around scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                 ^
+../Core/Src/main.c:74:17: note: (near initialization for 'buzzer[10]')
+../Core/Src/main.c:74:52: warning: excess elements in scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                                                    ^
+../Core/Src/main.c:74:52: note: (near initialization for 'buzzer[10]')
+../Core/Src/main.c:74:17: warning: braces around scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                 ^
+../Core/Src/main.c:74:17: note: (near initialization for 'buzzer[11]')
+../Core/Src/main.c:74:62: warning: excess elements in scalar initializer
+   74 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                                                              ^
+../Core/Src/main.c:74:62: note: (near initialization for 'buzzer[11]')
+../Core/Src/main.c:75:17: warning: braces around scalar initializer
+   75 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                 ^
+../Core/Src/main.c:75:17: note: (near initialization for 'buzzer[12]')
+../Core/Src/main.c:75:22: warning: excess elements in scalar initializer
+   75 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                      ^
+../Core/Src/main.c:75:22: note: (near initialization for 'buzzer[12]')
+../Core/Src/main.c:75:17: warning: braces around scalar initializer
+   75 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                 ^
+../Core/Src/main.c:75:17: note: (near initialization for 'buzzer[13]')
+../Core/Src/main.c:75:32: warning: excess elements in scalar initializer
+   75 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                ^
+../Core/Src/main.c:75:32: note: (near initialization for 'buzzer[13]')
+../Core/Src/main.c:75:17: warning: braces around scalar initializer
+   75 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                 ^
+../Core/Src/main.c:75:17: note: (near initialization for 'buzzer[14]')
+../Core/Src/main.c:75:42: warning: excess elements in scalar initializer
+   75 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                          ^
+../Core/Src/main.c:75:42: note: (near initialization for 'buzzer[14]')
+../Core/Src/main.c:75:17: warning: braces around scalar initializer
+   75 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                 ^
+../Core/Src/main.c:75:17: note: (near initialization for 'buzzer[15]')
+../Core/Src/main.c:75:52: warning: excess elements in scalar initializer
+   75 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                                    ^
+../Core/Src/main.c:75:52: note: (near initialization for 'buzzer[15]')
+../Core/Src/main.c:76:17: warning: braces around scalar initializer
+   76 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                 ^
+../Core/Src/main.c:76:17: note: (near initialization for 'buzzer[16]')
+../Core/Src/main.c:76:22: warning: excess elements in scalar initializer
+   76 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                      ^
+../Core/Src/main.c:76:22: note: (near initialization for 'buzzer[16]')
+../Core/Src/main.c:76:17: warning: braces around scalar initializer
+   76 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                 ^
+../Core/Src/main.c:76:17: note: (near initialization for 'buzzer[17]')
+../Core/Src/main.c:76:32: warning: excess elements in scalar initializer
+   76 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                                ^
+../Core/Src/main.c:76:32: note: (near initialization for 'buzzer[17]')
+../Core/Src/main.c:76:17: warning: braces around scalar initializer
+   76 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                 ^
+../Core/Src/main.c:76:17: note: (near initialization for 'buzzer[18]')
+../Core/Src/main.c:76:42: warning: excess elements in scalar initializer
+   76 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                                          ^
+../Core/Src/main.c:76:42: note: (near initialization for 'buzzer[18]')
+../Core/Src/main.c:77:17: warning: braces around scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                 ^
+../Core/Src/main.c:77:17: note: (near initialization for 'buzzer[19]')
+../Core/Src/main.c:77:22: warning: excess elements in scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                      ^
+../Core/Src/main.c:77:22: note: (near initialization for 'buzzer[19]')
+../Core/Src/main.c:77:17: warning: braces around scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                 ^
+../Core/Src/main.c:77:17: note: (near initialization for 'buzzer[20]')
+../Core/Src/main.c:77:32: warning: excess elements in scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                                ^
+../Core/Src/main.c:77:32: note: (near initialization for 'buzzer[20]')
+../Core/Src/main.c:77:17: warning: braces around scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                 ^
+../Core/Src/main.c:77:17: note: (near initialization for 'buzzer[21]')
+../Core/Src/main.c:77:42: warning: excess elements in scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                                          ^
+../Core/Src/main.c:77:42: note: (near initialization for 'buzzer[21]')
+../Core/Src/main.c:77:17: warning: braces around scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                 ^
+../Core/Src/main.c:77:17: note: (near initialization for 'buzzer[22]')
+../Core/Src/main.c:77:52: warning: excess elements in scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                                                    ^
+../Core/Src/main.c:77:52: note: (near initialization for 'buzzer[22]')
+../Core/Src/main.c:77:17: warning: braces around scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                 ^
+../Core/Src/main.c:77:17: note: (near initialization for 'buzzer[23]')
+../Core/Src/main.c:77:62: warning: excess elements in scalar initializer
+   77 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                                                              ^
+../Core/Src/main.c:77:62: note: (near initialization for 'buzzer[23]')
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:236:56: error: 'seq' undeclared (first use in this function)
+  236 |         uint16_t melody = (uint16_t) (1000000 / buzzer[seq].freq);
+      |                                                        ^~~
+../Core/Src/main.c:236:56: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:238:13: error: 'stop' undeclared (first use in this function)
+  238 |         if (stop == 1) {
+      |             ^~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:283:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  283 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:284:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  284 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:333:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  333 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:337:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  337 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c:346:1: warning: control reaches end of non-void function [-Wreturn-type]
+  346 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:457:1: warning: control reaches end of non-void function [-Wreturn-type]
+  457 | }
+      | ^
+At top level:
+../Core/Src/main.c:195:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  195 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:41:01 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:245:56: error: 'seq' undeclared (first use in this function)
+  245 |         uint16_t melody = (uint16_t) (1000000 / buzzer[seq].freq);
+      |                                                        ^~~
+../Core/Src/main.c:245:56: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:247:13: error: 'stop' undeclared (first use in this function)
+  247 |         if (stop == 1) {
+      |             ^~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:292:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  292 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:293:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  293 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:342:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  342 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:346:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  346 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c:355:1: warning: control reaches end of non-void function [-Wreturn-type]
+  355 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:466:1: warning: control reaches end of non-void function [-Wreturn-type]
+  466 | }
+      | ^
+At top level:
+../Core/Src/main.c:189:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  189 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:41:30 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:296:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  296 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:297:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  297 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:346:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  346 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:350:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  350 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c:359:1: warning: control reaches end of non-void function [-Wreturn-type]
+  359 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:470:1: warning: control reaches end of non-void function [-Wreturn-type]
+  470 | }
+      | ^
+At top level:
+../Core/Src/main.c:189:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  189 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  44836	    324	   4476	  49636	   c1e4	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+10:50:27 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:214:1: error: unknown type name '_BUZZER'
+  214 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      | ^~~~~~~
+../Core/Src/main.c:214:1: warning: braces around scalar initializer
+../Core/Src/main.c:214:1: note: (near initialization for 'buzzer[0]')
+../Core/Src/main.c:214:31: error: 'G' undeclared here (not in a function); did you mean 'G5'?
+  214 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                               ^
+      |                               G5
+../Core/Src/main.c:214:34: warning: excess elements in scalar initializer
+  214 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                  ^
+../Core/Src/main.c:214:34: note: (near initialization for 'buzzer[0]')
+../Core/Src/main.c:214:1: warning: braces around scalar initializer
+  214 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      | ^~~~~~~
+../Core/Src/main.c:214:1: note: (near initialization for 'buzzer[1]')
+../Core/Src/main.c:214:44: warning: excess elements in scalar initializer
+  214 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                            ^
+../Core/Src/main.c:214:44: note: (near initialization for 'buzzer[1]')
+../Core/Src/main.c:214:1: warning: braces around scalar initializer
+  214 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      | ^~~~~~~
+../Core/Src/main.c:214:1: note: (near initialization for 'buzzer[2]')
+../Core/Src/main.c:214:51: error: 'A' undeclared here (not in a function); did you mean 'A6'?
+  214 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                                   ^
+      |                                                   A6
+../Core/Src/main.c:214:54: warning: excess elements in scalar initializer
+  214 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                                      ^
+../Core/Src/main.c:214:54: note: (near initialization for 'buzzer[2]')
+../Core/Src/main.c:214:1: warning: braces around scalar initializer
+  214 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      | ^~~~~~~
+../Core/Src/main.c:214:1: note: (near initialization for 'buzzer[3]')
+../Core/Src/main.c:214:64: warning: excess elements in scalar initializer
+  214 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                                                ^
+../Core/Src/main.c:214:64: note: (near initialization for 'buzzer[3]')
+../Core/Src/main.c:215:17: warning: braces around scalar initializer
+  215 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                 ^
+../Core/Src/main.c:215:17: note: (near initialization for 'buzzer[4]')
+../Core/Src/main.c:215:22: warning: excess elements in scalar initializer
+  215 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                      ^
+../Core/Src/main.c:215:22: note: (near initialization for 'buzzer[4]')
+../Core/Src/main.c:215:17: warning: braces around scalar initializer
+  215 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                 ^
+../Core/Src/main.c:215:17: note: (near initialization for 'buzzer[5]')
+../Core/Src/main.c:215:32: warning: excess elements in scalar initializer
+  215 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                                ^
+../Core/Src/main.c:215:32: note: (near initialization for 'buzzer[5]')
+../Core/Src/main.c:215:17: warning: braces around scalar initializer
+  215 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                 ^
+../Core/Src/main.c:215:17: note: (near initialization for 'buzzer[6]')
+../Core/Src/main.c:215:39: error: 'E' undeclared here (not in a function); did you mean 'E4'?
+  215 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                                       ^
+      |                                       E4
+../Core/Src/main.c:215:42: warning: excess elements in scalar initializer
+  215 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                                          ^
+../Core/Src/main.c:215:42: note: (near initialization for 'buzzer[6]')
+../Core/Src/main.c:216:17: warning: braces around scalar initializer
+  216 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                 ^
+../Core/Src/main.c:216:17: note: (near initialization for 'buzzer[7]')
+../Core/Src/main.c:216:22: warning: excess elements in scalar initializer
+  216 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                      ^
+../Core/Src/main.c:216:22: note: (near initialization for 'buzzer[7]')
+../Core/Src/main.c:216:17: warning: braces around scalar initializer
+  216 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                 ^
+../Core/Src/main.c:216:17: note: (near initialization for 'buzzer[8]')
+../Core/Src/main.c:216:32: warning: excess elements in scalar initializer
+  216 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                                ^
+../Core/Src/main.c:216:32: note: (near initialization for 'buzzer[8]')
+../Core/Src/main.c:216:17: warning: braces around scalar initializer
+  216 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                 ^
+../Core/Src/main.c:216:17: note: (near initialization for 'buzzer[9]')
+../Core/Src/main.c:216:42: warning: excess elements in scalar initializer
+  216 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                                          ^
+../Core/Src/main.c:216:42: note: (near initialization for 'buzzer[9]')
+../Core/Src/main.c:216:17: warning: braces around scalar initializer
+  216 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                 ^
+../Core/Src/main.c:216:17: note: (near initialization for 'buzzer[10]')
+../Core/Src/main.c:216:52: warning: excess elements in scalar initializer
+  216 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                                                    ^
+../Core/Src/main.c:216:52: note: (near initialization for 'buzzer[10]')
+../Core/Src/main.c:216:17: warning: braces around scalar initializer
+  216 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                 ^
+../Core/Src/main.c:216:17: note: (near initialization for 'buzzer[11]')
+../Core/Src/main.c:216:59: error: 'D' undeclared here (not in a function); did you mean 'D4'?
+  216 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                                                           ^
+      |                                                           D4
+../Core/Src/main.c:216:62: warning: excess elements in scalar initializer
+  216 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                                                              ^
+../Core/Src/main.c:216:62: note: (near initialization for 'buzzer[11]')
+../Core/Src/main.c:217:17: warning: braces around scalar initializer
+  217 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                 ^
+../Core/Src/main.c:217:17: note: (near initialization for 'buzzer[12]')
+../Core/Src/main.c:217:22: warning: excess elements in scalar initializer
+  217 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                      ^
+../Core/Src/main.c:217:22: note: (near initialization for 'buzzer[12]')
+../Core/Src/main.c:217:17: warning: braces around scalar initializer
+  217 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                 ^
+../Core/Src/main.c:217:17: note: (near initialization for 'buzzer[13]')
+../Core/Src/main.c:217:32: warning: excess elements in scalar initializer
+  217 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                ^
+../Core/Src/main.c:217:32: note: (near initialization for 'buzzer[13]')
+../Core/Src/main.c:217:17: warning: braces around scalar initializer
+  217 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                 ^
+../Core/Src/main.c:217:17: note: (near initialization for 'buzzer[14]')
+../Core/Src/main.c:217:42: warning: excess elements in scalar initializer
+  217 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                          ^
+../Core/Src/main.c:217:42: note: (near initialization for 'buzzer[14]')
+../Core/Src/main.c:217:17: warning: braces around scalar initializer
+  217 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                 ^
+../Core/Src/main.c:217:17: note: (near initialization for 'buzzer[15]')
+../Core/Src/main.c:217:52: warning: excess elements in scalar initializer
+  217 |                 { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                                    ^
+../Core/Src/main.c:217:52: note: (near initialization for 'buzzer[15]')
+../Core/Src/main.c:218:17: warning: braces around scalar initializer
+  218 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                 ^
+../Core/Src/main.c:218:17: note: (near initialization for 'buzzer[16]')
+../Core/Src/main.c:218:22: warning: excess elements in scalar initializer
+  218 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                      ^
+../Core/Src/main.c:218:22: note: (near initialization for 'buzzer[16]')
+../Core/Src/main.c:218:17: warning: braces around scalar initializer
+  218 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                 ^
+../Core/Src/main.c:218:17: note: (near initialization for 'buzzer[17]')
+../Core/Src/main.c:218:32: warning: excess elements in scalar initializer
+  218 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                                ^
+../Core/Src/main.c:218:32: note: (near initialization for 'buzzer[17]')
+../Core/Src/main.c:218:17: warning: braces around scalar initializer
+  218 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                 ^
+../Core/Src/main.c:218:17: note: (near initialization for 'buzzer[18]')
+../Core/Src/main.c:218:42: warning: excess elements in scalar initializer
+  218 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                                          ^
+../Core/Src/main.c:218:42: note: (near initialization for 'buzzer[18]')
+../Core/Src/main.c:219:17: warning: braces around scalar initializer
+  219 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                 ^
+../Core/Src/main.c:219:17: note: (near initialization for 'buzzer[19]')
+../Core/Src/main.c:219:22: warning: excess elements in scalar initializer
+  219 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                      ^
+../Core/Src/main.c:219:22: note: (near initialization for 'buzzer[19]')
+../Core/Src/main.c:219:17: warning: braces around scalar initializer
+  219 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                 ^
+../Core/Src/main.c:219:17: note: (near initialization for 'buzzer[20]')
+../Core/Src/main.c:219:32: warning: excess elements in scalar initializer
+  219 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                                ^
+../Core/Src/main.c:219:32: note: (near initialization for 'buzzer[20]')
+../Core/Src/main.c:219:17: warning: braces around scalar initializer
+  219 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                 ^
+../Core/Src/main.c:219:17: note: (near initialization for 'buzzer[21]')
+../Core/Src/main.c:219:42: warning: excess elements in scalar initializer
+  219 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                                          ^
+../Core/Src/main.c:219:42: note: (near initialization for 'buzzer[21]')
+../Core/Src/main.c:219:17: warning: braces around scalar initializer
+  219 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                 ^
+../Core/Src/main.c:219:17: note: (near initialization for 'buzzer[22]')
+../Core/Src/main.c:219:52: warning: excess elements in scalar initializer
+  219 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                                                    ^
+../Core/Src/main.c:219:52: note: (near initialization for 'buzzer[22]')
+../Core/Src/main.c:219:17: warning: braces around scalar initializer
+  219 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                 ^
+../Core/Src/main.c:219:17: note: (near initialization for 'buzzer[23]')
+../Core/Src/main.c:219:59: error: 'C' undeclared here (not in a function); did you mean 'C7'?
+  219 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                                                           ^
+      |                                                           C7
+../Core/Src/main.c:219:62: warning: excess elements in scalar initializer
+  219 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                                                              ^
+../Core/Src/main.c:219:62: note: (near initialization for 'buzzer[23]')
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:247:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  247 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:248:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  248 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:297:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  297 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:301:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  301 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:1442:60: error: request for member 'freq' in something not a structure or union
+ 1442 |         uint16_t melody = (uint16_t) (1000000 / buzzer[seq].freq);
+      |                                                            ^
+../Core/Src/main.c:1455:48: error: request for member 'delay' in something not a structure or union
+ 1455 |                         TIM2->ARR = buzzer[seq].delay * 2000;
+      |                                                ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:310:1: warning: control reaches end of non-void function [-Wreturn-type]
+  310 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:421:1: warning: control reaches end of non-void function [-Wreturn-type]
+  421 | }
+      | ^
+At top level:
+../Core/Src/main.c:173:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  173 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:50:50 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:219:31: error: 'G' undeclared here (not in a function); did you mean 'G5'?
+  219 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                               ^
+      |                               G5
+../Core/Src/main.c:219:51: error: 'A' undeclared here (not in a function); did you mean 'A6'?
+  219 | _BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, // 4
+      |                                                   ^
+      |                                                   A6
+../Core/Src/main.c:220:39: error: 'E' undeclared here (not in a function); did you mean 'E4'?
+  220 |                 { G, 1 }, { G, 1 }, { E, 2 }, // 3
+      |                                       ^
+      |                                       E4
+../Core/Src/main.c:221:59: error: 'D' undeclared here (not in a function); did you mean 'D4'?
+  221 |                 { G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, // 5
+      |                                                           ^
+      |                                                           D4
+../Core/Src/main.c:224:59: error: 'C' undeclared here (not in a function); did you mean 'C7'?
+  224 |                 { G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } // 5
+      |                                                           ^
+      |                                                           C7
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:252:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  252 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:253:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  253 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:302:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  302 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:306:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  306 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c:315:1: warning: control reaches end of non-void function [-Wreturn-type]
+  315 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:426:1: warning: control reaches end of non-void function [-Wreturn-type]
+  426 | }
+      | ^
+At top level:
+../Core/Src/main.c:173:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  173 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:51:21 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:265:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  265 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:266:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  266 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:315:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  315 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:319:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  319 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c:328:1: warning: control reaches end of non-void function [-Wreturn-type]
+  328 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:439:1: warning: control reaches end of non-void function [-Wreturn-type]
+  439 | }
+      | ^
+At top level:
+../Core/Src/main.c:186:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  186 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45104	    324	   4476	  49904	   c2f0	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+10:52:35 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:265:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  265 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:266:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  266 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:315:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  315 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:319:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  319 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c:328:1: warning: control reaches end of non-void function [-Wreturn-type]
+  328 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:439:1: warning: control reaches end of non-void function [-Wreturn-type]
+  439 | }
+      | ^
+At top level:
+../Core/Src/main.c:186:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  186 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45104	    324	   4476	  49904	   c2f0	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+11:04:05 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/lcd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/lcd.d" -MT"Core/Src/lcd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/lcd.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/lcd.c: In function 'I2C_Scan':
+../Core/Src/lcd.c:26:13: warning: implicit declaration of function 'snprintf' [-Wimplicit-function-declaration]
+   26 |             snprintf(msg, sizeof(msg), "0x%02X", i);
+      |             ^~~~~~~~
+../Core/Src/lcd.c:3:1: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+    2 | #include <string.h>
+  +++ |+#include <stdio.h>
+    3 | 
+../Core/Src/lcd.c:26:13: warning: incompatible implicit declaration of built-in function 'snprintf' [-Wbuiltin-declaration-mismatch]
+   26 |             snprintf(msg, sizeof(msg), "0x%02X", i);
+      |             ^~~~~~~~
+../Core/Src/lcd.c:26:13: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:265:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  265 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:266:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  266 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:315:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  315 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:319:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  319 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:1371:43: error: 'LD1_Pin' undeclared (first use in this function); did you mean 'LD3_Pin'?
+ 1371 |                 HAL_GPIO_TogglePin(GPIOB, LD1_Pin);
+      |                                           ^~~~~~~
+      |                                           LD3_Pin
+../Core/Src/main.c:1371:43: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:328:1: warning: control reaches end of non-void function [-Wreturn-type]
+  328 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:406:1: warning: control reaches end of non-void function [-Wreturn-type]
+  406 | }
+      | ^
+At top level:
+../Core/Src/main.c:186:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  186 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:04:36 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:265:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  265 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:266:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  266 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:315:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  315 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:319:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  319 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c:328:1: warning: control reaches end of non-void function [-Wreturn-type]
+  328 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:406:1: warning: control reaches end of non-void function [-Wreturn-type]
+  406 | }
+      | ^
+At top level:
+../Core/Src/main.c:186:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  186 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  43552	    324	   4476	  48352	   bce0	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+11:07:13 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  43552	    324	   4476	  48352	   bce0	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+11:08:57 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:265:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  265 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:266:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  266 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:315:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  315 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:319:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  319 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c:328:1: warning: control reaches end of non-void function [-Wreturn-type]
+  328 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:406:1: warning: control reaches end of non-void function [-Wreturn-type]
+  406 | }
+      | ^
+At top level:
+../Core/Src/main.c:186:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  186 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  43552	    324	   4476	  48352	   bce0	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+11:11:31 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/lcd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/lcd.d" -MT"Core/Src/lcd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/lcd.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/lcd.c: In function 'I2C_Scan':
+../Core/Src/lcd.c:26:13: warning: implicit declaration of function 'snprintf' [-Wimplicit-function-declaration]
+   26 |             snprintf(msg, sizeof(msg), "0x%02X", i);
+      |             ^~~~~~~~
+../Core/Src/lcd.c:3:1: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+    2 | #include <string.h>
+  +++ |+#include <stdio.h>
+    3 | 
+../Core/Src/lcd.c:26:13: warning: incompatible implicit declaration of built-in function 'snprintf' [-Wbuiltin-declaration-mismatch]
+   26 |             snprintf(msg, sizeof(msg), "0x%02X", i);
+      |             ^~~~~~~~
+../Core/Src/lcd.c:26:13: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:265:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  265 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:266:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  266 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:315:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  315 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:319:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  319 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c:328:1: warning: control reaches end of non-void function [-Wreturn-type]
+  328 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:406:1: warning: control reaches end of non-void function [-Wreturn-type]
+  406 | }
+      | ^
+At top level:
+../Core/Src/main.c:186:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  186 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45104	    324	   4476	  49904	   c2f0	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+11:22:51 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:265:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  265 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:266:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  266 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:315:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  315 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:319:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  319 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c:328:1: warning: control reaches end of non-void function [-Wreturn-type]
+  328 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:406:1: warning: control reaches end of non-void function [-Wreturn-type]
+  406 | }
+      | ^
+At top level:
+../Core/Src/main.c:186:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  186 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45104	    324	   4476	  49904	   c2f0	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+12:37:21 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:265:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  265 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:266:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  266 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:315:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  315 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:319:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  319 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c:328:1: warning: control reaches end of non-void function [-Wreturn-type]
+  328 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:406:1: warning: control reaches end of non-void function [-Wreturn-type]
+  406 | }
+      | ^
+At top level:
+../Core/Src/main.c:186:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  186 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45096	    324	   4476	  49896	   c2e8	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+12:40:17 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:265:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  265 |         LCD_SendCommand(LCD_ADDR, 0b10000000);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:266:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+  266 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:315:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+  315 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:319:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+  319 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c:328:1: warning: control reaches end of non-void function [-Wreturn-type]
+  328 | }
+      | ^
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:406:1: warning: control reaches end of non-void function [-Wreturn-type]
+  406 | }
+      | ^
+At top level:
+../Core/Src/main.c:186:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  186 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45096	    324	   4476	  49896	   c2e8	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 

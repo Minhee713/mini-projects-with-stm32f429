@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="FLASH_USER_START_ADDR"/>
+		<item key="selection" value="timeStr"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="timeStr"/>
+			<item value="alarm_time"/>
+			<item value="RTC_Alarm_IRQ"/>
 			<item value="FLASH_USER_START_ADDR"/>
 			<item value="nv_items"/>
 			<item value="ADDR_FLASH_SECTOR_22"/>
@@ -20,9 +23,6 @@
 			<item value="----------"/>
 			<item value="-3-"/>
 			<item value="--------"/>
-			<item value="0b11000000"/>
-			<item value="timeStr"/>
-			<item value="sprintf((char*) temp_time_buf, &quot;%s %02d:%02d:%02d&quot;, ampm[RTC_Time.TimeFormat],"/>
 		</list>
 		<list key="replacehistory">
 		</list>
