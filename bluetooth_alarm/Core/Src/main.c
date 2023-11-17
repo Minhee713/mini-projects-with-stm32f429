@@ -22,67 +22,13 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-//#include "flash.h"
+#include "flash.h"
 #include "stdio.h"
 #include "melody.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-#define ADDR_FLASH_SECTOR_0     ((uint32_t)0x08000000) /* Base @ of Sector 0, 16 Kbytes */
-#define ADDR_FLASH_SECTOR_1     ((uint32_t)0x08004000) /* Base @ of Sector 1, 16 Kbytes */
-#define ADDR_FLASH_SECTOR_2     ((uint32_t)0x08008000) /* Base @ of Sector 2, 16 Kbytes */
-#define ADDR_FLASH_SECTOR_3     ((uint32_t)0x0800C000) /* Base @ of Sector 3, 16 Kbytes */
-#define ADDR_FLASH_SECTOR_4     ((uint32_t)0x08010000) /* Base @ of Sector 4, 64 Kbytes */
-#define ADDR_FLASH_SECTOR_5     ((uint32_t)0x08020000) /* Base @ of Sector 5, 128 Kbytes */
-#define ADDR_FLASH_SECTOR_6     ((uint32_t)0x08040000) /* Base @ of Sector 6, 128 Kbytes */
-#define ADDR_FLASH_SECTOR_7     ((uint32_t)0x08060000) /* Base @ of Sector 7, 128 Kbytes */
-#define ADDR_FLASH_SECTOR_8     ((uint32_t)0x08080000) /* Base @ of Sector 8, 128 Kbytes */
-#define ADDR_FLASH_SECTOR_9     ((uint32_t)0x080A0000) /* Base @ of Sector 9, 128 Kbytes */
-#define ADDR_FLASH_SECTOR_10    ((uint32_t)0x080C0000) /* Base @ of Sector 10, 128 Kbytes */
-#define ADDR_FLASH_SECTOR_11    ((uint32_t)0x080E0000) /* Base @ of Sector 11, 128 Kbytes */
-
-/* Base address of the Flash sectors Bank 2 */
-#define ADDR_FLASH_SECTOR_12     ((uint32_t)0x08100000) /* Base @ of Sector 0, 16 Kbytes */
-#define ADDR_FLASH_SECTOR_13     ((uint32_t)0x08104000) /* Base @ of Sector 1, 16 Kbytes */
-#define ADDR_FLASH_SECTOR_14     ((uint32_t)0x08108000) /* Base @ of Sector 2, 16 Kbytes */
-#define ADDR_FLASH_SECTOR_15     ((uint32_t)0x0810C000) /* Base @ of Sector 3, 16 Kbytes */
-#define ADDR_FLASH_SECTOR_16     ((uint32_t)0x08110000) /* Base @ of Sector 4, 64 Kbytes */
-#define ADDR_FLASH_SECTOR_17     ((uint32_t)0x08120000) /* Base @ of Sector 5, 128 Kbytes */
-#define ADDR_FLASH_SECTOR_18     ((uint32_t)0x08140000) /* Base @ of Sector 6, 128 Kbytes */
-#define ADDR_FLASH_SECTOR_19     ((uint32_t)0x08160000) /* Base @ of Sector 7, 128 Kbytes */
-#define ADDR_FLASH_SECTOR_20     ((uint32_t)0x08180000) /* Base @ of Sector 8, 128 Kbytes  */
-#define ADDR_FLASH_SECTOR_21     ((uint32_t)0x081A0000) /* Base @ of Sector 9, 128 Kbytes  */
-#define ADDR_FLASH_SECTOR_22     ((uint32_t)0x081C0000) /* Base @ of Sector 10, 128 Kbytes */
-#define ADDR_FLASH_SECTOR_23     ((uint32_t)0x081E0000) /* Base @ of Sector 11, 128 Kbytes */
-
-#define C	262  	// do
-#define D	294		// re
-#define E	330		// mi
-#define F	349		// pa
-#define G	392		// sol
-#define A	440		// la
-#define B	494		// si
-#define C1	523		// do
-#define D1	587		// re
-#define E1	659		// mi
-
-
-
-/* USER CODE END PTD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-#define LCD_ADDR 				(0x27 << 1)
-#define FLASH_USER_START_ADDR   ADDR_FLASH_SECTOR_10
-#define MAGIC_NUM 				0xeeeeeeee
-#define nv_items 				((NVitemTypeDef *) ADDR_FLASH_SECTOR_10)
-//#define FLASH_USER_END_ADDR     ADDR_FLASH_SECTOR_10 + GetSectorSize(ADDR_FLASH_SECTOR_10) - 1
-
-typedef enum {
-	RW_OK = 0x0, RW_ERROR = 0x1
-} stat_flashRW;
-
 enum CLOCK_MODE {
 	NORMAL_STATE, TIME_SETTING, ALARM_TIME_SETTING, MUSIC_SELECT
 };
@@ -90,6 +36,14 @@ enum CLOCK_MODE {
 enum CLOCK_BUTTON {
 	NO_KEY, UP, DOWN, RIGHT, LEFT, SELECT
 };
+
+enum MUSIC_LIST {
+	MUSIC_NUM_0, MUSIC_NUM_1, MUSIC_NUM_2, MUSIC_NUM_3, MUSIC_NUM_4
+};
+
+typedef enum {
+	RW_OK = 0x0, RW_ERROR = 0x1
+} stat_flashRW;
 
 struct clock_state {
 	enum CLOCK_MODE mode;
@@ -114,6 +68,17 @@ typedef struct {
 	int8_t musicNum;
 	char musicTitle[20];
 } MusicTypeDef;
+
+
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+#define LCD_ADDR 				(0x27 << 1)
+#define FLASH_USER_START_ADDR   ADDR_FLASH_SECTOR_10
+#define MAGIC_NUM 				0xeeeeeeee
+#define nv_items 				((NVitemTypeDef *) ADDR_FLASH_SECTOR_10)
 
 /* USER CODE END PD */
 
@@ -165,7 +130,7 @@ TimeTypeDef ctime;
 TimeTypeDef stime;
 TimeTypeDef atime;
 
-RTC_DateTypeDef sDate;
+//RTC_DateTypeDef sDate;
 RTC_TimeTypeDef RTC_Time;
 RTC_AlarmTypeDef RTC_Alarm;
 
@@ -201,52 +166,35 @@ static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_NVIC_Init(void);
 /* USER CODE BEGIN PFP */
-//uint32_t GetSector(uint32_t Address);
-//uint32_t GetSectorSize(uint32_t Sector);
-//stat_flashRW readFlash(uint32_t startADDR);
-//stat_flashRW eraseFlash(uint32_t ADDR_FLASH_SECTOR_x);
-void init();
-uint8_t readFlash(uint32_t addr);
-HAL_StatusTypeDef update_nvitems(void);
-void init_getFlashTime(void);
-void get_time(void);
 int _write(int file, char *ptr, int len);
-void showCurrentTime(void);
-void lcd_clear(void);
+HAL_StatusTypeDef HAL_ADC_Start_DMA(ADC_HandleTypeDef* hadc, uint32_t* pData, uint32_t Length);
+void init(void);
 uint8_t readFlash(uint32_t addr);
-HAL_StatusTypeDef update_nvitems(void);
+void init_getFlashTime(void);
+void init_getFlashAlarm(void);
+void init_getFlashMusic(void);
+void lcd_clear(void);
+void get_time(void);
+void showCurrentTime(void);
 void timeDisplay(void);
 enum CLOCK_BUTTON joyStick_btn_chk(void);
+HAL_StatusTypeDef update_nvitems(void);
 void time_set_mode(void);
+void alarm_set_mode(void);
+void music_set_mode(void);
+void musicOn(void);
+void schoolBellPlay(void);
+void nabiPlay(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-#define MEL_NUM 	24
-
-typedef struct {
-	uint16_t freq;
-	uint16_t delay;
-} _BUZZER;
-
-_BUZZER buzzer[MEL_NUM] = { { G, 1 }, { G, 1 }, { A, 1 }, { A, 1 }, 	// 4
-		{ G, 1 }, { G, 1 }, { E, 2 }, 									// 3
-		{ G, 1 }, { G, 1 }, { E, 1 }, { E, 1 }, { D, 3 }, 				// 5
-		{ G, 1 }, { G, 1 }, { A, 1 }, { A, 1 },							// 4
-		{ G, 1 }, { G, 1 }, { E, 2 }, 									// 3
-		{ G, 1 }, { E, 1 }, { D, 1 }, { E, 1 }, { C, 3 } 				// 5
-};
-
-uint8_t start = 0;
-uint8_t seq = 0;
-uint8_t stop = 0;
-
 int _write(int file, char *ptr, int len) {
 	HAL_UART_Transmit(&huart3, (uint8_t*) ptr, len, 500);
 	return len;
 }
 
-//char temp_alarm_buf[30];
+
 
 void get_time(void) {
 	HAL_RTC_GetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
@@ -255,10 +203,6 @@ void get_time(void) {
 	sprintf((char*) temp_time_buf, "%s %02d: %02d: %02d",
 			ampm[RTC_Time.TimeFormat], RTC_Time.Hours, RTC_Time.Minutes,
 			RTC_Time.Seconds);
-
-//	sprintf((char*) temp_alarm_buf, "%s %02d: %02d: %02d",
-//			ampm[RTC_Alarm.AlarmTime.TimeFormat], RTC_Alarm.AlarmTime.Hours,
-//			RTC_Alarm.AlarmTime.Minutes, RTC_Alarm.AlarmTime.Seconds);
 }
 
 void showCurrentTime() {
@@ -372,6 +316,62 @@ void timeDisplay() {
 	LCD_SendString(LCD_ADDR, timeStr);
 }
 
+void musicOn() {
+//	start = 1;
+//	seq = 0;
+
+	HAL_TIM_Base_Start_IT(&htim2);
+	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+}
+
+void schoolBellPlay() {
+	uint16_t melody = (uint16_t) (1000000 / schoolBell[seq].freq);
+
+//	musicOn();
+
+	if (stop == 1) {
+		TIM2->ARR = 2000;
+		HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+		stop = 0;
+	} else {
+		if (seq == SCHOOL_MEL_NUM) {
+			HAL_TIM_Base_Stop_IT(&htim2);
+			HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+		} else {
+			TIM3->ARR = melody;
+			TIM3->CCR3 = melody / 2;
+			TIM2->ARR = schoolBell[seq].delay * 2000;
+			HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+			stop = 1;
+			seq++;
+		}
+	}
+}
+
+void nabiPlay() {
+	uint16_t melody = (uint16_t) (1000000 / nabi[seq].freq);
+
+//	musicOn();
+
+	if (stop == 1) {
+		TIM2->ARR = 2000;
+		HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+		stop = 0;
+	} else {
+		if (seq == NABI_MEL_NUM) {
+			HAL_TIM_Base_Stop_IT(&htim2);
+			HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+		} else {
+			TIM3->ARR = melody;
+			TIM3->CCR3 = melody / 2;
+			TIM2->ARR = nabi[seq].delay * 2000;
+			HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+			stop = 1;
+			seq++;
+		}
+	}
+}
+
 void musicDisplay(int musicNumber) {
 	char music_str[30];
 
@@ -382,6 +382,33 @@ void musicDisplay(int musicNumber) {
 	LCD_SendString(LCD_ADDR, "Music Setting");
 	LCD_SendCommand(LCD_ADDR, 0b11000000);
 	LCD_SendString(LCD_ADDR, music_str);
+}
+
+enum MUSIC_LIST musicList;
+void musicPlay(int musicNumber) {
+
+	switch(musicNumber) {
+	case 0:
+//		musicList = MUSIC_NUM_0;
+		schoolBellPlay();
+		break;
+	case 1:
+//		musicList = MUSIC_NUM_1;
+		nabiPlay();
+		break;
+	case 2:
+//		musicList = MUSIC_NUM_2;
+		break;
+	case 3:
+//		musicList = MUSIC_NUM_3;
+		break;
+	case 4:
+//		musicList = MUSIC_NUM_4;
+		break;
+	default:
+		break;
+
+	}
 }
 
 enum CLOCK_BUTTON joyStick_btn_chk() {
@@ -632,20 +659,6 @@ void alarm_set_mode(void) {
 	timeDisplay();
 }
 
-//void springWater_song()
-//{
-//	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
-//	for(int i = 0; i < sizeof(springWater_note)/sizeof(springWater_note[0]); i++)
-//	{
-//		TIM3->ARR = springWater_note[i];
-//		TIM3->CCR3 = springWater_note[i]/2;
-//		HAL_Delay(500);
-//		TIM3->CCR3 = 0;
-//		HAL_Delay(springWater_intvl[i]);
-//		TIM3->CCR3 = springWater_note[i]/2;
-//	}
-//}
-
 void music_set_mode() {
 	enum CLOCK_BUTTON mu_button;
 	int mu_position, mu_cnt;
@@ -654,24 +667,18 @@ void music_set_mode() {
 	mu_position = current_state.music_num;
 	mu_cnt = sizeof(alarmMusic) / sizeof(alarmMusic[0]);
 
-//	springWater_song();
-
 	switch (mu_button) {
 	case UP:
 		mu_position++;
 		if (mu_position == mu_cnt) {
 			mu_position = 0;
 		}
-//		lcd_clear();
-//		musicDisplay(mu_position);
 		break;
 	case DOWN:
 		mu_position--;
 		if (mu_position < 0) {
 			mu_position = mu_cnt - 1;
 		}
-//		lcd_clear();
-//		musicDisplay(mu_position);
 		break;
 	case RIGHT:
 		default_nvitem.alarm_music_num = mu_position;
@@ -685,8 +692,9 @@ void music_set_mode() {
 	}
 
 	current_state.music_num = mu_position;
-//	lcd_clear();
+
 	musicDisplay(mu_position);
+	musicPlay(mu_position);
 
 	printf("%d. %s\r\n", mu_position, alarmMusic[mu_position].musicTitle);
 
@@ -1382,13 +1390,6 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-void musicOn() {
-	start = 1;
-	seq = 0;
-
-	HAL_TIM_Base_Start_IT(&htim2);
-	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
-}
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	if (GPIO_Pin == GPIO_PIN_3) {
@@ -1415,7 +1416,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 				printf("Double click!!  interval = %u   btn_cnt = %d  \r\n",
 						(unsigned int) interval, btn_cnt);
 				btn_cnt = 0;
-				musicOn();
+				musicOn(); // FOR TEST
 				current_state.mode = MUSIC_SELECT;
 			}
 		}
@@ -1434,30 +1435,34 @@ void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc) {
 //	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
 }
 
+
+
+
+
+
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 
-	uint16_t melody = (uint16_t) (1000000 / buzzer[seq].freq);
+//	switch(musicList) {
+//	case MUSIC_NUM_0:
+//		schoolBellPlay();
+//		break;
+//	case MUSIC_NUM_1:
+//		nabiPlay();
+//		printf("music num 1 play!\r\n");
+//		break;
+//	case MUSIC_NUM_2:
+//		printf("music num 2 play!\r\n");
+//		break;
+//	case MUSIC_NUM_3:
+//		printf("music num 3 play!\r\n");
+//		break;
+//	case MUSIC_NUM_4:
+//		printf("music num 4 play!\r\n");
+//		break;
+//	default:
+//		break;
+//	}
 
-	if (stop == 1) {
-		TIM2->ARR = 2000;
-		HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
-		stop = 0;
-	} else {
-		if (seq == MEL_NUM) {
-			HAL_TIM_Base_Stop_IT(&htim2);
-			HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
-		} else {
-			TIM3->ARR = melody;
-			TIM3->CCR3 = melody / 2;
-			TIM2->ARR = buzzer[seq].delay * 2000;
-			HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
-			stop = 1;
-
-			seq++;
-		}
-	}
-
-//	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
 }
 
 
