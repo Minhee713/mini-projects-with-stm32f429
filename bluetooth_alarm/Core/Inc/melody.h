@@ -20,7 +20,7 @@
 #define E1	659		// mi
 
 #define SCHOOL_MEL_NUM 	24
-#define NABI_MEL_NUM 13
+#define NABI_MEL_NUM 26
 
 typedef struct {
 	uint16_t freq;
@@ -41,7 +41,11 @@ _BUZZER schoolBell[SCHOOL_MEL_NUM] = { { G, 1 }, { E, 1 }, { A, 1 }, { A, 1 }, 	
 
 _BUZZER nabi[NABI_MEL_NUM] = { {G, 1}, {E, 1}, {E, 1},
 		{F, 1}, {D, 1}, {D, 1},
+		{C, 1}, {D, 1}, {E, 1}, {F, 1}, {G, 1}, {G, 1}, {G, 1},
+		{G, 1}, {E, 1}, {E, 1},
+		{F, 1}, {D, 1}, {D, 1},
 		{C, 1}, {D, 1}, {E, 1}, {F, 1}, {G, 1}, {G, 1}, {G, 1}
+
 };
 
 
