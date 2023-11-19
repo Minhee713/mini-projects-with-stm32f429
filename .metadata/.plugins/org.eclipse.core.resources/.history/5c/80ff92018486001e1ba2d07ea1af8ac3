@@ -870,7 +870,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 //				musicOn(); // FOR TEST
 				HAL_TIM_Base_Start_IT(&htim2);
 				HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
-				current_state.mode = MUSIC_SELECT;
+//				current_state.mode = MUSIC_SELECT;
 			}
 		}
 	}
@@ -891,8 +891,6 @@ void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc) {
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 
 //	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
-
-
 
 
 
@@ -1435,7 +1433,6 @@ void melodyPlay(_BUZZER* song) {
 			}
 		}
 
-		printf("in melodyPlay seq is %d\r\n", seq);
 
 }
 void schoolBellPlay() {
@@ -1519,17 +1516,17 @@ void musicPlay(int musicNumber) {
 //		musicList = MUSIC_NUM_0;
 //		schoolBellPlay();
 		melodyPlay(schoolBell);
-//		if(current_state.music_num != musicNumber) {
-//			seq = 0;
-//		}
+		if(current_state.music_num != musicNumber) {
+			seq = 0;
+		}
 		break;
 	case 1:
 //		musicList = MUSIC_NUM_1;
 //		nabiPlay();
 		melodyPlay(nabi);
-//		if(current_state.music_num != musicNumber) {
-//			seq = 0;
-//		}
+		if(current_state.music_num != musicNumber) {
+			seq = 0;
+		}
 		break;
 	case 2:
 //		musicList = MUSIC_NUM_2;

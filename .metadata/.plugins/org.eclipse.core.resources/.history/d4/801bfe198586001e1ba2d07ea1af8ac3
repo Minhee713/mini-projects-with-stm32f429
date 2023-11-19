@@ -894,7 +894,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 
 
 
-
+seq = 0;
 
 
 
@@ -1435,7 +1435,6 @@ void melodyPlay(_BUZZER* song) {
 			}
 		}
 
-		printf("in melodyPlay seq is %d\r\n", seq);
 
 }
 void schoolBellPlay() {

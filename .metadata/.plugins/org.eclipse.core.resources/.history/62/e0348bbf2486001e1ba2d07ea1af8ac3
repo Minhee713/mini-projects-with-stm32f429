@@ -76,7 +76,7 @@ typedef struct {
 #define LCD_ADDR 				(0x27 << 1)
 #define FLASH_USER_START_ADDR   ADDR_FLASH_SECTOR_10
 #define MAGIC_NUM 				0xeeeeeeee
-#define nv_items 				((NVitemTypeDef *) FLASH_USER_START_ADDR)
+#define nv_items 				((NVitemTypeDef *) ADDR_FLASH_SECTOR_10)
 
 /* USER CODE END PD */
 
@@ -870,7 +870,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 //				musicOn(); // FOR TEST
 				HAL_TIM_Base_Start_IT(&htim2);
 				HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
-				current_state.mode = MUSIC_SELECT;
+//				current_state.mode = MUSIC_SELECT;
 			}
 		}
 	}
@@ -890,29 +890,16 @@ void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc) {
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 
-//	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+	enum CLOCK_BUTTON mu_button;
 
+	mu_button = joyStick_btn_chk();
 
-
-
-
-
-
-
-
-
-
-
-//	enum CLOCK_BUTTON mu_button;
-//
-//	mu_button = joyStick_btn_chk();
-//
-//	if(mu_button == NOTHING) {
-//		start = 0;
-//	} else {
-////		start = 1;
-//		current_state.mode = MUSIC_SELECT;
-//	}
+	if(mu_button == NOTHING) {
+		start = 0;
+	} else {
+//		start = 1;
+		current_state.mode = MUSIC_SELECT;
+	}
 
 
 
@@ -1095,7 +1082,7 @@ HAL_StatusTypeDef update_nvitems(void) {
 
 	HAL_FLASH_Unlock();
 
-	FirstSector = FLASH_USER_START_ADDR;
+	FirstSector = ADDR_FLASH_SECTOR_10;
 	NbOfSectors = 1;
 	EraseInitStruct.TypeErase = FLASH_TYPEERASE_SECTORS;
 	EraseInitStruct.VoltageRange = FLASH_VOLTAGE_RANGE_1;
@@ -1411,35 +1398,9 @@ void musicOn() {
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
 }
 
-void melodyPlay(_BUZZER* song) {
-
-		uint16_t melody = (uint16_t) (1000000 / song[seq].freq);
-
-		int mel_num = sizeof(song) / sizeof(song[0]);
-
-		if (stop == 1) {
-			TIM2->ARR = 2000;
-			HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
-			stop = 0;
-		} else {
-			if (seq == mel_num) {
-				HAL_TIM_Base_Stop_IT(&htim2);
-				HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
-			} else {
-				TIM3->ARR = melody;
-				TIM3->CCR3 = melody / 2;
-				TIM2->ARR = song[seq].delay * 2000;
-				HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
-				stop = 1;
-				seq++;
-			}
-		}
-
-		printf("in melodyPlay seq is %d\r\n", seq);
-
-}
 void schoolBellPlay() {
 
+		if (start == 1) {
 		uint16_t melody = (uint16_t) (1000000 / schoolBell[seq].freq);
 
 		if (stop == 1) {
@@ -1459,12 +1420,17 @@ void schoolBellPlay() {
 				seq++;
 			}
 		}
+	} else {
+		start = 0;
+		seq = 0;
+	}
 
 
 }
 
 void nabiPlay() {
 
+	if(start = 1) {
 		uint16_t melody = (uint16_t) (1000000 / nabi[seq].freq);
 
 		if (stop == 1) {
@@ -1484,7 +1450,10 @@ void nabiPlay() {
 				seq++;
 			}
 		}
-
+	} else {
+		start = 0;
+		seq = 0;
+	}
 
 }
 
@@ -1509,27 +1478,22 @@ void musicPlay(int musicNumber) {
 //		music_lastSelect = musicNumber;
 //
 //	}
-
-	void (*fp) (_BUZZER*);
-
-	fp = melodyPlay;
-
 	switch(musicNumber) {
 	case 0:
 //		musicList = MUSIC_NUM_0;
-//		schoolBellPlay();
-		melodyPlay(schoolBell);
-//		if(current_state.music_num != musicNumber) {
-//			seq = 0;
-//		}
+		start = 1;
+		schoolBellPlay();
+		if(current_state.music_num != musicNumber) {
+			seq = 0;
+		}
 		break;
 	case 1:
 //		musicList = MUSIC_NUM_1;
-//		nabiPlay();
-		melodyPlay(nabi);
-//		if(current_state.music_num != musicNumber) {
-//			seq = 0;
-//		}
+		start = 1;
+		nabiPlay();
+		if(current_state.music_num != musicNumber) {
+			seq = 0;
+		}
 		break;
 	case 2:
 //		musicList = MUSIC_NUM_2;

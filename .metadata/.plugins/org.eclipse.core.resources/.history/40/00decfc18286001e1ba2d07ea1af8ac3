@@ -19,10 +19,8 @@
 #define D1	587		// re
 #define E1	659		// mi
 
-#define SCHOOL_MEL_NUM 	24
-//sizeof(schoolBell)/sizeof(schoolBell[0])
-#define NABI_MEL_NUM 26
-//sizeof(nabi) / sizeof(nabi[0])
+#define SCHOOL_MEL_NUM 	sizeof(schoolBell)/sizeof(schoolBell[0])
+#define NABI_MEL_NUM sizeof(nabi) / sizeof(nabi[0])
 
 typedef struct {
 	uint16_t freq;
@@ -32,10 +30,6 @@ typedef struct {
 uint8_t start = 0;
 uint8_t seq = 0;
 uint8_t stop = 0;
-
-
-_BUZZER* melody;
-
 
 _BUZZER schoolBell[SCHOOL_MEL_NUM] = { { G, 1 }, { E, 1 }, { A, 1 }, { A, 1 }, 	// 4
 		{ G, 1 }, { G, 1 }, { E, 2 }, 									// 3
