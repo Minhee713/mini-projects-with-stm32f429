@@ -30,8 +30,8 @@
 ../Core/Src/main.c:1364:6:music_set_mode	24	static
 ../Core/Src/main.c:1406:6:musicOn	8	static
 ../Core/Src/main.c:1414:6:melodyPlay	24	static
-../Core/Src/main.c:1441:6:schoolBellPlay	16	static
-../Core/Src/main.c:1466:6:nabiPlay	16	static
-../Core/Src/main.c:1491:6:musicDisplay	48	static
-../Core/Src/main.c:1503:6:musicPlay	24	static
-../Core/Src/main.c:1564:6:Error_Handler	4	static,ignoring_inline_asm
+../Core/Src/main.c:1446:6:schoolBellPlay	16	static
+../Core/Src/main.c:1471:6:nabiPlay	16	static
+../Core/Src/main.c:1496:6:musicDisplay	48	static
+../Core/Src/main.c:1508:6:musicPlay	24	static
+../Core/Src/main.c:1569:6:Error_Handler	4	static,ignoring_inline_asm

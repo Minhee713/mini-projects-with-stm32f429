@@ -1,4 +1,4 @@
-11:41:14 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+12:09:57 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'lcd_clear':
@@ -20,16 +20,9 @@ arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -D
       |                                 |       uint64_t {aka long long unsigned int}
       |                                 long int
       |                               %lld
-../Core/Src/main.c: In function 'melodyPlay':
-../Core/Src/main.c:1418:44: warning: division 'sizeof (_BUZZER *) / sizeof (_BUZZER)' does not compute the number of array elements [-Wsizeof-pointer-div]
- 1418 |                 int mel_num = sizeof(song) / sizeof(song[0]);
-      |                                            ^
-../Core/Src/main.c:1414:26: note: first 'sizeof' operand was declared here
- 1414 | void melodyPlay(_BUZZER* song) {
-      |                 ~~~~~~~~~^~~~
 ../Core/Src/main.c: In function 'musicPlay':
-../Core/Src/main.c:1513:16: warning: variable 'fp' set but not used [-Wunused-but-set-variable]
- 1513 |         void (*fp) (_BUZZER*);
+../Core/Src/main.c:1518:16: warning: variable 'fp' set but not used [-Wunused-but-set-variable]
+ 1518 |         void (*fp) (_BUZZER*);
       |                ^~
 ../Core/Src/main.c: In function 'joyStick_btn_chk':
 ../Core/Src/main.c:1086:1: warning: control reaches end of non-void function [-Wreturn-type]
@@ -49,11 +42,11 @@ Finished building target: bluetooth_alarm.elf
 arm-none-eabi-size   bluetooth_alarm.elf 
 arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
    text	   data	    bss	    dec	    hex	filename
-  45192	    404	   4476	  50072	   c398	bluetooth_alarm.elf
+  45124	    404	   4476	  50004	   c354	bluetooth_alarm.elf
 Finished building: default.size.stdout
  
 Finished building: bluetooth_alarm.list
  
 
-11:41:15 Build Finished. 0 errors, 9 warnings. (took 1s.276ms)
+12:09:58 Build Finished. 0 errors, 8 warnings. (took 1s.275ms)
 

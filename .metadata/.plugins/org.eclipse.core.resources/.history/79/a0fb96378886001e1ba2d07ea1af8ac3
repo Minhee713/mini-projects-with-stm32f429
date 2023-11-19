@@ -1417,17 +1417,15 @@ void melodyPlay(_BUZZER* song) {
 
 //		int mel_num = sizeof(song) / sizeof(song[0]);
 
-//		seq = 0;
-
 		if (stop == 1) {
 			TIM2->ARR = 2000;
 			HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
 			stop = 0;
 		} else {
 			if (seq == 26) {
-				seq = 0;
-//				HAL_TIM_Base_Stop_IT(&htim2);
-//				HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+				seq == 0;
+				HAL_TIM_Base_Stop_IT(&htim2);
+				HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
 			} else {
 				TIM3->ARR = melody;
 				TIM3->CCR3 = melody / 2;
@@ -1524,17 +1522,17 @@ void musicPlay(int musicNumber) {
 //		musicList = MUSIC_NUM_0;
 //		schoolBellPlay();
 		melodyPlay(schoolBell);
-		if(current_state.music_num != musicNumber) {
-			seq = 0;
-		}
+//		if(current_state.music_num != musicNumber) {
+//			seq = 0;
+//		}
 		break;
 	case 1:
 //		musicList = MUSIC_NUM_1;
 //		nabiPlay();
 		melodyPlay(nabi);
-		if(current_state.music_num != musicNumber) {
-			seq = 0;
-		}
+//		if(current_state.music_num != musicNumber) {
+//			seq = 0;
+//		}
 		break;
 	case 2:
 //		musicList = MUSIC_NUM_2;

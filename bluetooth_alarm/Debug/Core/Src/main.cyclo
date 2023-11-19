@@ -30,8 +30,8 @@
 ../Core/Src/main.c:1364:6:music_set_mode	7
 ../Core/Src/main.c:1406:6:musicOn	1
 ../Core/Src/main.c:1414:6:melodyPlay	3
-../Core/Src/main.c:1441:6:schoolBellPlay	3
-../Core/Src/main.c:1466:6:nabiPlay	3
-../Core/Src/main.c:1491:6:musicDisplay	1
-../Core/Src/main.c:1503:6:musicPlay	3
-../Core/Src/main.c:1564:6:Error_Handler	1
+../Core/Src/main.c:1446:6:schoolBellPlay	3
+../Core/Src/main.c:1471:6:nabiPlay	3
+../Core/Src/main.c:1496:6:musicDisplay	1
+../Core/Src/main.c:1508:6:musicPlay	5
+../Core/Src/main.c:1569:6:Error_Handler	1

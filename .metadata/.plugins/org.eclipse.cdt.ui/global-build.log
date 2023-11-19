@@ -35760,3 +35760,593 @@ Finished building: default.size.stdout
  
 Finished building: bluetooth_alarm.list
  
+11:45:39 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'lcd_clear':
+../Core/Src/main.c:997:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  997 |         LCD_SendCommand(LCD_ADDR, 0b00000001);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:1011:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+ 1011 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1119:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+ 1119 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:1123:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+ 1123 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'melodyPlay':
+../Core/Src/main.c:1418:44: warning: division 'sizeof (_BUZZER *) / sizeof (_BUZZER)' does not compute the number of array elements [-Wsizeof-pointer-div]
+ 1418 |                 int mel_num = sizeof(song) / sizeof(song[0]);
+      |                                            ^
+../Core/Src/main.c:1414:26: note: first 'sizeof' operand was declared here
+ 1414 | void melodyPlay(_BUZZER* song) {
+      |                 ~~~~~~~~~^~~~
+../Core/Src/main.c: In function 'musicPlay':
+../Core/Src/main.c:1514:16: warning: variable 'fp' set but not used [-Wunused-but-set-variable]
+ 1514 |         void (*fp) (_BUZZER*);
+      |                ^~
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:1086:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1086 | }
+      | ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1132:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1132 | }
+      | ^
+At top level:
+../Core/Src/main.c:152:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  152 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\USER\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45220	    404	   4476	  50100	   c3b4	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+11:50:16 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'lcd_clear':
+../Core/Src/main.c:997:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  997 |         LCD_SendCommand(LCD_ADDR, 0b00000001);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:1011:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+ 1011 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1119:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+ 1119 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:1123:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+ 1123 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'melodyPlay':
+../Core/Src/main.c:1416:61: error: subscripted value is neither array nor pointer nor vector
+ 1416 |                 uint16_t melody = (uint16_t) (1000000 / song[seq].freq);
+      |                                                             ^
+../Core/Src/main.c:1418:57: error: subscripted value is neither array nor pointer nor vector
+ 1418 |                 int mel_num = sizeof(song) / sizeof(song[0]);
+      |                                                         ^
+../Core/Src/main.c:1431:49: error: subscripted value is neither array nor pointer nor vector
+ 1431 |                                 TIM2->ARR = song[seq].delay * 2000;
+      |                                                 ^
+../Core/Src/main.c: In function 'musicPlay':
+../Core/Src/main.c:1522:28: error: incompatible type for argument 1 of 'melodyPlay'
+ 1522 |                 melodyPlay(schoolBell);
+      |                            ^~~~~~~~~~
+      |                            |
+      |                            _BUZZER *
+../Core/Src/main.c:1414:25: note: expected '_BUZZER' but argument is of type '_BUZZER *'
+ 1414 | void melodyPlay(_BUZZER song) {
+      |                 ~~~~~~~~^~~~
+../Core/Src/main.c:1530:28: error: incompatible type for argument 1 of 'melodyPlay'
+ 1530 |                 melodyPlay(nabi);
+      |                            ^~~~
+      |                            |
+      |                            _BUZZER *
+../Core/Src/main.c:1414:25: note: expected '_BUZZER' but argument is of type '_BUZZER *'
+ 1414 | void melodyPlay(_BUZZER song) {
+      |                 ~~~~~~~~^~~~
+../Core/Src/main.c:1514:16: warning: variable 'fp' set but not used [-Wunused-but-set-variable]
+ 1514 |         void (*fp) (_BUZZER);
+      |                ^~
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:1086:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1086 | }
+      | ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1132:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1132 | }
+      | ^
+At top level:
+../Core/Src/main.c:152:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  152 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:52:26 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'lcd_clear':
+../Core/Src/main.c:997:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  997 |         LCD_SendCommand(LCD_ADDR, 0b00000001);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:1011:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+ 1011 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1119:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+ 1119 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:1123:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+ 1123 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'melodyPlay':
+../Core/Src/main.c:1418:44: warning: division 'sizeof (_BUZZER *) / sizeof (_BUZZER)' does not compute the number of array elements [-Wsizeof-pointer-div]
+ 1418 |                 int mel_num = sizeof(song) / sizeof(song[0]);
+      |                                            ^
+../Core/Src/main.c:1414:26: note: first 'sizeof' operand was declared here
+ 1414 | void melodyPlay(_BUZZER* song) {
+      |                 ~~~~~~~~~^~~~
+../Core/Src/main.c: In function 'musicPlay':
+../Core/Src/main.c:1514:16: warning: variable 'fp' set but not used [-Wunused-but-set-variable]
+ 1514 |         void (*fp) (_BUZZER*);
+      |                ^~
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:1086:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1086 | }
+      | ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1132:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1132 | }
+      | ^
+At top level:
+../Core/Src/main.c:152:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  152 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\USER\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45220	    404	   4476	  50100	   c3b4	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+11:52:53 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'lcd_clear':
+../Core/Src/main.c:997:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  997 |         LCD_SendCommand(LCD_ADDR, 0b00000001);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:1011:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+ 1011 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1119:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+ 1119 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:1123:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+ 1123 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'melodyPlay':
+../Core/Src/main.c:1416:57: error: invalid type argument of unary '*' (have 'int')
+ 1416 |                 uint16_t melody = (uint16_t) (1000000 / *song[seq].freq);
+      |                                                         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:1418:54: error: invalid type argument of unary '*' (have '_BUZZER')
+ 1418 |                 int mel_num = sizeof(*song) / sizeof(*song[0]);
+      |                                                      ^~~~~~~~
+../Core/Src/main.c: In function 'musicPlay':
+../Core/Src/main.c:1514:16: warning: variable 'fp' set but not used [-Wunused-but-set-variable]
+ 1514 |         void (*fp) (_BUZZER*);
+      |                ^~
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:1086:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1086 | }
+      | ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1132:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1132 | }
+      | ^
+At top level:
+../Core/Src/main.c:152:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  152 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:57:20 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'lcd_clear':
+../Core/Src/main.c:997:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  997 |         LCD_SendCommand(LCD_ADDR, 0b00000001);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:1011:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+ 1011 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1119:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+ 1119 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:1123:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+ 1123 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'melodyPlay':
+../Core/Src/main.c:1418:44: warning: division 'sizeof (_BUZZER *) / sizeof (_BUZZER)' does not compute the number of array elements [-Wsizeof-pointer-div]
+ 1418 |                 int mel_num = sizeof(song) / sizeof(song[0]);
+      |                                            ^
+../Core/Src/main.c:1414:26: note: first 'sizeof' operand was declared here
+ 1414 | void melodyPlay(_BUZZER* song) {
+      |                 ~~~~~~~~~^~~~
+../Core/Src/main.c: In function 'musicPlay':
+../Core/Src/main.c:1515:16: warning: variable 'fp' set but not used [-Wunused-but-set-variable]
+ 1515 |         void (*fp) (_BUZZER*);
+      |                ^~
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:1086:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1086 | }
+      | ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1132:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1132 | }
+      | ^
+At top level:
+../Core/Src/main.c:152:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  152 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\USER\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45252	    404	   4476	  50132	   c3d4	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+12:00:12 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'lcd_clear':
+../Core/Src/main.c:997:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  997 |         LCD_SendCommand(LCD_ADDR, 0b00000001);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:1011:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+ 1011 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1119:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+ 1119 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:1123:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+ 1123 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'musicPlay':
+../Core/Src/main.c:1515:16: warning: variable 'fp' set but not used [-Wunused-but-set-variable]
+ 1515 |         void (*fp) (_BUZZER*);
+      |                ^~
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:1086:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1086 | }
+      | ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1132:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1132 | }
+      | ^
+At top level:
+../Core/Src/main.c:152:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  152 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\USER\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45184	    404	   4476	  50064	   c390	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+12:01:23 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'lcd_clear':
+../Core/Src/main.c:997:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  997 |         LCD_SendCommand(LCD_ADDR, 0b00000001);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:1011:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+ 1011 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1119:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+ 1119 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:1123:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+ 1123 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'melodyPlay':
+../Core/Src/main.c:1426:37: warning: statement with no effect [-Wunused-value]
+ 1426 |                                 seq == 0;
+      |                                 ~~~~^~~~
+../Core/Src/main.c: In function 'musicPlay':
+../Core/Src/main.c:1516:16: warning: variable 'fp' set but not used [-Wunused-but-set-variable]
+ 1516 |         void (*fp) (_BUZZER*);
+      |                ^~
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:1086:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1086 | }
+      | ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1132:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1132 | }
+      | ^
+At top level:
+../Core/Src/main.c:152:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  152 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\USER\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45184	    404	   4476	  50064	   c390	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+12:03:30 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'lcd_clear':
+../Core/Src/main.c:997:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  997 |         LCD_SendCommand(LCD_ADDR, 0b00000001);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:1011:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+ 1011 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1119:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+ 1119 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:1123:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+ 1123 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'melodyPlay':
+../Core/Src/main.c:1426:37: warning: statement with no effect [-Wunused-value]
+ 1426 |                                 seq == 0;
+      |                                 ~~~~^~~~
+../Core/Src/main.c: In function 'musicPlay':
+../Core/Src/main.c:1516:16: warning: variable 'fp' set but not used [-Wunused-but-set-variable]
+ 1516 |         void (*fp) (_BUZZER*);
+      |                ^~
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:1086:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1086 | }
+      | ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1132:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1132 | }
+      | ^
+At top level:
+../Core/Src/main.c:152:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  152 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\USER\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45072	    404	   4476	  49952	   c320	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+12:04:49 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-size   bluetooth_alarm.elf 
+   text	   data	    bss	    dec	    hex	filename
+  45072	    404	   4476	  49952	   c320	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+12:05:00 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'lcd_clear':
+../Core/Src/main.c:997:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  997 |         LCD_SendCommand(LCD_ADDR, 0b00000001);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:1011:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+ 1011 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1119:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+ 1119 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:1123:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+ 1123 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'musicPlay':
+../Core/Src/main.c:1516:16: warning: variable 'fp' set but not used [-Wunused-but-set-variable]
+ 1516 |         void (*fp) (_BUZZER*);
+      |                ^~
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:1086:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1086 | }
+      | ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1132:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1132 | }
+      | ^
+At top level:
+../Core/Src/main.c:152:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  152 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\USER\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45080	    404	   4476	  49960	   c328	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+12:08:12 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'lcd_clear':
+../Core/Src/main.c:997:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  997 |         LCD_SendCommand(LCD_ADDR, 0b00000001);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:1011:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+ 1011 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1119:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+ 1119 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:1123:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+ 1123 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'musicPlay':
+../Core/Src/main.c:1518:16: warning: variable 'fp' set but not used [-Wunused-but-set-variable]
+ 1518 |         void (*fp) (_BUZZER*);
+      |                ^~
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:1086:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1086 | }
+      | ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1132:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1132 | }
+      | ^
+At top level:
+../Core/Src/main.c:152:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  152 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\USER\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45084	    404	   4476	  49964	   c32c	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 
+12:09:57 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'lcd_clear':
+../Core/Src/main.c:997:9: warning: implicit declaration of function 'LCD_SendCommand' [-Wimplicit-function-declaration]
+  997 |         LCD_SendCommand(LCD_ADDR, 0b00000001);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'showCurrentTime':
+../Core/Src/main.c:1011:9: warning: implicit declaration of function 'LCD_SendString' [-Wimplicit-function-declaration]
+ 1011 |         LCD_SendString(LCD_ADDR, "Current Time");
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1119:25: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint8_t *' {aka 'unsigned char *'} makes integer from pointer without a cast [-Wint-conversion]
+ 1119 |                 Address = (uint8_t*) nv_items + i;
+      |                         ^
+../Core/Src/main.c:1123:33: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'uint64_t' {aka 'long long unsigned int'} [-Wformat=]
+ 1123 |                 printf("DATA: %ld\r\n", Data);
+      |                               ~~^       ~~~~
+      |                                 |       |
+      |                                 |       uint64_t {aka long long unsigned int}
+      |                                 long int
+      |                               %lld
+../Core/Src/main.c: In function 'musicPlay':
+../Core/Src/main.c:1518:16: warning: variable 'fp' set but not used [-Wunused-but-set-variable]
+ 1518 |         void (*fp) (_BUZZER*);
+      |                ^~
+../Core/Src/main.c: In function 'joyStick_btn_chk':
+../Core/Src/main.c:1086:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1086 | }
+      | ^
+../Core/Src/main.c: In function 'update_nvitems':
+../Core/Src/main.c:1132:1: warning: control reaches end of non-void function [-Wreturn-type]
+ 1132 | }
+      | ^
+At top level:
+../Core/Src/main.c:152:31: warning: 'EraseInitStruct' defined but not used [-Wunused-variable]
+  152 | static FLASH_EraseInitTypeDef EraseInitStruct;
+      |                               ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "bluetooth_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\USER\mini-projects-with-stm32f429\bluetooth_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluetooth_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluetooth_alarm.elf
+ 
+arm-none-eabi-size   bluetooth_alarm.elf 
+arm-none-eabi-objdump -h -S  bluetooth_alarm.elf  > "bluetooth_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45124	    404	   4476	  50004	   c354	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: bluetooth_alarm.list
+ 

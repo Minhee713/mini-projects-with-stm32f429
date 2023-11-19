@@ -1411,23 +1411,20 @@ void musicOn() {
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
 }
 
-void melodyPlay(_BUZZER* song) {
+void melodyPlay(_BUZZER song) {
 
 		uint16_t melody = (uint16_t) (1000000 / song[seq].freq);
 
-//		int mel_num = sizeof(song) / sizeof(song[0]);
-
-//		seq = 0;
+		int mel_num = sizeof(song) / sizeof(song[0]);
 
 		if (stop == 1) {
 			TIM2->ARR = 2000;
 			HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
 			stop = 0;
 		} else {
-			if (seq == 26) {
-				seq = 0;
-//				HAL_TIM_Base_Stop_IT(&htim2);
-//				HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+			if (seq == mel_num) {
+				HAL_TIM_Base_Stop_IT(&htim2);
+				HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
 			} else {
 				TIM3->ARR = melody;
 				TIM3->CCR3 = melody / 2;
@@ -1439,8 +1436,7 @@ void melodyPlay(_BUZZER* song) {
 		}
 
 		printf("in melodyPlay seq is %d\r\n", seq);
-//		printf("mel_num is %d\r\n", mel_num);
-//		printf("size of song %d\r\n", sizeof(song));
+		printf("mel_num is %d\r\n", mel_num);
 
 }
 void schoolBellPlay() {
@@ -1515,7 +1511,7 @@ void musicPlay(int musicNumber) {
 //
 //	}
 
-	void (*fp) (_BUZZER*);
+	void (*fp) (_BUZZER);
 
 	fp = melodyPlay;
 
@@ -1524,17 +1520,17 @@ void musicPlay(int musicNumber) {
 //		musicList = MUSIC_NUM_0;
 //		schoolBellPlay();
 		melodyPlay(schoolBell);
-		if(current_state.music_num != musicNumber) {
-			seq = 0;
-		}
+//		if(current_state.music_num != musicNumber) {
+//			seq = 0;
+//		}
 		break;
 	case 1:
 //		musicList = MUSIC_NUM_1;
 //		nabiPlay();
 		melodyPlay(nabi);
-		if(current_state.music_num != musicNumber) {
-			seq = 0;
-		}
+//		if(current_state.music_num != musicNumber) {
+//			seq = 0;
+//		}
 		break;
 	case 2:
 //		musicList = MUSIC_NUM_2;
