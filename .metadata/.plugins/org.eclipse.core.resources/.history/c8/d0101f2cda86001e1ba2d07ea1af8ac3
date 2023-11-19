@@ -1387,6 +1387,8 @@ void music_set_mode() {
 		}
 		break;
 	case RIGHT:
+		seq = 0;
+
 		HAL_TIM_Base_Stop_IT(&htim2);
 		HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
 
@@ -1417,8 +1419,10 @@ void melodyPlay(_BUZZER* song, int melodySize) {
 			HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
 			stop = 0;
 		} else {
-			if (seq == melodySize || current_state.mode != MUSIC_SELECT) {
+			if (seq == melodySize) {
 				seq = 0;
+//				HAL_TIM_Base_Stop_IT(&htim2);
+//				HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
 			} else {
 				TIM3->ARR = melody;
 				TIM3->CCR3 = melody / 2;

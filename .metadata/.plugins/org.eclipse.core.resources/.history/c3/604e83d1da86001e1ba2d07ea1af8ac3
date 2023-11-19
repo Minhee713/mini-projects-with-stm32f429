@@ -254,6 +254,7 @@ int main(void)
 		switch (current_state.mode) {
 		case NORMAL_STATE:
 			get_time();
+			seq = 0;
 			break;
 		case TIME_SETTING:
 			time_set_mode();
@@ -1396,6 +1397,9 @@ void music_set_mode() {
 		lcd_clear();
 
 		current_state.mode = NORMAL_STATE;
+//		if(current_state.mode != MUSIC_SELECT) {
+//			seq = 0;
+//		}
 	default:
 		break;
 	}
@@ -1417,8 +1421,10 @@ void melodyPlay(_BUZZER* song, int melodySize) {
 			HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
 			stop = 0;
 		} else {
-			if (seq == melodySize || current_state.mode != MUSIC_SELECT) {
+			if (seq == melodySize) {
 				seq = 0;
+//				HAL_TIM_Base_Stop_IT(&htim2);
+//				HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
 			} else {
 				TIM3->ARR = melody;
 				TIM3->CCR3 = melody / 2;

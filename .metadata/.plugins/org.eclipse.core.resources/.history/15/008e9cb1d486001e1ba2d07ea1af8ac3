@@ -241,8 +241,8 @@ int main(void)
 	init_getFlashAlarm();
 	init_getFlashMusic();
 	lcd_clear();
-	HAL_UART_Receive_IT(&huart3, &rx3_data, sizeof(rx3_data));
-	HAL_UART_Receive_IT(&huart2, &rx2_data, sizeof(rx2_data));
+	HAL_UART_Receive_IT(&huart, &rx3_data, sizeof(rx3_data));
+	HAL_UART_Receive_IT(&huart, &rx2_data, sizeof(rx2_data));
 	current_state.mode = NORMAL_STATE;
   /* USER CODE END 2 */
 
@@ -1008,7 +1008,7 @@ void get_time(void) {
 
 void showCurrentTime() {
 	LCD_SendCommand(LCD_ADDR, 0b10000000);
-	LCD_SendString(LCD_ADDR, "Current Time ");
+	LCD_SendString(LCD_ADDR, "Current Time");
 
 	LCD_SendCommand(LCD_ADDR, 0b11000000);
 	LCD_SendString(LCD_ADDR, temp_time_buf);
@@ -1021,14 +1021,14 @@ void timeDisplay() {
 
 	if (current_state.mode == TIME_SETTING) {
 		LCD_SendCommand(LCD_ADDR, 0b10000000);
-		LCD_SendString(LCD_ADDR, "Time Setting ");
+		LCD_SendString(LCD_ADDR, "Time Setting");
 
 		hours = stime.hours;
 		minutes = stime.minutes;
 		seconds = stime.seconds;
 	} else if (current_state.mode == ALARM_TIME_SETTING) {
 		LCD_SendCommand(LCD_ADDR, 0b10000000);
-		LCD_SendString(LCD_ADDR, "Alarm Setting ");
+		LCD_SendString(LCD_ADDR, "Alarm Setting");
 
 		hours = atime.hours;
 		minutes = atime.minutes;
@@ -1037,19 +1037,19 @@ void timeDisplay() {
 
 	if (hours >= 12) {
 		if (current_state.mode == TIME_SETTING) {
-			sprintf(timeStr, "%s %02d: %02d: %02d  ", ampm[RTC_Time.TimeFormat],
+			sprintf(timeStr, "%s %02d: %02d: %02d", ampm[RTC_Time.TimeFormat],
 					hours - 12, minutes, seconds);
 		} else if (current_state.mode == ALARM_TIME_SETTING) {
-			sprintf(timeStr, "%s %02d: %02d: %02d  ",
+			sprintf(timeStr, "%s %02d: %02d: %02d",
 					ampm[RTC_Alarm.AlarmTime.TimeFormat], hours - 12, minutes,
 					seconds);
 		}
 	} else {
 		if (current_state.mode == TIME_SETTING) {
-			sprintf(timeStr, "%s %02d: %02d: %02d  ", ampm[RTC_Time.TimeFormat],
+			sprintf(timeStr, "%s %02d: %02d: %02d", ampm[RTC_Time.TimeFormat],
 					hours, minutes, seconds);
 		} else if (current_state.mode == ALARM_TIME_SETTING) {
-			sprintf(timeStr, "%s %02d: %02d: %02d  ",
+			sprintf(timeStr, "%s %02d: %02d: %02d",
 					ampm[RTC_Alarm.AlarmTime.TimeFormat], hours, minutes,
 					seconds);
 		}
@@ -1403,6 +1403,7 @@ void music_set_mode() {
 	current_state.music_num = mu_position;
 
 	musicDisplay(mu_position);
+
 	musicPlay(mu_position);
 
 }
@@ -1417,8 +1418,10 @@ void melodyPlay(_BUZZER* song, int melodySize) {
 			HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
 			stop = 0;
 		} else {
-			if (seq == melodySize || current_state.mode != MUSIC_SELECT) {
+			if (seq == melodySize) {
 				seq = 0;
+//				HAL_TIM_Base_Stop_IT(&htim2);
+//				HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
 			} else {
 				TIM3->ARR = melody;
 				TIM3->CCR3 = melody / 2;
@@ -1428,17 +1431,19 @@ void melodyPlay(_BUZZER* song, int melodySize) {
 				seq++;
 			}
 		}
+
 		printf("    seq is %d\r\n", seq);
+
 }
 
 void musicDisplay(int musicNumber) {
 	char music_str[30];
 
-	sprintf(music_str, "%d. %s ", musicNumber,
+	sprintf(music_str, "%d. %s", musicNumber,
 			alarmMusic[musicNumber].musicTitle);
 
 	LCD_SendCommand(LCD_ADDR, 0b10000000);
-	LCD_SendString(LCD_ADDR, "Music Setting ");
+	LCD_SendString(LCD_ADDR, "Music Setting");
 	LCD_SendCommand(LCD_ADDR, 0b11000000);
 	LCD_SendString(LCD_ADDR, music_str);
 }

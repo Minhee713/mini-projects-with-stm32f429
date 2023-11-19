@@ -1037,19 +1037,19 @@ void timeDisplay() {
 
 	if (hours >= 12) {
 		if (current_state.mode == TIME_SETTING) {
-			sprintf(timeStr, "%s %02d: %02d: %02d  ", ampm[RTC_Time.TimeFormat],
+			sprintf(timeStr, "%s %02d: %02d: %02d ", ampm[RTC_Time.TimeFormat],
 					hours - 12, minutes, seconds);
 		} else if (current_state.mode == ALARM_TIME_SETTING) {
-			sprintf(timeStr, "%s %02d: %02d: %02d  ",
+			sprintf(timeStr, "%s %02d: %02d: %02d ",
 					ampm[RTC_Alarm.AlarmTime.TimeFormat], hours - 12, minutes,
 					seconds);
 		}
 	} else {
 		if (current_state.mode == TIME_SETTING) {
-			sprintf(timeStr, "%s %02d: %02d: %02d  ", ampm[RTC_Time.TimeFormat],
+			sprintf(timeStr, "%s %02d: %02d: %02d ", ampm[RTC_Time.TimeFormat],
 					hours, minutes, seconds);
 		} else if (current_state.mode == ALARM_TIME_SETTING) {
-			sprintf(timeStr, "%s %02d: %02d: %02d  ",
+			sprintf(timeStr, "%s %02d: %02d: %02d ",
 					ampm[RTC_Alarm.AlarmTime.TimeFormat], hours, minutes,
 					seconds);
 		}
@@ -1417,8 +1417,10 @@ void melodyPlay(_BUZZER* song, int melodySize) {
 			HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
 			stop = 0;
 		} else {
-			if (seq == melodySize || current_state.mode != MUSIC_SELECT) {
+			if (seq == melodySize) {
 				seq = 0;
+//				HAL_TIM_Base_Stop_IT(&htim2);
+//				HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
 			} else {
 				TIM3->ARR = melody;
 				TIM3->CCR3 = melody / 2;
