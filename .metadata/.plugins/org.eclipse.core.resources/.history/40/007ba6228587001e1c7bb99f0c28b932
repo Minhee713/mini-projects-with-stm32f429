@@ -1024,7 +1024,7 @@ void init_getFlashAlarm() {
 //	RTC_Alarm.AlarmTime.Seconds = readFlash(FLASH_USER_START_ADDR + 9);
 
 //	HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
-//	HAL_RTC_SetAlarm_IT(&hrtc, &RTC_Alarm, RTC_FORMAT_BIN);
+	HAL_RTC_SetAlarm_IT(&hrtc, &RTC_Alarm, RTC_FORMAT_BIN);
 //	HAL_RTC_GetAlarm(hrtc, sAlarm, Alarm, Format)
 
 	printf("Setting Alarm time: %d : %d : %d \r\n", atime.hours,
