@@ -1015,17 +1015,11 @@ void init_getFlashTime() {
 }
 
 void init_getFlashAlarm() {
-	atime.hours = readFlash(FLASH_USER_START_ADDR + 7);
-	atime.minutes = readFlash(FLASH_USER_START_ADDR + 8);
-	atime.seconds = readFlash(FLASH_USER_START_ADDR + 9);
+	RTC_Alarm.AlarmTime.Hours = readFlash(FLASH_USER_START_ADDR + 7);
+	RTC_Alarm.AlarmTime.Minutes = readFlash(FLASH_USER_START_ADDR + 8);
+	RTC_Alarm.AlarmTime.Seconds = readFlash(FLASH_USER_START_ADDR + 9);
 
-//	RTC_Alarm.AlarmTime.Hours = readFlash(FLASH_USER_START_ADDR + 7);
-//	RTC_Alarm.AlarmTime.Minutes = readFlash(FLASH_USER_START_ADDR + 8);
-//	RTC_Alarm.AlarmTime.Seconds = readFlash(FLASH_USER_START_ADDR + 9);
-
-//	HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
-//	HAL_RTC_SetAlarm(&hrtc, &RTC_Alarm, RTC_FORMAT_BIN);
-//	HAL_RTC_GetAlarm(hrtc, sAlarm, Alarm, Format)
+	HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
 
 	printf("Setting Alarm time: %d : %d : %d \r\n", RTC_Alarm.AlarmTime.Hours,
 			RTC_Alarm.AlarmTime.Minutes, RTC_Alarm.AlarmTime.Seconds);
@@ -1380,8 +1374,7 @@ void alarm_set_mode(void) {
 //			printf("rtc alarm time %s %d: %d: %d\r\n", ampm[RTC_Alarm.AlarmTime.TimeFormat], RTC_Alarm.AlarmTime.Hours, RTC_Alarm.AlarmTime.Minutes, RTC_Alarm.AlarmTime.Seconds);
 
 			update_nvitems();
-			HAL_RTC_SetAlarm(&hrtc, &RTC_Alarm, RTC_FORMAT_BIN);
-//			HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
+			HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
 			lcd_clear();
 
 			current_state.mode = NORMAL_STATE;
