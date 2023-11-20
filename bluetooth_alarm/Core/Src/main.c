@@ -23,12 +23,42 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stdio.h"
-#include "flash.h"
+//#include "flash.h"
 #include "melody.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+#define ADDR_FLASH_SECTOR_0     ((uint32_t)0x08000000) /* Base @ of Sector 0, 16 Kbytes */
+#define ADDR_FLASH_SECTOR_1     ((uint32_t)0x08004000) /* Base @ of Sector 1, 16 Kbytes */
+#define ADDR_FLASH_SECTOR_2     ((uint32_t)0x08008000) /* Base @ of Sector 2, 16 Kbytes */
+#define ADDR_FLASH_SECTOR_3     ((uint32_t)0x0800C000) /* Base @ of Sector 3, 16 Kbytes */
+#define ADDR_FLASH_SECTOR_4     ((uint32_t)0x08010000) /* Base @ of Sector 4, 64 Kbytes */
+#define ADDR_FLASH_SECTOR_5     ((uint32_t)0x08020000) /* Base @ of Sector 5, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_6     ((uint32_t)0x08040000) /* Base @ of Sector 6, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_7     ((uint32_t)0x08060000) /* Base @ of Sector 7, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_8     ((uint32_t)0x08080000) /* Base @ of Sector 8, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_9     ((uint32_t)0x080A0000) /* Base @ of Sector 9, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_10    ((uint32_t)0x080C0000) /* Base @ of Sector 10, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_11    ((uint32_t)0x080E0000) /* Base @ of Sector 11, 128 Kbytes */
+
+/* Base address of the Flash sectors Bank 2 */
+#define ADDR_FLASH_SECTOR_12     ((uint32_t)0x08100000) /* Base @ of Sector 0, 16 Kbytes */
+#define ADDR_FLASH_SECTOR_13     ((uint32_t)0x08104000) /* Base @ of Sector 1, 16 Kbytes */
+#define ADDR_FLASH_SECTOR_14     ((uint32_t)0x08108000) /* Base @ of Sector 2, 16 Kbytes */
+#define ADDR_FLASH_SECTOR_15     ((uint32_t)0x0810C000) /* Base @ of Sector 3, 16 Kbytes */
+#define ADDR_FLASH_SECTOR_16     ((uint32_t)0x08110000) /* Base @ of Sector 4, 64 Kbytes */
+#define ADDR_FLASH_SECTOR_17     ((uint32_t)0x08120000) /* Base @ of Sector 5, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_18     ((uint32_t)0x08140000) /* Base @ of Sector 6, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_19     ((uint32_t)0x08160000) /* Base @ of Sector 7, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_20     ((uint32_t)0x08180000) /* Base @ of Sector 8, 128 Kbytes  */
+#define ADDR_FLASH_SECTOR_21     ((uint32_t)0x081A0000) /* Base @ of Sector 9, 128 Kbytes  */
+#define ADDR_FLASH_SECTOR_22     ((uint32_t)0x081C0000) /* Base @ of Sector 10, 128 Kbytes */
+#define ADDR_FLASH_SECTOR_23     ((uint32_t)0x081E0000) /* Base @ of Sector 11, 128 Kbytes */
+
+
+
+
 enum CLOCK_MODE {
 	NORMAL_STATE, TIME_SETTING, ALARM_TIME_SETTING, MUSIC_SELECT
 };
@@ -54,7 +84,7 @@ typedef struct {
 } TimeTypeDef;
 
 typedef struct {
-//	uint32_t magic_num;
+	uint32_t magic_num;
 	TimeTypeDef setting_time;
 	TimeTypeDef alarm_time;
 	int8_t alarm_music_num;
@@ -71,8 +101,8 @@ typedef struct {
 /* USER CODE BEGIN PD */
 #define LCD_ADDR 				(0x27 << 1)
 #define FLASH_USER_START_ADDR   ADDR_FLASH_SECTOR_10
-#define MAGIC_NUM 				0xeeeeeeee
-#define nv_items 				((NVitemTypeDef *) FLASH_USER_START_ADDR)
+#define MAGIC_NUM 				0xdeadbeef
+#define nv_items 				((NVitemTypeDef *) ADDR_FLASH_SECTOR_10)
 
 /* USER CODE END PD */
 
@@ -134,7 +164,7 @@ uint8_t temp_flash_h;
 uint8_t temp_flash_m;
 uint8_t temp_flash_s;
 
-NVitemTypeDef default_nvitem = { { 0, 0, 0 }, { 0, 0, 0 }, 0 };
+NVitemTypeDef default_nvitem = { MAGIC_NUM, { 0, 0, 0 }, { 0, 0, 0 }, 0 };
 
 MusicTypeDef alarmMusic[] = { { 0, "School Bell" }, { 1, "Jingle Bell" },
 		{ 2, "Silent Night" }};
@@ -244,6 +274,17 @@ int main(void)
 	HAL_UART_Receive_IT(&huart3, &rx3_data, sizeof(rx3_data));
 	HAL_UART_Receive_IT(&huart2, &rx2_data, sizeof(rx2_data));
 	current_state.mode = NORMAL_STATE;
+	current_state.music_num = 0;
+
+	if(nv_items->magic_num == MAGIC_NUM) {
+//		RTC_Time.Hours = default_nvitem.setting_time.hours;
+//		RTC_Time.Minutes = default_nvitem.setting_time.minutes;
+//		RTC_Time.Seconds = default_nvitem.setting_time.seconds;
+		printf("this is main init magic_num exist\r\n");
+	} else {
+		printf("this is main init update_nvitems\r\n");
+		update_nvitems();
+	}
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -963,9 +1004,9 @@ uint8_t readFlash(uint32_t addr) {
 }
 
 void init_getFlashTime() {
-	RTC_Time.Hours = readFlash(FLASH_USER_START_ADDR);
-	RTC_Time.Minutes = readFlash(FLASH_USER_START_ADDR + 1);
-	RTC_Time.Seconds = readFlash(FLASH_USER_START_ADDR + 2);
+	RTC_Time.Hours = readFlash(FLASH_USER_START_ADDR + 4);
+	RTC_Time.Minutes = readFlash(FLASH_USER_START_ADDR + 5);
+	RTC_Time.Seconds = readFlash(FLASH_USER_START_ADDR + 6);
 
 	HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
 
@@ -974,9 +1015,9 @@ void init_getFlashTime() {
 }
 
 void init_getFlashAlarm() {
-	RTC_Alarm.AlarmTime.Hours = readFlash(FLASH_USER_START_ADDR + 3);
-	RTC_Alarm.AlarmTime.Minutes = readFlash(FLASH_USER_START_ADDR + 4);
-	RTC_Alarm.AlarmTime.Seconds = readFlash(FLASH_USER_START_ADDR + 5);
+	RTC_Alarm.AlarmTime.Hours = readFlash(FLASH_USER_START_ADDR + 7);
+	RTC_Alarm.AlarmTime.Minutes = readFlash(FLASH_USER_START_ADDR + 8);
+	RTC_Alarm.AlarmTime.Seconds = readFlash(FLASH_USER_START_ADDR + 9);
 
 	HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
 
@@ -985,7 +1026,7 @@ void init_getFlashAlarm() {
 }
 
 void init_getFlashMusic() {
-	current_state.music_num = readFlash(FLASH_USER_START_ADDR + 6);
+	current_state.music_num = readFlash(FLASH_USER_START_ADDR + 10);
 
 	printf("Setting Music: %d %s\r\n", current_state.music_num,
 			alarmMusic[current_state.music_num].musicTitle);
@@ -1095,7 +1136,7 @@ HAL_StatusTypeDef update_nvitems(void) {
 
 	HAL_FLASH_Unlock();
 
-	FirstSector = FLASH_USER_START_ADDR;
+	FirstSector = FLASH_SECTOR_10;
 	NbOfSectors = 1;
 	EraseInitStruct.TypeErase = FLASH_TYPEERASE_SECTORS;
 	EraseInitStruct.VoltageRange = FLASH_VOLTAGE_RANGE_1;
