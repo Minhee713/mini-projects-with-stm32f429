@@ -987,10 +987,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart) {
 		HAL_UART_Transmit(&huart3, &rx2_data, sizeof(rx2_data), 10);
 		HAL_UART_Receive_IT(&huart2, &rx2_data, sizeof(rx2_data));
 	}
-
-	if(rx3_data == 'b') {
-
-	}
 }
 
 
@@ -1050,7 +1046,7 @@ void get_time(void) {
 	HAL_RTC_GetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
 	HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
 
-	sprintf((char*) temp_time_buf, "%s %02d: %02d: %02d  ",
+	sprintf((char*) temp_time_buf, "%s %02d: %02d: %02d ",
 			ampm[RTC_Time.TimeFormat], RTC_Time.Hours, RTC_Time.Minutes,
 			RTC_Time.Seconds);
 
@@ -1088,19 +1084,19 @@ void timeDisplay() {
 
 	if (hours >= 12) {
 		if (current_state.mode == TIME_SETTING) {
-			sprintf(timeStr, "%s %02d: %02d: %02d   ", ampm[RTC_Time.TimeFormat],
+			sprintf(timeStr, "%s %02d: %02d: %02d  ", ampm[RTC_Time.TimeFormat],
 					hours - 12, minutes, seconds);
 		} else if (current_state.mode == ALARM_TIME_SETTING) {
-			sprintf(timeStr, "%s %02d: %02d: %02d   ",
+			sprintf(timeStr, "%s %02d: %02d: %02d  ",
 					ampm[RTC_Alarm.AlarmTime.TimeFormat], hours - 12, minutes,
 					seconds);
 		}
 	} else {
 		if (current_state.mode == TIME_SETTING) {
-			sprintf(timeStr, "%s %02d: %02d: %02d   ", ampm[RTC_Time.TimeFormat],
+			sprintf(timeStr, "%s %02d: %02d: %02d  ", ampm[RTC_Time.TimeFormat],
 					hours, minutes, seconds);
 		} else if (current_state.mode == ALARM_TIME_SETTING) {
-			sprintf(timeStr, "%s %02d: %02d: %02d   ",
+			sprintf(timeStr, "%s %02d: %02d: %02d  ",
 					ampm[RTC_Alarm.AlarmTime.TimeFormat], hours, minutes,
 					seconds);
 		}

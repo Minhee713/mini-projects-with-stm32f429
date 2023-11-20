@@ -2943,7 +2943,7 @@ void get_time(void) {
  80014e0:	4810      	ldr	r0, [pc, #64]	; (8001524 <get_time+0x58>)
  80014e2:	f005 fce3 	bl	8006eac <HAL_RTC_GetDate>
 
-	sprintf((char*) temp_time_buf, "%s %02d: %02d: %02d ",
+	sprintf((char*) temp_time_buf, "%s %02d: %02d: %02d  ",
 			ampm[RTC_Time.TimeFormat], RTC_Time.Hours, RTC_Time.Minutes,
  80014e6:	4b0e      	ldr	r3, [pc, #56]	; (8001520 <get_time+0x54>)
  80014e8:	78db      	ldrb	r3, [r3, #3]
@@ -2955,17 +2955,17 @@ void get_time(void) {
  80014f4:	441a      	add	r2, r3
  80014f6:	4b0a      	ldr	r3, [pc, #40]	; (8001520 <get_time+0x54>)
  80014f8:	781b      	ldrb	r3, [r3, #0]
-	sprintf((char*) temp_time_buf, "%s %02d: %02d: %02d ",
+	sprintf((char*) temp_time_buf, "%s %02d: %02d: %02d  ",
  80014fa:	4618      	mov	r0, r3
 			ampm[RTC_Time.TimeFormat], RTC_Time.Hours, RTC_Time.Minutes,
  80014fc:	4b08      	ldr	r3, [pc, #32]	; (8001520 <get_time+0x54>)
  80014fe:	785b      	ldrb	r3, [r3, #1]
-	sprintf((char*) temp_time_buf, "%s %02d: %02d: %02d ",
+	sprintf((char*) temp_time_buf, "%s %02d: %02d: %02d  ",
  8001500:	4619      	mov	r1, r3
 			RTC_Time.Seconds);
  8001502:	4b07      	ldr	r3, [pc, #28]	; (8001520 <get_time+0x54>)
  8001504:	789b      	ldrb	r3, [r3, #2]
-	sprintf((char*) temp_time_buf, "%s %02d: %02d: %02d ",
+	sprintf((char*) temp_time_buf, "%s %02d: %02d: %02d  ",
  8001506:	9301      	str	r3, [sp, #4]
  8001508:	9100      	str	r1, [sp, #0]
  800150a:	4603      	mov	r3, r0
@@ -3089,7 +3089,7 @@ void timeDisplay() {
  80015d8:	781b      	ldrb	r3, [r3, #0]
  80015da:	2b01      	cmp	r3, #1
  80015dc:	d115      	bne.n	800160a <timeDisplay+0xa2>
-			sprintf(timeStr, "%s %02d: %02d: %02d  ", ampm[RTC_Time.TimeFormat],
+			sprintf(timeStr, "%s %02d: %02d: %02d   ", ampm[RTC_Time.TimeFormat],
  80015de:	4b3a      	ldr	r3, [pc, #232]	; (80016c8 <timeDisplay+0x160>)
  80015e0:	78db      	ldrb	r3, [r3, #3]
  80015e2:	461a      	mov	r2, r3
@@ -3116,7 +3116,7 @@ void timeDisplay() {
  800160c:	781b      	ldrb	r3, [r3, #0]
  800160e:	2b02      	cmp	r3, #2
  8001610:	d144      	bne.n	800169c <timeDisplay+0x134>
-			sprintf(timeStr, "%s %02d: %02d: %02d  ",
+			sprintf(timeStr, "%s %02d: %02d: %02d   ",
 					ampm[RTC_Alarm.AlarmTime.TimeFormat], hours - 12, minutes,
  8001612:	4b31      	ldr	r3, [pc, #196]	; (80016d8 <timeDisplay+0x170>)
  8001614:	78db      	ldrb	r3, [r3, #3]
@@ -3126,7 +3126,7 @@ void timeDisplay() {
  800161c:	4413      	add	r3, r2
  800161e:	4a2b      	ldr	r2, [pc, #172]	; (80016cc <timeDisplay+0x164>)
  8001620:	1899      	adds	r1, r3, r2
-			sprintf(timeStr, "%s %02d: %02d: %02d  ",
+			sprintf(timeStr, "%s %02d: %02d: %02d   ",
  8001622:	79fb      	ldrb	r3, [r7, #7]
  8001624:	f1a3 000c 	sub.w	r0, r3, #12
  8001628:	79bb      	ldrb	r3, [r7, #6]
@@ -3147,7 +3147,7 @@ void timeDisplay() {
  8001640:	781b      	ldrb	r3, [r3, #0]
  8001642:	2b01      	cmp	r3, #1
  8001644:	d113      	bne.n	800166e <timeDisplay+0x106>
-			sprintf(timeStr, "%s %02d: %02d: %02d  ", ampm[RTC_Time.TimeFormat],
+			sprintf(timeStr, "%s %02d: %02d: %02d   ", ampm[RTC_Time.TimeFormat],
  8001646:	4b20      	ldr	r3, [pc, #128]	; (80016c8 <timeDisplay+0x160>)
  8001648:	78db      	ldrb	r3, [r3, #3]
  800164a:	461a      	mov	r2, r3
@@ -3173,7 +3173,7 @@ void timeDisplay() {
  8001670:	781b      	ldrb	r3, [r3, #0]
  8001672:	2b02      	cmp	r3, #2
  8001674:	d112      	bne.n	800169c <timeDisplay+0x134>
-			sprintf(timeStr, "%s %02d: %02d: %02d  ",
+			sprintf(timeStr, "%s %02d: %02d: %02d   ",
 					ampm[RTC_Alarm.AlarmTime.TimeFormat], hours, minutes,
  8001676:	4b18      	ldr	r3, [pc, #96]	; (80016d8 <timeDisplay+0x170>)
  8001678:	78db      	ldrb	r3, [r3, #3]
@@ -3183,7 +3183,7 @@ void timeDisplay() {
  8001680:	4413      	add	r3, r2
  8001682:	4a12      	ldr	r2, [pc, #72]	; (80016cc <timeDisplay+0x164>)
  8001684:	1899      	adds	r1, r3, r2
-			sprintf(timeStr, "%s %02d: %02d: %02d  ",
+			sprintf(timeStr, "%s %02d: %02d: %02d   ",
  8001686:	79f8      	ldrb	r0, [r7, #7]
  8001688:	79bb      	ldrb	r3, [r7, #6]
  800168a:	797a      	ldrb	r2, [r7, #5]

@@ -987,10 +987,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart) {
 		HAL_UART_Transmit(&huart3, &rx2_data, sizeof(rx2_data), 10);
 		HAL_UART_Receive_IT(&huart2, &rx2_data, sizeof(rx2_data));
 	}
-
-	if(rx3_data == 'b') {
-
-	}
 }
 
 
