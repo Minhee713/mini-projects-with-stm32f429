@@ -67,6 +67,10 @@ enum CLOCK_BUTTON {
 	NOTHING, UP, DOWN, RIGHT, LEFT, SELECT
 };
 
+typedef enum {
+	RW_OK = 0x0, RW_ERROR = 0x1
+} stat_flashRW;
+
 struct clock_state {
 	enum CLOCK_MODE mode;
 	enum CLOCK_BUTTON button;
@@ -141,6 +145,7 @@ int al_position = 0;
 int mu_position = 0;
 
 char showTime[30] = { 0 };
+//char showDate[30] = { 0 };
 char ampm[2][3] = { "AM", "PM" };
 char timeStr[30];
 char temp_time_buf[30];
@@ -261,17 +266,20 @@ int main(void)
   MX_NVIC_Init();
   /* USER CODE BEGIN 2 */
 	HAL_ADC_Start_DMA(&hadc1, xy, 2);
-
 	lcd_init();
 	lcd_clear();
 	HAL_UART_Receive_IT(&huart3, &rx3_data, sizeof(rx3_data));
 	HAL_UART_Receive_IT(&huart2, &rx2_data, sizeof(rx2_data));
 	current_state.mode = NORMAL_STATE;
+//	current_state.music_num = 0;
 
 	if(nv_items->magic_num == MAGIC_NUM) {
 		init_getFlashTime();
 		init_getFlashAlarm();
 		init_getFlashMusic();
+//		RTC_Time.Hours = default_nvitem.setting_time.hours;
+//		RTC_Time.Minutes = default_nvitem.setting_time.minutes;
+//		RTC_Time.Seconds = default_nvitem.setting_time.seconds;
 		printf("this is main init magic_num exist\r\n");
 	} else {
 		printf("this is main init update_nvitems\r\n");
