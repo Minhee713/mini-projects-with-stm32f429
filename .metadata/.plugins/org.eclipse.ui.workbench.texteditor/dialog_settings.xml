@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="musicList"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="hal_uart_rxcpltcalback"/>
+			<item value="main"/>
+			<item value="ctime"/>
 			<item value="musicList"/>
 			<item value="musicOn"/>
 			<item value="update"/>
@@ -20,11 +23,9 @@
 			<item value="SCHOOL_MEL_NUM"/>
 			<item value="timeStr"/>
 			<item value="alarm_time"/>
-			<item value="RTC_Alarm_IRQ"/>
-			<item value="FLASH_USER_START_ADDR"/>
-			<item value="nv_items"/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
