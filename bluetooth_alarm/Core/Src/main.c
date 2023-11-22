@@ -269,13 +269,11 @@ int main(void)
 	current_state.mode = NORMAL_STATE;
 
 	if(nv_items->magic_num == MAGIC_NUM) {
-		init_getFlashTime();
-		init_getFlashAlarm();
-		init_getFlashMusic();
+		init_getFlash();
 		printf("this is main init magic_num exist\r\n");
 	} else {
-		printf("this is main init update_nvitems\r\n");
 		update_nvitems();
+		printf("this is main init update_nvitems\r\n");
 	}
   /* USER CODE END 2 */
 
@@ -999,29 +997,23 @@ uint8_t readFlash(uint32_t addr) {
 	return value;
 }
 
-void init_getFlashTime() {
+void init_getFlash() {
 	RTC_Time.Hours = readFlash(FLASH_USER_START_ADDR + 4);
 	RTC_Time.Minutes = readFlash(FLASH_USER_START_ADDR + 5);
 	RTC_Time.Seconds = readFlash(FLASH_USER_START_ADDR + 6);
 
 	HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
 
+	atime.hours = readFlash(FLASH_USER_START_ADDR + 7);
+		atime.minutes = readFlash(FLASH_USER_START_ADDR + 8);
+		atime.seconds = readFlash(FLASH_USER_START_ADDR + 9);
+
+		current_state.music_num = readFlash(FLASH_USER_START_ADDR + 10);
+
 	printf("Setting time: %d : %d : %d \r\n", RTC_Time.Hours, RTC_Time.Minutes,
 			RTC_Time.Seconds);
-}
-
-void init_getFlashAlarm() {
-	atime.hours = readFlash(FLASH_USER_START_ADDR + 7);
-	atime.minutes = readFlash(FLASH_USER_START_ADDR + 8);
-	atime.seconds = readFlash(FLASH_USER_START_ADDR + 9);
-
 	printf("Setting Alarm time: %d : %d : %d \r\n", atime.hours,
 			atime.minutes, atime.seconds);
-}
-
-void init_getFlashMusic() {
-	current_state.music_num = readFlash(FLASH_USER_START_ADDR + 10);
-
 	printf("Setting Music: %d %s\r\n", current_state.music_num,
 			alarmMusic[current_state.music_num].musicTitle);
 }
@@ -1177,10 +1169,10 @@ void time_set_mode() {
 		case DOWN:
 			if (stime.hours >= 12) {
 				stime.hours -= 12;
-				RTC_Time.TimeFormat = 0;
+				RTC_Time.TimeFormat = 1;
 			} else {
 				stime.hours += 12;
-				RTC_Time.TimeFormat = 1;
+				RTC_Time.TimeFormat = 0;
 			}
 			break;
 		case RIGHT:
@@ -1292,10 +1284,10 @@ void alarm_set_mode(void) {
 		case DOWN:
 			if (atime.hours >= 12) {
 				atime.hours -= 12;
-				RTC_Alarm.AlarmTime.TimeFormat = 0;
+				RTC_Alarm.AlarmTime.TimeFormat = 1;
 			} else {
 				atime.hours += 12;
-				RTC_Alarm.AlarmTime.TimeFormat = 1;
+				RTC_Alarm.AlarmTime.TimeFormat = 0;
 			}
 			break;
 		case RIGHT:

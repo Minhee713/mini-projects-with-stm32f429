@@ -43,11 +43,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  19 .debug_line   0002139f  00000000  00000000  0006f756  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_str    000fb100  00000000  00000000  00090af5  2**0
+ 20 .debug_str    000fb10e  00000000  00000000  00090af5  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_frame  0000805c  00000000  00000000  0018bbf8  2**2
+ 21 .debug_frame  0000805c  00000000  00000000  0018bc04  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 00000069  00000000  00000000  00193c54  2**0
+ 22 .debug_line_str 00000077  00000000  00000000  00193c60  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -842,6 +842,7 @@ int main(void)
  8000852:	4923      	ldr	r1, [pc, #140]	; (80008e0 <main+0xcc>)
  8000854:	4823      	ldr	r0, [pc, #140]	; (80008e4 <main+0xd0>)
  8000856:	f002 fa9f 	bl	8002d98 <HAL_ADC_Start_DMA>
+
 	lcd_init();
  800085a:	f7ff ffbd 	bl	80007d8 <lcd_init>
 	lcd_clear();
@@ -3501,9 +3502,9 @@ void time_set_mode() {
  80018b6:	b25a      	sxtb	r2, r3
  80018b8:	4b9a      	ldr	r3, [pc, #616]	; (8001b24 <time_set_mode+0x2ac>)
  80018ba:	701a      	strb	r2, [r3, #0]
-				RTC_Time.TimeFormat = 0;
+				RTC_Time.TimeFormat = 1;
  80018bc:	4b9a      	ldr	r3, [pc, #616]	; (8001b28 <time_set_mode+0x2b0>)
- 80018be:	2200      	movs	r2, #0
+ 80018be:	2201      	movs	r2, #1
  80018c0:	70da      	strb	r2, [r3, #3]
 			break;
  80018c2:	e124      	b.n	8001b0e <time_set_mode+0x296>
@@ -3516,9 +3517,9 @@ void time_set_mode() {
  80018d0:	b25a      	sxtb	r2, r3
  80018d2:	4b94      	ldr	r3, [pc, #592]	; (8001b24 <time_set_mode+0x2ac>)
  80018d4:	701a      	strb	r2, [r3, #0]
-				RTC_Time.TimeFormat = 1;
+				RTC_Time.TimeFormat = 0;
  80018d6:	4b94      	ldr	r3, [pc, #592]	; (8001b28 <time_set_mode+0x2b0>)
- 80018d8:	2201      	movs	r2, #1
+ 80018d8:	2200      	movs	r2, #0
  80018da:	70da      	strb	r2, [r3, #3]
 			break;
  80018dc:	e117      	b.n	8001b0e <time_set_mode+0x296>
