@@ -261,7 +261,6 @@ int main(void)
   MX_NVIC_Init();
   /* USER CODE BEGIN 2 */
 	HAL_ADC_Start_DMA(&hadc1, xy, 2);
-
 	lcd_init();
 	lcd_clear();
 	HAL_UART_Receive_IT(&huart3, &rx3_data, sizeof(rx3_data));
