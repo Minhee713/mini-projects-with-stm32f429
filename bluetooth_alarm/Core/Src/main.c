@@ -212,7 +212,7 @@ void musicOn(void);
 void schoolBellPlay(void);
 void nabiPlay(void);
 void musicDisplay(int musicNumber);
-void musicPlay(int musicNumber);
+void musicSelect(int musicNumber);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -1471,7 +1471,7 @@ void musicDisplay(int musicNumber) {
 	LCD_SendString(LCD_ADDR, music_str);
 }
 
-void musicPlay(int musicNumber) {
+void musicSelect(int musicNumber) {
 
 	void (*fp) (_BUZZER*, int);
 
