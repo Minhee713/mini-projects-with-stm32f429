@@ -99,6 +99,7 @@ typedef struct {
 #define FLASH_USER_START_ADDR   ADDR_FLASH_SECTOR_10
 #define MAGIC_NUM 				0xdeadbeef
 #define nv_items 				((NVitemTypeDef *) ADDR_FLASH_SECTOR_10)
+#define BLE_MODE
 
 /* USER CODE END PD */
 
@@ -164,8 +165,8 @@ NVitemTypeDef default_nvitem = { MAGIC_NUM, { 0, 0, 0 }, { 0, 0, 0 }, 0 };
 MusicTypeDef alarmMusic[] = { { 0, "School Bell" }, { 1, "Jingle Bell" },
 		{ 2, "Silent Night" }};
 
-uint8_t rx3_data;
-uint8_t rx2_data;
+//uint8_t rx3_data;
+uint8_t key_value;
 
 
 uint32_t FirstSector = 0, NbOfSectors = 0;
@@ -204,6 +205,7 @@ void get_time(void);
 void showCurrentTime(void);
 void timeDisplay(void);
 enum CLOCK_BUTTON joyStick_btn_chk(void);
+enum CLOCK_BUTTON key_value_check(void);
 HAL_StatusTypeDef update_nvitems(void);
 void time_set_mode(void);
 void alarm_set_mode(void);
@@ -264,8 +266,8 @@ int main(void)
 
 	lcd_init();
 	lcd_clear();
-	HAL_UART_Receive_IT(&huart3, &rx3_data, sizeof(rx3_data));
-	HAL_UART_Receive_IT(&huart2, &rx2_data, sizeof(rx2_data));
+//	HAL_UART_Receive_IT(&huart3, &rx3_data, sizeof(rx3_data));
+	HAL_UART_Receive_IT(&huart2, &key_value, sizeof(key_value));
 	current_state.mode = NORMAL_STATE;
 
 	if(nv_items->magic_num == MAGIC_NUM) {
@@ -953,33 +955,64 @@ void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc) {
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 
-//	enum CLOCK_BUTTON jybtn;
-//
-//	jybtn = joyStick_btn_chk();
-//
-////	printf("joybtn state = %s\r\n", jybtn);
-//
-//	if (jybtn == NOTHING) {
-//		printf("not yet start music\r\n");
-//		HAL_TIM_Base_Stop_IT(&htim2);
-//	} else {
-//		HAL_TIM_Base_Start_IT(&htim2);
-//		HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
-//	}
-
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart) {
-	if(huart->Instance==USART3) {
-		HAL_UART_Transmit(&huart2, &rx3_data, sizeof(rx3_data), 10);
-		HAL_UART_Receive_IT(&huart3, &rx3_data, sizeof(rx3_data));
-	} else if(huart->Instance==USART2) {
-		HAL_UART_Transmit(&huart3, &rx2_data, sizeof(rx2_data), 10);
-		HAL_UART_Receive_IT(&huart2, &rx2_data, sizeof(rx2_data));
-	}
+	/* between board and pc */
+//	if (huart->Instance == USART3) {
+//		HAL_UART_Transmit(&huart2, &rx3_data, sizeof(rx3_data), 10);
+//		HAL_UART_Receive_IT(&huart3, &rx3_data, sizeof(rx3_data));
+//		if (rx3_data == 'b') {
+//			HAL_GPIO_TogglePin(GPIOB, LD2_Pin);
+//			printf("\r  pressed b\r\n");
+//		}
+//	}
 
-	if(rx3_data == 'b') {
+	/* between bluetooth and board */
+	if (huart->Instance == USART2) {
+		HAL_UART_Transmit(&huart3, &key_value, sizeof(key_value), 10);
+		HAL_UART_Receive_IT(&huart2, &key_value, sizeof(key_value));
+//		if (key_value == 'c') {
+//			HAL_GPIO_TogglePin(GPIOB, LD3_Pin);
+//			printf("pressed c");
+//		}
 
+		switch(key_value) {
+		case 't':
+			printf("  pressed t!");
+			current_state.mode = TIME_SETTING;
+			break;
+		case 'a':
+			printf("  pressed a!");
+			current_state.mode = ALARM_TIME_SETTING;
+			break;
+		case 'm':
+			printf("  pressed m!");
+			current_state.mode = MUSIC_SELECT;
+			break;
+		case 'u':
+			printf("  pressed u!");
+			current_state.button = UP;
+			key_value = 0;
+			break;
+		case 'd':
+			printf("  pressed d!");
+			current_state.button = DOWN;
+			key_value = 0;
+			break;
+		case 'r':
+			printf("  pressed r!");
+			current_state.button = RIGHT;
+			key_value = 0;
+			break;
+		case 'l':
+			printf("  pressed l!");
+			current_state.button = LEFT;
+			key_value = 0;
+			break;
+		default:
+			break;
+		}
 	}
 }
 
@@ -1005,15 +1038,15 @@ void init_getFlash() {
 	HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
 
 	atime.hours = readFlash(FLASH_USER_START_ADDR + 7);
-		atime.minutes = readFlash(FLASH_USER_START_ADDR + 8);
-		atime.seconds = readFlash(FLASH_USER_START_ADDR + 9);
+	atime.minutes = readFlash(FLASH_USER_START_ADDR + 8);
+	atime.seconds = readFlash(FLASH_USER_START_ADDR + 9);
 
-		current_state.music_num = readFlash(FLASH_USER_START_ADDR + 10);
+	current_state.music_num = readFlash(FLASH_USER_START_ADDR + 10);
 
 	printf("Setting time: %d : %d : %d \r\n", RTC_Time.Hours, RTC_Time.Minutes,
 			RTC_Time.Seconds);
-	printf("Setting Alarm time: %d : %d : %d \r\n", atime.hours,
-			atime.minutes, atime.seconds);
+	printf("Setting Alarm time: %d : %d : %d \r\n", atime.hours, atime.minutes,
+			atime.seconds);
 	printf("Setting Music: %d %s\r\n", current_state.music_num,
 			alarmMusic[current_state.music_num].musicTitle);
 }
@@ -1109,7 +1142,6 @@ enum CLOCK_BUTTON joyStick_btn_chk() {
 		printf("nothing\r\n");
 		return NOTHING;
 	}
-
 }
 
 HAL_StatusTypeDef update_nvitems(void) {
@@ -1128,10 +1160,6 @@ HAL_StatusTypeDef update_nvitems(void) {
 	EraseInitStruct.VoltageRange = FLASH_VOLTAGE_RANGE_1;
 	EraseInitStruct.Sector = FirstSector;
 	EraseInitStruct.NbSectors = NbOfSectors;
-
-//	printf("\r\n--------------erase-----------\r\n");
-
-//	HAL_FLASHEx_Erase(&EraseInitStruct, &SECTORError);
 
 	if (HAL_FLASHEx_Erase(&EraseInitStruct, &SECTORError) == HAL_OK) {
 		printf("\r\n--------------erase complete-----------\r\n");
@@ -1161,8 +1189,10 @@ HAL_StatusTypeDef update_nvitems(void) {
 void time_set_mode() {
 
 	enum CLOCK_BUTTON t_button;
+	enum CLOCK_BUTTON ble_key;
 
 	t_button = joyStick_btn_chk();
+	ble_key = current_state.button;
 	if (t_position == 0) {
 		printf("t_position 0 \r\n");
 		switch (t_button) {
@@ -1181,6 +1211,26 @@ void time_set_mode() {
 		default:
 			break;
 		}
+
+		switch (ble_key) {
+		case DOWN:
+			if (stime.hours >= 12) {
+				stime.hours -= 12;
+				RTC_Time.TimeFormat = 1;
+			} else {
+				stime.hours += 12;
+				RTC_Time.TimeFormat = 0;
+			}
+			current_state.button = NOTHING;
+			break;
+		case RIGHT:
+			t_position = 1;
+			current_state.button = NOTHING;
+			break;
+		default:
+			break;
+		}
+
 	} else if (t_position == 1) {
 		printf("t_position 1 \r\n");
 		switch (t_button) {
@@ -1206,6 +1256,33 @@ void time_set_mode() {
 			break;
 		}
 
+		switch (ble_key) {
+		case RIGHT:
+			t_position = 2;
+			current_state.button = NOTHING;
+			break;
+		case LEFT:
+			t_position = 0;
+			current_state.button = NOTHING;
+			break;
+		case UP:
+			stime.hours++;
+			if (stime.hours >= 12) {
+				stime.hours = 0;
+				RTC_Time.TimeFormat = 0;
+			}
+			current_state.button = NOTHING;
+			break;
+		case DOWN:
+			stime.hours--;
+			if (stime.hours < 0) {
+				stime.hours = 11;
+			}
+			current_state.button = NOTHING;
+		default:
+			break;
+		}
+
 	} else if (t_position == 2) {
 		printf("t_position 2 \r\n");
 		switch (t_button) {
@@ -1225,6 +1302,30 @@ void time_set_mode() {
 			if (stime.minutes < 0) {
 				stime.minutes = 59;
 			}
+		default:
+			break;
+		}
+		switch (ble_key) {
+		case RIGHT:
+			t_position = 3;
+			current_state.button = NOTHING;
+			break;
+		case LEFT:
+			t_position = 1;
+			current_state.button = NOTHING;
+		case UP:
+			stime.minutes++;
+			if (stime.minutes >= 60) {
+				stime.minutes = 0;
+			}
+			current_state.button = NOTHING;
+			break;
+		case DOWN:
+			stime.minutes--;
+			if (stime.minutes < 0) {
+				stime.minutes = 59;
+			}
+			current_state.button = NOTHING;
 		default:
 			break;
 		}
@@ -1267,6 +1368,47 @@ void time_set_mode() {
 			break;
 
 		}
+		switch (ble_key) {
+		case RIGHT:
+
+			default_nvitem.setting_time.hours = stime.hours;
+			default_nvitem.setting_time.minutes = stime.minutes;
+			default_nvitem.setting_time.seconds = stime.seconds;
+
+			RTC_Time.Hours = default_nvitem.setting_time.hours;
+			RTC_Time.Minutes = default_nvitem.setting_time.minutes;
+			RTC_Time.Seconds = default_nvitem.setting_time.seconds;
+			RTC_Time.Hours %= 12;
+
+			update_nvitems();
+			HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
+			lcd_clear();
+
+			current_state.mode = NORMAL_STATE;
+			current_state.button = NOTHING;
+			break;
+		case LEFT:
+			t_position = 2;
+			current_state.button = NOTHING;
+			break;
+		case UP:
+			stime.seconds++;
+			if (stime.seconds >= 60) {
+				stime.seconds = 0;
+			}
+			current_state.button = NOTHING;
+			break;
+		case DOWN:
+			stime.seconds--;
+			if (stime.seconds < 0) {
+				stime.seconds = 59;
+			}
+			current_state.button = NOTHING;
+			break;
+		default:
+			break;
+
+		}
 	}
 	timeDisplay();
 }
@@ -1275,8 +1417,10 @@ void time_set_mode() {
 void alarm_set_mode(void) {
 
 	enum CLOCK_BUTTON al_button;
+	enum CLOCK_BUTTON ble_key;
 
 	al_button = joyStick_btn_chk();
+	ble_key = current_state.button;
 
 	if (al_position == 0) {
 		printf("al_position 0 \r\n");
@@ -1292,6 +1436,25 @@ void alarm_set_mode(void) {
 			break;
 		case RIGHT:
 			al_position = 1;
+			break;
+		default:
+			break;
+		}
+
+		switch (ble_key) {
+		case DOWN:
+			if (atime.hours >= 12) {
+				atime.hours -= 12;
+				RTC_Alarm.AlarmTime.TimeFormat = 1;
+			} else {
+				atime.hours += 12;
+				RTC_Alarm.AlarmTime.TimeFormat = 0;
+			}
+			current_state.button = NOTHING;
+			break;
+		case RIGHT:
+			al_position = 1;
+			current_state.button = NOTHING;
 			break;
 		default:
 			break;
@@ -1321,6 +1484,33 @@ void alarm_set_mode(void) {
 			break;
 		}
 
+		switch (ble_key) {
+		case RIGHT:
+			al_position = 2;
+			current_state.button = NOTHING;
+			break;
+		case LEFT:
+			al_position = 0;
+			current_state.button = NOTHING;
+			break;
+		case UP:
+			atime.hours++;
+			if (atime.hours >= 12) {
+				atime.hours = 0;
+				RTC_Alarm.AlarmTime.TimeFormat = 0;
+			}
+			current_state.button = NOTHING;
+			break;
+		case DOWN:
+			atime.hours--;
+			if (atime.hours < 0) {
+				atime.hours = 11;
+			}
+			current_state.button = NOTHING;
+		default:
+			break;
+		}
+
 	} else if (al_position == 2) {
 		printf("al_position 2 \r\n");
 		switch (al_button) {
@@ -1343,6 +1533,30 @@ void alarm_set_mode(void) {
 		default:
 			break;
 		}
+		switch (ble_key) {
+		case RIGHT:
+			al_position = 3;
+			current_state.button = NOTHING;
+			break;
+		case LEFT:
+			al_position = 1;
+			current_state.button = NOTHING;
+		case UP:
+			atime.minutes++;
+			if (atime.minutes >= 60) {
+				atime.minutes = 0;
+			}
+			current_state.button = NOTHING;
+			break;
+		case DOWN:
+			atime.minutes--;
+			if (atime.minutes < 0) {
+				atime.minutes = 59;
+			}
+			current_state.button = NOTHING;
+		default:
+			break;
+		}
 	} else if (al_position == 3) {
 		printf("al_position 3 \r\n");
 		switch (al_button) {
@@ -1357,11 +1571,8 @@ void alarm_set_mode(void) {
 			RTC_Alarm.AlarmTime.Seconds = default_nvitem.alarm_time.seconds;
 			RTC_Alarm.AlarmTime.Hours %= 12;
 
-//			printf("rtc alarm time %s %d: %d: %d\r\n", ampm[RTC_Alarm.AlarmTime.TimeFormat], RTC_Alarm.AlarmTime.Hours, RTC_Alarm.AlarmTime.Minutes, RTC_Alarm.AlarmTime.Seconds);
-
 			update_nvitems();
 			HAL_RTC_SetAlarm(&hrtc, &RTC_Alarm, RTC_FORMAT_BIN);
-//			HAL_RTC_SetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
 			lcd_clear();
 
 			current_state.mode = NORMAL_STATE;
@@ -1383,7 +1594,46 @@ void alarm_set_mode(void) {
 			break;
 		default:
 			break;
+		}
+		switch (ble_key) {
+		case RIGHT:
 
+			default_nvitem.alarm_time.hours = atime.hours;
+			default_nvitem.alarm_time.minutes = atime.minutes;
+			default_nvitem.alarm_time.seconds = atime.seconds;
+
+			RTC_Alarm.AlarmTime.Hours = default_nvitem.alarm_time.hours;
+			RTC_Alarm.AlarmTime.Minutes = default_nvitem.alarm_time.minutes;
+			RTC_Alarm.AlarmTime.Seconds = default_nvitem.alarm_time.seconds;
+			RTC_Alarm.AlarmTime.Hours %= 12;
+
+			update_nvitems();
+			HAL_RTC_SetAlarm(&hrtc, &RTC_Alarm, RTC_FORMAT_BIN);
+			lcd_clear();
+
+			current_state.mode = NORMAL_STATE;
+			current_state.button = NOTHING;
+			break;
+		case LEFT:
+			al_position = 2;
+			current_state.button = NOTHING;
+			break;
+		case UP:
+			atime.seconds++;
+			if (atime.seconds >= 60) {
+				atime.seconds = 0;
+			}
+			current_state.button = NOTHING;
+			break;
+		case DOWN:
+			atime.seconds--;
+			if (atime.seconds < 0) {
+				atime.seconds = 59;
+			}
+			current_state.button = NOTHING;
+			break;
+		default:
+			break;
 		}
 	}
 	timeDisplay();
@@ -1391,11 +1641,13 @@ void alarm_set_mode(void) {
 
 void music_set_mode() {
 	enum CLOCK_BUTTON mu_button;
+	enum CLOCK_BUTTON ble_key;
 	int mu_position, mu_cnt;
 
 	mu_button = joyStick_btn_chk();
 	mu_position = current_state.music_num;
 	mu_cnt = sizeof(alarmMusic) / sizeof(alarmMusic[0]);
+	ble_key = current_state.button;
 
 	switch (mu_button) {
 	case NOTHING:
@@ -1428,10 +1680,44 @@ void music_set_mode() {
 		break;
 	}
 
+	switch (ble_key) {
+	case NOTHING:
+		HAL_TIM_Base_Stop_IT(&htim2);
+		HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+		break;
+	case UP:
+		mu_position++;
+		if (mu_position == mu_cnt) {
+			mu_position = 0;
+		}
+		current_state.button = NOTHING;
+		break;
+	case DOWN:
+		mu_position--;
+		if (mu_position < 0) {
+			mu_position = mu_cnt - 1;
+		}
+		current_state.button = NOTHING;
+		break;
+	case RIGHT:
+		HAL_TIM_Base_Stop_IT(&htim2);
+		HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+
+		default_nvitem.alarm_music_num = mu_position;
+
+		update_nvitems();
+		lcd_clear();
+
+		current_state.mode = NORMAL_STATE;
+		current_state.button = NOTHING;
+	default:
+		break;
+	}
+
 	current_state.music_num = mu_position;
 
+	musicSelect(mu_position);
 	musicDisplay(mu_position);
-	musicPlay(mu_position);
 
 }
 
@@ -1504,6 +1790,25 @@ void musicSelect(int musicNumber) {
 
 	}
 
+}
+
+enum CLOCK_BUTTON key_value_check() {
+	switch(key_value) {
+	case 'u':
+		return UP;
+		break;
+	case 'd':
+		return DOWN;
+		break;
+	case 'l':
+		return LEFT;
+		break;
+	case 'r':
+		return RIGHT;
+		break;
+	default:
+		break;
+	}
 }
 
 
