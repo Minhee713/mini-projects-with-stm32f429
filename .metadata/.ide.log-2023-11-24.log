@@ -1,0 +1,9 @@
+2023-11-24 10:20:57,674 [INFO] Activator:176 - 
+
+
+2023-11-24 10:20:57,684 [INFO] Activator:177 - !SESSION log4j initialized
+2023-11-24 10:21:04,082 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2023-11-24 17:21:48,073 [INFO] Gpio:273 - dependency for GPIO [ADC1, ETH, I2C1, RCC, SYS, TIM3, USART2, USART3, USB_OTG_FS]
+2023-11-24 19:17:52,957 [ERROR] ConfigurationRetriever:142 - IOException on connection: Read timed out
+2023-11-24 19:17:55,128 [ERROR] ConfigurationRetriever:142 - IOException on connection: Read timed out
+2023-11-24 19:17:57,293 [ERROR] ConfigurationRetriever:142 - IOException on connection: Read timed out

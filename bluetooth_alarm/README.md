@@ -28,7 +28,7 @@
 
 **[ 상태 다이어그램 ]**  
 
-![블루투스알람시계모드개요_수정](https://github.com/Minhee713/mini-projects-with-stm32f429/assets/127821647/90fe46db-e774-40d7-8b3e-0e7661130e03)  
+![블루투스알람시계모드개요_크기수정](https://github.com/Minhee713/mini-projects-with-stm32f429/assets/127821647/4872cd51-0fec-486f-b5c9-c4781de79850)
 - 총 4가지 상태로 구분  
 - Normal mode 상태에서 각 모드로 진입 가능  
 - Time Setting, Alarm Setting, Music Select 모드 간 전환 불가  
@@ -58,7 +58,7 @@
 
 - main 함수 내부  
 
-![main](https://github.com/Minhee713/mini-projects-with-stm32f429/assets/127821647/2142e40f-07df-40cc-9e02-a9407663c678)  
+![main크기조정](https://github.com/Minhee713/mini-projects-with-stm32f429/assets/127821647/09156d4c-fba7-45bb-8193-6c6a80eefe9d)
 
 - GPIO EX_INT Callback 함수와 main 함수 관계    
 

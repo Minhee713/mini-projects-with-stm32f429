@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="key_value_check"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="key_value_check"/>
+			<item value="rx3_data"/>
 			<item value="hal_uart_rxcpltcalback"/>
 			<item value="main"/>
 			<item value="ctime"/>
@@ -21,15 +23,13 @@
 			<item value="schoolBell"/>
 			<item value="schoollBell"/>
 			<item value="SCHOOL_MEL_NUM"/>
-			<item value="timeStr"/>
-			<item value="alarm_time"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="807"/>
+		<item key="DIALOG_X_ORIGIN" value="1016"/>
 		<item key="DIALOG_Y_ORIGIN" value="264"/>
 		<item key="DIALOG_WIDTH" value="322"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
