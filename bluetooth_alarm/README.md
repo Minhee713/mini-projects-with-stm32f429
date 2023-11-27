@@ -26,7 +26,6 @@
 8.	전원을 껐다가 켜면 지난 세팅에서 설정한 내용이 불러오기 됨 
   
 
-<<<<<<< HEAD
 **[ 상태 다이어그램 ]**  
 
 ![블루투스알람시계모드개요_크기수정](https://github.com/Minhee713/mini-projects-with-stm32f429/assets/127821647/4872cd51-0fec-486f-b5c9-c4781de79850)
@@ -34,8 +33,6 @@
 - Normal mode 상태에서 각 모드로 진입 가능  
 - Time Setting, Alarm Setting, Music Select 모드 간 전환 불가  
 
-=======
->>>>>>> 9e711c17b8bf83a71dec6d5fd9eea92c2f7f2693
 **[ 하드웨어 인터페이스 구성 ]**  
 
 |기능|디바이스(모듈)|  
