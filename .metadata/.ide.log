@@ -1019,3 +1019,468 @@
 2023-11-30 11:02:22,027 [INFO] ProjectBuilder:4626 - Time for Generating toolchain IDE Files: 1972mS.
 2023-11-30 11:02:22,028 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
 2023-11-30 11:02:22,036 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 1mS.
+2023-11-30 13:32:32,538 [INFO] RtosManager:919 - Current active RTOS is FREERTOS [Cortex-M4NS]
+2023-11-30 13:32:32,961 [WARN] FreeRTOS:563 - Case being investigated as it may cause exception (when called to early by set config state
+2023-11-30 13:32:33,142 [ERROR] RtosPanel:558 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2023-11-30 13:32:33,214 [ERROR] RtosPanel:558 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2023-11-30 13:41:27,310 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 781642864 Bytes (1073741824)
+2023-11-30 13:41:28,618 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 812051568 Bytes (1073741824)
+2023-11-30 13:41:30,275 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 861381824 Bytes (1073741824)
+2023-11-30 13:42:24,621 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 729999528 Bytes (1073741824)
+2023-11-30 13:42:26,043 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 758311080 Bytes (1073741824)
+2023-11-30 13:42:27,591 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 807594152 Bytes (1073741824)
+2023-11-30 13:42:35,211 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: FREERTOS
+2023-11-30 13:42:35,211 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_DEVICE
+2023-11-30 13:42:35,211 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-11-30 13:42:35,212 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-11-30 13:42:35,212 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_FS
+2023-11-30 13:42:35,212 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-11-30 13:42:35,212 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-11-30 13:42:35,212 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-11-30 13:42:35,212 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ETH
+2023-11-30 13:42:35,213 [INFO] CodeGenerator:799 - code generatio: config db path: C:\ST\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.9.2.202309101412\\db\
+2023-11-30 13:42:35,349 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\license.tmp_save
+2023-11-30 13:42:35,478 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\license.tmp
+2023-11-30 13:42:35,537 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\gpio.tmp_save
+2023-11-30 13:42:35,640 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\gpio.tmp
+2023-11-30 13:42:35,705 [WARN] IPConfigManager:2937 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2023-11-30 13:42:35,714 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2023-11-30 13:42:35,811 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_vars.tmp
+2023-11-30 13:42:35,815 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2023-11-30 13:42:35,876 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_inc.tmp
+2023-11-30 13:42:35,880 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2023-11-30 13:42:35,978 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2023-11-30 13:42:35,982 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2023-11-30 13:42:36,072 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_Msp.tmp
+2023-11-30 13:42:36,215 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-30 13:42:36,231 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_inc.tmp_save
+2023-11-30 13:42:36,349 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_inc.tmp
+2023-11-30 13:42:36,362 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelInit.tmp_save
+2023-11-30 13:42:36,465 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelInit.tmp
+2023-11-30 13:42:36,478 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelStart.tmp_save
+2023-11-30 13:42:36,565 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelStart.tmp
+2023-11-30 13:42:36,582 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_typedefs.tmp_save
+2023-11-30 13:42:36,652 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_typedefs.tmp
+2023-11-30 13:42:36,677 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_vars.tmp_save
+2023-11-30 13:42:36,781 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_vars.tmp
+2023-11-30 13:42:36,799 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_pfp.tmp_save
+2023-11-30 13:42:36,923 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_pfp.tmp
+2023-11-30 13:42:36,935 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_obj_creat.tmp_save
+2023-11-30 13:42:37,022 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_obj_creat.tmp
+2023-11-30 13:42:37,040 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_default_thread.tmp_save
+2023-11-30 13:42:37,125 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_default_thread.tmp
+2023-11-30 13:42:37,138 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_threads.tmp_save
+2023-11-30 13:42:37,201 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_threads.tmp
+2023-11-30 13:42:37,212 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-30 13:42:37,222 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-30 13:42:37,230 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_inc.tmp_save
+2023-11-30 13:42:37,324 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_inc.tmp
+2023-11-30 13:42:37,331 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelInit.tmp_save
+2023-11-30 13:42:37,418 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelInit.tmp
+2023-11-30 13:42:37,424 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelStart.tmp_save
+2023-11-30 13:42:37,477 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelStart.tmp
+2023-11-30 13:42:37,484 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_typedefs.tmp_save
+2023-11-30 13:42:37,563 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_typedefs.tmp
+2023-11-30 13:42:37,583 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_vars.tmp_save
+2023-11-30 13:42:37,662 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_vars.tmp
+2023-11-30 13:42:37,668 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_pfp.tmp_save
+2023-11-30 13:42:37,745 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_pfp.tmp
+2023-11-30 13:42:37,758 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_obj_creat.tmp_save
+2023-11-30 13:42:37,813 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_obj_creat.tmp
+2023-11-30 13:42:37,818 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_default_thread.tmp_save
+2023-11-30 13:42:37,870 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_default_thread.tmp
+2023-11-30 13:42:37,875 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_threads.tmp_save
+2023-11-30 13:42:37,927 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_threads.tmp
+2023-11-30 13:42:37,945 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\FreeRTOSConfig.h_save
+2023-11-30 13:42:38,069 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\FreeRTOSConfig.h
+2023-11-30 13:42:38,082 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\freertos.c_save
+2023-11-30 13:42:38,182 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\freertos.c
+2023-11-30 13:42:38,192 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-30 13:42:38,215 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usb_device.c_save
+2023-11-30 13:42:38,314 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usb_device.c
+2023-11-30 13:42:38,328 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usb_device.h_save
+2023-11-30 13:42:38,408 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usb_device.h
+2023-11-30 13:42:38,424 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\Target\usbd_conf.h_save
+2023-11-30 13:42:38,528 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\Target\usbd_conf.h
+2023-11-30 13:42:38,543 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\Target\usbd_conf.c_save
+2023-11-30 13:42:38,652 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\Target\usbd_conf.c
+2023-11-30 13:42:38,672 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_desc.h_save
+2023-11-30 13:42:38,751 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_desc.h
+2023-11-30 13:42:38,765 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_desc.c_save
+2023-11-30 13:42:38,855 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_desc.c
+2023-11-30 13:42:38,869 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_storage_if.h_save
+2023-11-30 13:42:38,940 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_storage_if.h
+2023-11-30 13:42:38,954 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_storage_if.c_save
+2023-11-30 13:42:39,050 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_storage_if.c
+2023-11-30 13:42:39,109 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_it.c_save
+2023-11-30 13:42:39,342 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_it.c
+2023-11-30 13:42:39,362 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\stm32f4xx_it.h_save
+2023-11-30 13:42:39,463 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\stm32f4xx_it.h
+2023-11-30 13:42:39,501 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_hal_msp.c_save
+2023-11-30 13:42:39,682 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_hal_msp.c
+2023-11-30 13:42:39,690 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\system.tmp_save
+2023-11-30 13:42:39,792 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\system.tmp
+2023-11-30 13:42:39,812 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2023-11-30 13:42:39,926 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_hal_timebase_tim.c
+2023-11-30 13:42:39,963 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\stm32f4xx_hal_conf.h_save
+2023-11-30 13:42:40,106 [INFO] CodeEngine:335 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\stm32f4xx_hal_conf.h
+2023-11-30 13:42:40,173 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\main.h_save
+2023-11-30 13:42:40,283 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\main.h
+2023-11-30 13:42:40,299 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\main.c_save
+2023-11-30 13:42:40,437 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\main.c
+2023-11-30 13:42:41,202 [INFO] ProjectBuilder:3064 - Time for Copy HAL[1] : 298mS.
+2023-11-30 13:42:41,212 [INFO] ProjectBuilder:4404 - Project Generator version: 4.1.0
+2023-11-30 13:42:41,526 [INFO] ConfigFileManager:1457 - The Die is : DIE419
+2023-11-30 13:42:43,337 [INFO] ProjectBuilder:4626 - Time for Generating toolchain IDE Files: 2125mS.
+2023-11-30 13:42:43,338 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
+2023-11-30 13:42:43,350 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
+2023-11-30 13:43:17,915 [ERROR] RtosPanel:558 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2023-11-30 13:43:29,868 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 780890640 Bytes (1073741824)
+2023-11-30 13:43:30,982 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 808675856 Bytes (1073741824)
+2023-11-30 13:43:32,365 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 859007504 Bytes (1073741824)
+2023-11-30 13:43:32,682 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: FREERTOS
+2023-11-30 13:43:32,683 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_DEVICE
+2023-11-30 13:43:32,683 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-11-30 13:43:32,683 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-11-30 13:43:32,683 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_FS
+2023-11-30 13:43:32,683 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-11-30 13:43:32,683 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-11-30 13:43:32,683 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-11-30 13:43:32,684 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ETH
+2023-11-30 13:43:32,685 [INFO] CodeGenerator:799 - code generatio: config db path: C:\ST\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.9.2.202309101412\\db\
+2023-11-30 13:43:32,902 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\license.tmp_save
+2023-11-30 13:43:33,004 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\license.tmp
+2023-11-30 13:43:33,038 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\gpio.tmp_save
+2023-11-30 13:43:33,141 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\gpio.tmp
+2023-11-30 13:43:33,231 [WARN] IPConfigManager:2937 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2023-11-30 13:43:33,255 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2023-11-30 13:43:33,383 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_vars.tmp
+2023-11-30 13:43:33,387 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2023-11-30 13:43:33,443 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_inc.tmp
+2023-11-30 13:43:33,447 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2023-11-30 13:43:33,561 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2023-11-30 13:43:33,565 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2023-11-30 13:43:33,648 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_Msp.tmp
+2023-11-30 13:43:33,810 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-30 13:43:33,817 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_inc.tmp_save
+2023-11-30 13:43:33,926 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_inc.tmp
+2023-11-30 13:43:33,931 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelInit.tmp_save
+2023-11-30 13:43:33,996 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelInit.tmp
+2023-11-30 13:43:34,000 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelStart.tmp_save
+2023-11-30 13:43:34,051 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelStart.tmp
+2023-11-30 13:43:34,055 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_typedefs.tmp_save
+2023-11-30 13:43:34,124 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_typedefs.tmp
+2023-11-30 13:43:34,127 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_vars.tmp_save
+2023-11-30 13:43:34,200 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_vars.tmp
+2023-11-30 13:43:34,203 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_pfp.tmp_save
+2023-11-30 13:43:34,255 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_pfp.tmp
+2023-11-30 13:43:34,258 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_obj_creat.tmp_save
+2023-11-30 13:43:34,321 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_obj_creat.tmp
+2023-11-30 13:43:34,325 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_default_thread.tmp_save
+2023-11-30 13:43:34,384 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_default_thread.tmp
+2023-11-30 13:43:34,387 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_threads.tmp_save
+2023-11-30 13:43:34,455 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_threads.tmp
+2023-11-30 13:43:34,462 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-30 13:43:34,470 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-30 13:43:34,478 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_inc.tmp_save
+2023-11-30 13:43:34,559 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_inc.tmp
+2023-11-30 13:43:34,563 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelInit.tmp_save
+2023-11-30 13:43:34,623 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelInit.tmp
+2023-11-30 13:43:34,628 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelStart.tmp_save
+2023-11-30 13:43:34,686 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelStart.tmp
+2023-11-30 13:43:34,692 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_typedefs.tmp_save
+2023-11-30 13:43:34,744 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_typedefs.tmp
+2023-11-30 13:43:34,757 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_vars.tmp_save
+2023-11-30 13:43:34,811 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_vars.tmp
+2023-11-30 13:43:34,819 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_pfp.tmp_save
+2023-11-30 13:43:34,872 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_pfp.tmp
+2023-11-30 13:43:34,888 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_obj_creat.tmp_save
+2023-11-30 13:43:34,945 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_obj_creat.tmp
+2023-11-30 13:43:34,951 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_default_thread.tmp_save
+2023-11-30 13:43:35,003 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_default_thread.tmp
+2023-11-30 13:43:35,008 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_threads.tmp_save
+2023-11-30 13:43:35,060 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_threads.tmp
+2023-11-30 13:43:35,078 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\FreeRTOSConfig.h_save
+2023-11-30 13:43:35,235 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\FreeRTOSConfig.h
+2023-11-30 13:43:35,256 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\freertos.c_save
+2023-11-30 13:43:35,340 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\freertos.c
+2023-11-30 13:43:35,348 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-30 13:43:35,372 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usb_device.c_save
+2023-11-30 13:43:35,467 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usb_device.c
+2023-11-30 13:43:35,474 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usb_device.h_save
+2023-11-30 13:43:35,558 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usb_device.h
+2023-11-30 13:43:35,565 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\Target\usbd_conf.h_save
+2023-11-30 13:43:35,653 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\Target\usbd_conf.h
+2023-11-30 13:43:35,669 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\Target\usbd_conf.c_save
+2023-11-30 13:43:35,787 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\Target\usbd_conf.c
+2023-11-30 13:43:35,796 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_desc.h_save
+2023-11-30 13:43:35,871 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_desc.h
+2023-11-30 13:43:35,885 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_desc.c_save
+2023-11-30 13:43:35,983 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_desc.c
+2023-11-30 13:43:35,989 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_storage_if.h_save
+2023-11-30 13:43:36,044 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_storage_if.h
+2023-11-30 13:43:36,060 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_storage_if.c_save
+2023-11-30 13:43:36,129 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_storage_if.c
+2023-11-30 13:43:36,156 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_it.c_save
+2023-11-30 13:43:36,252 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_it.c
+2023-11-30 13:43:36,257 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\stm32f4xx_it.h_save
+2023-11-30 13:43:36,316 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\stm32f4xx_it.h
+2023-11-30 13:43:36,340 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_hal_msp.c_save
+2023-11-30 13:43:36,432 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_hal_msp.c
+2023-11-30 13:43:36,436 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\system.tmp_save
+2023-11-30 13:43:36,507 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\system.tmp
+2023-11-30 13:43:36,522 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2023-11-30 13:43:36,598 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_hal_timebase_tim.c
+2023-11-30 13:43:36,619 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\stm32f4xx_hal_conf.h_save
+2023-11-30 13:43:36,762 [INFO] CodeEngine:335 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\stm32f4xx_hal_conf.h
+2023-11-30 13:43:36,813 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\main.h_save
+2023-11-30 13:43:36,902 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\main.h
+2023-11-30 13:43:36,917 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\main.c_save
+2023-11-30 13:43:37,043 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\main.c
+2023-11-30 13:43:37,793 [INFO] ProjectBuilder:3064 - Time for Copy HAL[1] : 310mS.
+2023-11-30 13:43:37,802 [INFO] ProjectBuilder:4404 - Project Generator version: 4.1.0
+2023-11-30 13:43:38,053 [INFO] ConfigFileManager:1457 - The Die is : DIE419
+2023-11-30 13:43:39,723 [INFO] ProjectBuilder:4626 - Time for Generating toolchain IDE Files: 1921mS.
+2023-11-30 13:43:39,724 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 1mS.
+2023-11-30 13:43:39,738 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 1mS.
+2023-11-30 14:00:44,408 [INFO] Gpio:273 - dependency for GPIO [ETH, RCC, SYS, USART3, USB_OTG_FS]
+2023-11-30 14:49:52,934 [INFO] Gpio:273 - dependency for GPIO [ETH, RCC, SYS, USART3, USB_OTG_FS]
+2023-11-30 14:49:53,011 [ERROR] RtosPanel:558 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2023-11-30 14:50:20,545 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 891311712 Bytes (1073741824)
+2023-11-30 14:50:22,489 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 674782816 Bytes (1073741824)
+2023-11-30 14:50:24,366 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 789599840 Bytes (1073741824)
+2023-11-30 14:50:24,574 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: FREERTOS
+2023-11-30 14:50:24,574 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_DEVICE
+2023-11-30 14:50:24,574 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-11-30 14:50:24,574 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-11-30 14:50:24,574 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_FS
+2023-11-30 14:50:24,574 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-11-30 14:50:24,574 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-11-30 14:50:24,575 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-11-30 14:50:24,575 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ETH
+2023-11-30 14:50:24,576 [INFO] CodeGenerator:799 - code generatio: config db path: C:\ST\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.9.2.202309101412\\db\
+2023-11-30 14:50:24,874 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\license.tmp_save
+2023-11-30 14:50:24,996 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\license.tmp
+2023-11-30 14:50:25,029 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\gpio.tmp_save
+2023-11-30 14:50:25,139 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\gpio.tmp
+2023-11-30 14:50:25,208 [WARN] IPConfigManager:2937 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2023-11-30 14:50:25,222 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2023-11-30 14:50:25,400 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_vars.tmp
+2023-11-30 14:50:25,410 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2023-11-30 14:50:25,483 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_inc.tmp
+2023-11-30 14:50:25,504 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2023-11-30 14:50:25,620 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2023-11-30 14:50:25,632 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2023-11-30 14:50:25,722 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_Msp.tmp
+2023-11-30 14:50:25,856 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-30 14:50:25,867 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_inc.tmp_save
+2023-11-30 14:50:25,953 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_inc.tmp
+2023-11-30 14:50:25,962 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelInit.tmp_save
+2023-11-30 14:50:26,032 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelInit.tmp
+2023-11-30 14:50:26,041 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelStart.tmp_save
+2023-11-30 14:50:26,104 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelStart.tmp
+2023-11-30 14:50:26,114 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_typedefs.tmp_save
+2023-11-30 14:50:26,171 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_typedefs.tmp
+2023-11-30 14:50:26,182 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_vars.tmp_save
+2023-11-30 14:50:26,255 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_vars.tmp
+2023-11-30 14:50:26,265 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_pfp.tmp_save
+2023-11-30 14:50:26,335 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_pfp.tmp
+2023-11-30 14:50:26,346 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_obj_creat.tmp_save
+2023-11-30 14:50:26,417 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_obj_creat.tmp
+2023-11-30 14:50:26,428 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_default_thread.tmp_save
+2023-11-30 14:50:26,502 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_default_thread.tmp
+2023-11-30 14:50:26,513 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_threads.tmp_save
+2023-11-30 14:50:26,579 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_threads.tmp
+2023-11-30 14:50:26,588 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-30 14:50:26,597 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-30 14:50:26,606 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_inc.tmp_save
+2023-11-30 14:50:26,722 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_inc.tmp
+2023-11-30 14:50:26,727 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelInit.tmp_save
+2023-11-30 14:50:26,784 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelInit.tmp
+2023-11-30 14:50:26,791 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelStart.tmp_save
+2023-11-30 14:50:26,851 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelStart.tmp
+2023-11-30 14:50:26,858 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_typedefs.tmp_save
+2023-11-30 14:50:26,922 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_typedefs.tmp
+2023-11-30 14:50:26,937 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_vars.tmp_save
+2023-11-30 14:50:27,035 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_vars.tmp
+2023-11-30 14:50:27,042 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_pfp.tmp_save
+2023-11-30 14:50:27,127 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_pfp.tmp
+2023-11-30 14:50:27,142 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_obj_creat.tmp_save
+2023-11-30 14:50:27,218 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_obj_creat.tmp
+2023-11-30 14:50:27,223 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_default_thread.tmp_save
+2023-11-30 14:50:27,293 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_default_thread.tmp
+2023-11-30 14:50:27,298 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_threads.tmp_save
+2023-11-30 14:50:27,367 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_threads.tmp
+2023-11-30 14:50:27,390 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\FreeRTOSConfig.h_save
+2023-11-30 14:50:27,493 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\FreeRTOSConfig.h
+2023-11-30 14:50:27,515 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\freertos.c_save
+2023-11-30 14:50:27,603 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\freertos.c
+2023-11-30 14:50:27,612 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-30 14:50:27,639 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usb_device.c_save
+2023-11-30 14:50:27,752 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usb_device.c
+2023-11-30 14:50:27,772 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usb_device.h_save
+2023-11-30 14:50:27,848 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usb_device.h
+2023-11-30 14:50:27,868 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\Target\usbd_conf.h_save
+2023-11-30 14:50:27,953 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\Target\usbd_conf.h
+2023-11-30 14:50:27,975 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\Target\usbd_conf.c_save
+2023-11-30 14:50:28,074 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\Target\usbd_conf.c
+2023-11-30 14:50:28,095 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_desc.h_save
+2023-11-30 14:50:28,204 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_desc.h
+2023-11-30 14:50:28,224 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_desc.c_save
+2023-11-30 14:50:28,318 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_desc.c
+2023-11-30 14:50:28,338 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_storage_if.h_save
+2023-11-30 14:50:28,418 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_storage_if.h
+2023-11-30 14:50:28,440 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_storage_if.c_save
+2023-11-30 14:50:28,540 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_storage_if.c
+2023-11-30 14:50:28,572 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_it.c_save
+2023-11-30 14:50:28,741 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_it.c
+2023-11-30 14:50:28,760 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\stm32f4xx_it.h_save
+2023-11-30 14:50:28,838 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\stm32f4xx_it.h
+2023-11-30 14:50:28,868 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_hal_msp.c_save
+2023-11-30 14:50:28,970 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_hal_msp.c
+2023-11-30 14:50:28,980 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\system.tmp_save
+2023-11-30 14:50:29,062 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\system.tmp
+2023-11-30 14:50:29,082 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2023-11-30 14:50:29,165 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_hal_timebase_tim.c
+2023-11-30 14:50:29,190 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\stm32f4xx_hal_conf.h_save
+2023-11-30 14:50:29,288 [INFO] CodeEngine:335 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\stm32f4xx_hal_conf.h
+2023-11-30 14:50:29,341 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\main.h_save
+2023-11-30 14:50:29,492 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\main.h
+2023-11-30 14:50:29,515 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\main.c_save
+2023-11-30 14:50:29,678 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\main.c
+2023-11-30 14:50:30,334 [INFO] ProjectBuilder:3064 - Time for Copy HAL[1] : 312mS.
+2023-11-30 14:50:30,342 [INFO] ProjectBuilder:4404 - Project Generator version: 4.1.0
+2023-11-30 14:50:30,648 [INFO] ConfigFileManager:1457 - The Die is : DIE419
+2023-11-30 14:50:33,329 [INFO] ProjectBuilder:4626 - Time for Generating toolchain IDE Files: 2987mS.
+2023-11-30 14:50:33,330 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 1mS.
+2023-11-30 14:50:33,343 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
+2023-11-30 14:53:13,213 [INFO] TasksAndQueuesTab:757 - Dynamic
+2023-11-30 14:53:13,214 [WARN] TasksAndQueuesTab:763 - 128 128
+2023-11-30 14:53:13,215 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2023-11-30 14:55:12,729 [INFO] EditThreadDialog:704 - RAM SIZE (in KB): 192
+2023-11-30 14:55:12,729 [INFO] EditThreadDialog:706 - RAM SIZE (in words): 49152
+2023-11-30 14:55:30,434 [INFO] TasksAndQueuesTab:757 - Dynamic
+2023-11-30 14:55:30,434 [WARN] TasksAndQueuesTab:763 - 128 128
+2023-11-30 14:55:30,434 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2023-11-30 14:55:30,434 [INFO] TasksAndQueuesTab:757 - Dynamic
+2023-11-30 14:55:30,434 [WARN] TasksAndQueuesTab:763 - 128 128
+2023-11-30 14:55:30,434 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2023-11-30 14:55:36,987 [INFO] EditThreadDialog:704 - RAM SIZE (in KB): 192
+2023-11-30 14:55:36,987 [INFO] EditThreadDialog:706 - RAM SIZE (in words): 49152
+2023-11-30 14:55:39,458 [INFO] TasksAndQueuesTab:757 - Dynamic
+2023-11-30 14:55:39,459 [WARN] TasksAndQueuesTab:763 - 128 128
+2023-11-30 14:55:39,459 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2023-11-30 14:55:39,459 [INFO] TasksAndQueuesTab:757 - Dynamic
+2023-11-30 14:55:39,459 [WARN] TasksAndQueuesTab:763 - 128 128
+2023-11-30 14:55:39,459 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2023-11-30 14:55:39,459 [INFO] TasksAndQueuesTab:757 - Dynamic
+2023-11-30 14:55:39,459 [WARN] TasksAndQueuesTab:763 - 128 128
+2023-11-30 14:55:39,459 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2023-11-30 14:55:52,137 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 919836824 Bytes (1073741824)
+2023-11-30 14:55:53,344 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 670619392 Bytes (1073741824)
+2023-11-30 14:55:55,384 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 716055928 Bytes (1073741824)
+2023-11-30 14:55:55,651 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: FREERTOS
+2023-11-30 14:55:55,651 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_DEVICE
+2023-11-30 14:55:55,651 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-11-30 14:55:55,652 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-11-30 14:55:55,652 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_FS
+2023-11-30 14:55:55,652 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-11-30 14:55:55,652 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-11-30 14:55:55,652 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-11-30 14:55:55,652 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ETH
+2023-11-30 14:55:55,653 [INFO] CodeGenerator:799 - code generatio: config db path: C:\ST\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.9.2.202309101412\\db\
+2023-11-30 14:55:55,806 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\license.tmp_save
+2023-11-30 14:55:55,898 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\license.tmp
+2023-11-30 14:55:55,933 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\gpio.tmp_save
+2023-11-30 14:55:56,030 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\gpio.tmp
+2023-11-30 14:55:56,076 [WARN] IPConfigManager:2937 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2023-11-30 14:55:56,086 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2023-11-30 14:55:56,194 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_vars.tmp
+2023-11-30 14:55:56,197 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2023-11-30 14:55:56,305 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_inc.tmp
+2023-11-30 14:55:56,310 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2023-11-30 14:55:56,404 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2023-11-30 14:55:56,409 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2023-11-30 14:55:56,480 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\usb_otg_fs_Msp.tmp
+2023-11-30 14:55:56,585 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-30 14:55:56,591 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_inc.tmp_save
+2023-11-30 14:55:56,690 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_inc.tmp
+2023-11-30 14:55:56,694 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelInit.tmp_save
+2023-11-30 14:55:56,753 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelInit.tmp
+2023-11-30 14:55:56,757 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelStart.tmp_save
+2023-11-30 14:55:56,832 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelStart.tmp
+2023-11-30 14:55:56,837 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_typedefs.tmp_save
+2023-11-30 14:55:56,888 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_typedefs.tmp
+2023-11-30 14:55:56,891 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_vars.tmp_save
+2023-11-30 14:55:56,969 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_vars.tmp
+2023-11-30 14:55:56,972 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_pfp.tmp_save
+2023-11-30 14:55:57,035 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_pfp.tmp
+2023-11-30 14:55:57,039 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_obj_creat.tmp_save
+2023-11-30 14:55:57,139 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_obj_creat.tmp
+2023-11-30 14:55:57,143 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_default_thread.tmp_save
+2023-11-30 14:55:57,202 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_default_thread.tmp
+2023-11-30 14:55:57,206 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_threads.tmp_save
+2023-11-30 14:55:57,291 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_threads.tmp
+2023-11-30 14:55:57,299 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-30 14:55:57,307 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-30 14:55:57,315 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_inc.tmp_save
+2023-11-30 14:55:57,396 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_inc.tmp
+2023-11-30 14:55:57,400 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelInit.tmp_save
+2023-11-30 14:55:57,473 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelInit.tmp
+2023-11-30 14:55:57,479 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelStart.tmp_save
+2023-11-30 14:55:57,559 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_kernelStart.tmp
+2023-11-30 14:55:57,563 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_typedefs.tmp_save
+2023-11-30 14:55:57,616 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_typedefs.tmp
+2023-11-30 14:55:57,629 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_vars.tmp_save
+2023-11-30 14:55:57,688 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_vars.tmp
+2023-11-30 14:55:57,693 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_pfp.tmp_save
+2023-11-30 14:55:57,745 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_pfp.tmp
+2023-11-30 14:55:57,758 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_obj_creat.tmp_save
+2023-11-30 14:55:57,813 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_obj_creat.tmp
+2023-11-30 14:55:57,818 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_default_thread.tmp_save
+2023-11-30 14:55:57,871 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_default_thread.tmp
+2023-11-30 14:55:57,877 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_threads.tmp_save
+2023-11-30 14:55:57,932 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\rtos_threads.tmp
+2023-11-30 14:55:57,947 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\FreeRTOSConfig.h_save
+2023-11-30 14:55:58,029 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\FreeRTOSConfig.h
+2023-11-30 14:55:58,044 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\freertos.c_save
+2023-11-30 14:55:58,105 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\freertos.c
+2023-11-30 14:55:58,114 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-30 14:55:58,130 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usb_device.c_save
+2023-11-30 14:55:58,204 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usb_device.c
+2023-11-30 14:55:58,209 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usb_device.h_save
+2023-11-30 14:55:58,268 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usb_device.h
+2023-11-30 14:55:58,273 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\Target\usbd_conf.h_save
+2023-11-30 14:55:58,338 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\Target\usbd_conf.h
+2023-11-30 14:55:58,352 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\Target\usbd_conf.c_save
+2023-11-30 14:55:58,442 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\Target\usbd_conf.c
+2023-11-30 14:55:58,448 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_desc.h_save
+2023-11-30 14:55:58,534 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_desc.h
+2023-11-30 14:55:58,549 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_desc.c_save
+2023-11-30 14:55:58,635 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_desc.c
+2023-11-30 14:55:58,641 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_storage_if.h_save
+2023-11-30 14:55:58,696 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_storage_if.h
+2023-11-30 14:55:58,711 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_storage_if.c_save
+2023-11-30 14:55:58,774 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\USB_DEVICE\App\usbd_storage_if.c
+2023-11-30 14:55:58,798 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_it.c_save
+2023-11-30 14:55:58,882 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_it.c
+2023-11-30 14:55:58,895 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\stm32f4xx_it.h_save
+2023-11-30 14:55:58,977 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\stm32f4xx_it.h
+2023-11-30 14:55:59,000 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_hal_msp.c_save
+2023-11-30 14:55:59,092 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_hal_msp.c
+2023-11-30 14:55:59,096 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\system.tmp_save
+2023-11-30 14:55:59,180 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\MXTmpFiles\system.tmp
+2023-11-30 14:55:59,196 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2023-11-30 14:55:59,259 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\stm32f4xx_hal_timebase_tim.c
+2023-11-30 14:55:59,281 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\stm32f4xx_hal_conf.h_save
+2023-11-30 14:55:59,394 [INFO] CodeEngine:335 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\stm32f4xx_hal_conf.h
+2023-11-30 14:55:59,439 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\main.h_save
+2023-11-30 14:55:59,541 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Inc\main.h
+2023-11-30 14:55:59,556 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\main.c_save
+2023-11-30 14:55:59,690 [INFO] CodeEngine:279 - Generated code: C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\test_usb\Core\Src\main.c
+2023-11-30 14:56:00,398 [INFO] ProjectBuilder:3064 - Time for Copy HAL[1] : 267mS.
+2023-11-30 14:56:00,408 [INFO] ProjectBuilder:4404 - Project Generator version: 4.1.0
+2023-11-30 14:56:00,778 [INFO] ConfigFileManager:1457 - The Die is : DIE419
+2023-11-30 14:56:02,351 [INFO] ProjectBuilder:4626 - Time for Generating toolchain IDE Files: 1943mS.
+2023-11-30 14:56:02,352 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 1mS.
+2023-11-30 14:56:02,369 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
