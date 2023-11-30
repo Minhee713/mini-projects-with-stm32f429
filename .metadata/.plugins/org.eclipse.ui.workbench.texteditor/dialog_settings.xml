@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="key_value_check"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="os_thread_def_LED1"/>
+			<item value="os_thread_def"/>
 			<item value="key_value_check"/>
 			<item value="rx3_data"/>
 			<item value="hal_uart_rxcpltcalback"/>
@@ -21,8 +23,6 @@
 			<item value="joyStick_btn_chk"/>
 			<item value="sDate"/>
 			<item value="schoolBell"/>
-			<item value="schoollBell"/>
-			<item value="SCHOOL_MEL_NUM"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
