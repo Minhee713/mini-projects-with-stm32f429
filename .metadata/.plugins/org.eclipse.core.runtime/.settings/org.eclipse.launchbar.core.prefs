@@ -9,6 +9,7 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:bluetooth_alarm\ Debug/activeLa
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:bluetooth_alarm\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:i2c_LCD\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:rtos_alarm\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:rtos_alarm\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:test_btn_gpio\ Debug/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:bluetooth_alarm\ Debug/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:bluetooth_alarm\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

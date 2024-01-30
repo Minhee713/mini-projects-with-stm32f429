@@ -1,2 +1,4 @@
-../Core/Src/task.c:26:6:USER_threads	16	static
-../Core/Src/task.c:32:6:TaskMain	16	static
+../Core/Src/task.c:32:6:USER_threads	16	static
+../Core/Src/task.c:38:6:TaskMain	16	static
+../Core/Src/task.c:51:6:Task1	16	static
+../Core/Src/task.c:68:6:HAL_GPIO_EXTI_Callback	16	static
