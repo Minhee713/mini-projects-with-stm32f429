@@ -43614,3 +43614,1051 @@ Finished building: default.size.stdout
  
 Finished building: rtos_alarm.list
  
+17:47:52 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:42:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   42 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:55:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   55 |         lcd_test1();
+      |         ^~~~~~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  24812	    116	  20212	  45140	   b054	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+17:49:19 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-size   rtos_alarm.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24812	    116	  20212	  45140	   b054	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+17:50:00 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:42:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   42 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:38:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   38 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:55:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   55 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:51:21: warning: unused variable 'task1' [-Wunused-variable]
+   51 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28144	    116	  20220	  48480	   bd60	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+17:52:31 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:42:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   42 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:38:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   38 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:55:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   55 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:51:21: warning: unused variable 'task1' [-Wunused-variable]
+   51 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28160	    116	  20220	  48496	   bd70	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+17:55:48 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:151:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+  151 |         lcd_init();
+      |         ^~~~~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  27876	    116	  20212	  48204	   bc4c	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+18:10:20 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:42:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   42 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:38:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   38 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:55:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   55 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:51:21: warning: unused variable 'task1' [-Wunused-variable]
+   51 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  27876	    116	  20212	  48204	   bc4c	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+18:34:15 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:166:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+  166 |         lcd_init();
+      |         ^~~~~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  27876	    116	  20212	  48204	   bc4c	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+18:35:04 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:156:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+  156 |         lcd_init();
+      |         ^~~~~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  27876	    116	  20212	  48204	   bc4c	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+18:36:06 **** Incremental Build of configuration Debug for project bluetooth_alarm ****
+make -j8 all 
+arm-none-eabi-size   bluetooth_alarm.elf 
+   text	   data	    bss	    dec	    hex	filename
+  48232	    848	   4536	  53616	   d170	bluetooth_alarm.elf
+Finished building: default.size.stdout
+ 
+18:38:11 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:40:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   40 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:38:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   38 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:53:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   53 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:49:21: warning: unused variable 'task1' [-Wunused-variable]
+   49 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28144	    116	  20220	  48480	   bd60	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+18:39:28 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:40:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   40 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:38:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   38 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:53:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   53 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:49:21: warning: unused variable 'task1' [-Wunused-variable]
+   49 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28464	    116	  20220	  48800	   bea0	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+18:59:06 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:40:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   40 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:38:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   38 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:52:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   52 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:50:21: warning: unused variable 'task1' [-Wunused-variable]
+   50 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28464	    116	  20220	  48800	   bea0	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:00:03 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:40:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   40 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:38:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   38 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:52:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   52 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:50:21: warning: unused variable 'task1' [-Wunused-variable]
+   50 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28160	    116	  20220	  48496	   bd70	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:01:24 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/lcd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/lcd.d" -MT"Core/Src/lcd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/lcd.o"
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/lcd.c: In function 'I2C_Scan':
+../Core/Src/lcd.c:26:13: warning: implicit declaration of function 'snprintf' [-Wimplicit-function-declaration]
+   26 |             snprintf(msg, sizeof(msg), "0x%02X", i);
+      |             ^~~~~~~~
+../Core/Src/lcd.c:3:1: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+    2 | #include <string.h>
+  +++ |+#include <stdio.h>
+    3 | 
+../Core/Src/lcd.c:26:13: warning: incompatible implicit declaration of built-in function 'snprintf' [-Wbuiltin-declaration-mismatch]
+   26 |             snprintf(msg, sizeof(msg), "0x%02X", i);
+      |             ^~~~~~~~
+../Core/Src/lcd.c:26:13: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:40:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   40 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:38:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   38 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:52:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   52 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:54:9: warning: implicit declaration of function 'lcd_test2' [-Wimplicit-function-declaration]
+   54 |         lcd_test2();
+      |         ^~~~~~~~~
+../Core/Src/task.c:50:21: warning: unused variable 'task1' [-Wunused-variable]
+   50 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28240	    116	  20220	  48576	   bdc0	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:02:00 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-size   rtos_alarm.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28240	    116	  20220	  48576	   bdc0	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+19:07:33 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'USER_threads':
+../Core/Src/task.c:34:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   34 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:43:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   43 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:40:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   40 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:56:9: warning: implicit declaration of function 'lcd_test2' [-Wimplicit-function-declaration]
+   56 |         lcd_test2();
+      |         ^~~~~~~~~
+../Core/Src/task.c:52:21: warning: unused variable 'task1' [-Wunused-variable]
+   52 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28256	    116	  20220	  48592	   bdd0	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:08:20 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'USER_threads':
+../Core/Src/task.c:34:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   34 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:43:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   43 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:40:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   40 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:56:9: warning: implicit declaration of function 'lcd_test2' [-Wimplicit-function-declaration]
+   56 |         lcd_test2();
+      |         ^~~~~~~~~
+../Core/Src/task.c:52:21: warning: unused variable 'task1' [-Wunused-variable]
+   52 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28256	    116	  20220	  48592	   bdd0	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:36:48 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'USER_threads':
+../Core/Src/task.c:34:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   34 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:43:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   43 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:40:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   40 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:55:9: warning: implicit declaration of function 'lcd_test2' [-Wimplicit-function-declaration]
+   55 |         lcd_test2();
+      |         ^~~~~~~~~
+../Core/Src/task.c:52:21: warning: unused variable 'task1' [-Wunused-variable]
+   52 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28256	    116	  20220	  48592	   bdd0	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:38:12 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:42:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   42 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:45:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   45 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:40:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   40 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:57:9: warning: implicit declaration of function 'lcd_test2' [-Wimplicit-function-declaration]
+   57 |         lcd_test2();
+      |         ^~~~~~~~~
+../Core/Src/task.c:54:21: warning: unused variable 'task1' [-Wunused-variable]
+   54 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28256	    116	  20220	  48592	   bdd0	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:41:28 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:42:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   42 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:40:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   40 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:57:9: warning: implicit declaration of function 'lcd_test2' [-Wimplicit-function-declaration]
+   57 |         lcd_test2();
+      |         ^~~~~~~~~
+../Core/Src/task.c:54:21: warning: unused variable 'task1' [-Wunused-variable]
+   54 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28176	    116	  20220	  48512	   bd80	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:42:57 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'USER_threads':
+../Core/Src/task.c:33:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   33 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:41:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   41 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:58:9: warning: implicit declaration of function 'lcd_test2' [-Wimplicit-function-declaration]
+   58 |         lcd_test2();
+      |         ^~~~~~~~~
+../Core/Src/task.c:55:21: warning: unused variable 'task1' [-Wunused-variable]
+   55 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28176	    116	  20220	  48512	   bd80	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:43:33 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'USER_threads':
+../Core/Src/task.c:33:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   33 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:46:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   46 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:41:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   41 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:58:9: warning: implicit declaration of function 'lcd_test2' [-Wimplicit-function-declaration]
+   58 |         lcd_test2();
+      |         ^~~~~~~~~
+../Core/Src/task.c:55:21: warning: unused variable 'task1' [-Wunused-variable]
+   55 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28256	    116	  20220	  48592	   bdd0	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:44:13 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'USER_threads':
+../Core/Src/task.c:33:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   33 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:45:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   45 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:41:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   41 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:58:9: warning: implicit declaration of function 'lcd_test2' [-Wimplicit-function-declaration]
+   58 |         lcd_test2();
+      |         ^~~~~~~~~
+../Core/Src/task.c:55:21: warning: unused variable 'task1' [-Wunused-variable]
+   55 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28256	    116	  20220	  48592	   bdd0	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:46:08 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'USER_threads':
+../Core/Src/task.c:33:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   33 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:45:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   45 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:41:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   41 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:59:9: warning: implicit declaration of function 'lcd_test2' [-Wimplicit-function-declaration]
+   59 |         lcd_test2();
+      |         ^~~~~~~~~
+../Core/Src/task.c:56:21: warning: unused variable 'task1' [-Wunused-variable]
+   56 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28256	    116	  20220	  48592	   bdd0	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:47:01 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'USER_threads':
+../Core/Src/task.c:33:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   33 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:41:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   41 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:59:9: warning: implicit declaration of function 'lcd_test2' [-Wimplicit-function-declaration]
+   59 |         lcd_test2();
+      |         ^~~~~~~~~
+../Core/Src/task.c:56:21: warning: unused variable 'task1' [-Wunused-variable]
+   56 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28192	    116	  20220	  48528	   bd90	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:47:33 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'USER_threads':
+../Core/Src/task.c:33:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   33 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:41:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   41 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:59:9: warning: implicit declaration of function 'lcd_test2' [-Wimplicit-function-declaration]
+   59 |         lcd_test2();
+      |         ^~~~~~~~~
+../Core/Src/task.c:56:21: warning: unused variable 'task1' [-Wunused-variable]
+   56 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28176	    116	  20220	  48512	   bd80	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:48:02 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:43:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   43 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:41:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   41 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:59:9: warning: implicit declaration of function 'lcd_test2' [-Wimplicit-function-declaration]
+   59 |         lcd_test2();
+      |         ^~~~~~~~~
+../Core/Src/task.c:56:21: warning: unused variable 'task1' [-Wunused-variable]
+   56 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28176	    116	  20220	  48512	   bd80	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:49:30 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:43:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   43 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:45:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   45 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:41:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   41 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:59:9: warning: implicit declaration of function 'lcd_test2' [-Wimplicit-function-declaration]
+   59 |         lcd_test2();
+      |         ^~~~~~~~~
+../Core/Src/task.c:56:21: warning: unused variable 'task1' [-Wunused-variable]
+   56 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28256	    116	  20220	  48592	   bdd0	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:51:04 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:44:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   44 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:46:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   46 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:42:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   42 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:60:9: warning: implicit declaration of function 'lcd_test2' [-Wimplicit-function-declaration]
+   60 |         lcd_test2();
+      |         ^~~~~~~~~
+../Core/Src/task.c:57:21: warning: unused variable 'task1' [-Wunused-variable]
+   57 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28256	    116	  20220	  48592	   bdd0	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:52:17 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:44:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   44 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:42:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   42 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:58:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   58 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:56:21: warning: unused variable 'task1' [-Wunused-variable]
+   56 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28192	    116	  20220	  48528	   bd90	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:52:55 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:44:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   44 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:42:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   42 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:58:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   58 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:56:21: warning: unused variable 'task1' [-Wunused-variable]
+   56 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28496	    116	  20220	  48832	   bec0	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+19:53:49 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:44:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   44 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:42:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   42 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:58:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   58 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:56:21: warning: unused variable 'task1' [-Wunused-variable]
+   56 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28496	    116	  20220	  48832	   bec0	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+20:20:24 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:81:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   81 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:79:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   79 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:95:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   95 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:93:21: warning: unused variable 'task1' [-Wunused-variable]
+   93 |         const char* task1 = "Task1";
+      |                     ^~~~~
+../Core/Src/task.c: In function 'selecClockMode':
+../Core/Src/task.c:124:17: error: 'current_state' undeclared (first use in this function)
+  124 |         switch (current_state.mode) {
+      |                 ^~~~~~~~~~~~~
+../Core/Src/task.c:124:17: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:43: Core/Src/task.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+20:21:25 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:81:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   81 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:79:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   79 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:95:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   95 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:93:21: warning: unused variable 'task1' [-Wunused-variable]
+   93 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28492	    116	  20220	  48828	   bebc	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+20:23:13 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:81:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   81 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:79:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   79 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:95:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   95 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:93:21: warning: unused variable 'task1' [-Wunused-variable]
+   93 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28252	    116	  20220	  48588	   bdcc	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+20:23:51 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:81:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   81 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:79:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   79 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:95:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   95 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:93:21: warning: unused variable 'task1' [-Wunused-variable]
+   93 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  28252	    116	  20220	  48588	   bdcc	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+20:27:32 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:81:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   81 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:79:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   79 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:95:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   95 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:93:21: warning: unused variable 'task1' [-Wunused-variable]
+   93 |         const char* task1 = "Task1";
+      |                     ^~~~~
+../Core/Src/task.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/task.c:144:25: error: 'current_time' undeclared (first use in this function); did you mean 'current_state'?
+  144 |                         current_time = HAL_GetTick();
+      |                         ^~~~~~~~~~~~
+      |                         current_state
+../Core/Src/task.c:144:25: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/task.c:145:25: error: 'interval' undeclared (first use in this function)
+  145 |                         interval = current_time - last_time;
+      |                         ^~~~~~~~
+../Core/Src/task.c:145:51: error: 'last_time' undeclared (first use in this function)
+  145 |                         interval = current_time - last_time;
+      |                                                   ^~~~~~~~~
+../Core/Src/task.c:150:41: error: 'btn_cnt' undeclared (first use in this function)
+  150 |                                         btn_cnt += 3;
+      |                                         ^~~~~~~
+make: *** [Core/Src/subdir.mk:43: Core/Src/task.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+20:28:03 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:85:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   85 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:83:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   83 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:99:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   99 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:97:21: warning: unused variable 'task1' [-Wunused-variable]
+   97 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  29232	    116	  20244	  49592	   c1b8	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 
+20:30:30 **** Incremental Build of configuration Debug for project rtos_alarm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/task.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/task.d" -MT"Core/Src/task.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/task.o"
+../Core/Src/task.c: In function 'TaskMain':
+../Core/Src/task.c:85:9: warning: implicit declaration of function 'lcd_init' [-Wimplicit-function-declaration]
+   85 |         lcd_init();
+      |         ^~~~~~~~
+../Core/Src/task.c:83:21: warning: unused variable 'taskMainName' [-Wunused-variable]
+   83 |         const char* taskMainName = "TaskMain";
+      |                     ^~~~~~~~~~~~
+../Core/Src/task.c: In function 'Task1':
+../Core/Src/task.c:99:9: warning: implicit declaration of function 'lcd_test1' [-Wimplicit-function-declaration]
+   99 |         lcd_test1();
+      |         ^~~~~~~~~
+../Core/Src/task.c:97:21: warning: unused variable 'task1' [-Wunused-variable]
+   97 |         const char* task1 = "Task1";
+      |                     ^~~~~
+arm-none-eabi-gcc -o "rtos_alarm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\entwu\STM32CubeIDE\mini-projects-with-stm32f429\rtos_alarm\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rtos_alarm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rtos_alarm.elf
+ 
+arm-none-eabi-size   rtos_alarm.elf 
+arm-none-eabi-objdump -h -S  rtos_alarm.elf  > "rtos_alarm.list"
+   text	   data	    bss	    dec	    hex	filename
+  29264	    116	  20244	  49624	   c1d8	rtos_alarm.elf
+Finished building: default.size.stdout
+ 
+Finished building: rtos_alarm.list
+ 

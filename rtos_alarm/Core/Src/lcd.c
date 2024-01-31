@@ -106,3 +106,16 @@ void lcd_test1() {
     LCD_SendCommand(LCD_ADDR, 0b11000000);
     LCD_SendString(LCD_ADDR, "  Task 11111 ");
 }
+
+void lcd_test2() {
+    I2C_Scan();
+    LCD_Init(LCD_ADDR);
+
+    // set address to 0x00
+    LCD_SendCommand(LCD_ADDR, 0b10000000);
+    LCD_SendString(LCD_ADDR, "   This is   ");
+
+    // set address to 0x40
+    LCD_SendCommand(LCD_ADDR, 0b11000000);
+    LCD_SendString(LCD_ADDR, "  Task 22222 ");
+}
