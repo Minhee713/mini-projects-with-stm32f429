@@ -82,7 +82,7 @@ void LCD_SendString(uint8_t lcd_addr, char *str) {
 }
 
 void lcd_init() {
-    I2C_Scan();
+    //I2C_Scan();
     LCD_Init(LCD_ADDR);
 
     // set address to 0x00
@@ -95,7 +95,7 @@ void lcd_init() {
 }
 
 void lcd_test1() {
-    I2C_Scan();
+    //I2C_Scan();
     LCD_Init(LCD_ADDR);
 
     // set address to 0x00
@@ -108,7 +108,7 @@ void lcd_test1() {
 }
 
 void lcd_test2() {
-    I2C_Scan();
+    //I2C_Scan();
     LCD_Init(LCD_ADDR);
 
     // set address to 0x00
@@ -119,3 +119,5 @@ void lcd_test2() {
     LCD_SendCommand(LCD_ADDR, 0b11000000);
     LCD_SendString(LCD_ADDR, "  Task 22222 ");
 }
+
+

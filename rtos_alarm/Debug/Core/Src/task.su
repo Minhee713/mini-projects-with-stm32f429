@@ -1,5 +1,9 @@
-../Core/Src/task.c:71:6:USER_threads	16	static
-../Core/Src/task.c:81:6:TaskMain	24	static
-../Core/Src/task.c:95:6:Task1	16	static
-../Core/Src/task.c:114:6:buttonCheck	8	static
-../Core/Src/task.c:144:6:HAL_GPIO_EXTI_Callback	16	static
+../Core/Src/task.c:84:6:USER_threads	16	static
+../Core/Src/task.c:93:6:TaskMain	24	static
+../Core/Src/task.c:106:6:TaskShowCurrentTime	24	static
+../Core/Src/task.c:123:6:TaskbuttonCheck	8	static
+../Core/Src/task.c:129:6:get_time	16	static
+../Core/Src/task.c:139:6:showCurrentTime	8	static
+../Core/Src/task.c:147:6:buttonCheck	8	static
+../Core/Src/task.c:174:6:HAL_GPIO_EXTI_Callback	16	static
+../Core/Src/task.c:206:13:MX_RTC_Init	32	static

@@ -17,4 +17,13 @@
 		<item key="size.width" value="714"/>
 		<item key="size.height" value="180"/>
 	</section>
+	<section name="PDOMSearchPage">
+		<item key="caseSensitive" value="false"/>
+		<item key="searchFlags" value="227191"/>
+		<list key="previousPatterns">
+			<item value="hrtc"/>
+			<item value="RTC_Time"/>
+			<item value="RTCtime"/>
+		</list>
+	</section>
 </section>
