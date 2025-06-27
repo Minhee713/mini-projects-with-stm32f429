@@ -10,7 +10,7 @@
 
 **[ 프로젝트 개요 ]**
 
-- 수행기간: 2023.11.10 ~ 2023.11.24  
+- 수행기간: 2023.11.10 ~ 2023.11.24 (15일) 
 - 담당업무: 회로 제작 및 소스코드 작성   
 - 사용기능: GPIO, UART, ADC, I2C, EXT_INT, Timer, RTC, DMA, Flash Memory, PWM
 - 사용디바이스: 16x2 Character LCD, Joystick, Piezo Buzzer     
